@@ -314,8 +314,12 @@ h1, h2, h3 {
 }
 
 @media (max-width: 599px) {
+  .nav-brand img { height: 2.5rem; }
   .nav-links { gap: 0.875rem; }
   .nav-links a { font-size: 0.875rem; }
+  /* Section links (Services, Methodology, Partners) are hidden on mobile —
+     only the Contact us chip and the Instagram icon stay in the nav bar. */
+  .nav-links a:not(.chip):not(.icon-link) { display: none; }
   .nav-links a.icon-link svg { width: 1.05rem; height: 1.05rem; }
 }
 
@@ -442,7 +446,7 @@ h1, h2, h3 {
 .methodology { background: var(--violet); color: var(--white); padding-block: 5rem; }
 .methodology .kicker { color: var(--black); }
 .methodology .section-head p {
-  color: var(--mint);
+  color: var(--black);
   font-weight: 500;
 }
 
@@ -743,6 +747,13 @@ h1, h2, h3 {
 .btn-solid { background: var(--black); color: var(--mint); }
 .btn-outline { background: transparent; color: var(--black); }
 .btn-solid:hover, .btn-solid:focus-visible { box-shadow: 4px 4px 0 var(--violet); }
+
+@media (max-width: 599px) {
+  /* Stack CTA buttons and make "Email the studio" match the width of
+     "Follow us on Instagram" instead of shrinking to its own text. */
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions .btn { width: 100%; max-width: 22rem; text-align: center; }
+}
 
 /* ============================================================
    7. FOOTER — black, minimal
@@ -1360,7 +1371,6 @@ h1, h2, h3 {
   <div class="wrap footer-inner">
     <a class="footer-brand" href="#top"><img src="logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
     <div class="footer-meta">
-      <span>© <span id="year">2026</span> Nutgraf.studio</span>
       <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
       <a href="#top">Back to top ↑</a>
     </div>
@@ -1377,9 +1387,6 @@ h1, h2, h3 {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
-
-/* Footer year */
-document.getElementById('year').textContent = new Date().getFullYear();
 
 /* Scroll-reveal (skipped when the user prefers reduced motion) */
 (function () {
