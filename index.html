@@ -540,7 +540,19 @@ h1, h2, h3 {
     font-weight: 700;
     font-size: 1.25rem;
   }
-  .loop-back svg { width: 2.5rem; height: 2.5rem; flex: none; }
+  .loop-back-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    background: var(--violet);
+    display: grid;
+    place-items: center;
+    flex: none;
+    position: relative;
+    z-index: 1;
+  }
+  .loop-back-circle svg { width: 1.375rem; height: 1.375rem; }
 }
 
 /* ============================================================
@@ -1081,10 +1093,12 @@ h1, h2, h3 {
           </div>
         </li>
         <li class="loop-back" aria-label="Back to Research">
-          <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#FFFFFF" stroke-width="2">
-            <path d="M 30 26 A 12 12 0 1 1 30 14"/>
-            <polyline points="30,7 30,14 23,14"/>
-          </svg>
+          <span class="loop-back-circle">
+            <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#FFFFFF" stroke-width="2">
+              <path d="M 30 26 A 12 12 0 1 1 30 14"/>
+              <polyline points="30,7 30,14 23,14"/>
+            </svg>
+          </span>
           back to Research
         </li>
       </ol>
