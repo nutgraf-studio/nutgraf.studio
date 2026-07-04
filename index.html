@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutgraf — Data Design Studio | Data Journalism, Research &amp; Visualisation</title>
+<meta name="description" content="Nutgraf is a data design studio working at the intersection of data journalism, research and visual storytelling. We turn data into charts, reports and maps for newsrooms, NGOs, institutions and research teams.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Nutgraf.studio">
+<link rel="canonical" href="https://nutgraf.studio/">
+<meta name="theme-color" content="#9FF29A">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nutgraf.studio">
+<meta property="og:title" content="Nutgraf — Data Design Studio">
+<meta property="og:description" content="A data design studio working at the intersection of data journalism, research and visual storytelling. We turn data into charts, reports and maps for newsrooms, NGOs, institutions and research teams.">
+<meta property="og:url" content="https://nutgraf.studio/">
+<meta property="og:image" content="https://nutgraf.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nutgraf.studio — data, designed to tell the story that matters.">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nutgraf — Data Design Studio">
+<meta name="twitter:description" content="A data design studio working at the intersection of data journalism, research and visual storytelling.">
+<meta name="twitter:image" content="https://nutgraf.studio/og-image.png">
+<meta name="twitter:image:alt" content="Nutgraf.studio — data, designed to tell the story that matters.">
+
+<!-- Structured data: who we are, what we offer, what we've made.
+     Written for both search engines and AI answer engines (GEO/AEO):
+     plain facts, no marketing fluff, machine-readable. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://nutgraf.studio/#organization",
+  "name": "Nutgraf.studio",
+  "alternateName": "Nutgraf",
+  "url": "https://nutgraf.studio/",
+  "logo": "https://nutgraf.studio/logos/nutgraf-logo.svg",
+  "image": "https://nutgraf.studio/og-image.png",
+  "description": "Nutgraf is a data design studio working at the intersection of data journalism, research and visual storytelling. We turn data into charts, graphics, reports, maps and interactive visualisations.",
+  "email": "hello@nutgraf.studio",
+  "sameAs": [
+    "https://www.instagram.com/nutgraf.studio"
+  ],
+  "knowsAbout": [
+    "Data design",
+    "Data journalism",
+    "Data visualisation",
+    "Information design",
+    "Mapping",
+    "Research and reports",
+    "Creative coding"
+  ],
+  "areaServed": "Worldwide",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Data design",
+        "description": "Charts, graphics and information systems that make numbers legible and worth looking at."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Research and reports",
+        "description": "Rigorous analysis turned into publications people actually read, from field data to final page."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Mapping and visualisations",
+        "description": "Maps and interactive visuals that put data in its place and let audiences explore it."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://nutgraf.studio/",
+  "name": "Nutgraf.studio",
+  "publisher": { "@id": "https://nutgraf.studio/#organization" },
+  "inLanguage": "en-GB"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Selected work by Nutgraf.studio",
+  "itemListElement": [
+    {
+      "@type": "CreativeWork",
+      "position": 1,
+      "name": "Afrobarometer flagship report",
+      "creator": { "@id": "https://nutgraf.studio/#organization" },
+      "description": "Editorial and chart design for the 2025 African Insights flagship report on citizen engagement, produced in English and French.",
+      "about": "Citizen engagement in Africa",
+      "inLanguage": ["en", "fr"]
+    },
+    {
+      "@type": "CreativeWork",
+      "position": 2,
+      "name": "PPC Group ESG report",
+      "creator": { "@id": "https://nutgraf.studio/#organization" },
+      "description": "Editorial design and data visualisation for PPC Group's ESG sustainability report, turning environmental and social metrics into a readable publication."
+    },
+    {
+      "@type": "CreativeWork",
+      "position": 3,
+      "name": "Între Noi",
+      "creator": { "@id": "https://nutgraf.studio/#organization" },
+      "description": "A data exhibition exploring trade and cultural ties between Italy and Romania, translating economic flows into a physical visual narrative."
+    }
+  ]
+}
+</script>
+
+<!-- Single font import: Fraunces (display) + Inter (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   NUTGRAF.STUDIO — single-file landing page
+   Sections: NAV / HERO / SERVICES / METHODOLOGY / REACH / PARTNERS / WORK / CTA / FOOTER
+   Brand palette + type tokens below. Mobile-first CSS.
+   ============================================================ */
+
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max-w: 72rem;
+  --pad: 1.5rem;
+}
+
+/* ---------- Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.wrap {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+/* Accessible skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* Section label ("Services", "Methodology"…) */
+.kicker {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Layered wordmark (brand treatment) ----------
+   Bold type with a ghosted offset copy behind it, as in the
+   repeating "nutgraf" brand asset. Ghost colour set per context. */
+.wordmark {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  z-index: 0;
+}
+.wordmark::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0.14em;
+  top: -0.14em;
+  color: var(--ghost, rgba(10, 10, 10, 0.18));
+  z-index: -1;
+  pointer-events: none;
+}
+.wordmark .tld { font-weight: 600; opacity: 0.75; }
+
+/* ============================================================
+   1. NAV — transparent over hero, solidifies to cream on scroll
+   ============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+.nav.scrolled {
+  background: var(--cream);
+  box-shadow: 0 1px 0 rgba(10, 10, 10, 0.12);
+}
+.nav-brand {
+  font-size: 1.25rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-brand img {
+  height: 2rem;
+  width: auto;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { border-bottom-color: var(--black); }
+
+.nav-links a.chip {
+  background: var(--black);
+  color: var(--cream);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border-bottom: none;
+}
+.nav-links a.chip:hover,
+.nav-links a.chip:focus-visible {
+  background: var(--black);
+  border-bottom: none;
+  opacity: 0.85;
+}
+
+.nav-links a.icon-link {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: none;
+  opacity: 0.85;
+}
+.nav-links a.icon-link:hover,
+.nav-links a.icon-link:focus-visible {
+  border-bottom: none;
+  opacity: 1;
+}
+.nav-links a.icon-link svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
+}
+
+@media (max-width: 599px) {
+  .nav-links { gap: 0.875rem; }
+  .nav-links a { font-size: 0.875rem; }
+  .nav-links a.icon-link svg { width: 1.05rem; height: 1.05rem; }
+}
+
+/* ============================================================
+   2. HERO — mint, headline left, animated network right
+   ============================================================ */
+.hero {
+  background: var(--mint);
+  /* subtle grid, echoing the isometric-grid brand asset */
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+.hero-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 7.5vw, 4.5rem);
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 600;
+}
+.hero-sub {
+  margin-top: 1.25rem;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  max-width: 34rem;
+}
+.hero-visual { margin-inline: auto; width: min(100%, 30rem); }
+
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+}
+
+/* --- Hero network animation (pure CSS on inline SVG) --- */
+.net-node { animation: float 7s ease-in-out infinite; }
+.net-node:nth-of-type(2) { animation-delay: -1.5s; animation-duration: 8s; }
+.net-node:nth-of-type(3) { animation-delay: -3s; }
+.net-node:nth-of-type(4) { animation-delay: -4.5s; animation-duration: 9s; }
+.net-node:nth-of-type(5) { animation-delay: -2s; animation-duration: 8.5s; }
+.net-node:nth-of-type(6) { animation-delay: -5.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+/* white "data pulses" travelling along the connecting lines */
+.net-pulse {
+  stroke-dasharray: 10 130;
+  animation: pulse-travel 3.5s linear infinite;
+}
+.net-pulse.p2 { animation-delay: -1.2s; }
+.net-pulse.p3 { animation-delay: -2.3s; }
+
+@keyframes pulse-travel {
+  to { stroke-dashoffset: -140; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .net-node, .net-pulse { animation: none; }
+  .net-pulse { stroke-dasharray: none; opacity: 0; }
+  .sk-scan { opacity: 0 !important; }
+  .sk-ribbon { transition: none; }
+  .loop-feedback { animation: none; }
+  .loop-pulse { display: none; }
+  .loop-node,
+  .stage-list > li:not(.loop-back)::before { transition: none; }
+}
+
+/* ============================================================
+   3. SERVICES — cream, three cards
+   ============================================================ */
+.services { background: var(--cream); padding-block: 5rem; }
+.section-head h2 { font-size: clamp(1.875rem, 4.5vw, 2.75rem); margin-bottom: 0.75rem; }
+.section-head p { max-width: 38rem; }
+
+.service-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.service-card {
+  border: 2px solid var(--black);
+  padding: 1.75rem 1.5rem;
+  background: var(--white);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--black);
+}
+.service-card svg {
+  display: block;
+  width: calc(100% + 3rem);
+  max-width: none;
+  height: auto;
+  margin: -1.75rem -1.5rem 1.25rem;
+  border-bottom: 2px solid var(--black);
+}
+.service-card h3 { font-size: 1.375rem; margin-bottom: 0.5rem; }
+.service-card p { font-size: 0.9375rem; }
+
+@media (min-width: 600px) {
+  .service-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
+   4. METHODOLOGY — violet, looped SVG flow diagram
+   Contrast notes (WCAG AA on #7B7BF0):
+   - white text passes only as LARGE text (3.54:1) → white is used
+     at ≥1.5rem regular or ≥1.25rem bold only.
+   - black #0A0A0A passes for normal text (5.5:1) → used for body copy.
+   ============================================================ */
+.methodology { background: var(--violet); color: var(--white); padding-block: 5rem; }
+.methodology .kicker { color: var(--black); }
+.methodology .section-head p {
+  color: var(--mint);
+  font-weight: 500;
+}
+
+.method-grid { display: grid; gap: 2.75rem; margin-top: 3rem; align-items: center; }
+
+@media (min-width: 900px) {
+  .method-grid { grid-template-columns: 1.05fr 1fr; gap: 3.5rem; }
+}
+
+.loop-figure { width: 100%; max-width: 34rem; margin-inline: auto; }
+
+@media (max-width: 899px) {
+  .loop-figure { display: none; }
+}
+
+/* Diagram active states: the JS pulse orbits the ring and the nearest
+   stage node lights up, in sync with the stage list alongside. */
+.loop-node {
+  fill: var(--violet);
+  stroke: var(--white);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: fill 0.35s ease, transform 0.35s ease;
+}
+.loop-node.active { fill: var(--mint); transform: scale(1.5); }
+
+/* dashed inner path: learnings flowing back into the data */
+.loop-feedback {
+  stroke-dasharray: 4 7;
+  animation: dash-flow 1.2s linear infinite;
+}
+@keyframes dash-flow { to { stroke-dashoffset: -11; } }
+
+/* ---- Stage list (right column on desktop, sole view on mobile) ---- */
+.stage-list {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 1.375rem;
+  position: relative;
+}
+.stage-list > li:not(.loop-back) {
+  counter-increment: step;
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.stage-list > li:not(.loop-back)::before {
+  content: counter(step);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: var(--violet);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  transition: background-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
+}
+.stage-list > li.active::before { background: var(--mint); color: var(--black); transform: scale(1.1); }
+.stage-list h3 {
+  font-family: var(--font-body);
+  font-size: 1.25rem; /* bold ≥1.25rem = WCAG "large" for white on violet */
+  font-weight: 700;
+  line-height: 2.5rem; /* optically centres the name against the numbered chip */
+}
+.stage-list p { color: var(--mint); font-weight: 500; font-size: 0.9375rem; }
+
+/* Mobile: vertical loop line behind the chips + back-to-start cue */
+.loop-back { display: none; }
+
+@media (max-width: 899px) {
+  .stage-list::before {
+    content: "";
+    position: absolute;
+    left: 1.25rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: var(--white);
+  }
+  .loop-back {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .loop-back svg { width: 2.5rem; height: 2.5rem; flex: none; }
+}
+
+/* ============================================================
+   4b. REACH — black, animated sankey (disciplines → sectors)
+   ============================================================ */
+.sankey { background: var(--black); color: var(--cream); padding-block: 5rem; }
+.sankey .kicker { color: var(--mint); }
+.sankey-figure { margin: 3rem auto 0; }
+
+/* ribbons fade in one by one (staggered via inline transition-delay),
+   triggered by the existing .reveal IntersectionObserver */
+.sk-ribbon { opacity: 0; transition: opacity 0.9s ease; }
+.reveal.in .sk-ribbon { opacity: var(--o, 0.7); }
+
+/* white scan bars cutting across ribbons, border to border —
+   position driven by JS (see script at end of page) */
+.sk-scan { opacity: 0; transition: opacity 0.6s ease 1.2s; }
+.reveal.in .sk-scan { opacity: 0.95; }
+
+/* Mobile fallback: chip lists instead of the diagram */
+.sankey-lists { display: none; }
+
+@media (max-width: 899px) {
+  .sankey-figure { display: none; }
+  .sankey-lists { display: block; margin-top: 2rem; }
+  .sankey-lists h3 {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--mint);
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0.75rem 0 1.75rem;
+  }
+  .chip-row li {
+    border: 1.5px solid var(--cream);
+    border-radius: 999px;
+    padding: 0.25rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+  .chip-row.accent li { border-color: var(--mint); color: var(--mint); font-weight: 700; }
+}
+
+/* ============================================================
+   4c. PARTNERS — white, infinite logo marquee
+   ------------------------------------------------------------
+   Real partner logo files, from /logos. Every SVG here is
+   already pure black (+ transparent/white negative space that
+   sits flush against this section's white background), so they
+   read as monochrome with no filter needed. ITA is the one
+   raster file with actual colour (the Italian flag palette), so
+   it alone gets forced to solid black via .mono-force.
+   ============================================================ */
+.partners { background: var(--white); padding-block: 4.5rem; overflow: hidden; }
+
+.logo-marquee {
+  margin-top: 2.75rem;
+  overflow: hidden;
+  /* fade the strip out at both edges */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+.logo-marquee:hover .logo-track { animation-play-state: paused; }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.logo-strip {
+  display: flex;
+  align-items: center;
+  gap: 4.5rem;
+  padding-right: 4.5rem; /* keeps spacing even across the loop seam */
+  list-style: none;
+}
+.logo-strip li {
+  flex: none;
+  display: flex;
+  align-items: center;
+  color: var(--black);
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+.logo-strip li:hover { opacity: 1; }
+
+.logo-strip img { width: auto; display: block; }
+
+/* the only colour asset (ITA, a PNG) — force it to solid black */
+.logo-strip img.mono-force { filter: grayscale(1) brightness(0); }
+
+/* per-logo heights, balanced by eye against each file's own aspect ratio */
+.logo-ppc    { height: 2.25rem; }
+.logo-uipath { height: 2rem; }
+.logo-iic    { height: 3rem; }
+.logo-ita    { height: 2.5rem; }
+.logo-bbc    { height: 1.75rem; }
+.logo-ft     { height: 4rem; }
+.logo-msf    { height: 2.25rem; }
+.logo-afro   { height: 2.25rem; }
+
+/* reduced motion: static, wrapped, centred grid of logos */
+@media (prefers-reduced-motion: reduce) {
+  .logo-track { animation: none; width: 100%; }
+  .logo-strip { flex-wrap: wrap; justify-content: center; row-gap: 1.75rem; padding-right: 0; }
+  .logo-strip[aria-hidden="true"] { display: none; }
+  .logo-marquee { -webkit-mask-image: none; mask-image: none; }
+}
+
+/* ============================================================
+   5. WORK / PORTFOLIO — cream, 3 placeholder cards
+   ============================================================ */
+.work { background: var(--cream); padding-block: 5rem; }
+.work-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.work-card {
+  border: 2px solid var(--black);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0 var(--black);
+}
+.work-card figure { border-bottom: 2px solid var(--black); }
+.work-card figure svg { width: 100%; height: auto; }
+.work-card-body { padding: 1.25rem 1.5rem 1.5rem; }
+.work-card h3 { font-size: 1.25rem; margin-bottom: 0.375rem; }
+.work-card p { font-size: 0.9375rem; margin-bottom: 0.875rem; }
+.work-link {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--black);
+  padding-bottom: 1px;
+  align-self: flex-start;
+  display: inline-block;
+}
+.work-link:hover { background: var(--mint); }
+.work-link[data-soon] {
+  cursor: default;
+  opacity: 0.65;
+  border-bottom-style: dashed;
+}
+.work-link[data-soon]:hover { background: none; }
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .work-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
+   6. CTA — full-bleed mint
+   ============================================================ */
+.cta {
+  background: var(--mint);
+  padding-block: 6rem;
+  text-align: center;
+}
+.cta h2 {
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  max-width: 22ch;
+  margin-inline: auto;
+}
+.cta p {
+  margin: 1.25rem auto 2.25rem;
+  max-width: 36rem;
+  font-size: 1.125rem;
+}
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.875rem 1.75rem;
+  border: 2px solid var(--black);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover, .btn:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--black);
+}
+.btn-solid { background: var(--black); color: var(--mint); }
+.btn-outline { background: transparent; color: var(--black); }
+.btn-solid:hover, .btn-solid:focus-visible { box-shadow: 4px 4px 0 var(--violet); }
+
+/* ============================================================
+   7. FOOTER — black, minimal
+   ============================================================ */
+.footer {
+  background: var(--black);
+  color: var(--cream);
+  padding-block: 3rem;
+}
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+}
+.footer-brand img { height: 2.25rem; width: auto; display: block; }
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+.footer a { color: var(--cream); }
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+.footer-meta a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.footer-meta a:hover { color: var(--mint); }
+
+/* ---------- Scroll-reveal (progressive enhancement) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .service-card, .work-card, .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     1. NAV
+     ============================================================ -->
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#top"><img src="logos/nutgraf-logo.svg" alt="Nutgraf.studio"></a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <!-- Work nav link disabled for v1 launch — re-enable with the section below -->
+        <!-- <li><a href="#work">Work</a></li> -->
+        <li><a class="chip" href="#contact">Contact us</a></li>
+        <li>
+          <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.77 1.153a4.902 4.902 0 0 1 1.153 1.77c.249.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.216 1.79-.465 2.428a4.902 4.902 0 0 1-1.153 1.77 4.902 4.902 0 0 1-1.77 1.153c-.637.249-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.216-2.428-.465a4.902 4.902 0 0 1-1.77-1.153 4.902 4.902 0 0 1-1.153-1.77c-.249-.637-.415-1.363-.465-2.428C2.01 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.065.216-1.79.465-2.428a4.902 4.902 0 0 1 1.153-1.77A4.902 4.902 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.01 9.283 2 12 2Zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.467.181-.8.398-1.15.748-.35.35-.567.683-.748 1.15-.137.353-.3.882-.344 1.858-.05 1.054-.06 1.37-.06 4.04s.01 2.986.06 4.04c.045.976.207 1.505.344 1.858.181.467.398.8.748 1.15.35.35.683.567 1.15.748.353.137.882.3 1.858.344 1.054.05 1.37.06 4.04.06s2.986-.01 4.04-.06c.976-.045 1.505-.207 1.858-.344.467-.181.8-.398 1.15-.748.35-.35.567-.683.748-1.15.137-.353.3-.882.344-1.858.05-1.054.06-1.37.06-4.04s-.01-2.986-.06-4.04c-.045-.976-.207-1.505-.344-1.858a3.1 3.1 0 0 0-.748-1.15 3.1 3.1 0 0 0-1.15-.748c-.353-.137-.882-.3-1.858-.344-1.054-.05-1.37-.059-4.04-.059Zm0 3.064a5.134 5.134 0 1 1 0 10.268 5.134 5.134 0 0 1 0-10.268Zm0 1.802a3.332 3.332 0 1 0 0 6.664 3.332 3.332 0 0 0 0-6.664Zm5.338-1.982a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     2. HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+      <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+    </div>
+
+    <!-- Animated isometric cube-node network.
+         Decorative: aria-hidden. Looks fine as a static frame. -->
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- one isometric cube, reused for every node -->
+          <g id="cube">
+            <polygon points="0,-18 16,-9 0,0 -16,-9" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+            <polygon points="-16,-9 0,0 0,18 -16,9"  fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+            <polygon points="16,-9 0,0 0,18 16,9"    fill="#7B7BF0" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+          </g>
+        </defs>
+
+        <!-- white circle behind the network -->
+        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+
+        <!-- connecting lines -->
+        <g stroke="#0A0A0A" stroke-width="2" opacity="0.45">
+          <line x1="260" y1="265" x2="255" y2="115"/>
+          <line x1="260" y1="265" x2="115" y2="235"/>
+          <line x1="260" y1="265" x2="400" y2="195"/>
+          <line x1="260" y1="265" x2="180" y2="395"/>
+          <line x1="260" y1="265" x2="375" y2="365"/>
+          <line x1="255" y1="115" x2="400" y2="195"/>
+          <line x1="115" y1="235" x2="180" y2="395"/>
+          <line x1="375" y1="365" x2="400" y2="195"/>
+        </g>
+
+        <!-- violet pulses travelling along three of the edges -->
+        <g stroke="#7B7BF0" stroke-width="3" fill="none" stroke-linecap="round">
+          <line class="net-pulse"    x1="260" y1="265" x2="255" y2="115"/>
+          <line class="net-pulse p2" x1="260" y1="265" x2="180" y2="395"/>
+          <line class="net-pulse p3" x1="115" y1="235" x2="260" y2="265"/>
+        </g>
+
+        <!-- nodes: isometric cubes, gently floating -->
+        <g class="net-node"><use href="#cube" transform="translate(255,115) scale(1.15)"/></g>
+        <g class="net-node"><use href="#cube" transform="translate(115,235) scale(0.95)"/></g>
+        <g class="net-node"><use href="#cube" transform="translate(400,195) scale(1.05)"/></g>
+        <g class="net-node"><use href="#cube" transform="translate(180,395) scale(0.9)"/></g>
+        <g class="net-node"><use href="#cube" transform="translate(375,365) scale(1.0)"/></g>
+        <g class="net-node"><use href="#cube" transform="translate(260,265) scale(1.6)"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. SERVICES
+     ============================================================ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Services</span>
+      <h2>What we do</h2>
+      <p>Three disciplines, one aim: information people can trust, understand and act on.</p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card reveal">
+        <!-- header banner: faceted triangle range, like a chart skyline -->
+        <svg viewBox="0 0 400 120" aria-hidden="true">
+          <rect width="400" height="120" fill="#EDE9E1"/>
+          <g stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round">
+            <polygon points="160,58 225,120 95,120" fill="#9FF29A"/>
+            <polygon points="160,58 225,120 160,120" fill="#7B7BF0"/>
+            <polygon points="55,34 140,120 -30,120" fill="#9FF29A"/>
+            <polygon points="55,34 140,120 55,120" fill="#7B7BF0"/>
+            <polygon points="345,50 430,120 285,120" fill="#9FF29A"/>
+            <polygon points="345,50 430,120 345,120" fill="#7B7BF0"/>
+            <polygon points="250,16 340,120 160,120" fill="#9FF29A"/>
+            <polygon points="250,16 340,120 250,120" fill="#7B7BF0"/>
+          </g>
+          <polygon points="250,63 290,120 210,120" fill="#0A0A0A"/>
+          <polygon points="55,72 77,120 33,120" fill="#0A0A0A"/>
+        </svg>
+        <h3>Data design</h3>
+        <p>Charts, graphics and information systems that make numbers legible, and worth looking at.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <!-- header banner: chain of overlapping circles on violet -->
+        <svg viewBox="0 0 400 120" aria-hidden="true">
+          <rect width="400" height="120" fill="#7B7BF0"/>
+          <g fill="none" stroke="#9FF29A" stroke-width="2">
+            <circle cx="20" cy="60" r="40"/>
+            <circle cx="75" cy="60" r="40"/>
+            <circle cx="130" cy="60" r="40"/>
+            <circle cx="185" cy="60" r="40"/>
+            <circle cx="240" cy="60" r="40"/>
+            <circle cx="295" cy="60" r="40"/>
+            <circle cx="350" cy="60" r="40"/>
+            <circle cx="405" cy="60" r="40"/>
+          </g>
+          <circle cx="212.5" cy="60" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
+        </svg>
+        <h3>Research and reports</h3>
+        <p>Rigorous analysis turned into publications people actually read, from field data to final page.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <!-- header banner: topographic contours + dashed route on black -->
+        <svg viewBox="0 0 400 120" aria-hidden="true">
+          <clipPath id="svc-map"><rect width="400" height="120"/></clipPath>
+          <rect width="400" height="120" fill="#0A0A0A"/>
+          <g clip-path="url(#svc-map)">
+            <g fill="none" stroke="#9FF29A" stroke-width="2">
+              <ellipse cx="90" cy="140" rx="82" ry="56"/>
+              <ellipse cx="90" cy="140" rx="56" ry="37"/>
+              <ellipse cx="90" cy="140" rx="30" ry="19"/>
+              <ellipse cx="330" cy="-18" rx="86" ry="60"/>
+              <ellipse cx="330" cy="-18" rx="59" ry="41"/>
+              <ellipse cx="330" cy="-18" rx="32" ry="22"/>
+            </g>
+            <path d="M40 40 Q 140 8 210 62 T 380 78" fill="none"
+                  stroke="#7B7BF0" stroke-width="2" stroke-dasharray="6 6"/>
+            <circle cx="40" cy="40" r="6" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
+            <circle cx="210" cy="62" r="6" fill="#7B7BF0" stroke="#9FF29A" stroke-width="2"/>
+            <circle cx="380" cy="78" r="6" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
+          </g>
+        </svg>
+        <h3>Mapping and visualisations</h3>
+        <p>Maps and interactive visuals that put data in its place and let audiences explore it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. METHODOLOGY — looped process diagram
+     ============================================================ -->
+<section class="methodology" id="methodology">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Methodology</span>
+      <h2>How we work</h2>
+      <p>Our process is a loop, not a line. Every piece of work is tested against its audience, and what we learn feeds the next pass.</p>
+    </div>
+
+    <div class="method-grid">
+      <!-- Desktop / tablet: animated circular flow diagram.
+           A mint pulse orbits the ring; the nearest stage lights up,
+           synced with the stage list alongside (see script at end). -->
+      <figure class="loop-figure reveal" role="img"
+        aria-label="Circular process diagram: Research, Collection, Cleaning, Visualisation, Interpretation, Feedback — then back to Research. Curved dashed lines fan out from Feedback towards every other stage.">
+        <svg viewBox="0 0 660 600" xmlns="http://www.w3.org/2000/svg">
+          <!-- main loop -->
+          <circle cx="330" cy="300" r="190" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+
+          <!-- direction arrows (clockwise) -->
+          <g fill="#FFFFFF">
+            <polygon points="0,-6 11,0 0,6" transform="translate(520,300) rotate(90)"/>
+            <polygon points="0,-6 11,0 0,6" transform="translate(425,464.5) rotate(150)"/>
+            <polygon points="0,-6 11,0 0,6" transform="translate(235,464.5) rotate(210)"/>
+            <polygon points="0,-6 11,0 0,6" transform="translate(140,300) rotate(270)"/>
+            <polygon points="0,-6 11,0 0,6" transform="translate(235,135.5) rotate(330)"/>
+            <polygon points="0,-6 11,0 0,6" transform="translate(425,135.5) rotate(30)"/>
+          </g>
+
+          <!-- feedback: five curved dashed lines fanning out from the Feedback
+               node towards every other stage, dashes flowing outward -->
+          <g fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.75">
+            <path class="loop-feedback" d="M 178 198 Q 260 179 318 117"/>
+            <path class="loop-feedback" d="M 180 205 Q 330 240 480 205"/>
+            <path class="loop-feedback" d="M 178 212 Q 312 330 482 388"/>
+            <path class="loop-feedback" d="M 172 217 Q 226 360 323 478"/>
+            <path class="loop-feedback" d="M 165.5 219 Q 145.5 300 165.5 381"/>
+          </g>
+          <g fill="#FFFFFF" opacity="0.75">
+            <polygon points="0,-5 9,0 0,5" transform="translate(318,117) rotate(-47)"/>
+            <polygon points="0,-5 9,0 0,5" transform="translate(480,205) rotate(-13)"/>
+            <polygon points="0,-5 9,0 0,5" transform="translate(482,388) rotate(19)"/>
+            <polygon points="0,-5 9,0 0,5" transform="translate(323,478) rotate(51)"/>
+            <polygon points="0,-5 9,0 0,5" transform="translate(165.5,381) rotate(76)"/>
+          </g>
+
+          <!-- stage nodes, clockwise from top (styled via .loop-node) -->
+          <circle class="loop-node" cx="330" cy="110" r="10"/>
+          <circle class="loop-node" cx="494.5" cy="205" r="10"/>
+          <circle class="loop-node" cx="494.5" cy="395" r="10"/>
+          <circle class="loop-node" cx="330" cy="490" r="10"/>
+          <circle class="loop-node" cx="165.5" cy="395" r="10"/>
+          <circle class="loop-node" cx="165.5" cy="205" r="10"/>
+
+          <!-- travelling pulse (positioned by JS) -->
+          <circle class="loop-pulse" cx="330" cy="110" r="8"
+                  fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
+
+          <!-- labels: bold ≥19px white = WCAG AA large text on violet -->
+          <g fill="#FFFFFF" font-family="Inter, sans-serif" font-size="20" font-weight="700">
+            <text x="330" y="86" text-anchor="middle">Research</text>
+            <text x="514" y="211">Collection</text>
+            <text x="514" y="401">Cleaning</text>
+            <text x="330" y="526" text-anchor="middle">Visualisation</text>
+            <text x="146" y="401" text-anchor="end">Interpretation</text>
+            <text x="146" y="211" text-anchor="end">Feedback</text>
+          </g>
+        </svg>
+      </figure>
+
+      <!-- Stage list: right column on desktop, the whole story on mobile -->
+      <ol class="stage-list reveal">
+        <li>
+          <div>
+            <h3>Research</h3>
+            <p>We frame the question before we touch the data.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Collection</h3>
+            <p>We gather the evidence: field data, public records, scraped and reported sources.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Cleaning</h3>
+            <p>We structure, check and verify until the data can carry weight.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Visualisation</h3>
+            <p>We give the finding its clearest, most honest visual form.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Interpretation</h3>
+            <p>We work out what the numbers actually support, and what they don't.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Feedback</h3>
+            <p>We test the work with its audience. What we learn starts the next loop.</p>
+          </div>
+        </li>
+        <li class="loop-back" aria-label="Back to Research">
+          <svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#FFFFFF" stroke-width="2">
+            <path d="M 30 26 A 12 12 0 1 1 30 14"/>
+            <polyline points="30,7 30,14 23,14"/>
+          </svg>
+          back to Research
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4b. REACH — animated sankey: disciplines → sectors
+     ============================================================ -->
+<section class="sankey" id="reach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Reach</span>
+      <h2>One process, many sectors</h2>
+      <p>The same editorial process carries each of our disciplines into the sectors where our clients work.</p>
+    </div>
+
+    <!-- Desktop / tablet: sankey. Ribbons reveal on scroll; white pulses
+         travel left → right, echoing the hero network animation. -->
+    <figure class="sankey-figure reveal" role="img"
+      aria-label="Flow diagram: our disciplines — data design, data journalism, data visualisation, information design, mapping, research and creative coding — flow into the sectors we serve: newsrooms, NGOs, institutions, research teams and publishing.">
+      <svg viewBox="0 0 1100 345" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" fill="#EDE9E1">
+          <text x="184" y="18" text-anchor="end">DISCIPLINES</text>
+          <text x="912" y="18">SECTORS</text>
+        </g>
+
+        <!-- ribbons: mint / violet / cream, staggered fade-in -->
+        <g>
+          <path class="sk-ribbon" style="--o:.75; transition-delay:0s"    fill="#9FF29A" d="M196 38 C 547 38, 547 44, 898 44 L 898 68 C 547 68, 547 62, 196 62 Z"/>
+          <path class="sk-ribbon" style="--o:.75; transition-delay:.06s"  fill="#9FF29A" d="M196 62 C 547 62, 547 284, 898 284 L 898 296 C 547 296, 547 74, 196 74 Z"/>
+          <path class="sk-ribbon" style="--o:.85; transition-delay:.12s"  fill="#7B7BF0" d="M196 84 C 547 84, 547 68, 898 68 L 898 92 C 547 92, 547 108, 196 108 Z"/>
+          <path class="sk-ribbon" style="--o:.85; transition-delay:.18s"  fill="#7B7BF0" d="M196 108 C 547 108, 547 116, 898 116 L 898 128 C 547 128, 547 120, 196 120 Z"/>
+          <path class="sk-ribbon" style="--o:.45; transition-delay:.24s"  fill="#EDE9E1" d="M196 130 C 547 130, 547 176, 898 176 L 898 200 C 547 200, 547 154, 196 154 Z"/>
+          <path class="sk-ribbon" style="--o:.45; transition-delay:.3s"   fill="#EDE9E1" d="M196 154 C 547 154, 547 236, 898 236 L 898 248 C 547 248, 547 166, 196 166 Z"/>
+          <path class="sk-ribbon" style="--o:.75; transition-delay:.36s"  fill="#9FF29A" d="M196 176 C 547 176, 547 128, 898 128 L 898 152 C 547 152, 547 200, 196 200 Z"/>
+          <path class="sk-ribbon" style="--o:.75; transition-delay:.42s"  fill="#9FF29A" d="M196 200 C 547 200, 547 296, 898 296 L 898 308 C 547 308, 547 212, 196 212 Z"/>
+          <path class="sk-ribbon" style="--o:.85; transition-delay:.48s"  fill="#7B7BF0" d="M196 222 C 547 222, 547 152, 898 152 L 898 164 C 547 164, 547 234, 196 234 Z"/>
+          <path class="sk-ribbon" style="--o:.85; transition-delay:.54s"  fill="#7B7BF0" d="M196 234 C 547 234, 547 200, 898 200 L 898 212 C 547 212, 547 246, 196 246 Z"/>
+          <path class="sk-ribbon" style="--o:.45; transition-delay:.6s"   fill="#EDE9E1" d="M196 256 C 547 256, 547 248, 898 248 L 898 272 C 547 272, 547 280, 196 280 Z"/>
+          <path class="sk-ribbon" style="--o:.45; transition-delay:.66s"  fill="#EDE9E1" d="M196 280 C 547 280, 547 212, 898 212 L 898 224 C 547 224, 547 292, 196 292 Z"/>
+          <path class="sk-ribbon" style="--o:.75; transition-delay:.72s"  fill="#9FF29A" d="M196 302 C 547 302, 547 308, 898 308 L 898 320 C 547 320, 547 314, 196 314 Z"/>
+          <path class="sk-ribbon" style="--o:.75; transition-delay:.78s"  fill="#9FF29A" d="M196 314 C 547 314, 547 92, 898 92 L 898 104 C 547 104, 547 326, 196 326 Z"/>
+        </g>
+
+        <!-- white scan bars: vertical strokes spanning each ribbon's full
+             thickness, swept left → right by JS along the ribbon curve -->
+        <g stroke="#FFFFFF" stroke-width="3">
+          <line class="sk-scan" data-y0="38"  data-y1="44"  data-w="24" data-ph="0"    x1="196" y1="38"  x2="196" y2="62"/>
+          <line class="sk-scan" data-y0="176" data-y1="128" data-w="24" data-ph="0.3"  x1="196" y1="176" x2="196" y2="200"/>
+          <line class="sk-scan" data-y0="256" data-y1="248" data-w="24" data-ph="0.55" x1="196" y1="256" x2="196" y2="280"/>
+          <line class="sk-scan" data-y0="314" data-y1="92"  data-w="12" data-ph="0.8"  x1="196" y1="314" x2="196" y2="326"/>
+        </g>
+
+        <!-- node bars -->
+        <g fill="#FFFFFF">
+          <rect x="190" y="38" width="6" height="36"/>
+          <rect x="190" y="84" width="6" height="36"/>
+          <rect x="190" y="130" width="6" height="36"/>
+          <rect x="190" y="176" width="6" height="36"/>
+          <rect x="190" y="222" width="6" height="24"/>
+          <rect x="190" y="256" width="6" height="36"/>
+          <rect x="190" y="302" width="6" height="24"/>
+          <rect x="898" y="44" width="6" height="60"/>
+          <rect x="898" y="116" width="6" height="48"/>
+          <rect x="898" y="176" width="6" height="48"/>
+          <rect x="898" y="236" width="6" height="36"/>
+          <rect x="898" y="284" width="6" height="36"/>
+        </g>
+
+        <!-- labels -->
+        <g font-family="Inter, sans-serif" font-size="15" fill="#EDE9E1" text-anchor="end">
+          <text x="182" y="61">Data design</text>
+          <text x="182" y="107">Data journalism</text>
+          <text x="182" y="153">Data visualisation</text>
+          <text x="182" y="199">Information design</text>
+          <text x="182" y="239">Mapping</text>
+          <text x="182" y="279">Research</text>
+          <text x="182" y="319">Creative coding</text>
+        </g>
+        <g font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">
+          <text x="912" y="79">Newsrooms</text>
+          <text x="912" y="145">NGOs</text>
+          <text x="912" y="205">Institutions</text>
+          <text x="912" y="259">Research teams</text>
+          <text x="912" y="307">Publishing</text>
+        </g>
+      </svg>
+    </figure>
+
+    <!-- Mobile: chip lists -->
+    <div class="sankey-lists reveal">
+      <h3>Disciplines</h3>
+      <ul class="chip-row">
+        <li>Data design</li>
+        <li>Data journalism</li>
+        <li>Data visualisation</li>
+        <li>Information design</li>
+        <li>Mapping</li>
+        <li>Research</li>
+        <li>Creative coding</li>
+      </ul>
+      <h3>Sectors</h3>
+      <ul class="chip-row accent">
+        <li>Newsrooms</li>
+        <li>NGOs</li>
+        <li>Institutions</li>
+        <li>Research teams</li>
+        <li>Publishing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4c. PARTNERS — infinite logo marquee
+     ------------------------------------------------------------
+     Real logo files from /logos (see the CSS block above for
+     per-logo sizing). Add a new partner by dropping a file in
+     /logos and adding one matching <li><img></li> pair to BOTH
+     <ul class="logo-strip"> below (the second is the aria-hidden
+     duplicate that makes the loop seamless).
+     ============================================================ -->
+<section class="partners" id="partners">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Partners</span>
+      <h2>Who we work with</h2>
+      <p>Newsrooms, foundations, institutions and research networks we have partnered with.</p>
+    </div>
+  </div>
+
+  <div class="logo-marquee reveal" role="img" aria-label="Partner logos: PPC Group, UiPath Foundation, Istituto Italiano di Cultura, Italian Trade Agency, BBC, Financial Times, Médecins Sans Frontières, Afrobarometer">
+    <div class="logo-track">
+      <ul class="logo-strip">
+        <li><img class="logo-ppc" src="logos/ppc-group.svg" alt="PPC Group"></li>
+        <li><img class="logo-uipath" src="logos/uipath-foundation.svg" alt="UiPath Foundation"></li>
+        <li><img class="logo-iic" src="logos/istituto-italiano-di-cultura.svg" alt="Istituto Italiano di Cultura"></li>
+        <li><img class="logo-ita mono-force" src="logos/ita.png" alt="Italian Trade Agency"></li>
+        <li><img class="logo-bbc" src="logos/bbc.svg" alt="BBC"></li>
+        <li><img class="logo-ft" src="logos/financial-times.svg" alt="Financial Times"></li>
+        <li><img class="logo-msf" src="logos/medecins-sans-frontieres.svg" alt="Médecins Sans Frontières"></li>
+        <li><img class="logo-afro" src="logos/afrobarometer.svg" alt="Afrobarometer"></li>
+      </ul>
+      <ul class="logo-strip" aria-hidden="true">
+        <li><img class="logo-ppc" src="logos/ppc-group.svg" alt="" aria-hidden="true"></li>
+        <li><img class="logo-uipath" src="logos/uipath-foundation.svg" alt="" aria-hidden="true"></li>
+        <li><img class="logo-iic" src="logos/istituto-italiano-di-cultura.svg" alt="" aria-hidden="true"></li>
+        <li><img class="logo-ita mono-force" src="logos/ita.png" alt="" aria-hidden="true"></li>
+        <li><img class="logo-bbc" src="logos/bbc.svg" alt="" aria-hidden="true"></li>
+        <li><img class="logo-ft" src="logos/financial-times.svg" alt="" aria-hidden="true"></li>
+        <li><img class="logo-msf" src="logos/medecins-sans-frontieres.svg" alt="" aria-hidden="true"></li>
+        <li><img class="logo-afro" src="logos/afrobarometer.svg" alt="" aria-hidden="true"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. WORK / PORTFOLIO
+     ------------------------------------------------------------
+     Card images are bespoke SVGs in the brand palette. To swap
+     one for a photo/screenshot, replace the <figure> SVG with
+     <img src="…" alt="…">. Point each "View project" href at
+     the project URL when live.
+     ============================================================ -->
+<!-- WORK section disabled for v1 launch — remove this comment wrapper to re-enable.
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Work</span>
+      <h2>Selected work</h2>
+      <p>A few things we have made. More on request.</p>
+    </div>
+
+    <div class="work-grid">
+
+      <article class="work-card reveal">
+        <figure>
+          <svg viewBox="0 0 400 300" aria-hidden="true">
+            <rect width="400" height="300" fill="#9FF29A"/>
+            <g fill="#0A0A0A">
+              <circle cx="166" cy="45" r="7"/><circle cx="188" cy="45" r="7"/><circle cx="210" cy="45" r="7"/><circle cx="232" cy="45" r="7"/>
+              <circle cx="144" cy="67" r="7"/><circle cx="166" cy="67" r="7"/><circle cx="188" cy="67" r="7"/><circle cx="210" cy="67" r="7"/><circle cx="232" cy="67" r="7"/><circle cx="254" cy="67" r="7"/><circle cx="276" cy="67" r="7"/>
+              <circle cx="122" cy="89" r="7"/><circle cx="144" cy="89" r="7"/><circle cx="166" cy="89" r="7"/><circle cx="188" cy="89" r="7"/><circle cx="210" cy="89" r="7"/><circle cx="232" cy="89" r="7"/><circle cx="254" cy="89" r="7"/><circle cx="276" cy="89" r="7"/><circle cx="298" cy="89" r="7"/>
+              <circle cx="100" cy="111" r="7"/><circle cx="122" cy="111" r="7"/><circle cx="144" cy="111" r="7"/><circle cx="166" cy="111" r="7"/><circle cx="188" cy="111" r="7"/><circle cx="210" cy="111" r="7"/><circle cx="232" cy="111" r="7"/><circle cx="254" cy="111" r="7"/><circle cx="276" cy="111" r="7"/><circle cx="298" cy="111" r="7"/>
+              <circle cx="122" cy="133" r="7"/><circle cx="144" cy="133" r="7"/><circle cx="166" cy="133" r="7"/><circle cx="188" cy="133" r="7"/><circle cx="210" cy="133" r="7"/><circle cx="232" cy="133" r="7"/><circle cx="254" cy="133" r="7"/><circle cx="276" cy="133" r="7"/><circle cx="298" cy="133" r="7"/>
+              <circle cx="166" cy="155" r="7"/><circle cx="188" cy="155" r="7"/><circle cx="210" cy="155" r="7"/><circle cx="232" cy="155" r="7"/><circle cx="254" cy="155" r="7"/><circle cx="276" cy="155" r="7"/><circle cx="298" cy="155" r="7"/>
+              <circle cx="188" cy="177" r="7"/><circle cx="210" cy="177" r="7"/><circle cx="232" cy="177" r="7"/><circle cx="254" cy="177" r="7"/><circle cx="276" cy="177" r="7"/>
+              <circle cx="188" cy="199" r="7"/><circle cx="210" cy="199" r="7"/><circle cx="232" cy="199" r="7"/><circle cx="254" cy="199" r="7"/><circle cx="276" cy="199" r="7"/>
+              <circle cx="210" cy="221" r="7"/><circle cx="232" cy="221" r="7"/><circle cx="254" cy="221" r="7"/>
+              <circle cx="210" cy="243" r="7"/><circle cx="232" cy="243" r="7"/>
+              <circle cx="232" cy="265" r="7"/>
+            </g>
+            <g fill="#7B7BF0">
+              <circle cx="144" cy="111" r="7"/><circle cx="188" cy="133" r="7"/><circle cx="254" cy="155" r="7"/>
+              <circle cx="210" cy="177" r="7"/><circle cx="232" cy="221" r="7"/>
+            </g>
+            <g fill="#7B7BF0" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round">
+              <polygon points="280,102 290,70 318,82"/>
+              <circle cx="308" cy="62" r="32"/>
+            </g>
+          </svg>
+        </figure>
+        <div class="work-card-body">
+          <h3>Afrobarometer flagship report</h3>
+          <p>Editorial and chart design for the 2025 African Insights flagship report on citizen engagement, produced in English and French.</p>
+          <span class="work-link" data-soon>Case study coming soon</span>
+        </div>
+      </article>
+
+      <article class="work-card reveal">
+        <figure>
+          <svg viewBox="0 0 400 300" aria-hidden="true">
+            <rect width="400" height="300" fill="#7B7BF0"/>
+            <g stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round">
+              <rect x="62"  y="192" width="46" height="58"  fill="#0A0A0A"/>
+              <rect x="128" y="154" width="46" height="96"  fill="#0A0A0A"/>
+              <rect x="194" y="112" width="46" height="138" fill="#0A0A0A"/>
+              <rect x="260" y="104" width="46" height="146" fill="#9FF29A"/>
+            </g>
+            <path d="M283 100 C 250 92, 242 56, 256 26 C 290 38, 302 74, 283 100 Z"
+                  fill="#9FF29A" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M279 94 C 268 74, 264 56, 261 38" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="40" y1="250" x2="360" y2="250" stroke="#0A0A0A" stroke-width="3"/>
+          </svg>
+        </figure>
+        <div class="work-card-body">
+          <h3>PPC Group ESG report</h3>
+          <p>Editorial design and data visualisation for PPC Group's ESG sustainability report, turning environmental and social metrics into a readable publication.</p>
+          <span class="work-link" data-soon>Case study coming soon</span>
+        </div>
+      </article>
+
+      <article class="work-card reveal">
+        <figure>
+          <svg viewBox="0 0 400 300" aria-hidden="true">
+            <rect width="400" height="300" fill="#0A0A0A"/>
+            <g fill="none" stroke="#EDE9E1" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round">
+              <path d="M116 76 Q 200 24 284 76"/>
+              <path d="M284 224 Q 200 276 116 224"/>
+            </g>
+            <circle cx="152" cy="150" r="82" fill="#9FF29A"/>
+            <circle cx="248" cy="150" r="82" fill="#7B7BF0"/>
+            <path d="M200 83.5 A 82 82 0 0 1 200 216.5 A 82 82 0 0 1 200 83.5 Z" fill="#EDE9E1"/>
+          </svg>
+        </figure>
+        <div class="work-card-body">
+          <h3>Între Noi</h3>
+          <p>A data exhibition exploring trade and cultural ties between Italy and Romania, translating economic flows into a physical visual narrative.</p>
+          <span class="work-link" data-soon>Case study coming soon</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+-->
+
+<!-- ============================================================
+     6. CTA
+     ------------------------------------------------------------
+     PLACEHOLDER EMAIL: replace hello@nutgraf.studio below
+     with the studio's real address when ready.
+     ============================================================ -->
+<section class="cta" id="contact">
+  <div class="wrap reveal">
+    <h2>Every dataset has a nutgraf. Let's find yours.</h2>
+    <p>We work with newsrooms, NGOs, institutions and research teams. If you have data that deserves to be understood, we should talk.</p>
+    <div class="cta-actions">
+      <a class="btn btn-solid" href="mailto:hello@nutgraf.studio">Email the studio</a>
+      <a class="btn btn-outline" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Follow us on Instagram</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     7. FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="footer-brand" href="#top"><img src="logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
+    <div class="footer-meta">
+      <span>© <span id="year">2026</span> Nutgraf.studio</span>
+      <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav: solidify on scroll */
+(function () {
+  var nav = document.querySelector('.nav');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* Footer year */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Scroll-reveal (skipped when the user prefers reduced motion) */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+
+/* Methodology loop: a mint pulse orbits the ring with a brief dwell at
+   each stage; the nearest stage highlights in both the diagram and the
+   stage list. Runs only while on screen; skipped for reduced motion. */
+(function () {
+  var section = document.getElementById('methodology');
+  var pulse = section && section.querySelector('.loop-pulse');
+  if (!pulse || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var nodes = section.querySelectorAll('.loop-node');
+  var items = section.querySelectorAll('.stage-list > li:not(.loop-back)');
+  var STAGES = 6, PERIOD = 15000; /* 2.5s per stage */
+  var CX = 330, CY = 300, R = 190;
+  var rafId = null, current = -1;
+
+  function frame(now) {
+    var seg = (now % PERIOD) / PERIOD * STAGES;
+    var i = Math.floor(seg), f = seg - i;
+    var eased = f * f * (3 - 2 * f); /* smoothstep = brief dwell at nodes */
+    var a = (i + eased) / STAGES * Math.PI * 2; /* clockwise from top */
+    pulse.setAttribute('cx', CX + R * Math.sin(a));
+    pulse.setAttribute('cy', CY - R * Math.cos(a));
+
+    var active = (f < 0.5 ? i : i + 1) % STAGES;
+    if (active !== current) {
+      if (current > -1) {
+        nodes[current].classList.remove('active');
+        items[current].classList.remove('active');
+      }
+      nodes[active].classList.add('active');
+      items[active].classList.add('active');
+      current = active;
+    }
+    rafId = requestAnimationFrame(frame);
+  }
+
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting && rafId === null) {
+        rafId = requestAnimationFrame(frame);
+      } else if (!e.isIntersecting && rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    });
+  }, { threshold: 0.2 }).observe(section);
+})();
+
+/* Sankey scan bars: vertical bars swept along each ribbon's bezier curve,
+   always spanning the ribbon's full thickness (border to border).
+   Runs only while the diagram is on screen; skipped for reduced motion. */
+(function () {
+  var fig = document.querySelector('.sankey-figure');
+  if (!fig || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var bars = fig.querySelectorAll('.sk-scan');
+  var DURATION = 4500;
+  var rafId = null;
+
+  /* ribbons run x 196 → 898 with both bezier controls at x = 547 */
+  function xAt(t) {
+    var u = 1 - t;
+    return u * u * u * 196 + 3 * u * u * t * 547 + 3 * u * t * t * 547 + t * t * t * 898;
+  }
+
+  function frame(now) {
+    bars.forEach(function (el) {
+      var t = ((now / DURATION) + parseFloat(el.dataset.ph)) % 1;
+      var y0 = parseFloat(el.dataset.y0);
+      var y1 = parseFloat(el.dataset.y1);
+      var w  = parseFloat(el.dataset.w);
+      var x = xAt(t);
+      var y = y0 + (y1 - y0) * t * t * (3 - 2 * t); /* matches ribbon curve */
+      el.setAttribute('x1', x); el.setAttribute('x2', x);
+      el.setAttribute('y1', y); el.setAttribute('y2', y + w);
+    });
+    rafId = requestAnimationFrame(frame);
+  }
+
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting && rafId === null) {
+        rafId = requestAnimationFrame(frame);
+      } else if (!e.isIntersecting && rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    });
+  }, { threshold: 0.1 }).observe(fig);
+})();
+</script>
+
+</body>
+</html>
