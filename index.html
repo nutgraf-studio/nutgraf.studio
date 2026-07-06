@@ -323,6 +323,7 @@ h1, h2, h3 {
   align-items: center;
   border-bottom: none;
   opacity: 0.85;
+  padding: 0.4rem 0; /* matches .chip's vertical padding so both sit at the same height */
 }
 .nav-links a.icon-link:hover,
 .nav-links a.icon-link:focus-visible {
@@ -330,8 +331,8 @@ h1, h2, h3 {
   opacity: 1;
 }
 .nav-links a.icon-link svg {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: currentColor;
 }
 
@@ -342,7 +343,7 @@ h1, h2, h3 {
   /* Section links (Services, Methodology, Partners) are hidden on mobile —
      only the Contact us chip and the Instagram icon stay in the nav bar. */
   .nav-links a:not(.chip):not(.icon-link) { display: none; }
-  .nav-links a.icon-link svg { width: 1.05rem; height: 1.05rem; }
+  .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
 }
 
 /* ============================================================
