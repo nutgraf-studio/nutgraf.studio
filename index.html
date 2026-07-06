@@ -291,6 +291,7 @@ h1, h2, h3 {
   position: relative;
   display: inline-block; /* inline boxes ignore overflow — needed to clip the wipe */
   overflow: hidden;
+  white-space: nowrap;
   z-index: 0; /* keeps the ::before wipe under the label without escaping the nav */
   transition: color 0.3s ease;
 }
