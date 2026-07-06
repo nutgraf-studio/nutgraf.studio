@@ -288,12 +288,33 @@ h1, h2, h3 {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
   border-bottom: none;
+  position: relative;
+  display: inline-block; /* inline boxes ignore overflow — needed to clip the wipe */
+  overflow: hidden;
+  z-index: 0; /* keeps the ::before wipe under the label without escaping the nav */
+  transition: color 0.3s ease;
+}
+.nav-links a.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--violet);
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
 }
 .nav-links a.chip:hover,
 .nav-links a.chip:focus-visible {
-  background: var(--black);
   border-bottom: none;
-  opacity: 0.85;
+  color: var(--white);
+}
+.nav-links a.chip:hover::before,
+.nav-links a.chip:focus-visible::before {
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a.chip, .nav-links a.chip::before { transition: none; }
 }
 
 .nav-links a.icon-link {
@@ -357,35 +378,11 @@ h1, h2, h3 {
   .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
 }
 
-/* --- Hero network animation (pure CSS on inline SVG) --- */
-.net-node { animation: float 7s ease-in-out infinite; }
-.net-node:nth-of-type(2) { animation-delay: -1.5s; animation-duration: 8s; }
-.net-node:nth-of-type(3) { animation-delay: -3s; }
-.net-node:nth-of-type(4) { animation-delay: -4.5s; animation-duration: 9s; }
-.net-node:nth-of-type(5) { animation-delay: -2s; animation-duration: 8.5s; }
-.net-node:nth-of-type(6) { animation-delay: -5.5s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-7px); }
-}
-
-/* white "data pulses" travelling along the connecting lines */
-.net-pulse {
-  stroke-dasharray: 10 130;
-  animation: pulse-travel 3.5s linear infinite;
-}
-.net-pulse.p2 { animation-delay: -1.2s; }
-.net-pulse.p3 { animation-delay: -2.3s; }
-
-@keyframes pulse-travel {
-  to { stroke-dashoffset: -140; }
-}
+/* --- Hero icosahedron: geometry is drawn and animated by the script
+       at the end of the page; no CSS animation needed here --- */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .net-node, .net-pulse { animation: none; }
-  .net-pulse { stroke-dasharray: none; opacity: 0; }
   .sk-scan { opacity: 0 !important; }
   .sk-ribbon { transition: none; }
   .loop-feedback { animation: none; }
@@ -805,6 +802,37 @@ h1, h2, h3 {
   .reveal { opacity: 1; transform: none; transition: none; }
   .service-card, .work-card, .btn { transition: none; }
 }
+
+/* ---------- Headline emphasis: violet marker underline on "stories" ----------
+   A hand-drawn stroke draws itself under the word, holds, fades, redraws. */
+.fx { position: relative; white-space: nowrap; }
+.fx-underline-svg {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.14em;
+  width: 106%;
+  max-width: none;
+  height: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+.fx-underline-svg path {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  animation: fx-underline-draw 4.5s ease-in-out infinite;
+}
+@keyframes fx-underline-draw {
+  0%        { stroke-dashoffset: 330; opacity: 1; }
+  28%, 78%  { stroke-dashoffset: 0;   opacity: 1; }
+  90%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx-underline-svg path { animation: none; stroke-dashoffset: 0; }
+}
 </style>
 </head>
 <body>
@@ -845,52 +873,18 @@ h1, h2, h3 {
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+      <h1>Data, designed<br>to tell <em class="fx">stories<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em><br>that matter.</h1>
       <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
     </div>
 
-    <!-- Animated isometric cube-node network.
-         Decorative: aria-hidden. Looks fine as a static frame. -->
+    <!-- Tumbling wireframe icosahedron, projected in real time by the
+         script at the end of the page. Decorative: aria-hidden. A static
+         readable frame is drawn under prefers-reduced-motion. -->
     <div class="hero-visual" aria-hidden="true">
       <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <!-- one isometric cube, reused for every node -->
-          <g id="cube">
-            <polygon points="0,-18 16,-9 0,0 -16,-9" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
-            <polygon points="-16,-9 0,0 0,18 -16,9"  fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
-            <polygon points="16,-9 0,0 0,18 16,9"    fill="#7B7BF0" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
-          </g>
-        </defs>
-
-        <!-- white circle behind the network -->
+        <!-- white circle behind the wireframe -->
         <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
-
-        <!-- connecting lines -->
-        <g stroke="#0A0A0A" stroke-width="2" opacity="0.45">
-          <line x1="260" y1="265" x2="255" y2="115"/>
-          <line x1="260" y1="265" x2="115" y2="235"/>
-          <line x1="260" y1="265" x2="400" y2="195"/>
-          <line x1="260" y1="265" x2="180" y2="395"/>
-          <line x1="260" y1="265" x2="375" y2="365"/>
-          <line x1="255" y1="115" x2="400" y2="195"/>
-          <line x1="115" y1="235" x2="180" y2="395"/>
-          <line x1="375" y1="365" x2="400" y2="195"/>
-        </g>
-
-        <!-- violet pulses travelling along three of the edges -->
-        <g stroke="#7B7BF0" stroke-width="3" fill="none" stroke-linecap="round">
-          <line class="net-pulse"    x1="260" y1="265" x2="255" y2="115"/>
-          <line class="net-pulse p2" x1="260" y1="265" x2="180" y2="395"/>
-          <line class="net-pulse p3" x1="115" y1="235" x2="260" y2="265"/>
-        </g>
-
-        <!-- nodes: isometric cubes, gently floating -->
-        <g class="net-node"><use href="#cube" transform="translate(255,115) scale(1.15)"/></g>
-        <g class="net-node"><use href="#cube" transform="translate(115,235) scale(0.95)"/></g>
-        <g class="net-node"><use href="#cube" transform="translate(400,195) scale(1.05)"/></g>
-        <g class="net-node"><use href="#cube" transform="translate(180,395) scale(0.9)"/></g>
-        <g class="net-node"><use href="#cube" transform="translate(375,365) scale(1.0)"/></g>
-        <g class="net-node"><use href="#cube" transform="translate(260,265) scale(1.6)"/></g>
+        <g id="hero-ico"></g>
       </svg>
     </div>
   </div>
@@ -1362,7 +1356,7 @@ h1, h2, h3 {
      ============================================================ -->
 <section class="cta" id="contact">
   <div class="wrap reveal">
-    <h2>Every dataset has a nutgraf. Let's find yours.</h2>
+    <h2>We beautify your data. Let's talk.</h2>
     <p>We work with corporate, NGOs, institutions and research teams. If you have data that deserves to be understood, we should talk.</p>
     <div class="cta-actions">
       <a class="btn btn-solid" href="mailto:hello@nutgraf.studio">Email the studio</a>
@@ -1387,6 +1381,104 @@ h1, h2, h3 {
 </footer>
 
 <script>
+/* Hero: tumbling wireframe icosahedron. Vertices and edges are projected
+   orthographically each frame (two-axis tumble); front vertices light up
+   mint/violet, back ones dim to grey, edges deepen with proximity.
+   Draws one static frame for reduced motion; pauses while off screen. */
+(function () {
+  var g = document.getElementById('hero-ico');
+  if (!g) return;
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var CX = 260, CY = 260, R = 172;
+  var PHI = (1 + Math.sqrt(5)) / 2;
+  var raw = [
+    [0, 1, PHI], [0, 1, -PHI], [0, -1, PHI], [0, -1, -PHI],
+    [1, PHI, 0], [1, -PHI, 0], [-1, PHI, 0], [-1, -PHI, 0],
+    [PHI, 0, 1], [-PHI, 0, 1], [PHI, 0, -1], [-PHI, 0, -1]
+  ];
+  var S = R / Math.sqrt(1 + PHI * PHI);
+  var verts = raw.map(function (v) { return [v[0] * S, v[1] * S, v[2] * S]; });
+
+  /* edges = vertex pairs at the icosahedron's edge length (2 pre-scale) */
+  var edges = [];
+  for (var i = 0; i < 12; i++) {
+    for (var j = i + 1; j < 12; j++) {
+      var dx = raw[i][0] - raw[j][0], dy = raw[i][1] - raw[j][1], dz = raw[i][2] - raw[j][2];
+      if (dx * dx + dy * dy + dz * dz < 4.2) edges.push([i, j]);
+    }
+  }
+
+  function el(tag, attrs) {
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    g.appendChild(n);
+    return n;
+  }
+  var edgeEls = edges.map(function () {
+    return el('line', { stroke: '#0A0A0A', 'stroke-width': 2, 'stroke-linecap': 'round' });
+  });
+  var vertEls = verts.map(function (_, k) {
+    return el('circle', { r: 5, fill: k % 2 ? '#7B7BF0' : '#9FF29A' });
+  });
+
+  function draw(t) {
+    var a = t * 0.5, b = t * 0.21 + 0.4;
+    var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+    var proj = verts.map(function (v) {
+      var x1 = v[0] * ca + v[2] * sa;
+      var z1 = -v[0] * sa + v[2] * ca;
+      var y2 = v[1] * cb - z1 * sb;
+      var z2 = v[1] * sb + z1 * cb;
+      return [CX + x1, CY - y2, z2];
+    });
+    edgeEls.forEach(function (ln, k) {
+      var p = proj[edges[k][0]], q = proj[edges[k][1]];
+      ln.setAttribute('x1', p[0].toFixed(1)); ln.setAttribute('y1', p[1].toFixed(1));
+      ln.setAttribute('x2', q[0].toFixed(1)); ln.setAttribute('y2', q[1].toFixed(1));
+      var depth = ((p[2] + q[2]) / 2 / R + 1) / 2; /* 0 back … 1 front */
+      ln.setAttribute('opacity', (0.15 + 0.45 * depth).toFixed(2));
+    });
+    vertEls.forEach(function (c, k) {
+      var p = proj[k];
+      c.setAttribute('cx', p[0].toFixed(1));
+      c.setAttribute('cy', p[1].toFixed(1));
+      if (p[2] > 0) {
+        c.setAttribute('r', (5.5 + 2 * p[2] / R).toFixed(1));
+        c.setAttribute('fill', k % 2 ? '#7B7BF0' : '#9FF29A');
+        c.setAttribute('stroke', '#0A0A0A');
+        c.setAttribute('stroke-width', 1.5);
+        c.setAttribute('opacity', 1);
+      } else {
+        c.setAttribute('r', 3.5);
+        c.setAttribute('fill', '#0A0A0A');
+        c.setAttribute('stroke', 'none');
+        c.setAttribute('opacity', 0.25);
+      }
+    });
+  }
+
+  /* readable first frame (also the only frame under reduced motion) */
+  draw(0.9);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var rafId = null;
+  function frame(now) {
+    draw(now / 1000);
+    rafId = requestAnimationFrame(frame);
+  }
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting && rafId === null) {
+        rafId = requestAnimationFrame(frame);
+      } else if (!e.isIntersecting && rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    });
+  }, { threshold: 0.1 }).observe(document.querySelector('.hero'));
+})();
+
 /* Nav: solidify on scroll */
 (function () {
   var nav = document.querySelector('.nav');
