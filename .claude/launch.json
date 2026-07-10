@@ -1,0 +1,26 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8901"],
+      "port": 8901,
+      "autoPort": false
+    },
+    {
+      "name": "static-site-alt",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8902"],
+      "port": 8902,
+      "autoPort": false
+    },
+    {
+      "name": "static-site-3",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8903"],
+      "port": 8903,
+      "autoPort": false
+    }
+  ]
+}

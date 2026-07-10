@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero circle loader — options</title>
+<style>
+  :root {
+    --mint:   #9FF29A;
+    --violet: #7B7BF0;
+    --black:  #0A0A0A;
+    --cream:  #EDE9E1;
+    --white:  #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    padding: 3rem 1.5rem 5rem;
+  }
+  h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .intro { max-width: 42rem; margin-bottom: 2.5rem; font-size: 0.9375rem; line-height: 1.5; }
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+  .card {
+    border: 2px solid var(--black);
+    background: var(--white);
+  }
+  .card .stage {
+    background: var(--mint);
+    padding: 2rem;
+  }
+  .card svg { display: block; width: 100%; height: auto; }
+  .card .label { padding: 1rem 1.25rem 1.25rem; }
+  .card h2 { font-size: 1.125rem; margin-bottom: 0.375rem; }
+  .card h2 span {
+    display: inline-block;
+    background: var(--violet);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+  .card p { font-size: 0.875rem; line-height: 1.45; color: #444; }
+
+  /* shared: circumference of r=245 circle = 2π·245 ≈ 1539.4 */
+
+  /* ── OPTION A: comet sweep — fixed-length arc orbits forever ── */
+  .a-rotor {
+    transform-origin: 260px 260px;
+    animation: a-spin 6s linear infinite;
+  }
+  @keyframes a-spin { to { transform: rotate(360deg); } }
+
+  /* ── OPTION B: trace & reset — line draws the full circle, pauses, fades, restarts ── */
+  .b-arc {
+    stroke-dasharray: 1539.4;
+    animation: b-draw 6s linear infinite;
+  }
+  @keyframes b-draw {
+    0%    { stroke-dashoffset: 1539.4; opacity: 1; }
+    62%   { stroke-dashoffset: 0;      opacity: 1; }
+    78%   { stroke-dashoffset: 0;      opacity: 1; }
+    90%   { stroke-dashoffset: 0;      opacity: 0; }
+    100%  { stroke-dashoffset: 0;      opacity: 0; }
+  }
+  .b-rotor {
+    transform-origin: 260px 260px;
+    animation: b-ride 6s linear infinite;
+  }
+  @keyframes b-ride {
+    0%    { transform: rotate(0deg);   opacity: 1; }
+    62%   { transform: rotate(360deg); opacity: 1; }
+    78%   { transform: rotate(360deg); opacity: 1; }
+    90%   { transform: rotate(360deg); opacity: 0; }
+    100%  { transform: rotate(360deg); opacity: 0; }
+  }
+
+  /* ── OPTION C: draw & unwind — line fills the circle, then the tail chases the head out ── */
+  .c-arc {
+    stroke-dasharray: 1539.4 1539.4;
+    animation: c-cycle 7s linear infinite;
+  }
+  @keyframes c-cycle {
+    0%   { stroke-dashoffset: 1539.4; }
+    45%  { stroke-dashoffset: 0; }
+    55%  { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -1539.4; }
+  }
+  .c-rotor {
+    transform-origin: 260px 260px;
+    animation: c-ride 7s linear infinite;
+  }
+  @keyframes c-ride {
+    0%   { transform: rotate(0deg); }
+    45%  { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* ── OPTION D: comet with fading tail — like A but the line tapers out behind the dot ── */
+  .d-rotor {
+    transform-origin: 260px 260px;
+    animation: d-spin 6s linear infinite;
+  }
+  @keyframes d-spin { to { transform: rotate(360deg); } }
+
+  /* ── OPTION E: thin arc sweep — like A but hairline stroke, no dot ── */
+  .e-rotor {
+    transform-origin: 260px 260px;
+    animation: e-spin 6s linear infinite;
+  }
+  @keyframes e-spin { to { transform: rotate(360deg); } }
+
+  /* ── OPTION F: thin draw & unwind — like C but hairline stroke, no dot ── */
+  .f-arc {
+    stroke-dasharray: 1539.4 1539.4;
+    animation: f-cycle 7s linear infinite;
+  }
+  @keyframes f-cycle {
+    0%   { stroke-dashoffset: 1539.4; }
+    45%  { stroke-dashoffset: 0; }
+    55%  { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -1539.4; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Hero circle — purple loader options</h1>
+<p class="intro">Four ways the purple line can travel along the white circle behind the
+icosahedron. Each mock uses the real hero colors and geometry (mint background, white
+circle at r=245, violet #7B7BF0). Speed, line thickness, arc length and dot size are all
+easy to tune once you pick a direction.</p>
+
+<div class="grid">
+
+  <!-- ══════════ OPTION A ══════════ -->
+  <div class="card">
+    <div class="stage">
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+        <g stroke="#0A0A0A" stroke-width="1.5" fill="none" opacity="0.7">
+          <polygon points="260,120 385,190 385,330 260,400 135,330 135,190"/>
+          <polyline points="260,120 260,400 M135,190 385,330 M385,190 135,330"/>
+          <polygon points="260,190 325,295 195,295" fill="none"/>
+        </g>
+        <g class="a-rotor">
+          <circle cx="260" cy="260" r="245" fill="none" stroke="#7B7BF0"
+                  stroke-width="5" stroke-linecap="round"
+                  stroke-dasharray="385 1154.4"/>
+          <circle cx="260" cy="505" r="9" fill="#7B7BF0"/>
+        </g>
+      </svg>
+    </div>
+    <div class="label">
+      <h2><span>A</span>Comet sweep</h2>
+      <p>A quarter-circle arc orbits continuously at constant speed, dot leading the way.
+      Never stops, never resets — calm and steady.</p>
+    </div>
+  </div>
+
+  <!-- ══════════ OPTION B ══════════ -->
+  <div class="card">
+    <div class="stage">
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+        <g stroke="#0A0A0A" stroke-width="1.5" fill="none" opacity="0.7">
+          <polygon points="260,120 385,190 385,330 260,400 135,330 135,190"/>
+          <polyline points="260,120 260,400 M135,190 385,330 M385,190 135,330"/>
+          <polygon points="260,190 325,295 195,295" fill="none"/>
+        </g>
+        <!-- start at 12 o'clock: rotate path start (3 o'clock) back by 90° -->
+        <g transform="rotate(-90 260 260)">
+          <circle class="b-arc" cx="260" cy="260" r="245" fill="none" stroke="#7B7BF0"
+                  stroke-width="5" stroke-linecap="round"/>
+          <g class="b-rotor">
+            <circle cx="505" cy="260" r="9" fill="#7B7BF0"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="label">
+      <h2><span>B</span>Trace &amp; reset</h2>
+      <p>The line draws the full circle from the top with the dot at its tip, holds the
+      completed ring for a beat, fades out and starts over. Reads most like "loading".</p>
+    </div>
+  </div>
+
+  <!-- ══════════ OPTION C ══════════ -->
+  <div class="card">
+    <div class="stage">
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+        <g stroke="#0A0A0A" stroke-width="1.5" fill="none" opacity="0.7">
+          <polygon points="260,120 385,190 385,330 260,400 135,330 135,190"/>
+          <polyline points="260,120 260,400 M135,190 385,330 M385,190 135,330"/>
+          <polygon points="260,190 325,295 195,295" fill="none"/>
+        </g>
+        <g transform="rotate(-90 260 260)">
+          <circle class="c-arc" cx="260" cy="260" r="245" fill="none" stroke="#7B7BF0"
+                  stroke-width="5" stroke-linecap="round"/>
+          <g class="c-rotor">
+            <circle cx="505" cy="260" r="9" fill="#7B7BF0"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="label">
+      <h2><span>C</span>Draw &amp; unwind</h2>
+      <p>The line fills the whole circle, then its tail sweeps around and catches up,
+      erasing it — a continuous wind/unwind cycle with no fade or hard reset.</p>
+    </div>
+  </div>
+
+  <!-- ══════════ OPTION D ══════════ -->
+  <div class="card">
+    <div class="stage">
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+        <g stroke="#0A0A0A" stroke-width="1.5" fill="none" opacity="0.7">
+          <polygon points="260,120 385,190 385,330 260,400 135,330 135,190"/>
+          <polyline points="260,120 260,400 M135,190 385,330 M385,190 135,330"/>
+          <polygon points="260,190 325,295 195,295" fill="none"/>
+        </g>
+        <g class="d-rotor">
+          <!-- three stacked arcs ending at the same point = tapered comet tail -->
+          <circle cx="260" cy="260" r="245" fill="none" stroke="#7B7BF0" opacity="0.25"
+                  stroke-width="2.5" stroke-linecap="round"
+                  stroke-dasharray="385 1154.4" stroke-dashoffset="0"/>
+          <circle cx="260" cy="260" r="245" fill="none" stroke="#7B7BF0" opacity="0.55"
+                  stroke-width="4" stroke-linecap="round"
+                  stroke-dasharray="250 1289.4" stroke-dashoffset="-135"/>
+          <circle cx="260" cy="260" r="245" fill="none" stroke="#7B7BF0"
+                  stroke-width="5.5" stroke-linecap="round"
+                  stroke-dasharray="120 1419.4" stroke-dashoffset="-265"/>
+          <circle cx="260" cy="505" r="9" fill="#7B7BF0"/>
+        </g>
+      </svg>
+    </div>
+    <div class="label">
+      <h2><span>D</span>Comet with fading tail</h2>
+      <p>Same steady orbit as A, but the line tapers and fades out behind the dot,
+      like a shooting-star trail. The most "alive" of the four.</p>
+    </div>
+  </div>
+
+  <!-- ══════════ OPTION E ══════════ -->
+  <div class="card">
+    <div class="stage">
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+        <g stroke="#0A0A0A" stroke-width="1.5" fill="none" opacity="0.7">
+          <polygon points="260,120 385,190 385,330 260,400 135,330 135,190"/>
+          <polyline points="260,120 260,400 M135,190 385,330 M385,190 135,330"/>
+          <polygon points="260,190 325,295 195,295" fill="none"/>
+        </g>
+        <g class="e-rotor">
+          <circle cx="260" cy="260" r="245" fill="none" stroke="#7B7BF0"
+                  stroke-width="2" stroke-linecap="round"
+                  stroke-dasharray="385 1154.4"/>
+        </g>
+      </svg>
+    </div>
+    <div class="label">
+      <h2><span>E</span>Thin arc sweep</h2>
+      <p>A hairline quarter-circle arc orbits continuously at constant speed. No dot —
+      the quietest, most minimal option.</p>
+    </div>
+  </div>
+
+  <!-- ══════════ OPTION F ══════════ -->
+  <div class="card">
+    <div class="stage">
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+        <g stroke="#0A0A0A" stroke-width="1.5" fill="none" opacity="0.7">
+          <polygon points="260,120 385,190 385,330 260,400 135,330 135,190"/>
+          <polyline points="260,120 260,400 M135,190 385,330 M385,190 135,330"/>
+          <polygon points="260,190 325,295 195,295" fill="none"/>
+        </g>
+        <g transform="rotate(-90 260 260)">
+          <circle class="f-arc" cx="260" cy="260" r="245" fill="none" stroke="#7B7BF0"
+                  stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+    <div class="label">
+      <h2><span>F</span>Thin draw &amp; unwind</h2>
+      <p>A hairline stroke draws the full circle from the top, then its tail sweeps
+      around and erases it — continuous wind/unwind, no dot, no fade.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

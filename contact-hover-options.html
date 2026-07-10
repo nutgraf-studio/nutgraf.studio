@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact chip — hover effect options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Inter", -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  padding: 3rem 1.5rem 5rem;
+}
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.sub { text-align: center; opacity: 0.7; margin-bottom: 3rem; font-size: 0.95rem; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+.card {
+  background: var(--white);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(10,10,10,0.08);
+}
+.card h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+.card h2 span {
+  display: inline-block;
+  background: var(--violet);
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.4rem;
+  vertical-align: 2px;
+}
+.card p { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.25rem; min-height: 2.6em; }
+
+/* fake nav bar context, matches site nav */
+.navdemo {
+  background: var(--cream);
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 0 rgba(10,10,10,0.12) inset;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navdemo .brand { font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 1.05rem; }
+.navdemo .links { display: flex; align-items: center; gap: 1.1rem; font-size: 0.9375rem; font-weight: 500; }
+.navdemo .links .plain { opacity: 0.8; }
+
+/* base chip, identical to site */
+.chip {
+  display: inline-block;
+  background: var(--black);
+  color: var(--cream);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* ============ 1. VIOLET WIPE ============ */
+.fx-wipe { overflow: hidden; z-index: 0; transition: color 0.3s ease; }
+.fx-wipe::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--violet);
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+.fx-wipe:hover { color: var(--white); }
+.fx-wipe:hover::before { transform: translateX(0); }
+
+/* ============ 2. HARD SHADOW POP ============ */
+.fx-pop { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.fx-pop:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 4px 4px 0 var(--violet);
+}
+
+/* ============ 3. SOFT GLOW ============ */
+.fx-glow { transition: box-shadow 0.35s ease, background 0.35s ease; }
+.fx-glow:hover {
+  background: var(--violet);
+  box-shadow: 0 0 0 4px rgba(123, 123, 240, 0.25), 0 0 24px 4px rgba(123, 123, 240, 0.55);
+}
+
+/* ============ 4. SHIMMER SWEEP ============ */
+.fx-shimmer { overflow: hidden; }
+.fx-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -80%;
+  width: 60%;
+  background: linear-gradient(105deg, transparent 20%, rgba(123,123,240,0.9) 50%, transparent 80%);
+  transform: skewX(-20deg);
+  transition: none;
+}
+.fx-shimmer:hover::after { animation: shimmer 0.7s ease forwards; }
+@keyframes shimmer { to { left: 120%; } }
+
+/* ============ 5. RING RIPPLE ============ */
+.fx-ring { transition: background 0.25s ease; }
+.fx-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(123, 123, 240, 0.8);
+  opacity: 0;
+}
+.fx-ring:hover { background: var(--violet); }
+.fx-ring:hover::before { animation: ripple 0.6s ease-out forwards; }
+@keyframes ripple {
+  0%   { box-shadow: 0 0 0 0 rgba(123, 123, 240, 0.8); opacity: 1; }
+  100% { box-shadow: 0 0 0 14px rgba(123, 123, 240, 0); opacity: 0; }
+}
+
+/* ============ 6. FILL FROM BOTTOM + BOUNCE ============ */
+.fx-rise { overflow: hidden; z-index: 0; transition: color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.fx-rise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--violet);
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: -1;
+}
+.fx-rise:hover { color: var(--white); transform: scale(1.06); }
+.fx-rise:hover::before { transform: translateY(0); }
+
+/* ============ 7. OUTLINE SWAP ============ */
+.fx-outline {
+  border: 2px solid var(--black);
+  padding: calc(0.4rem - 2px) calc(0.9rem - 2px);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, letter-spacing 0.25s ease;
+}
+.fx-outline:hover {
+  background: transparent;
+  border-color: var(--violet);
+  color: var(--violet);
+  letter-spacing: 0.03em;
+}
+
+/* ============ 8. JELLY WOBBLE ============ */
+.fx-jelly { transition: background 0.25s ease; }
+.fx-jelly:hover { background: var(--violet); animation: jelly 0.55s ease; }
+@keyframes jelly {
+  0%   { transform: scale(1, 1); }
+  25%  { transform: scale(1.12, 0.85); }
+  50%  { transform: scale(0.92, 1.08); }
+  75%  { transform: scale(1.05, 0.96); }
+  100% { transform: scale(1, 1); }
+}
+</style>
+</head>
+<body>
+
+<h1>Contact chip — hover options</h1>
+<p class="sub">Hover each “Contact us” button. All use your brand violet <strong>#7B7BF0</strong>.</p>
+
+<div class="grid">
+
+  <div class="card">
+    <h2><span>1</span>Violet wipe</h2>
+    <p>Purple slides in from the left, filling the pill. Clean and editorial.</p>
+    <div class="navdemo">
+      <div class="brand">nutgraf.studio</div>
+      <div class="links"><span class="plain">Services</span><a class="chip fx-wipe" href="#">Contact us</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span>2</span>Hard shadow pop</h2>
+    <p>Chip lifts up with a hard violet offset shadow — matches your CTA buttons’ existing hover.</p>
+    <div class="navdemo">
+      <div class="brand">nutgraf.studio</div>
+      <div class="links"><span class="plain">Services</span><a class="chip fx-pop" href="#">Contact us</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span>3</span>Soft glow</h2>
+    <p>Turns violet with a luminous halo around it. The most “eye candy” of the bunch.</p>
+    <div class="navdemo">
+      <div class="brand">nutgraf.studio</div>
+      <div class="links"><span class="plain">Services</span><a class="chip fx-glow" href="#">Contact us</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span>4</span>Shimmer sweep</h2>
+    <p>A violet light streak sweeps across the black pill, like a glint.</p>
+    <div class="navdemo">
+      <div class="brand">nutgraf.studio</div>
+      <div class="links"><span class="plain">Services</span><a class="chip fx-shimmer" href="#">Contact us</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span>5</span>Ring ripple</h2>
+    <p>Fills violet while a ripple ring radiates outward, like a sonar pulse.</p>
+    <div class="navdemo">
+      <div class="brand">nutgraf.studio</div>
+      <div class="links"><span class="plain">Services</span><a class="chip fx-ring" href="#">Contact us</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span>6</span>Rise &amp; bounce</h2>
+    <p>Purple fills from the bottom while the chip springs slightly bigger. Playful.</p>
+    <div class="navdemo">
+      <div class="brand">nutgraf.studio</div>
+      <div class="links"><span class="plain">Services</span><a class="chip fx-rise" href="#">Contact us</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span>7</span>Outline swap</h2>
+    <p>Solid black inverts to a violet outline with violet text. Subtle and typographic.</p>
+    <div class="navdemo">
+      <div class="brand">nutgraf.studio</div>
+      <div class="links"><span class="plain">Services</span><a class="chip fx-outline" href="#">Contact us</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span>8</span>Jelly wobble</h2>
+    <p>Turns violet and squishes like jelly. Maximum personality.</p>
+    <div class="navdemo">
+      <div class="brand">nutgraf.studio</div>
+      <div class="links"><span class="plain">Services</span><a class="chip fx-jelly" href="#">Contact us</a></div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

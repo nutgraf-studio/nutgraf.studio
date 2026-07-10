@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutgraf — Hero illustration &amp; typography options</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght@9..144,600;9..144,900&family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,700;1,6..72,500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   NUTGRAF — hero illustration options (internal review page)
+   Each option is rendered inside a replica of the live hero so
+   it can be judged in context. Same palette / tokens as index.
+   ============================================================ */
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --max-w: 72rem;
+  --pad: 1.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; }
+
+.wrap { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad); }
+
+/* ---------- page intro ---------- */
+.intro { padding-block: 4rem 2.5rem; }
+.intro h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 0.75rem; }
+.intro p { max-width: 44rem; }
+.toc { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin-top: 1.5rem; }
+.toc a {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--black);
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  background: var(--white);
+  transition: background 0.15s ease;
+}
+.toc a:hover { background: var(--mint); }
+
+/* ---------- option sections: replica of the live hero ---------- */
+.option { border-top: 2px solid var(--black); }
+.option-head { padding-block: 2rem 0.25rem; }
+.option-head .num {
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  background: var(--white);
+  font-weight: 700;
+  margin-right: 0.6rem;
+  vertical-align: middle;
+}
+.option-head h2 { display: inline; font-size: clamp(1.5rem, 3.5vw, 2.125rem); vertical-align: middle; }
+.option-head p { margin-top: 0.75rem; max-width: 44rem; font-size: 0.9375rem; opacity: 0.85; }
+
+.hero-demo {
+  background: var(--mint);
+  margin-block: 1.5rem 3.5rem;
+  padding-block: 4rem 3.5rem;
+}
+.hero-grid { display: grid; gap: 2.5rem; align-items: center; }
+.hero-grid h1 { font-size: clamp(2rem, 5.5vw, 3.5rem); }
+.hero-grid h1 em { font-style: italic; font-weight: 600; }
+.hero-sub { margin-top: 1.25rem; font-size: clamp(1rem, 1.8vw, 1.125rem); max-width: 34rem; }
+.hero-visual { margin-inline: auto; width: min(100%, 28rem); }
+
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+}
+
+/* ============================================================
+   Shared animation bits
+   ============================================================ */
+
+/* --- current hero (reference): floating cubes + pulses --- */
+.net-node { animation: float 7s ease-in-out infinite; }
+.net-node:nth-of-type(2) { animation-delay: -1.5s; animation-duration: 8s; }
+.net-node:nth-of-type(3) { animation-delay: -3s; }
+.net-node:nth-of-type(4) { animation-delay: -4.5s; animation-duration: 9s; }
+.net-node:nth-of-type(5) { animation-delay: -2s; animation-duration: 8.5s; }
+.net-node:nth-of-type(6) { animation-delay: -5.5s; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.net-pulse { stroke-dasharray: 10 130; animation: pulse-travel 3.5s linear infinite; }
+.net-pulse.p2 { animation-delay: -1.2s; }
+.net-pulse.p3 { animation-delay: -2.3s; }
+@keyframes pulse-travel { to { stroke-dashoffset: -140; } }
+
+/* ============================================================
+   OPTION 1 — Breathing bars
+   ============================================================ */
+.bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: bar-breathe 5s ease-in-out infinite;
+}
+@keyframes bar-breathe {
+  0%, 100% { transform: scaleY(0.62); }
+  50%      { transform: scaleY(1); }
+}
+/* the reading dot skims across the bar tops */
+.bar-dot { animation: bar-dot-path 10s ease-in-out infinite; }
+@keyframes bar-dot-path {
+  0%   { transform: translate(0px, 0px); }
+  16%  { transform: translate(44px, 52px); }
+  32%  { transform: translate(88px, -28px); }
+  48%  { transform: translate(132px, 34px); }
+  64%  { transform: translate(176px, -52px); }
+  80%  { transform: translate(220px, 12px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* ============================================================
+   OPTION 2 — The line that draws itself
+   ============================================================ */
+.draw-line {
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  animation: draw 7s ease-in-out infinite;
+}
+@keyframes draw {
+  0%        { stroke-dashoffset: 620; opacity: 1; }
+  55%, 82%  { stroke-dashoffset: 0;   opacity: 1; }
+  95%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+.draw-area { animation: area-fade 7s ease-in-out infinite; }
+@keyframes area-fade {
+  0%, 45%   { opacity: 0; }
+  60%, 82%  { opacity: 0.55; }
+  95%, 100% { opacity: 0; }
+}
+.draw-tip {
+  offset-path: path("M110 350 L 165 300 L 220 322 L 275 226 L 330 262 L 400 152");
+  animation: tip-move 7s ease-in-out infinite;
+}
+@keyframes tip-move {
+  0%        { offset-distance: 0%;   opacity: 1; }
+  55%, 82%  { offset-distance: 100%; opacity: 1; }
+  95%, 100% { offset-distance: 100%; opacity: 0; }
+}
+.draw-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: halo 2s ease-out infinite;
+}
+@keyframes halo {
+  0%   { transform: scale(0.4); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ============================================================
+   OPTION 3 — Dot-grid wave  (dots generated by JS)
+   ============================================================ */
+.wave-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dot-wave 3.2s ease-in-out infinite;
+}
+@keyframes dot-wave {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.55; }
+  50%      { transform: translateY(-10px) scale(1.35); opacity: 1; }
+}
+
+/* ============================================================
+   OPTION 4 — Radar sweep
+   ============================================================ */
+.radar-sweep {
+  transform-box: view-box;
+  transform-origin: 260px 260px;
+  animation: sweep 6s linear infinite;
+}
+@keyframes sweep { to { transform: rotate(360deg); } }
+.blip {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blip 6s ease-out infinite;
+}
+@keyframes blip {
+  0%, 4%    { transform: scale(1.6); opacity: 1; }
+  45%, 100% { transform: scale(1);   opacity: 0.35; }
+}
+
+/* ============================================================
+   OPTION 5 — Data streams (ribbons)
+   ============================================================ */
+.stream { animation: stream-slide 6s linear infinite; }
+.stream.s2 { animation-duration: 9s; animation-delay: -3s; }
+.stream.s3 { animation-duration: 12s; animation-delay: -1.5s; }
+@keyframes stream-slide { to { transform: translateX(-130px); } }
+
+/* ============================================================
+   OPTION 6 — Orbits
+   ============================================================ */
+.orbit {
+  transform-box: view-box;
+  transform-origin: 260px 260px;
+  animation: orbit-spin 14s linear infinite;
+}
+.orbit.o2 { animation-duration: 22s; animation-direction: reverse; }
+.orbit.o3 { animation-duration: 32s; }
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+/* counter-rotate the cubes so they stay upright while orbiting */
+.orbit-node { transform-box: fill-box; transform-origin: center; animation: orbit-counter 14s linear infinite; }
+.orbit.o2 .orbit-node { animation-duration: 22s; animation-direction: reverse; }
+.orbit.o3 .orbit-node { animation-duration: 32s; }
+@keyframes orbit-counter { to { transform: rotate(-360deg); } }
+.core-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: core 4s ease-in-out infinite;
+}
+@keyframes core { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+/* ============================================================
+   SECOND PASS — 3D & abstract, built on rotation
+   ============================================================ */
+.pass-strip { background: var(--black); color: var(--cream); border-top: 2px solid var(--black); padding-block: 1.75rem; }
+.pass-strip h2 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+.pass-strip p { font-size: 0.9375rem; opacity: 0.8; margin-top: 0.375rem; }
+
+/* shared scene for the CSS-3D options: white circle backdrop + perspective */
+.scene3d { position: relative; width: min(100%, 28rem); aspect-ratio: 1; margin-inline: auto; }
+.scene3d .backdrop { position: absolute; inset: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.8); }
+.stage3d { position: absolute; inset: 0; display: grid; place-items: center; perspective: 1000px; }
+
+/* ============================================================
+   OPTION 8 — Spinning cube (true CSS 3D)
+   ============================================================ */
+.cube3d-spin {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  transform-style: preserve-3d;
+  animation: cube3d-turn 14s linear infinite;
+}
+@keyframes cube3d-turn {
+  from { transform: rotateX(-22deg) rotateY(0deg); }
+  to   { transform: rotateX(-22deg) rotateY(360deg); }
+}
+.face { position: absolute; inset: 0; border: 2.5px solid var(--black); }
+.face.f-front  { background: var(--violet); transform: translateZ(85px); }
+.face.f-back   { background: var(--violet); transform: rotateY(180deg) translateZ(85px); }
+.face.f-right  { background: var(--cream);  transform: rotateY(90deg) translateZ(85px); }
+.face.f-left   { background: var(--cream);  transform: rotateY(-90deg) translateZ(85px); }
+.face.f-top    { background: var(--mint);   transform: rotateX(90deg) translateZ(85px); }
+.face.f-bottom { background: var(--black);  transform: rotateX(-90deg) translateZ(85px); }
+/* floor shadow breathing with the corners: 4 corner passes per turn */
+.cube-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 16%;
+  width: 200px;
+  height: 26px;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 10, 0.2);
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: shadow-breathe 3.5s ease-in-out infinite;
+}
+@keyframes shadow-breathe {
+  0%, 100% { transform: translateX(-50%) scaleX(1); }
+  50%      { transform: translateX(-50%) scaleX(1.18); }
+}
+
+/* ============================================================
+   OPTION 9 — Bar carousel (cylindrical 3D bar chart)
+   ============================================================ */
+.carousel-wrap { transform: translateY(105px); }
+.carousel3d {
+  position: relative;
+  width: 2px;
+  height: 2px;
+  transform-style: preserve-3d;
+  animation: carousel-turn 26s linear infinite;
+}
+@keyframes carousel-turn {
+  from { transform: rotateX(-14deg) rotateY(0deg); }
+  to   { transform: rotateX(-14deg) rotateY(-360deg); }
+}
+/* each bar stands on the shared ground plane; its rotateY/translateZ
+   placement is inline (12 bars, 30° apart, radius 150px) */
+.cbar {
+  position: absolute;
+  bottom: 0;
+  left: -17px;
+  width: 34px;
+  border: 2.5px solid var(--black);
+}
+
+/* ---------- reduced motion: freeze everything ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .net-node, .net-pulse, .bar, .bar-dot, .draw-line, .draw-area, .draw-tip,
+  .draw-halo, .wave-dot, .radar-sweep, .blip, .stream, .orbit, .orbit-node,
+  .core-pulse, .cube3d-spin, .cube-shadow, .carousel3d { animation: none; }
+  .draw-line { stroke-dashoffset: 0; }
+  .draw-area { opacity: 0.55; }
+  .draw-tip { offset-distance: 100%; }
+  .net-pulse { opacity: 0; }
+  /* hold the 3D scenes at a readable angle */
+  .cube3d-spin { transform: rotateX(-22deg) rotateY(35deg); }
+  .carousel3d { transform: rotateX(-14deg) rotateY(20deg); }
+}
+
+/* ============================================================
+   FOURTH PASS — typography options
+   Each .type-option section carries its pairing as inline custom
+   props: --td display face, --tb body face, --tm mono/label face
+   (falls back to --tb). Weight / tracking tweaks per face via
+   --tdw / --tdls / --tdlh / --ths.
+   ============================================================ */
+.type-option .num { font-size: 0.8125rem; }
+
+.type-option .t-h1 {
+  font-family: var(--td);
+  font-weight: var(--tdw, 900);
+  letter-spacing: var(--tdls, -0.02em);
+  line-height: var(--tdlh, 1.05);
+  font-size: var(--ths, clamp(2rem, 5.5vw, 3.5rem));
+}
+.type-option .t-h1 em { font-style: italic; font-weight: var(--tdemw, 600); }
+/* faces with no italic: emphasise with a violet underline instead */
+.type-option.no-italic .t-h1 em {
+  font-style: normal;
+  font-weight: var(--tdw, 900);
+  text-decoration: underline;
+  text-decoration-color: var(--violet);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.08em;
+  text-decoration-skip-ink: none;
+}
+.type-option .hero-sub {
+  font-family: var(--tb);
+  font-size: var(--tbs, clamp(1rem, 1.8vw, 1.125rem));
+}
+
+/* specimen card: the pairing at small sizes / UI level */
+.spec-card {
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  width: min(100%, 26rem);
+  margin-inline: auto;
+  font-family: var(--tb);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.spec-label {
+  font-family: var(--tm, var(--tb));
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+}
+.type-option .spec-h {
+  font-family: var(--td);
+  font-weight: var(--tdw, 900);
+  letter-spacing: var(--tdls, -0.02em);
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+.spec-body { font-size: 0.9375rem; line-height: 1.55; }
+.spec-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.875rem;
+  border-top: 2px solid var(--black);
+  padding-top: 1rem;
+}
+.type-option .stat-n {
+  font-family: var(--td);
+  font-weight: var(--tdw, 900);
+  letter-spacing: var(--tdls, -0.02em);
+  font-size: 2.25rem;
+  line-height: 1;
+}
+.stat-c {
+  font-family: var(--tm, var(--tb));
+  font-size: 0.75rem;
+  line-height: 1.45;
+  opacity: 0.7;
+  max-width: 12rem;
+}
+.spec-ui { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+.spec-btn {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+.spec-link {
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ============================================================
+   FIFTH PASS — animated violet emphasis on the word "stories"
+   The <em> in the headline gets one of three treatments; each
+   loops: draw in, hold, fade, redraw.
+   ============================================================ */
+.fx { position: relative; white-space: nowrap; }
+
+/* E1 — marker underline: a hand-drawn stroke under the word */
+.fx-underline-svg {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.14em;
+  width: 106%;
+  max-width: none;
+  height: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+.fx-underline-svg path {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  animation: fx-underline-draw 4.5s ease-in-out infinite;
+}
+@keyframes fx-underline-draw {
+  0%        { stroke-dashoffset: 330; opacity: 1; }
+  28%, 78%  { stroke-dashoffset: 0;   opacity: 1; }
+  90%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+
+/* E2 — highlighter sweep: a violet band wipes in behind the word */
+.fx-highlight {
+  padding-inline: 0.08em;
+  margin-inline: -0.08em;
+  background-image: linear-gradient(var(--violet), var(--violet));
+  background-repeat: no-repeat;
+  background-position: 0 72%;
+  background-size: 0% 42%;
+  animation: fx-highlight-sweep 5s ease-in-out infinite;
+}
+@keyframes fx-highlight-sweep {
+  0%, 8%    { background-size: 0% 42%; }
+  38%, 85%  { background-size: 100% 42%; }
+  100%      { background-size: 0% 42%; }
+}
+
+/* E3 — scribble circle: an editor's loop drawn around the word */
+.fx-circle-svg {
+  position: absolute;
+  left: -8%;
+  top: -16%;
+  width: 116%;
+  max-width: none;
+  height: 132%;
+  overflow: visible;
+  pointer-events: none;
+}
+.fx-circle-svg path {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 820;
+  stroke-dashoffset: 820;
+  animation: fx-circle-draw 6s ease-in-out infinite;
+}
+@keyframes fx-circle-draw {
+  0%        { stroke-dashoffset: 820; opacity: 1; }
+  35%, 80%  { stroke-dashoffset: 0;   opacity: 1; }
+  92%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+
+/* reduced motion: hold each effect at its finished state */
+@media (prefers-reduced-motion: reduce) {
+  .fx-underline-svg path, .fx-circle-svg path { animation: none; stroke-dashoffset: 0; }
+  .fx-highlight { animation: none; background-size: 100% 42%; }
+}
+
+/* ---------- footer ---------- */
+.page-foot { border-top: 2px solid var(--black); padding-block: 2.5rem 4rem; font-size: 0.9375rem; }
+</style>
+</head>
+<body>
+
+<header class="intro wrap">
+  <h1>Hero illustration &amp; typography options</h1>
+  <p>Sixteen minimalistic, animated alternatives for the index-page header, each shown inside a replica of the live hero (mint background, real headline) so they can be judged in context. Options 7–10 are a second pass: more abstract, with a 3D feel, all built on rotation. Options 11–13 are a third pass: remixes — the icosahedron crossed with the streams, a higher-energy icosahedron, and the streams pushed into 3D. Options 14–16 take the tumbling icosahedron further, surrounding it with floating elements: orbiting satellites, drifting strings, a linked subnetwork. Everything is inline SVG/CSS plus a little vanilla JS for the 3D projections — no libraries, no images — and all freeze gracefully under <code>prefers-reduced-motion</code>. The current cube network is included at the top for reference. A typography pass (T1–T7) proposes alternative typography for the whole site: each pairing is shown in the hero and in a specimen card with headings, body copy, a stat and UI elements. All faces are free Google Fonts, so any option is a straight swap of the two font variables in <code>index.html</code>. A final pass (E1–E3) animates the word <em>stories</em> in the headline itself with a violet accent: a marker underline, a highlighter sweep and a scribbled circle.</p>
+  <ul class="toc">
+    <li><a href="#current">Current</a></li>
+    <li><a href="#opt1">1 · Breathing bars</a></li>
+    <li><a href="#opt2">2 · Self-drawing line</a></li>
+    <li><a href="#opt3">3 · Dot-grid wave</a></li>
+    <li><a href="#opt4">4 · Radar sweep</a></li>
+    <li><a href="#opt5">5 · Data streams</a></li>
+    <li><a href="#opt6">6 · Orbits</a></li>
+    <li><a href="#opt7">7 · Wireframe globe</a></li>
+    <li><a href="#opt8">8 · Spinning cube</a></li>
+    <li><a href="#opt9">9 · Bar carousel</a></li>
+    <li><a href="#opt10">10 · Icosahedron</a></li>
+    <li><a href="#opt11">11 · Ico × streams</a></li>
+    <li><a href="#opt12">12 · Charged icosahedron</a></li>
+    <li><a href="#opt13">13 · 3D streams</a></li>
+    <li><a href="#opt14">14 · Ico + satellites</a></li>
+    <li><a href="#opt15">15 · Ico + strings</a></li>
+    <li><a href="#opt16">16 · Ico subnetwork</a></li>
+    <li><a href="#t1">T1 · Space Grotesk</a></li>
+    <li><a href="#t2">T2 · Newsreader</a></li>
+    <li><a href="#t3">T3 · Bricolage</a></li>
+    <li><a href="#t4">T4 · IBM Plex</a></li>
+    <li><a href="#t5">T5 · Archivo Black</a></li>
+    <li><a href="#t6">T6 · DM Serif</a></li>
+    <li><a href="#t7">T7 · Fraunces + Mono</a></li>
+    <li><a href="#e1">E1 · Marker underline</a></li>
+    <li><a href="#e2">E2 · Highlighter sweep</a></li>
+    <li><a href="#e3">E3 · Scribble circle</a></li>
+  </ul>
+</header>
+
+<!-- ============================================================
+     CURRENT — reference: isometric cube network
+     ============================================================ -->
+<section class="option" id="current">
+  <div class="wrap option-head">
+    <span class="num">✓</span><h2>Current — cube network</h2>
+    <p>The live hero, for reference: isometric cubes floating on a node network, violet pulses travelling along the edges.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <g id="cube">
+              <polygon points="0,-18 16,-9 0,0 -16,-9" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+              <polygon points="-16,-9 0,0 0,18 -16,9"  fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+              <polygon points="16,-9 0,0 0,18 16,9"    fill="#7B7BF0" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+            </g>
+          </defs>
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <g stroke="#0A0A0A" stroke-width="2" opacity="0.45">
+            <line x1="260" y1="265" x2="255" y2="115"/>
+            <line x1="260" y1="265" x2="115" y2="235"/>
+            <line x1="260" y1="265" x2="400" y2="195"/>
+            <line x1="260" y1="265" x2="180" y2="395"/>
+            <line x1="260" y1="265" x2="375" y2="365"/>
+            <line x1="255" y1="115" x2="400" y2="195"/>
+            <line x1="115" y1="235" x2="180" y2="395"/>
+            <line x1="375" y1="365" x2="400" y2="195"/>
+          </g>
+          <g stroke="#7B7BF0" stroke-width="3" fill="none" stroke-linecap="round">
+            <line class="net-pulse"    x1="260" y1="265" x2="255" y2="115"/>
+            <line class="net-pulse p2" x1="260" y1="265" x2="180" y2="395"/>
+            <line class="net-pulse p3" x1="115" y1="235" x2="260" y2="265"/>
+          </g>
+          <g class="net-node"><use href="#cube" transform="translate(255,115) scale(1.15)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(115,235) scale(0.95)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(400,195) scale(1.05)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(180,395) scale(0.9)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(375,365) scale(1.0)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(260,265) scale(1.6)"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 1 — Breathing bars
+     ============================================================ -->
+<section class="option" id="opt1">
+  <div class="wrap option-head">
+    <span class="num">1</span><h2>Breathing bars</h2>
+    <p>A bar chart that slowly breathes — each column rises and settles on its own rhythm, while a single mint dot skims across the tops like a cursor reading the data. Calm, chart-literal, unmistakably "data studio".</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- bars: staggered breathing, brand colours -->
+          <g stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round">
+            <rect class="bar" x="112" y="212" width="34" height="156" fill="#9FF29A" style="animation-delay:-0.4s"/>
+            <rect class="bar" x="156" y="264" width="34" height="104" fill="#7B7BF0" style="animation-delay:-1.6s"/>
+            <rect class="bar" x="200" y="184" width="34" height="184" fill="#0A0A0A" style="animation-delay:-2.8s"/>
+            <rect class="bar" x="244" y="246" width="34" height="122" fill="#9FF29A" style="animation-delay:-0.9s"/>
+            <rect class="bar" x="288" y="160" width="34" height="208" fill="#7B7BF0" style="animation-delay:-2.1s"/>
+            <rect class="bar" x="332" y="224" width="34" height="144" fill="#9FF29A" style="animation-delay:-3.3s"/>
+            <rect class="bar" x="376" y="140" width="34" height="228" fill="#0A0A0A" style="animation-delay:-1.2s"/>
+          </g>
+          <!-- baseline -->
+          <line x1="96" y1="368" x2="424" y2="368" stroke="#0A0A0A" stroke-width="2.5"/>
+          <!-- reading dot travelling over the bar tops -->
+          <g transform="translate(129, 196)">
+            <circle class="bar-dot" cx="0" cy="0" r="8" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 2 — Self-drawing line
+     ============================================================ -->
+<section class="option" id="opt2">
+  <div class="wrap option-head">
+    <span class="num">2</span><h2>Self-drawing line</h2>
+    <p>A line chart that draws itself, fills in, holds for a beat, then starts again — a story being written. The violet tip carries a pulsing mint halo, echoing the "pulse" motif already on the site.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- quiet grid -->
+          <g stroke="#0A0A0A" stroke-width="1" opacity="0.14">
+            <line x1="110" y1="290" x2="410" y2="290"/>
+            <line x1="110" y1="230" x2="410" y2="230"/>
+            <line x1="110" y1="170" x2="410" y2="170"/>
+          </g>
+          <!-- axes -->
+          <g stroke="#0A0A0A" stroke-width="2.5">
+            <line x1="110" y1="130" x2="110" y2="350"/>
+            <line x1="110" y1="350" x2="410" y2="350"/>
+          </g>
+          <!-- area fill under the line (fades in once drawn) -->
+          <path class="draw-area" fill="#9FF29A"
+                d="M110 350 L 165 300 L 220 322 L 275 226 L 330 262 L 400 152 L 400 350 Z"/>
+          <!-- the line itself -->
+          <path class="draw-line" fill="none" stroke="#0A0A0A" stroke-width="3.5"
+                stroke-linejoin="round" stroke-linecap="round"
+                d="M110 350 L 165 300 L 220 322 L 275 226 L 330 262 L 400 152"/>
+          <!-- travelling tip + halo -->
+          <g class="draw-tip">
+            <circle class="draw-halo" r="14" fill="none" stroke="#7B7BF0" stroke-width="2.5"/>
+            <circle r="8" fill="#7B7BF0" stroke="#0A0A0A" stroke-width="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 3 — Dot-grid wave
+     ============================================================ -->
+<section class="option" id="opt3">
+  <div class="wrap option-head">
+    <span class="num">3</span><h2>Dot-grid wave</h2>
+    <p>A quiet matrix of data points with a diagonal wave rolling through it forever — raw data coming alive. A few points are mint and violet: the outliers, the stories worth finding. The most abstract and most minimal of the set.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- dots injected by script below -->
+          <g id="dot-grid"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 4 — Radar sweep
+     ============================================================ -->
+<section class="option" id="opt4">
+  <div class="wrap option-head">
+    <span class="num">4</span><h2>Radar sweep</h2>
+    <p>A violet sweep circles a quiet field of points; each blip flares as the beam passes and fades until the next revolution. Research as an act of scanning — finding the signal. Hypnotic at a glance, nearly still overall.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- the sweep wedge: violet fading behind the beam -->
+            <linearGradient id="wedge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#7B7BF0" stop-opacity="0"/>
+              <stop offset="1" stop-color="#7B7BF0" stop-opacity="0.45"/>
+            </linearGradient>
+          </defs>
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- rings + crosshairs -->
+          <g fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="0.35">
+            <circle cx="260" cy="260" r="70"/>
+            <circle cx="260" cy="260" r="130"/>
+            <circle cx="260" cy="260" r="190"/>
+            <line x1="260" y1="70" x2="260" y2="450"/>
+            <line x1="70" y1="260" x2="450" y2="260"/>
+          </g>
+          <!-- rotating sweep: wedge + leading beam -->
+          <g class="radar-sweep">
+            <path fill="url(#wedge)" d="M260 260 L 450 260 A 190 190 0 0 0 355 95.5 Z"/>
+            <line x1="260" y1="260" x2="450" y2="260" stroke="#7B7BF0" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <!-- blips: delays offset so each flares as the beam passes it -->
+          <circle class="blip" cx="356" cy="205" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2" style="animation-delay:-5.5s"/>
+          <circle class="blip" cx="315" cy="345" r="9" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2" style="animation-delay:-1s"/>
+          <circle class="blip" cx="170" cy="310" r="6" fill="#7B7BF0" stroke="#0A0A0A" stroke-width="2" style="animation-delay:-2.4s"/>
+          <circle class="blip" cx="150" cy="180" r="8" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2" style="animation-delay:-3.6s"/>
+          <circle class="blip" cx="235" cy="130" r="6" fill="#7B7BF0" stroke="#0A0A0A" stroke-width="2" style="animation-delay:-4.6s"/>
+          <!-- centre -->
+          <circle cx="260" cy="260" r="9" fill="#0A0A0A"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 5 — Data streams
+     ============================================================ -->
+<section class="option" id="opt5">
+  <div class="wrap option-head">
+    <span class="num">5</span><h2>Data streams</h2>
+    <p>Three waves flowing endlessly through the circle at different speeds — data as a continuous current the studio taps into. The dashed black stream nods to the dashed "route" and "feedback" lines already used elsewhere on the page.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="stream-clip"><circle cx="260" cy="260" r="245"/></clipPath>
+          </defs>
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <g clip-path="url(#stream-clip)">
+            <!-- each path is periodic every 130px, so translateX(-130px) loops seamlessly -->
+            <path class="stream" fill="none" stroke="#7B7BF0" stroke-width="30" stroke-linecap="round"
+                  d="M-160 190 Q -127.5 150 -95 190 T -30 190 T 35 190 T 100 190 T 165 190 T 230 190 T 295 190 T 360 190 T 425 190 T 490 190 T 555 190 T 620 190"/>
+            <path class="stream s2" fill="none" stroke="#0A0A0A" stroke-width="3" stroke-dasharray="8 10"
+                  d="M-160 270 Q -127.5 236 -95 270 T -30 270 T 35 270 T 100 270 T 165 270 T 230 270 T 295 270 T 360 270 T 425 270 T 490 270 T 555 270 T 620 270"/>
+            <path class="stream s3" fill="none" stroke="#9FF29A" stroke-width="22" stroke-linecap="round"
+                  d="M-160 350 Q -127.5 318 -95 350 T -30 350 T 35 350 T 100 350 T 165 350 T 230 350 T 295 350 T 360 350 T 425 350 T 490 350 T 555 350 T 620 350"/>
+          </g>
+          <!-- keep the circle's edge crisp over the clipped strokes -->
+          <circle cx="260" cy="260" r="245" fill="none" stroke="#0A0A0A" stroke-width="0" opacity="0"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 6 — Orbits
+     ============================================================ -->
+<section class="option" id="opt6">
+  <div class="wrap option-head">
+    <span class="num">6</span><h2>Orbits</h2>
+    <p>The isometric cubes from the current hero, reorganised: a breathing core with cubes orbiting on three rings at different speeds and directions. Keeps today's brand asset but trades the static network for slow, continuous motion.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <g id="cube2">
+              <polygon points="0,-18 16,-9 0,0 -16,-9" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+              <polygon points="-16,-9 0,0 0,18 -16,9"  fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+              <polygon points="16,-9 0,0 0,18 16,9"    fill="#7B7BF0" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/>
+            </g>
+          </defs>
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- orbit rings -->
+          <g fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="0.3">
+            <circle cx="260" cy="260" r="85"/>
+            <circle cx="260" cy="260" r="150"/>
+            <circle cx="260" cy="260" r="215"/>
+          </g>
+          <!-- inner ring: one cube.
+               Static translate lives on a wrapper group: CSS transform
+               animations would otherwise override the SVG attribute. -->
+          <g class="orbit">
+            <g transform="translate(345,260)"><g class="orbit-node"><use href="#cube2" transform="scale(0.85)"/></g></g>
+          </g>
+          <!-- middle ring: two cubes, opposite sides, counter-direction -->
+          <g class="orbit o2">
+            <g transform="translate(410,260)"><g class="orbit-node"><use href="#cube2"/></g></g>
+            <g transform="translate(110,260)"><g class="orbit-node"><use href="#cube2" transform="scale(0.75)"/></g></g>
+          </g>
+          <!-- outer ring: two cubes -->
+          <g class="orbit o3">
+            <g transform="translate(260,45)"><g class="orbit-node"><use href="#cube2" transform="scale(0.9)"/></g></g>
+            <g transform="translate(260,475)"><g class="orbit-node"><use href="#cube2" transform="scale(0.7)"/></g></g>
+          </g>
+          <!-- breathing core cube -->
+          <g transform="translate(260,260)"><g class="core-pulse"><use href="#cube2" transform="scale(1.7)"/></g></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECOND PASS — 3D & abstract, built on rotation
+     ============================================================ -->
+<div class="pass-strip" id="pass2">
+  <div class="wrap">
+    <h2>Second pass — 3D &amp; abstract, built on rotation</h2>
+    <p>Four more options with depth and continuous rotation: two real CSS-3D scenes, two JS-projected wireframes. Same palette, same zero-dependency rules.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     OPTION 7 — Wireframe globe
+     ============================================================ -->
+<section class="option" id="opt7">
+  <div class="wrap option-head">
+    <span class="num">7</span><h2>Wireframe globe</h2>
+    <p>A spinning wireframe sphere — meridians projected in real time, latitude rings held still — with data points pinned to the surface. Mint and violet dots surface as they rotate into view, then dim as they slip behind. Data with a worldwide reach.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- sphere outline; wireframe + dots drawn by script -->
+          <circle cx="260" cy="260" r="185" fill="none" stroke="#0A0A0A" stroke-width="2.5"/>
+          <g id="globe-art"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 8 — Spinning cube (true CSS 3D)
+     ============================================================ -->
+<section class="option" id="opt8">
+  <div class="wrap option-head">
+    <span class="num">8</span><h2>Spinning cube</h2>
+    <p>The brand cube promoted to true 3D: a slow, endless turn on a tilted axis, mint top, violet and cream sides, a soft shadow breathing beneath each passing corner. One object, one motion — the most sculptural option.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="scene3d">
+          <div class="backdrop"></div>
+          <div class="cube-shadow"></div>
+          <div class="stage3d">
+            <div class="cube3d-spin">
+              <div class="face f-front"></div>
+              <div class="face f-back"></div>
+              <div class="face f-right"></div>
+              <div class="face f-left"></div>
+              <div class="face f-top"></div>
+              <div class="face f-bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 9 — Bar carousel
+     ============================================================ -->
+<section class="option" id="opt9">
+  <div class="wrap option-head">
+    <span class="num">9</span><h2>Bar carousel</h2>
+    <p>A bar chart bent into a cylinder, turning like a display plinth — columns parade past, overlap and part again. The chart-literal clarity of option 1 with genuine depth. Slow enough to stay calm behind the headline.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="scene3d">
+          <div class="backdrop"></div>
+          <div class="stage3d">
+            <div class="carousel-wrap">
+              <div class="carousel3d">
+                <div class="cbar" style="height:96px;  background:#9FF29A; transform:rotateY(0deg)   translateZ(150px)"></div>
+                <div class="cbar" style="height:150px; background:#FFFFFF; transform:rotateY(30deg)  translateZ(150px)"></div>
+                <div class="cbar" style="height:64px;  background:#7B7BF0; transform:rotateY(60deg)  translateZ(150px)"></div>
+                <div class="cbar" style="height:190px; background:#0A0A0A; transform:rotateY(90deg)  translateZ(150px)"></div>
+                <div class="cbar" style="height:118px; background:#9FF29A; transform:rotateY(120deg) translateZ(150px)"></div>
+                <div class="cbar" style="height:78px;  background:#FFFFFF; transform:rotateY(150deg) translateZ(150px)"></div>
+                <div class="cbar" style="height:168px; background:#7B7BF0; transform:rotateY(180deg) translateZ(150px)"></div>
+                <div class="cbar" style="height:104px; background:#0A0A0A; transform:rotateY(210deg) translateZ(150px)"></div>
+                <div class="cbar" style="height:142px; background:#9FF29A; transform:rotateY(240deg) translateZ(150px)"></div>
+                <div class="cbar" style="height:72px;  background:#FFFFFF; transform:rotateY(270deg) translateZ(150px)"></div>
+                <div class="cbar" style="height:182px; background:#7B7BF0; transform:rotateY(300deg) translateZ(150px)"></div>
+                <div class="cbar" style="height:126px; background:#0A0A0A; transform:rotateY(330deg) translateZ(150px)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 10 — Tumbling icosahedron
+     ============================================================ -->
+<section class="option" id="opt10">
+  <div class="wrap option-head">
+    <span class="num">10</span><h2>Tumbling icosahedron</h2>
+    <p>A wireframe icosahedron tumbling slowly on two axes — the pure geometry of structured data. Vertices light up mint and violet as they come forward and fade to grey as they pass behind; edges deepen with proximity. The most abstract of the 3D set.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- wireframe drawn by script -->
+          <g id="ico-art"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THIRD PASS — remixes
+     ============================================================ -->
+<div class="pass-strip" id="pass3">
+  <div class="wrap">
+    <h2>Third pass — remixes</h2>
+    <p>Combinations and pushes on the second pass: the icosahedron dropped into the streams, a higher-energy icosahedron, and the streams themselves bent into 3D.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     OPTION 11 — Icosahedron in the stream
+     ============================================================ -->
+<section class="option" id="opt11">
+  <div class="wrap option-head">
+    <span class="num">11</span><h2>Icosahedron in the stream</h2>
+    <p>Options 5 and 10 merged: the wireframe icosahedron tumbles in the foreground while the three data streams flow past behind it — structure emerging from the current. The streams are thinned so the geometry stays the protagonist.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="stream-clip-b"><circle cx="260" cy="260" r="245"/></clipPath>
+          </defs>
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- the streams, thinned down to a background current -->
+          <g clip-path="url(#stream-clip-b)" opacity="0.8">
+            <path class="stream" fill="none" stroke="#7B7BF0" stroke-width="14" stroke-linecap="round"
+                  d="M-160 150 Q -127.5 118 -95 150 T -30 150 T 35 150 T 100 150 T 165 150 T 230 150 T 295 150 T 360 150 T 425 150 T 490 150 T 555 150 T 620 150"/>
+            <path class="stream s2" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-dasharray="8 10"
+                  d="M-160 265 Q -127.5 237 -95 265 T -30 265 T 35 265 T 100 265 T 165 265 T 230 265 T 295 265 T 360 265 T 425 265 T 490 265 T 555 265 T 620 265"/>
+            <path class="stream s3" fill="none" stroke="#9FF29A" stroke-width="12" stroke-linecap="round"
+                  d="M-160 385 Q -127.5 357 -95 385 T -30 385 T 35 385 T 100 385 T 165 385 T 230 385 T 295 385 T 360 385 T 425 385 T 490 385 T 555 385 T 620 385"/>
+          </g>
+          <!-- wireframe drawn by script -->
+          <g id="ico2-art"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 12 — Charged icosahedron
+     ============================================================ -->
+<section class="option" id="opt12">
+  <div class="wrap option-head">
+    <span class="num">12</span><h2>Charged icosahedron</h2>
+    <p>Option 10 with the energy turned up: a faster two-axis tumble, dashes racing along every edge like current in a circuit, and vertices pulsing as they pass the front. Same geometry, three times the life.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- wireframe drawn by script -->
+          <g id="ico3-art"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 13 — Data streams in 3D
+     ============================================================ -->
+<section class="option" id="opt13">
+  <div class="wrap option-head">
+    <span class="num">13</span><h2>Data streams in 3D</h2>
+    <p>Option 5 pushed into depth: a field of waves rendered in perspective, rolling continuously while the whole surface rotates slowly — closer lines thicker and darker, distant ones fading away. An ocean of data seen from above.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="wave3d-clip"><circle cx="260" cy="260" r="245"/></clipPath>
+          </defs>
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <!-- wave field drawn by script -->
+          <g id="wave3d-art" clip-path="url(#wave3d-clip)"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ICOSAHEDRON VARIATIONS — floating elements
+     ============================================================ -->
+<div class="pass-strip" id="pass-ico">
+  <div class="wrap">
+    <h2>Icosahedron variations — floating elements</h2>
+    <p>Three takes on the tumbling icosahedron with company around it: orbiting geometric satellites, loose strings drifting past, and a linked subnetwork shell.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     OPTION 14 — Icosahedron with satellites
+     ============================================================ -->
+<section class="option" id="opt14">
+  <div class="wrap option-head">
+    <span class="num">14</span><h2>Icosahedron with satellites</h2>
+    <p>The calm tumble of option 10 with three small companions — a tetrahedron, an octahedron and a triangle — each orbiting on its own tilted path and spinning as it goes, tethered to the core by faint dashed lines. Satellites grow and brighten as they swing in front, shrink and dim behind.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <g id="ico-sat-art"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 15 — Icosahedron with strings
+     ============================================================ -->
+<section class="option" id="opt15">
+  <div class="wrap option-head">
+    <span class="num">15</span><h2>Icosahedron with strings</h2>
+    <p>Three loose strings — violet, mint and a dashed black one — circle the icosahedron on different planes, undulating gently as they travel and slipping behind and in front of the geometry. Each carries a bead at its head, like a reading cursor on a thread of data.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <g id="ico-str-art"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION 16 — Icosahedron subnetwork
+     ============================================================ -->
+<section class="option" id="opt16">
+  <div class="wrap option-head">
+    <span class="num">16</span><h2>Icosahedron subnetwork</h2>
+    <p>The icosahedron inside a shell of floating data points, sparsely linked into subnetworks — the polished structure emerging from the looser web around it. The shell rotates independently of the tumble, points breathe in and out, and each one brightens to mint or violet as it drifts to the front.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <g id="ico-net-art"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOURTH PASS — typography
+     ============================================================ -->
+<div class="pass-strip" id="pass4">
+  <div class="wrap">
+    <h2>Fourth pass — typography</h2>
+    <p>Seven pairings for the whole site, judged in the hero and in a specimen card (headings, body, stat, labels, button). The current pairing — Fraunces 900 for display, Inter for body — is what every option above uses; each proposal below replaces one or both voices.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     OPTION T1 — Space Grotesk + Inter
+     ============================================================ -->
+<section class="option type-option no-italic" id="t1" style="--td:'Space Grotesk',sans-serif; --tb:'Inter',sans-serif; --tdw:700; --tdls:-0.03em;">
+  <div class="wrap option-head">
+    <span class="num">T1</span><h2>Space Grotesk + Inter — the technologist</h2>
+    <p>Drops the serif entirely for a geometric grotesque with just enough quirk (the flat-topped lowercase, the angular joins). Reads product, dashboards, tools — the most "data" and least "editorial" direction. Body stays Inter, so it's a one-font swap. No italics exist, so the emphasised word takes a violet underline instead.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="t-h1">Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="spec-card" aria-hidden="true">
+        <p class="spec-label">Specimen — in use</p>
+        <h3 class="spec-h">What we do</h3>
+        <p class="spec-body">We turn dense research into charts, maps and interactive graphics that people actually read — clear, honest and hard to ignore.</p>
+        <div class="spec-stat"><span class="stat-n">−38%</span><span class="stat-c">average time-to-insight across client projects</span></div>
+        <div class="spec-ui"><span class="spec-btn">Start a project</span><span class="spec-link">See our work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION T2 — Newsreader + Inter
+     ============================================================ -->
+<section class="option type-option" id="t2" style="--td:'Newsreader',Georgia,serif; --tb:'Inter',sans-serif; --tdw:700; --tdls:-0.01em; --tdlh:1.08; --tdemw:500;">
+  <div class="wrap option-head">
+    <span class="num">T2</span><h2>Newsreader + Inter — the newsroom</h2>
+    <p>A "nutgraf" is a journalism term, and Newsreader is a serif drawn specifically for news, with optical sizes and a beautiful true italic for <em>stories</em>. Softer and more literary than Fraunces — less quirky, more trustworthy. The strongest conceptual match for the studio's name.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="t-h1">Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="spec-card" aria-hidden="true">
+        <p class="spec-label">Specimen — in use</p>
+        <h3 class="spec-h">What we do</h3>
+        <p class="spec-body">We turn dense research into charts, maps and interactive graphics that people actually read — clear, honest and hard to ignore.</p>
+        <div class="spec-stat"><span class="stat-n">−38%</span><span class="stat-c">average time-to-insight across client projects</span></div>
+        <div class="spec-ui"><span class="spec-btn">Start a project</span><span class="spec-link">See our work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION T3 — Bricolage Grotesque + Inter
+     ============================================================ -->
+<section class="option type-option no-italic" id="t3" style="--td:'Bricolage Grotesque',sans-serif; --tb:'Inter',sans-serif; --tdw:800; --tdls:-0.02em;">
+  <div class="wrap option-head">
+    <span class="num">T3</span><h2>Bricolage Grotesque + Inter — the character</h2>
+    <p>An expressive grotesque with real personality at heavy weights — wonky counters, tight spacing, editorial mischief. Keeps the warmth Fraunces brings but without a serif; unmistakably a studio, not a consultancy. Like T1 it has no italic, so emphasis becomes a violet underline.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="t-h1">Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="spec-card" aria-hidden="true">
+        <p class="spec-label">Specimen — in use</p>
+        <h3 class="spec-h">What we do</h3>
+        <p class="spec-body">We turn dense research into charts, maps and interactive graphics that people actually read — clear, honest and hard to ignore.</p>
+        <div class="spec-stat"><span class="stat-n">−38%</span><span class="stat-c">average time-to-insight across client projects</span></div>
+        <div class="spec-ui"><span class="spec-btn">Start a project</span><span class="spec-link">See our work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION T4 — IBM Plex Serif + Sans + Mono
+     ============================================================ -->
+<section class="option type-option" id="t4" style="--td:'IBM Plex Serif',Georgia,serif; --tb:'IBM Plex Sans',sans-serif; --tm:'IBM Plex Mono',monospace; --tdw:700; --tdls:-0.015em; --tdemw:600;">
+  <div class="wrap option-head">
+    <span class="num">T4</span><h2>IBM Plex Serif + Sans + Mono — the system</h2>
+    <p>One superfamily, three voices: Plex Serif for headlines (with a true italic), Plex Sans for body, and Plex Mono for labels, captions and figures. The mono details do the "data" talking while the serif keeps the editorial register — very institution-grade, everything guaranteed to harmonise.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="t-h1">Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="spec-card" aria-hidden="true">
+        <p class="spec-label">Specimen — in use</p>
+        <h3 class="spec-h">What we do</h3>
+        <p class="spec-body">We turn dense research into charts, maps and interactive graphics that people actually read — clear, honest and hard to ignore.</p>
+        <div class="spec-stat"><span class="stat-n">−38%</span><span class="stat-c">average time-to-insight across client projects</span></div>
+        <div class="spec-ui"><span class="spec-btn">Start a project</span><span class="spec-link">See our work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION T5 — Archivo Black + Inter
+     ============================================================ -->
+<section class="option type-option no-italic" id="t5" style="--td:'Archivo Black',sans-serif; --tb:'Inter',sans-serif; --tdw:400; --tdls:-0.01em; --tdlh:1.02; --ths:clamp(1.85rem, 5vw, 3.15rem);">
+  <div class="wrap option-head">
+    <span class="num">T5</span><h2>Archivo Black + Inter — the poster</h2>
+    <p>A single ultra-heavy grotesque cut for headlines: campaign energy, maximum contrast against the quiet Inter body. Best if the site should feel louder and more activist — "hard to ignore" made literal. Sized slightly down so the weight doesn't overwhelm the hero.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="t-h1">Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="spec-card" aria-hidden="true">
+        <p class="spec-label">Specimen — in use</p>
+        <h3 class="spec-h">What we do</h3>
+        <p class="spec-body">We turn dense research into charts, maps and interactive graphics that people actually read — clear, honest and hard to ignore.</p>
+        <div class="spec-stat"><span class="stat-n">−38%</span><span class="stat-c">average time-to-insight across client projects</span></div>
+        <div class="spec-ui"><span class="spec-btn">Start a project</span><span class="spec-link">See our work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION T6 — DM Serif Display + DM Sans
+     ============================================================ -->
+<section class="option type-option" id="t6" style="--td:'DM Serif Display',Georgia,serif; --tb:'DM Sans',sans-serif; --tdw:400; --tdls:0; --tdemw:400;">
+  <div class="wrap option-head">
+    <span class="num">T6</span><h2>DM Serif Display + DM Sans — the classic</h2>
+    <p>A high-contrast display serif with a true italic over a low-contrast geometric sans — designed as a pair, so the fit is effortless. The most "design studio" of the serif routes: elegant, a touch fashionable, calmer than Fraunces. Single display weight keeps the system disciplined.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="t-h1">Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="spec-card" aria-hidden="true">
+        <p class="spec-label">Specimen — in use</p>
+        <h3 class="spec-h">What we do</h3>
+        <p class="spec-body">We turn dense research into charts, maps and interactive graphics that people actually read — clear, honest and hard to ignore.</p>
+        <div class="spec-stat"><span class="stat-n">−38%</span><span class="stat-c">average time-to-insight across client projects</span></div>
+        <div class="spec-ui"><span class="spec-btn">Start a project</span><span class="spec-link">See our work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION T7 — Fraunces + IBM Plex Mono
+     ============================================================ -->
+<section class="option type-option" id="t7" style="--td:'Fraunces',Georgia,serif; --tb:'IBM Plex Mono',monospace; --tm:'IBM Plex Mono',monospace; --tdw:900; --tdls:-0.02em; --tdemw:600; --tbs:0.9375rem;">
+  <div class="wrap option-head">
+    <span class="num">T7</span><h2>Fraunces + IBM Plex Mono — the raw feed</h2>
+    <p>Keeps the current headline face exactly as it is and changes only the second voice: all body copy, captions, labels and buttons move to a monospace. The mono reads like the data itself — raw, precise, a little terminal — against the warmth of Fraunces. The cheapest change with the biggest shift in tone.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="t-h1">Data, designed<br>to tell <em>stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="spec-card" aria-hidden="true">
+        <p class="spec-label">Specimen — in use</p>
+        <h3 class="spec-h">What we do</h3>
+        <p class="spec-body">We turn dense research into charts, maps and interactive graphics that people actually read — clear, honest and hard to ignore.</p>
+        <div class="spec-stat"><span class="stat-n">−38%</span><span class="stat-c">average time-to-insight across client projects</span></div>
+        <div class="spec-ui"><span class="spec-btn">Start a project</span><span class="spec-link">See our work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FIFTH PASS — animating the word "stories"
+     ============================================================ -->
+<div class="pass-strip" id="pass5">
+  <div class="wrap">
+    <h2>Fifth pass — animating the word "stories"</h2>
+    <p>Three violet treatments applied directly to the emphasised word in the headline. Each one draws in, holds for a few seconds, fades and redraws — and each is shown against the current cube-network visual so the two animations can be judged together. Under <code>prefers-reduced-motion</code> the effect holds at its finished state.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     OPTION E1 — Marker underline
+     ============================================================ -->
+<section class="option" id="e1">
+  <div class="wrap option-head">
+    <span class="num">E1</span><h2>Marker underline</h2>
+    <p>A hand-drawn violet stroke sweeps under the word left to right, like a marker pass, holds, lifts and redraws. The gentlest of the three — it decorates without touching the letterforms, so the headline stays perfectly readable throughout.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em class="fx">stories<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <g stroke="#0A0A0A" stroke-width="2" opacity="0.45">
+            <line x1="260" y1="265" x2="255" y2="115"/>
+            <line x1="260" y1="265" x2="115" y2="235"/>
+            <line x1="260" y1="265" x2="400" y2="195"/>
+            <line x1="260" y1="265" x2="180" y2="395"/>
+            <line x1="260" y1="265" x2="375" y2="365"/>
+            <line x1="255" y1="115" x2="400" y2="195"/>
+            <line x1="115" y1="235" x2="180" y2="395"/>
+            <line x1="375" y1="365" x2="400" y2="195"/>
+          </g>
+          <g stroke="#7B7BF0" stroke-width="3" fill="none" stroke-linecap="round">
+            <line class="net-pulse"    x1="260" y1="265" x2="255" y2="115"/>
+            <line class="net-pulse p2" x1="260" y1="265" x2="180" y2="395"/>
+            <line class="net-pulse p3" x1="115" y1="235" x2="260" y2="265"/>
+          </g>
+          <g class="net-node"><use href="#cube" transform="translate(255,115) scale(1.15)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(115,235) scale(0.95)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(400,195) scale(1.05)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(180,395) scale(0.9)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(375,365) scale(1.0)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(260,265) scale(1.6)"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION E2 — Highlighter sweep
+     ============================================================ -->
+<section class="option" id="e2">
+  <div class="wrap option-head">
+    <span class="num">E2</span><h2>Highlighter sweep</h2>
+    <p>A violet band wipes in behind the lower half of the word like a highlighter pass, sits for a few seconds, then retracts. Pure CSS on the <code>&lt;em&gt;</code> — no extra markup at all — and the boldest of the three: a solid block of brand colour inside the headline.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em class="fx-highlight">stories</em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <g stroke="#0A0A0A" stroke-width="2" opacity="0.45">
+            <line x1="260" y1="265" x2="255" y2="115"/>
+            <line x1="260" y1="265" x2="115" y2="235"/>
+            <line x1="260" y1="265" x2="400" y2="195"/>
+            <line x1="260" y1="265" x2="180" y2="395"/>
+            <line x1="260" y1="265" x2="375" y2="365"/>
+            <line x1="255" y1="115" x2="400" y2="195"/>
+            <line x1="115" y1="235" x2="180" y2="395"/>
+            <line x1="375" y1="365" x2="400" y2="195"/>
+          </g>
+          <g stroke="#7B7BF0" stroke-width="3" fill="none" stroke-linecap="round">
+            <line class="net-pulse"    x1="260" y1="265" x2="255" y2="115"/>
+            <line class="net-pulse p2" x1="260" y1="265" x2="180" y2="395"/>
+            <line class="net-pulse p3" x1="115" y1="235" x2="260" y2="265"/>
+          </g>
+          <g class="net-node"><use href="#cube" transform="translate(255,115) scale(1.15)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(115,235) scale(0.95)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(400,195) scale(1.05)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(180,395) scale(0.9)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(375,365) scale(1.0)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(260,265) scale(1.6)"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPTION E3 — Scribble circle
+     ============================================================ -->
+<section class="option" id="e3">
+  <div class="wrap option-head">
+    <span class="num">E3</span><h2>Scribble circle</h2>
+    <p>An editor's loop drawn around the whole word — the pen starts bottom-left, sweeps over the top, closes the loop with a slight overshoot, holds and fades. The most "editorial mark-up" of the three: it reads as someone circling the word that matters.</p>
+  </div>
+  <div class="hero-demo">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Data, designed<br>to tell <em class="fx">stories<svg class="fx-circle-svg" viewBox="0 0 320 130" preserveAspectRatio="none" aria-hidden="true"><path d="M45 98 C 8 60, 60 10, 165 9 C 262 8, 316 38, 313 66 C 310 102, 218 126, 128 119 C 66 114, 36 95, 58 76"/></svg></em><br>that matter.</h1>
+        <p class="hero-sub">We are a data design studio. We bring together research, design and visual storytelling to make complex information clear, honest and hard to ignore.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+          <g stroke="#0A0A0A" stroke-width="2" opacity="0.45">
+            <line x1="260" y1="265" x2="255" y2="115"/>
+            <line x1="260" y1="265" x2="115" y2="235"/>
+            <line x1="260" y1="265" x2="400" y2="195"/>
+            <line x1="260" y1="265" x2="180" y2="395"/>
+            <line x1="260" y1="265" x2="375" y2="365"/>
+            <line x1="255" y1="115" x2="400" y2="195"/>
+            <line x1="115" y1="235" x2="180" y2="395"/>
+            <line x1="375" y1="365" x2="400" y2="195"/>
+          </g>
+          <g stroke="#7B7BF0" stroke-width="3" fill="none" stroke-linecap="round">
+            <line class="net-pulse"    x1="260" y1="265" x2="255" y2="115"/>
+            <line class="net-pulse p2" x1="260" y1="265" x2="180" y2="395"/>
+            <line class="net-pulse p3" x1="115" y1="235" x2="260" y2="265"/>
+          </g>
+          <g class="net-node"><use href="#cube" transform="translate(255,115) scale(1.15)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(115,235) scale(0.95)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(400,195) scale(1.05)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(180,395) scale(0.9)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(375,365) scale(1.0)"/></g>
+          <g class="net-node"><use href="#cube" transform="translate(260,265) scale(1.6)"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="page-foot">
+  <div class="wrap">
+    <p>Internal review page — not linked from the site, <code>noindex</code>. Pick an option (or a mix) and it can be dropped into <code>index.html</code> as a straight swap for the current hero SVG. For the typography options, the swap is the Google Fonts <code>&lt;link&gt;</code> plus the <code>--font-display</code> / <code>--font-body</code> variables in <code>index.html</code>. The word-level effects (E1–E3) are a small CSS block plus, for E1/E3, one inline SVG inside the <code>&lt;em&gt;</code>.</p>
+  </div>
+</footer>
+
+<script>
+/* Option 3: generate the dot grid inside the circle.
+   Deterministic accent placement — no Math.random — so the page
+   renders identically on every load. */
+(function () {
+  var g = document.getElementById('dot-grid');
+  if (!g) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var cx = 260, cy = 260, R = 218, step = 36;
+  for (var row = 0; row < 13; row++) {
+    for (var col = 0; col < 13; col++) {
+      var x = 44 + col * step;
+      var y = 44 + row * step;
+      var dx = x - cx, dy = y - cy;
+      if (Math.sqrt(dx * dx + dy * dy) > R) continue;
+
+      var dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('cx', x);
+      dot.setAttribute('cy', y);
+      dot.setAttribute('class', 'wave-dot');
+
+      var k = col * 7 + row * 11;
+      if (k % 23 === 0) {          // violet outliers
+        dot.setAttribute('r', 7);
+        dot.setAttribute('fill', '#7B7BF0');
+        dot.setAttribute('stroke', '#0A0A0A');
+        dot.setAttribute('stroke-width', '1.5');
+      } else if (k % 17 === 0) {   // mint outliers
+        dot.setAttribute('r', 7);
+        dot.setAttribute('fill', '#9FF29A');
+        dot.setAttribute('stroke', '#0A0A0A');
+        dot.setAttribute('stroke-width', '1.5');
+      } else {
+        dot.setAttribute('r', 4.5);
+        dot.setAttribute('fill', '#0A0A0A');
+      }
+      /* diagonal wave: delay grows along col+row */
+      dot.style.animationDelay = (-(col + row) * 0.16) + 's';
+      g.appendChild(dot);
+    }
+  }
+})();
+
+/* ============================================================
+   Options 7 + 10: JS-projected 3D wireframes.
+   Orthographic projection, one shared rAF loop. Under
+   prefers-reduced-motion a single static frame is drawn.
+   ============================================================ */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function el(parent, tag, attrs) {
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    parent.appendChild(n);
+    return n;
+  }
+
+  /* ---------- Option 7: globe ---------- */
+  var globe = document.getElementById('globe-art');
+  var drawGlobe = function () {};
+  if (globe) {
+    var CX = 260, CY = 260, R = 185, TILT = 0.35;
+    var cosT = Math.cos(TILT), sinT = Math.sin(TILT);
+
+    /* static latitude rings (ellipses under the tilt) */
+    [-50, -25, 0, 25, 50].forEach(function (latDeg) {
+      var lat = latDeg * Math.PI / 180;
+      el(globe, 'ellipse', {
+        cx: CX, cy: CY - R * Math.sin(lat) * cosT,
+        rx: R * Math.cos(lat), ry: Math.max(R * Math.cos(lat) * sinT, 1.5),
+        fill: 'none', stroke: '#0A0A0A', 'stroke-width': 1.5, opacity: 0.28
+      });
+    });
+
+    /* six meridians, redrawn each frame (front half only) */
+    var meridians = [];
+    for (var m = 0; m < 6; m++) {
+      meridians.push(el(globe, 'path', {
+        fill: 'none', stroke: '#0A0A0A', 'stroke-width': 2,
+        opacity: 0.5, 'stroke-linecap': 'round'
+      }));
+    }
+
+    /* data points pinned to the surface: [lat°, lon°, colour] */
+    var POINTS = [
+      [38, 10, '#9FF29A'], [-22, 65, '#7B7BF0'], [12, 130, '#9FF29A'],
+      [55, 200, '#7B7BF0'], [-40, 255, '#9FF29A'], [5, 300, '#7B7BF0'],
+      [30, 330, '#9FF29A'], [-10, 180, '#9FF29A']
+    ];
+    var dots = POINTS.map(function () {
+      return el(globe, 'circle', { r: 6, fill: '#0A0A0A' });
+    });
+
+    drawGlobe = function (t) {
+      var spin = t * 0.45;
+      meridians.forEach(function (path, i) {
+        var lon = i * Math.PI / 3 + spin;
+        var d = '', pen = false;
+        for (var latDeg = -88; latDeg <= 88; latDeg += 4) {
+          var lat = latDeg * Math.PI / 180;
+          var x = Math.cos(lat) * Math.sin(lon);
+          var y = Math.sin(lat);
+          var z = Math.cos(lat) * Math.cos(lon);
+          var y2 = y * cosT - z * sinT;
+          var z2 = y * sinT + z * cosT;
+          if (z2 > 0) {
+            d += (pen ? 'L' : 'M') + (CX + R * x).toFixed(1) + ' ' + (CY - R * y2).toFixed(1);
+            pen = true;
+          } else {
+            pen = false;
+          }
+        }
+        path.setAttribute('d', d || 'M0 0');
+      });
+
+      POINTS.forEach(function (p, i) {
+        var lat = p[0] * Math.PI / 180, lon = p[1] * Math.PI / 180 + spin;
+        var x = Math.cos(lat) * Math.sin(lon);
+        var y = Math.sin(lat);
+        var z = Math.cos(lat) * Math.cos(lon);
+        var y2 = y * cosT - z * sinT;
+        var z2 = y * sinT + z * cosT;
+        var dot = dots[i];
+        dot.setAttribute('cx', (CX + R * x).toFixed(1));
+        dot.setAttribute('cy', (CY - R * y2).toFixed(1));
+        if (z2 > 0) {
+          dot.setAttribute('r', 5 + 2.5 * z2);
+          dot.setAttribute('fill', p[2]);
+          dot.setAttribute('stroke', '#0A0A0A');
+          dot.setAttribute('stroke-width', 2);
+          dot.setAttribute('opacity', 1);
+        } else {
+          dot.setAttribute('r', 3.5);
+          dot.setAttribute('fill', '#0A0A0A');
+          dot.setAttribute('stroke', 'none');
+          dot.setAttribute('opacity', 0.15);
+        }
+      });
+    };
+  }
+
+  /* ---------- Option 10: icosahedron ---------- */
+  var ico = document.getElementById('ico-art');
+  var drawIco = function () {};
+  if (ico) {
+    var ICX = 260, ICY = 260;
+    var PHI = (1 + Math.sqrt(5)) / 2;
+    var raw = [
+      [0, 1, PHI], [0, 1, -PHI], [0, -1, PHI], [0, -1, -PHI],
+      [1, PHI, 0], [1, -PHI, 0], [-1, PHI, 0], [-1, -PHI, 0],
+      [PHI, 0, 1], [-PHI, 0, 1], [PHI, 0, -1], [-PHI, 0, -1]
+    ];
+    var S = 172 / Math.sqrt(1 + PHI * PHI);
+    var verts = raw.map(function (v) { return [v[0] * S, v[1] * S, v[2] * S]; });
+
+    /* edges = vertex pairs at the icosahedron's edge length (2 pre-scale) */
+    var edges = [];
+    for (var i = 0; i < 12; i++) {
+      for (var j = i + 1; j < 12; j++) {
+        var dx = raw[i][0] - raw[j][0], dy = raw[i][1] - raw[j][1], dz = raw[i][2] - raw[j][2];
+        if (dx * dx + dy * dy + dz * dz < 4.2) edges.push([i, j]);
+      }
+    }
+
+    var edgeEls = edges.map(function () {
+      return el(ico, 'line', { stroke: '#0A0A0A', 'stroke-width': 2, 'stroke-linecap': 'round' });
+    });
+    var vertEls = verts.map(function (_, i) {
+      return el(ico, 'circle', { r: 5, fill: i % 2 ? '#7B7BF0' : '#9FF29A' });
+    });
+
+    drawIco = function (t) {
+      var a = t * 0.5, b = t * 0.21 + 0.4;
+      var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+      var proj = verts.map(function (v) {
+        var x1 = v[0] * ca + v[2] * sa;
+        var z1 = -v[0] * sa + v[2] * ca;
+        var y2 = v[1] * cb - z1 * sb;
+        var z2 = v[1] * sb + z1 * cb;
+        return [ICX + x1, ICY - y2, z2];
+      });
+      edgeEls.forEach(function (ln, k) {
+        var p = proj[edges[k][0]], q = proj[edges[k][1]];
+        ln.setAttribute('x1', p[0].toFixed(1)); ln.setAttribute('y1', p[1].toFixed(1));
+        ln.setAttribute('x2', q[0].toFixed(1)); ln.setAttribute('y2', q[1].toFixed(1));
+        var depth = ((p[2] + q[2]) / 2 / 172 + 1) / 2;   /* 0 back … 1 front */
+        ln.setAttribute('opacity', (0.15 + 0.45 * depth).toFixed(2));
+      });
+      vertEls.forEach(function (c, k) {
+        var p = proj[k];
+        c.setAttribute('cx', p[0].toFixed(1));
+        c.setAttribute('cy', p[1].toFixed(1));
+        if (p[2] > 0) {
+          c.setAttribute('r', 5.5 + 2 * p[2] / 172);
+          c.setAttribute('fill', k % 2 ? '#7B7BF0' : '#9FF29A');
+          c.setAttribute('stroke', '#0A0A0A');
+          c.setAttribute('stroke-width', 1.5);
+          c.setAttribute('opacity', 1);
+        } else {
+          c.setAttribute('r', 3.5);
+          c.setAttribute('fill', '#0A0A0A');
+          c.setAttribute('stroke', 'none');
+          c.setAttribute('opacity', 0.25);
+        }
+      });
+    };
+  }
+
+  if (reduce) {
+    /* one readable static frame */
+    drawGlobe(0.9);
+    drawIco(0.9);
+    return;
+  }
+  requestAnimationFrame(function tick(ms) {
+    var t = ms / 1000;
+    drawGlobe(t);
+    drawIco(t);
+    requestAnimationFrame(tick);
+  });
+})();
+
+/* ============================================================
+   Options 11–13: third-pass remixes.
+   A shared icosahedron factory (11 + 12) and a perspective
+   wave field (13), on one rAF loop.
+   ============================================================ */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function el(parent, tag, attrs) {
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    parent.appendChild(n);
+    return n;
+  }
+
+  /* icosahedron factory: builds the wireframe in g, returns draw(t).
+     cfg: { R, speedA, speedB, dash (edge current), pulse (vertex beat) } */
+  function makeIcoDrawer(g, cfg) {
+    var CX = 260, CY = 260;
+    var PHI = (1 + Math.sqrt(5)) / 2;
+    var raw = [
+      [0, 1, PHI], [0, 1, -PHI], [0, -1, PHI], [0, -1, -PHI],
+      [1, PHI, 0], [1, -PHI, 0], [-1, PHI, 0], [-1, -PHI, 0],
+      [PHI, 0, 1], [-PHI, 0, 1], [PHI, 0, -1], [-PHI, 0, -1]
+    ];
+    var S = cfg.R / Math.sqrt(1 + PHI * PHI);
+    var verts = raw.map(function (v) { return [v[0] * S, v[1] * S, v[2] * S]; });
+
+    var edges = [];
+    for (var i = 0; i < 12; i++) {
+      for (var j = i + 1; j < 12; j++) {
+        var dx = raw[i][0] - raw[j][0], dy = raw[i][1] - raw[j][1], dz = raw[i][2] - raw[j][2];
+        if (dx * dx + dy * dy + dz * dz < 4.2) edges.push([i, j]);
+      }
+    }
+
+    var edgeEls = edges.map(function () {
+      var ln = el(g, 'line', { stroke: '#0A0A0A', 'stroke-width': 2, 'stroke-linecap': 'round' });
+      if (cfg.dash) ln.setAttribute('stroke-dasharray', '7 11');
+      return ln;
+    });
+    var vertEls = verts.map(function (_, k) {
+      return el(g, 'circle', { r: 5, fill: k % 2 ? '#7B7BF0' : '#9FF29A' });
+    });
+
+    return function (t) {
+      var a = t * cfg.speedA, b = t * cfg.speedB + 0.4;
+      var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+      var proj = verts.map(function (v) {
+        var x1 = v[0] * ca + v[2] * sa;
+        var z1 = -v[0] * sa + v[2] * ca;
+        var y2 = v[1] * cb - z1 * sb;
+        var z2 = v[1] * sb + z1 * cb;
+        return [CX + x1, CY - y2, z2];
+      });
+      edgeEls.forEach(function (ln, k) {
+        var p = proj[edges[k][0]], q = proj[edges[k][1]];
+        ln.setAttribute('x1', p[0].toFixed(1)); ln.setAttribute('y1', p[1].toFixed(1));
+        ln.setAttribute('x2', q[0].toFixed(1)); ln.setAttribute('y2', q[1].toFixed(1));
+        var depth = ((p[2] + q[2]) / 2 / cfg.R + 1) / 2;
+        ln.setAttribute('opacity', (0.15 + 0.45 * depth).toFixed(2));
+        if (cfg.dash) ln.setAttribute('stroke-dashoffset', (-t * 46).toFixed(1));
+      });
+      vertEls.forEach(function (c, k) {
+        var p = proj[k];
+        c.setAttribute('cx', p[0].toFixed(1));
+        c.setAttribute('cy', p[1].toFixed(1));
+        if (p[2] > 0) {
+          var beat = cfg.pulse ? Math.max(0, Math.sin(t * 5 + k * 2.1)) * 2.2 : 0;
+          c.setAttribute('r', (5.5 + 2 * p[2] / cfg.R + beat).toFixed(1));
+          c.setAttribute('fill', k % 2 ? '#7B7BF0' : '#9FF29A');
+          c.setAttribute('stroke', '#0A0A0A');
+          c.setAttribute('stroke-width', 1.5);
+          c.setAttribute('opacity', 1);
+        } else {
+          c.setAttribute('r', 3.5);
+          c.setAttribute('fill', '#0A0A0A');
+          c.setAttribute('stroke', 'none');
+          c.setAttribute('opacity', 0.25);
+        }
+      });
+    };
+  }
+
+  /* option 11: calm tumble over the streams; option 12: charged */
+  var d11 = function () {}, d12 = function () {}, d13 = function () {};
+  var g11 = document.getElementById('ico2-art');
+  if (g11) d11 = makeIcoDrawer(g11, { R: 148, speedA: 0.5, speedB: 0.21, dash: false, pulse: false });
+  var g12 = document.getElementById('ico3-art');
+  if (g12) d12 = makeIcoDrawer(g12, { R: 172, speedA: 1.5, speedB: 0.85, dash: true, pulse: true });
+
+  /* ---------- option 13: perspective wave field ---------- */
+  var g13 = document.getElementById('wave3d-art');
+  if (g13) {
+    var CX = 260, CY = 282;
+    var ROWZ = [-190, -127, -63, 0, 63, 127, 190];
+    var COLS = ['#7B7BF0', '#0A0A0A', '#9FF29A', '#7B7BF0', '#0A0A0A', '#9FF29A', '#7B7BF0'];
+    var rowEls = ROWZ.map(function (_, i) {
+      var p = el(g13, 'path', { fill: 'none', stroke: COLS[i], 'stroke-linecap': 'round' });
+      if (COLS[i] === '#0A0A0A') p.setAttribute('stroke-dasharray', '6 8');
+      return p;
+    });
+
+    d13 = function (t) {
+      /* sway around a 3/4 view rather than a full turn — a complete
+         rotation passes through edge-on angles where the field collapses */
+      var rot = 0.45 * Math.sin(t * 0.22);
+      var cr = Math.cos(rot), sr = Math.sin(rot);
+      var order = [];
+      ROWZ.forEach(function (z, i) {
+        var d = '';
+        for (var x = -230; x <= 230; x += 12) {
+          var y = 22 * Math.sin(0.018 * x + t * 1.5 + z * 0.014)
+                + 9 * Math.sin(0.04 * x - t * 1.05 + i * 1.3);
+          var xr = x * cr + z * sr;
+          var zr = -x * sr + z * cr;
+          var s = 560 / (560 + zr + 240);
+          var X = CX + xr * s;
+          var Y = CY + (y - zr * 0.6) * s;
+          d += (d ? 'L' : 'M') + X.toFixed(1) + ' ' + Y.toFixed(1);
+        }
+        var smid = 560 / (560 + z * cr + 240);
+        rowEls[i].setAttribute('d', d);
+        rowEls[i].setAttribute('stroke-width', (1.5 + 3.8 * smid).toFixed(2));
+        rowEls[i].setAttribute('opacity', Math.min(1, 0.3 + 0.7 * (smid - 0.55) / 0.32).toFixed(2));
+        order.push([smid, rowEls[i]]);
+      });
+      /* painter's order: farthest rows first, nearest on top */
+      order.sort(function (u, v) { return u[0] - v[0]; });
+      order.forEach(function (o) { g13.appendChild(o[1]); });
+    };
+  }
+
+  if (reduce) {
+    d11(0.9); d12(0.9); d13(0.9);
+    return;
+  }
+  requestAnimationFrame(function tick(ms) {
+    var t = ms / 1000;
+    d11(t); d12(t); d13(t);
+    requestAnimationFrame(tick);
+  });
+})();
+
+/* ============================================================
+   Options 14–16: tumbling icosahedron + floating elements.
+   Each scene has three layers — back / icosahedron / front —
+   and floating pieces hop between back and front by depth.
+   ============================================================ */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CX = 260, CY = 260;
+
+  function el(parent, tag, attrs) {
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+
+  /* the calm tumble from option 10, wired into a given layer */
+  function buildIco(g, R) {
+    var PHI = (1 + Math.sqrt(5)) / 2;
+    var raw = [
+      [0, 1, PHI], [0, 1, -PHI], [0, -1, PHI], [0, -1, -PHI],
+      [1, PHI, 0], [1, -PHI, 0], [-1, PHI, 0], [-1, -PHI, 0],
+      [PHI, 0, 1], [-PHI, 0, 1], [PHI, 0, -1], [-PHI, 0, -1]
+    ];
+    var S = R / Math.sqrt(1 + PHI * PHI);
+    var verts = raw.map(function (v) { return [v[0] * S, v[1] * S, v[2] * S]; });
+    var edges = [];
+    for (var i = 0; i < 12; i++) {
+      for (var j = i + 1; j < 12; j++) {
+        var dx = raw[i][0] - raw[j][0], dy = raw[i][1] - raw[j][1], dz = raw[i][2] - raw[j][2];
+        if (dx * dx + dy * dy + dz * dz < 4.2) edges.push([i, j]);
+      }
+    }
+    var edgeEls = edges.map(function () {
+      return el(g, 'line', { stroke: '#0A0A0A', 'stroke-width': 2, 'stroke-linecap': 'round' });
+    });
+    var vertEls = verts.map(function (_, k) {
+      return el(g, 'circle', { r: 5, fill: k % 2 ? '#7B7BF0' : '#9FF29A' });
+    });
+    return function (t) {
+      var a = t * 0.5, b = t * 0.21 + 0.4;
+      var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+      var proj = verts.map(function (v) {
+        var x1 = v[0] * ca + v[2] * sa;
+        var z1 = -v[0] * sa + v[2] * ca;
+        var y2 = v[1] * cb - z1 * sb;
+        var z2 = v[1] * sb + z1 * cb;
+        return [CX + x1, CY - y2, z2];
+      });
+      edgeEls.forEach(function (ln, k) {
+        var p = proj[edges[k][0]], q = proj[edges[k][1]];
+        ln.setAttribute('x1', p[0].toFixed(1)); ln.setAttribute('y1', p[1].toFixed(1));
+        ln.setAttribute('x2', q[0].toFixed(1)); ln.setAttribute('y2', q[1].toFixed(1));
+        ln.setAttribute('opacity', (0.15 + 0.45 * (((p[2] + q[2]) / 2 / R) + 1) / 2).toFixed(2));
+      });
+      vertEls.forEach(function (c, k) {
+        var p = proj[k];
+        c.setAttribute('cx', p[0].toFixed(1));
+        c.setAttribute('cy', p[1].toFixed(1));
+        if (p[2] > 0) {
+          c.setAttribute('r', (5.5 + 2 * p[2] / R).toFixed(1));
+          c.setAttribute('fill', k % 2 ? '#7B7BF0' : '#9FF29A');
+          c.setAttribute('stroke', '#0A0A0A');
+          c.setAttribute('stroke-width', 1.5);
+          c.setAttribute('opacity', 1);
+        } else {
+          c.setAttribute('r', 3.5);
+          c.setAttribute('fill', '#0A0A0A');
+          c.setAttribute('stroke', 'none');
+          c.setAttribute('opacity', 0.25);
+        }
+      });
+    };
+  }
+
+  /* orbit position in a tilted plane spanned by unit vectors u, v */
+  function orbitPos(o, t) {
+    var th = t * o.speed + o.phase;
+    var c = Math.cos(th), s = Math.sin(th);
+    return [
+      o.r * (c * o.u[0] + s * o.v[0]),
+      o.r * (c * o.u[1] + s * o.v[1]),
+      o.r * (c * o.u[2] + s * o.v[2])
+    ];
+  }
+
+  var d14 = function () {}, d15 = function () {}, d16 = function () {};
+
+  /* ---------- option 14: orbiting geometric satellites ---------- */
+  var g14 = document.getElementById('ico-sat-art');
+  if (g14) {
+    var back14 = el(g14, 'g', {});
+    var icoDraw14 = buildIco(el(g14, 'g', {}), 138);
+    var front14 = el(g14, 'g', {});
+
+    function makeSolid(vertsRaw, edgePairs, size) {
+      var g = el(null, 'g', {});
+      var edgeEls = edgePairs.map(function () {
+        return el(g, 'line', { stroke: '#0A0A0A', 'stroke-width': 1.5, 'stroke-linecap': 'round' });
+      });
+      var vertEls = vertsRaw.map(function (_, k) {
+        return el(g, 'circle', { r: 3, fill: k % 2 ? '#7B7BF0' : '#9FF29A', stroke: '#0A0A0A', 'stroke-width': 1 });
+      });
+      return { g: g, raw: vertsRaw, e: edgePairs, size: size, edgeEls: edgeEls, vertEls: vertEls };
+    }
+
+    var sats = [
+      { shape: makeSolid(
+          [[1, 1, 1], [1, -1, -1], [-1, 1, -1], [-1, -1, 1]],
+          [[0, 1], [0, 2], [0, 3], [1, 2], [1, 3], [2, 3]], 24),
+        orbit: { r: 200, speed: 0.32, phase: 0, u: [1, 0, 0], v: [0, 0.42, 0.91] }, spin: 0.9 },
+      { shape: makeSolid(
+          [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]],
+          [[0, 2], [0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]], 22),
+        orbit: { r: 210, speed: -0.24, phase: 2.2, u: [0.71, 0.71, 0], v: [-0.31, 0.31, 0.9] }, spin: 0.7 },
+      { shape: makeSolid(
+          [[1, 0, 0], [-0.5, 0.87, 0], [-0.5, -0.87, 0]],
+          [[0, 1], [1, 2], [2, 0]], 19),
+        orbit: { r: 192, speed: 0.45, phase: 4.4, u: [0, 1, 0], v: [0.91, 0, 0.42] }, spin: 1.2 }
+    ];
+    var tethers = sats.map(function () {
+      return el(back14, 'line', { stroke: '#0A0A0A', 'stroke-width': 1, 'stroke-dasharray': '3 6', opacity: 0.3 });
+    });
+
+    d14 = function (t) {
+      icoDraw14(t);
+      sats.forEach(function (sat, si) {
+        var c = orbitPos(sat.orbit, t);
+        var sc = 1 + 0.3 * c[2] / sat.orbit.r;       /* nearer = larger */
+        var a = t * sat.spin + si * 2, b = t * 0.4 + si;
+        var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+        var pts = sat.shape.raw.map(function (v) {
+          var x = v[0] * sat.shape.size, y = v[1] * sat.shape.size, z = v[2] * sat.shape.size;
+          var x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
+          var y2 = y * cb - z1 * sb;
+          return [CX + c[0] + x1 * sc, CY - (c[1] + y2 * sc)];
+        });
+        sat.shape.edgeEls.forEach(function (ln, k) {
+          var p = pts[sat.shape.e[k][0]], q = pts[sat.shape.e[k][1]];
+          ln.setAttribute('x1', p[0].toFixed(1)); ln.setAttribute('y1', p[1].toFixed(1));
+          ln.setAttribute('x2', q[0].toFixed(1)); ln.setAttribute('y2', q[1].toFixed(1));
+        });
+        sat.shape.vertEls.forEach(function (cEl, k) {
+          cEl.setAttribute('cx', pts[k][0].toFixed(1));
+          cEl.setAttribute('cy', pts[k][1].toFixed(1));
+        });
+        sat.shape.g.setAttribute('opacity', (0.4 + 0.6 * (c[2] / sat.orbit.r + 1) / 2).toFixed(2));
+        (c[2] >= 0 ? front14 : back14).appendChild(sat.shape.g);
+
+        var tl = tethers[si];
+        tl.setAttribute('x1', (CX + c[0]).toFixed(1)); tl.setAttribute('y1', (CY - c[1]).toFixed(1));
+        tl.setAttribute('x2', (CX + c[0] * 0.3).toFixed(1)); tl.setAttribute('y2', (CY - c[1] * 0.3).toFixed(1));
+      });
+    };
+  }
+
+  /* ---------- option 15: drifting strings ---------- */
+  var g15 = document.getElementById('ico-str-art');
+  if (g15) {
+    var back15 = el(g15, 'g', {});
+    var icoDraw15 = buildIco(el(g15, 'g', {}), 148);
+    var front15 = el(g15, 'g', {});
+
+    var strings = [
+      { color: '#7B7BF0', width: 3.5, speed: 0.5,  phase: 0,   r: 205, u: [1, 0, 0], v: [0, 0.5, 0.866], dash: null },
+      { color: '#9FF29A', width: 3.5, speed: -0.36, phase: 2.1, r: 218, u: [0.766, 0.643, 0], v: [-0.557, 0.663, 0.5], dash: null },
+      { color: '#0A0A0A', width: 2.2, speed: 0.68, phase: 4.2, r: 198, u: [0, 0.643, 0.766], v: [1, 0, 0], dash: '5 7' }
+    ];
+    strings.forEach(function (s) {
+      s.pB = el(back15, 'path', { fill: 'none', stroke: s.color, 'stroke-width': s.width, 'stroke-linecap': 'round', opacity: 0.3 });
+      s.pF = el(front15, 'path', { fill: 'none', stroke: s.color, 'stroke-width': s.width, 'stroke-linecap': 'round' });
+      if (s.dash) { s.pB.setAttribute('stroke-dasharray', s.dash); s.pF.setAttribute('stroke-dasharray', s.dash); }
+      s.bead = el(front15, 'circle', { r: 5.5, fill: s.color, stroke: '#0A0A0A', 'stroke-width': 1.5 });
+    });
+
+    d15 = function (t) {
+      icoDraw15(t);
+      strings.forEach(function (s, i) {
+        var head = t * s.speed + s.phase;
+        var dF = '', dB = '', penF = false, penB = false;
+        var headPt = null;
+        for (var k = 0; k <= 26; k++) {
+          var f = k / 26;
+          var th = head - f * 2.1;
+          var r = s.r + 13 * Math.sin(6.28 * f + t * 1.2 + i * 2);
+          var x = r * (Math.cos(th) * s.u[0] + Math.sin(th) * s.v[0]);
+          var y = r * (Math.cos(th) * s.u[1] + Math.sin(th) * s.v[1]);
+          var z = r * (Math.cos(th) * s.u[2] + Math.sin(th) * s.v[2]);
+          var X = (CX + x).toFixed(1), Y = (CY - y).toFixed(1);
+          if (k === 0) headPt = [X, Y, z];
+          if (z >= 0) { dF += (penF ? 'L' : 'M') + X + ' ' + Y; penF = true; penB = false; }
+          else        { dB += (penB ? 'L' : 'M') + X + ' ' + Y; penB = true; penF = false; }
+        }
+        s.pF.setAttribute('d', dF || 'M-10 -10');
+        s.pB.setAttribute('d', dB || 'M-10 -10');
+        s.bead.setAttribute('cx', headPt[0]);
+        s.bead.setAttribute('cy', headPt[1]);
+        s.bead.setAttribute('opacity', headPt[2] >= 0 ? 1 : 0.25);
+        (headPt[2] >= 0 ? front15 : back15).appendChild(s.bead);
+      });
+    };
+  }
+
+  /* ---------- option 16: linked subnetwork shell ---------- */
+  var g16 = document.getElementById('ico-net-art');
+  if (g16) {
+    var back16 = el(g16, 'g', {});
+    var icoDraw16 = buildIco(el(g16, 'g', {}), 142);
+    var front16 = el(g16, 'g', {});
+
+    /* fibonacci-sphere shell: deterministic, evenly spread */
+    var P = [];
+    var N = 18;
+    for (var i = 0; i < N; i++) {
+      var yy = 1 - 2 * (i + 0.5) / N;
+      var rr = Math.sqrt(Math.max(0, 1 - yy * yy));
+      var ph = i * 2.39996;
+      var rad = 192 + (i % 4) * 13;
+      P.push([rr * Math.cos(ph) * rad, yy * rad, rr * Math.sin(ph) * rad]);
+    }
+    /* sparse links: pairs close on the shell (rigid, so precomputed) */
+    var links = [];
+    for (i = 0; i < N; i++) {
+      for (var j = i + 1; j < N; j++) {
+        var dx = P[i][0] - P[j][0], dy = P[i][1] - P[j][1], dz = P[i][2] - P[j][2];
+        if (Math.sqrt(dx * dx + dy * dy + dz * dz) < 178) links.push([i, j]);
+      }
+    }
+    var linkEls = links.map(function () {
+      return el(back16, 'line', { stroke: '#0A0A0A', 'stroke-width': 1.2 });
+    });
+    var dotEls = P.map(function () { return el(front16, 'circle', { r: 4.5 }); });
+
+    d16 = function (t) {
+      icoDraw16(t);
+      var a = t * 0.16, b = t * 0.07 + 0.3;
+      var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+      var proj = P.map(function (v, k) {
+        var bob = 1 + 0.035 * Math.sin(t * 0.9 + k * 1.7);   /* points breathe */
+        var x = v[0] * bob, y = v[1] * bob, z = v[2] * bob;
+        var x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
+        var y2 = y * cb - z1 * sb, z2 = y * sb + z1 * cb;
+        return [CX + x1, CY - y2, z2];
+      });
+      linkEls.forEach(function (ln, k) {
+        var p = proj[links[k][0]], q = proj[links[k][1]];
+        ln.setAttribute('x1', p[0].toFixed(1)); ln.setAttribute('y1', p[1].toFixed(1));
+        ln.setAttribute('x2', q[0].toFixed(1)); ln.setAttribute('y2', q[1].toFixed(1));
+        ln.setAttribute('opacity', (0.14 + 0.3 * (((p[2] + q[2]) / 2 / 230) + 1) / 2).toFixed(2));
+      });
+      dotEls.forEach(function (c, k) {
+        var p = proj[k];
+        c.setAttribute('cx', p[0].toFixed(1));
+        c.setAttribute('cy', p[1].toFixed(1));
+        if (p[2] > 0) {
+          c.setAttribute('r', (4 + 1.8 * p[2] / 230).toFixed(1));
+          c.setAttribute('fill', k % 3 === 0 ? '#7B7BF0' : k % 3 === 1 ? '#9FF29A' : '#0A0A0A');
+          c.setAttribute('stroke', k % 3 === 2 ? 'none' : '#0A0A0A');
+          c.setAttribute('stroke-width', 1.2);
+          c.setAttribute('opacity', k % 3 === 2 ? 0.6 : 1);
+          front16.appendChild(c);
+        } else {
+          c.setAttribute('r', 2.8);
+          c.setAttribute('fill', '#0A0A0A');
+          c.setAttribute('stroke', 'none');
+          c.setAttribute('opacity', 0.18);
+          back16.appendChild(c);
+        }
+      });
+    };
+  }
+
+  if (reduce) {
+    d14(0.9); d15(0.9); d16(0.9);
+    return;
+  }
+  requestAnimationFrame(function tick(ms) {
+    var t = ms / 1000;
+    d14(t); d15(t); d16(t);
+    requestAnimationFrame(tick);
+  });
+})();
+</script>
+
+</body>
+</html>
