@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Design Workshops — Nutgraf | Research, Design &amp; Storytelling Training</title>
+<meta name="description" content="Nutgraf's flagship workshops teach teams data research, data design and data storytelling, built around state-of-the-art AI used well and safely. On-site or remote.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Nutgraf.studio">
+<link rel="canonical" href="https://nutgraf.studio/workshops/">
+<meta name="theme-color" content="#7B7BF0">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nutgraf.studio">
+<meta property="og:title" content="Data Design Workshops — Nutgraf">
+<meta property="og:description" content="Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI used well and safely.">
+<meta property="og:url" content="https://nutgraf.studio/workshops/">
+<meta property="og:image" content="https://nutgraf.studio/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nutgraf.studio — data design workshops.">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data Design Workshops — Nutgraf">
+<meta name="twitter:description" content="Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI used well and safely.">
+<meta name="twitter:image" content="https://nutgraf.studio/og-image.png">
+<meta name="twitter:image:alt" content="Nutgraf.studio — data design workshops.">
+
+<!-- Structured data: the three workshop modules as Courses,
+     provided by the Organization defined on the home page. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Nutgraf data design workshops",
+  "itemListElement": [
+    {
+      "@type": "Course",
+      "position": 1,
+      "name": "Data research",
+      "description": "Finding, interrogating and verifying data with state-of-the-art AI: source hunting, bias and uncertainty checks, and verification workflows.",
+      "provider": { "@id": "https://nutgraf.studio/#organization" },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": ["onsite", "online"],
+        "courseWorkload": "P1D"
+      }
+    },
+    {
+      "@type": "Course",
+      "position": 2,
+      "name": "Data design",
+      "description": "Turning findings into charts, maps and graphics: choosing the right visual form, prototyping with AI, and designing for the glance.",
+      "provider": { "@id": "https://nutgraf.studio/#organization" },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": ["onsite", "online"],
+        "courseWorkload": "P1D"
+      }
+    },
+    {
+      "@type": "Course",
+      "position": 3,
+      "name": "Data storytelling",
+      "description": "Structuring reports, decks and articles so the finding lands first: the nutgraf method, drafting with AI, and presenting to any room.",
+      "provider": { "@id": "https://nutgraf.studio/#organization" },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": ["onsite", "online"],
+        "courseWorkload": "P1D"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Same font pairing as the home page, plus true Fraunces italics:
+     italic display type is the centrepiece of this page, so the real
+     italic faces are loaded instead of letting the browser slant them. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   NUTGRAF.STUDIO — /workshops/ subpage
+   One violet canvas, typography-first. Sections:
+   NAV / HERO / AI STANCE / MODULES / FORMAT / CTA / FOOTER
+   Contrast rules on violet #7B7BF0 (same maths as the home page):
+   - white passes WCAG AA only as LARGE text (3.54:1) → white is
+     reserved for display type ≥1.5rem regular or ≥1.25rem bold.
+   - black #0A0A0A passes for normal text (5.5:1) → all body copy.
+   - mint #9FF29A on violet is 2.6:1 → decorative strokes and
+     large aria-hidden numerals only, never load-bearing text.
+   ============================================================ */
+
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max-w: 72rem;
+  --pad: 1.5rem;
+}
+
+/* ---------- Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--violet);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.wrap {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+.kicker {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   1. NAV — transparent over the violet, solidifies on scroll
+   ============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+.nav.scrolled {
+  background: var(--violet);
+  box-shadow: 0 1px 0 rgba(10, 10, 10, 0.25);
+}
+.nav-brand {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-brand img {
+  height: 2rem;
+  width: auto;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { border-bottom-color: var(--black); }
+
+/* booking chip: black pill, mint wipe on hover (home-page pattern) */
+.nav-links a.chip {
+  background: var(--black);
+  color: var(--cream);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border-bottom: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0;
+  transition: color 0.3s ease;
+}
+.nav-links a.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mint);
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+.nav-links a.chip:hover,
+.nav-links a.chip:focus-visible {
+  border-bottom: none;
+  color: var(--black);
+}
+.nav-links a.chip:hover::before,
+.nav-links a.chip:focus-visible::before {
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a.chip, .nav-links a.chip::before { transition: none; }
+}
+
+@media (max-width: 599px) {
+  .nav-brand img { height: 2.5rem; }
+  .nav-links { gap: 0.875rem; }
+  .nav-links a { font-size: 0.875rem; }
+  /* Only the booking chip stays in the bar on mobile */
+  .nav-links a:not(.chip) { display: none; }
+}
+
+/* ============================================================
+   2. HERO — the headline is the visual
+   ============================================================ */
+.hero {
+  min-height: 88svh;
+  display: grid;
+  align-items: center;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+.hero-grid { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 3rem; }
+}
+.hero .kicker { color: var(--black); }
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(2.75rem, 8.5vw, 6rem);
+  /* 15ch rags the headline as "Teach your team / to speak data / fluently." */
+  max-width: 15ch;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 600;
+  /* italic descenders (g) need breathing room at this line-height */
+  line-height: 1.1;
+}
+.hero-sub {
+  margin-top: 1.5rem;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  max-width: 32rem;
+  font-weight: 500;
+}
+.hero-actions { margin-top: 2.25rem; }
+
+/* ---------- Spinning cube (true CSS 3D), from header-options.html ---------- */
+.hero-visual { margin-inline: auto; width: min(100%, 26rem); }
+.scene3d { position: relative; width: min(100%, 26rem); aspect-ratio: 1; margin-inline: auto; }
+.scene3d .backdrop { position: absolute; inset: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.8); }
+.stage3d { position: absolute; inset: 0; display: grid; place-items: center; perspective: 1000px; }
+.cube3d-spin {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  transform-style: preserve-3d;
+  animation: cube3d-turn 14s linear infinite;
+}
+@keyframes cube3d-turn {
+  from { transform: rotateX(-22deg) rotateY(0deg); }
+  to   { transform: rotateX(-22deg) rotateY(360deg); }
+}
+.face { position: absolute; inset: 0; border: 2.5px solid var(--black); }
+.face.f-front  { background: var(--violet); transform: translateZ(85px); }
+.face.f-back   { background: var(--violet); transform: rotateY(180deg) translateZ(85px); }
+.face.f-right  { background: var(--cream);  transform: rotateY(90deg) translateZ(85px); }
+.face.f-left   { background: var(--cream);  transform: rotateY(-90deg) translateZ(85px); }
+.face.f-top    { background: var(--mint);   transform: rotateX(90deg) translateZ(85px); }
+.face.f-bottom { background: var(--black);  transform: rotateX(-90deg) translateZ(85px); }
+.cube-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 16%;
+  width: 200px;
+  height: 26px;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 10, 0.2);
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: shadow-breathe 3.5s ease-in-out infinite;
+}
+@keyframes shadow-breathe {
+  0%, 100% { transform: translateX(-50%) scaleX(1); }
+  50%      { transform: translateX(-50%) scaleX(1.18); }
+}
+
+/* ---------- Headline emphasis: mint marker underline ---------- */
+.fx { position: relative; white-space: nowrap; }
+.fx-underline-svg {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.14em;
+  width: 106%;
+  max-width: none;
+  height: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+.fx-underline-svg path {
+  fill: none;
+  stroke: var(--mint);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  animation: fx-underline-draw 4.5s ease-in-out infinite;
+}
+@keyframes fx-underline-draw {
+  0%        { stroke-dashoffset: 330; opacity: 1; }
+  28%, 78%  { stroke-dashoffset: 0;   opacity: 1; }
+  90%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx-underline-svg path { animation: none; stroke-dashoffset: 0; }
+}
+
+/* ---------- Buttons (home-page pattern) ---------- */
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.875rem 1.75rem;
+  border: 2px solid var(--black);
+  background: var(--black);
+  color: var(--mint);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover, .btn:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--mint);
+}
+
+/* ============================================================
+   3. AI STANCE — one large typographic statement
+   ============================================================ */
+.stance { padding-block: 5.5rem; border-top: 2px solid rgba(255, 255, 255, 0.45); }
+.stance h2 {
+  color: var(--white);
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  max-width: 18ch;
+}
+.stance h2 em { font-style: italic; font-weight: 600; }
+.stance p {
+  margin-top: 1.5rem;
+  max-width: 40rem;
+  font-weight: 500;
+  font-size: clamp(1.0625rem, 1.8vw, 1.1875rem);
+}
+
+/* ============================================================
+   4. MODULES — the flagship curriculum
+   ============================================================ */
+.modules { padding-bottom: 3rem; }
+
+.module {
+  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  padding-block: 4.5rem;
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 900px) {
+  .module { grid-template-columns: 1fr 1.15fr; gap: 4rem; }
+}
+
+/* Layered numeral: mint figure with a ghosted offset copy behind it,
+   echoing the brand wordmark treatment. Decorative, aria-hidden. */
+.module-no {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(4rem, 9vw, 6.5rem);
+  line-height: 0.9;
+  color: var(--mint);
+  z-index: 0;
+}
+.module-no::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0.1em;
+  top: -0.1em;
+  color: rgba(10, 10, 10, 0.22);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.module-head h2 {
+  color: var(--white);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  margin-top: 1.25rem;
+}
+.module-tag {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  line-height: 1.35;
+  color: var(--black);
+}
+
+/* The three sub-points: mint rule, bold lead-in, plain body */
+.module-points {
+  list-style: none;
+  display: grid;
+  gap: 2rem;
+  align-content: center;
+}
+.module-points li {
+  border-left: 3px solid var(--mint);
+  padding-left: 1.375rem;
+}
+.module-points strong {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.module-points p { font-size: 0.9375rem; max-width: 34rem; }
+
+/* ============================================================
+   5. FORMAT — practical details, type only
+   ============================================================ */
+.format {
+  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  padding-block: 4.5rem;
+}
+.format-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 700px) {
+  .format-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.format-item .label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--black);
+  margin-bottom: 0.625rem;
+}
+.format-item .value {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.15;
+  color: var(--white);
+}
+.format-note {
+  margin-top: 2.75rem;
+  max-width: 44rem;
+  font-weight: 500;
+}
+
+/* ============================================================
+   6. CTA
+   ============================================================ */
+.cta {
+  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  padding-block: 6.5rem;
+  text-align: center;
+}
+.cta h2 {
+  color: var(--white);
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  max-width: 18ch;
+  margin-inline: auto;
+}
+.cta h2 em { font-style: italic; font-weight: 600; }
+.cta p {
+  margin: 1.5rem auto 2.5rem;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* ============================================================
+   7. FOOTER — black, same as home
+   ============================================================ */
+.footer {
+  background: var(--black);
+  color: var(--cream);
+  padding-block: 3rem;
+}
+.footer-brand { display: inline-flex; align-items: center; }
+.footer-brand img { height: 2.25rem; width: auto; display: block; }
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+.footer a { color: var(--cream); }
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+.footer-meta a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.footer-meta a:hover { color: var(--mint); }
+
+/* ---------- Scroll-reveal (progressive enhancement) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn { transition: none; }
+  .cube3d-spin, .cube-shadow { animation: none; }
+  .cube3d-spin { transform: rotateX(-22deg) rotateY(35deg); }
+}
+</style>
+</head>
+<body>
+
+<span id="top"></span>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     1. NAV
+     ============================================================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="/"><img src="../logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="/">Studio</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a class="chip" href="#book">Book a workshop</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     2. HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Flagship workshops</span>
+      <h1>Teach your team to speak data <em class="fx">fluently.<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em></h1>
+      <p class="hero-sub">Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI, used well and used safely.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#book">Book a workshop</a>
+      </div>
+    </div>
+    <!-- Spinning cube, adapted from header-options.html option 8: same
+         brand cube, true CSS 3D, decorative. Static frame held under
+         prefers-reduced-motion. -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="scene3d">
+        <div class="backdrop"></div>
+        <div class="cube-shadow"></div>
+        <div class="stage3d">
+          <div class="cube3d-spin">
+            <div class="face f-front"></div>
+            <div class="face f-back"></div>
+            <div class="face f-right"></div>
+            <div class="face f-left"></div>
+            <div class="face f-top"></div>
+            <div class="face f-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. AI STANCE
+     ============================================================ -->
+<section class="stance">
+  <div class="wrap reveal">
+    <h2>State-of-the-art AI runs through every module.</h2>
+    <p>Frontier models now find, draft and prototype faster than any team can alone. We teach you to use that speed, and to keep what matters human: verification, judgement, and control over your own data.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. MODULES
+     ============================================================ -->
+<section class="modules" id="modules" aria-label="Workshop modules">
+
+  <article class="module wrap reveal">
+    <div class="module-head">
+      <span class="module-no" data-text="1" aria-hidden="true">1</span>
+      <h2>Data research</h2>
+      <p class="module-tag">Find it, question it, trust it.</p>
+    </div>
+    <ol class="module-points">
+      <li>
+        <strong>Finding the numbers</strong>
+        <p>Use frontier AI to locate, extract and structure data from public sources, archives and your own documents in hours, not weeks.</p>
+      </li>
+      <li>
+        <strong>Interrogating the data</strong>
+        <p>Test for bias, gaps and uncertainty. Learn what your data can honestly claim, and where it stays silent.</p>
+      </li>
+      <li>
+        <strong>Verifying every claim</strong>
+        <p>Build fact-checking workflows that treat every AI output as a claim to check, never a fact to paste.</p>
+      </li>
+    </ol>
+  </article>
+
+  <article class="module wrap reveal">
+    <div class="module-head">
+      <span class="module-no" data-text="2" aria-hidden="true">2</span>
+      <h2>Data design</h2>
+      <p class="module-tag">Give every finding its clearest form.</p>
+    </div>
+    <ol class="module-points">
+      <li>
+        <strong>Choosing the right form</strong>
+        <p>Chart, map, diagram or table: match each finding to the visual form that carries it best, before touching any tool.</p>
+      </li>
+      <li>
+        <strong>Prototyping with AI</strong>
+        <p>Sketch ten visual directions in the time one used to take, then apply human judgement to pick and refine the winner.</p>
+      </li>
+      <li>
+        <strong>Designing for the glance</strong>
+        <p>Hierarchy, colour and annotation that make the point land in seconds, on any screen and in print.</p>
+      </li>
+    </ol>
+  </article>
+
+  <article class="module wrap reveal">
+    <div class="module-head">
+      <span class="module-no" data-text="3" aria-hidden="true">3</span>
+      <h2>Data storytelling</h2>
+      <p class="module-tag">Make it land, make it stick.</p>
+    </div>
+    <ol class="module-points">
+      <li>
+        <strong>Leading with the nutgraf</strong>
+        <p>Put the finding where nobody can miss it. Structure reports, decks and articles the way the best newsrooms do.</p>
+      </li>
+      <li>
+        <strong>Drafting with AI, editing like an editor</strong>
+        <p>Use language models for first drafts, summaries and translations, while voice, facts and nuance stay under your control.</p>
+      </li>
+      <li>
+        <strong>Presenting to the room</strong>
+        <p>Turn the analysis into briefings and talks calibrated to boards, funders, journalists or the public.</p>
+      </li>
+    </ol>
+  </article>
+
+</section>
+
+<!-- ============================================================
+     5. FORMAT
+     ============================================================ -->
+<section class="format">
+  <div class="wrap reveal">
+    <div class="format-grid">
+      <div class="format-item">
+        <span class="label">Length</span>
+        <span class="value">Half a day to two days</span>
+      </div>
+      <div class="format-item">
+        <span class="label">Where</span>
+        <span class="value">Your office, or remote</span>
+      </div>
+      <div class="format-item">
+        <span class="label">Group</span>
+        <span class="value">Six to twenty people</span>
+      </div>
+    </div>
+    <p class="format-note">Every workshop runs on your own data. Your team leaves with working methods, reusable templates, and at least one real piece of work already improved.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. CTA
+     ============================================================ -->
+<section class="cta" id="book">
+  <div class="wrap reveal">
+    <h2>Your next superpower is already <em>in your data.</em></h2>
+    <p>Tell us where your team struggles: the research, the visuals or the story. We will shape the modules around it and send a proposal within a week.</p>
+    <a class="btn" href="mailto:hello@nutgraf.studio?subject=Workshop%20booking">Book a workshop</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     7. FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="footer-brand" href="/"><img src="../logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
+    <div class="footer-meta">
+      <a href="/">Back to the studio</a>
+      <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav: solidify on scroll */
+(function () {
+  var nav = document.querySelector('.nav');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* Scroll-reveal (skipped when the user prefers reduced motion) */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
