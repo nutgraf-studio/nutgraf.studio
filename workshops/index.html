@@ -84,6 +84,99 @@
 }
 </script>
 
+<!-- WebPage entity: ties the page to the site-wide Organization/WebSite
+     and marks the headline + FAQ answers as "speakable" for voice
+     assistants and AI answer engines. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://nutgraf.studio/workshops/#webpage",
+  "url": "https://nutgraf.studio/workshops/",
+  "name": "Data Design Workshops — Nutgraf",
+  "description": "Nutgraf's flagship workshops teach teams data research, data design and data storytelling, built around state-of-the-art AI used well and safely. On-site or remote.",
+  "inLanguage": "en-GB",
+  "isPartOf": { "@type": "WebSite", "name": "Nutgraf.studio", "url": "https://nutgraf.studio/" },
+  "about": { "@id": "https://nutgraf.studio/#organization" },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".hero-sub", ".faq-item dt", ".faq-item dd"]
+  }
+}
+</script>
+
+<!-- Breadcrumb: Home > Workshops -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Nutgraf.studio", "item": "https://nutgraf.studio/" },
+    { "@type": "ListItem", "position": 2, "name": "Workshops", "item": "https://nutgraf.studio/workshops/" }
+  ]
+}
+</script>
+
+<!-- FAQ: mirrors the on-page "Frequently asked questions" section below.
+     Feeds Google's FAQ rich results and gives AI answer engines
+     (ChatGPT, Perplexity, Copilot, Gemini) clean, quotable Q&A pairs. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Nutgraf data design workshop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A flagship, hands-on training session where your team learns to find, design and tell stories with your own data, using state-of-the-art AI as an accelerant. Workshops run on-site or remote, from half a day to four days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who are the workshops for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Teams who work with data but aren't data specialists: communications, policy, research, NGO and public-sector teams that need to turn numbers into reports, charts and briefings colleagues actually read."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do participants need a data or design background?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No prior data or design experience is required. The three modules — data research, data design and data storytelling — are built to take any team from raw numbers to a finished, presentable piece of work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is AI used in the training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every module teaches state-of-the-art AI tools for finding sources, prototyping visuals and drafting text, paired with human verification, judgement and fact-checking, so speed never comes at the cost of accuracy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a workshop take, and where does it run?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Between half a day and four days, delivered at your office or remotely, for groups of six to twenty people."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a workshop cost, and how do we book one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pricing depends on scope, group size and format. Email hello@nutgraf.studio or use the \"Book a workshop\" button to tell us where your team struggles, and we'll send a tailored proposal within a week."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Same font pairing as the home page, plus true Fraunces italics:
      italic display type is the centrepiece of this page, so the real
      italic faces are loaded instead of letting the browser slant them. -->
@@ -95,7 +188,7 @@
 /* ============================================================
    NUTGRAF.STUDIO — /workshops/ subpage
    One violet canvas, typography-first. Sections:
-   NAV / HERO / AI STANCE / MODULES / FORMAT / CTA / FOOTER
+   NAV / HERO / AI STANCE / MODULES / FORMAT / FAQ / CTA / FOOTER
    Contrast rules on violet #7B7BF0 (same maths as the home page):
    - white passes WCAG AA only as LARGE text (3.54:1) → white is
      reserved for display type ≥1.5rem regular or ≥1.25rem bold.
@@ -190,6 +283,7 @@ h1, h2, h3 {
   box-shadow: 0 1px 0 rgba(10, 10, 10, 0.25);
 }
 .nav-brand {
+  font-size: 1.25rem;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -252,12 +346,31 @@ h1, h2, h3 {
   .nav-links a.chip, .nav-links a.chip::before { transition: none; }
 }
 
+.nav-links a.icon-link {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: none;
+  opacity: 0.85;
+  padding: 0.4rem 0; /* matches .chip's vertical padding so both sit at the same height */
+}
+.nav-links a.icon-link:hover,
+.nav-links a.icon-link:focus-visible {
+  border-bottom: none;
+  opacity: 1;
+}
+.nav-links a.icon-link svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
 @media (max-width: 599px) {
   .nav-brand img { height: 2.5rem; }
   .nav-links { gap: 0.875rem; }
   .nav-links a { font-size: 0.875rem; }
-  /* Only the booking chip stays in the bar on mobile */
-  .nav-links a:not(.chip) { display: none; }
+  /* Only the booking chip and the Instagram icon stay in the bar on mobile */
+  .nav-links a:not(.chip):not(.icon-link) { display: none; }
+  .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
 }
 
 /* ============================================================
@@ -507,7 +620,40 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   6. CTA
+   6. FAQ — plain Q&A, always expanded (crawlable without JS,
+   mirrors the FAQPage structured data in <head>)
+   ============================================================ */
+.faq {
+  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  padding-block: 4.5rem;
+}
+.faq h2 {
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3rem);
+  max-width: 20ch;
+}
+.faq-list {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1.75rem;
+}
+@media (min-width: 700px) {
+  .faq-list { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; }
+}
+.faq-item {
+  border-left: 3px solid var(--mint);
+  padding-left: 1.375rem;
+}
+.faq-item dt {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 0.375rem;
+}
+.faq-item dd { font-size: 0.9375rem; max-width: 34rem; }
+
+/* ============================================================
+   7. CTA
    ============================================================ */
 .cta {
   border-top: 2px solid rgba(255, 255, 255, 0.45);
@@ -529,7 +675,7 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   7. FOOTER — black, same as home
+   8. FOOTER — black, same as home
    ============================================================ */
 .footer {
   background: var(--black);
@@ -588,7 +734,15 @@ h1, h2, h3 {
       <ul class="nav-links">
         <li><a href="/">Studio</a></li>
         <li><a href="#modules">Modules</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a class="chip" href="#book">Book a workshop</a></li>
+        <li>
+          <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.77 1.153a4.902 4.902 0 0 1 1.153 1.77c.249.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.216 1.79-.465 2.428a4.902 4.902 0 0 1-1.153 1.77 4.902 4.902 0 0 1-1.77 1.153c-.637.249-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.216-2.428-.465a4.902 4.902 0 0 1-1.77-1.153 4.902 4.902 0 0 1-1.153-1.77c-.249-.637-.415-1.363-.465-2.428C2.01 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.065.216-1.79.465-2.428a4.902 4.902 0 0 1 1.153-1.77A4.902 4.902 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.01 9.283 2 12 2Zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.467.181-.8.398-1.15.748-.35.35-.567.683-.748 1.15-.137.353-.3.882-.344 1.858-.05 1.054-.06 1.37-.06 4.04s.01 2.986.06 4.04c.045.976.207 1.505.344 1.858.181.467.398.8.748 1.15.35.35.683.567 1.15.748.353.137.882.3 1.858.344 1.054.05 1.37.06 4.04.06s2.986-.01 4.04-.06c.976-.045 1.505-.207 1.858-.344.467-.181.8-.398 1.15-.748.35-.35.567-.683.748-1.15.137-.353.3-.882.344-1.858.05-1.054.06-1.37.06-4.04s-.01-2.986-.06-4.04c-.045-.976-.207-1.505-.344-1.858a3.1 3.1 0 0 0-.748-1.15 3.1 3.1 0 0 0-1.15-.748c-.353-.137-.882-.3-1.858-.344-1.054-.05-1.37-.059-4.04-.059Zm0 3.064a5.134 5.134 0 1 1 0 10.268 5.134 5.134 0 0 1 0-10.268Zm0 1.802a3.332 3.332 0 1 0 0 6.664 3.332 3.332 0 0 0 0-6.664Zm5.338-1.982a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/>
+            </svg>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -722,7 +876,7 @@ h1, h2, h3 {
     <div class="format-grid">
       <div class="format-item">
         <span class="label">Length</span>
-        <span class="value">Half a day to two days</span>
+        <span class="value">Half a day to four days</span>
       </div>
       <div class="format-item">
         <span class="label">Where</span>
@@ -738,7 +892,42 @@ h1, h2, h3 {
 </section>
 
 <!-- ============================================================
-     6. CTA
+     6. FAQ — content mirrors the FAQPage structured data in <head>
+     ============================================================ -->
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <div class="wrap reveal">
+    <h2 id="faq-heading">Frequently asked questions</h2>
+    <dl class="faq-list">
+      <div class="faq-item">
+        <dt>What is a Nutgraf data design workshop?</dt>
+        <dd>A flagship, hands-on training session where your team learns to find, design and tell stories with your own data, using state-of-the-art AI as an accelerant. Workshops run on-site or remote, from half a day to four days.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Who are the workshops for?</dt>
+        <dd>Teams who work with data but aren't data specialists: communications, policy, research, NGO and public-sector teams that need to turn numbers into reports, charts and briefings colleagues actually read.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Do participants need a data or design background?</dt>
+        <dd>No prior data or design experience is required. The three modules — data research, data design and data storytelling — are built to take any team from raw numbers to a finished, presentable piece of work.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>How is AI used in the training?</dt>
+        <dd>Every module teaches state-of-the-art AI tools for finding sources, prototyping visuals and drafting text, paired with human verification, judgement and fact-checking, so speed never comes at the cost of accuracy.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>How long does a workshop take, and where does it run?</dt>
+        <dd>Between half a day and four days, delivered at your office or remotely, for groups of six to twenty people.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>How much does a workshop cost, and how do we book one?</dt>
+        <dd>Pricing depends on scope, group size and format. Email <a href="mailto:hello@nutgraf.studio">hello@nutgraf.studio</a> or use the "Book a workshop" button to tell us where your team struggles, and we'll send a tailored proposal within a week.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. CTA
      ============================================================ -->
 <section class="cta" id="book">
   <div class="wrap reveal">
@@ -751,7 +940,7 @@ h1, h2, h3 {
 </main>
 
 <!-- ============================================================
-     7. FOOTER
+     8. FOOTER
      ============================================================ -->
 <footer class="footer">
   <div class="wrap footer-inner">

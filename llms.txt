@@ -1,0 +1,15 @@
+# Nutgraf.studio
+
+> Nutgraf is a data design studio. We turn client data into charts, graphics, reports, maps and interactive visualisations that audiences understand, remember and act on. We also run flagship workshops that teach teams data research, data design and data storytelling, built around state-of-the-art AI used well and safely.
+
+Nutgraf works with newsrooms, NGOs, cultural institutions and public-sector clients including the BBC, the Financial Times, Médecins Sans Frontières, Afrobarometer and the Istituto Italiano di Cultura. Studio and workshops are available worldwide, on-site or remote.
+
+## Pages
+
+- [Studio](https://nutgraf.studio/): Services, methodology and selected work — data design, research and reports, mapping and visualisations.
+- [Workshops](https://nutgraf.studio/workshops/): Flagship half-day-to-two-day workshops in data research, data design and data storytelling for teams, built around state-of-the-art AI. Includes format, pricing approach and frequently asked questions.
+
+## Contact
+
+- Email: hello@nutgraf.studio
+- Instagram: https://www.instagram.com/nutgraf.studio
