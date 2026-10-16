@@ -458,6 +458,9 @@ h1, h2, h3 {
   /* contrast kept low so the panels' charts and text stay readable */
   filter: grayscale(1) contrast(1.3) brightness(1.05) blur(0.4px);
 }
+/* iOS draws a play glyph over a film it won't autoplay; the first tap
+   starts the film instead (see the script next to the <video>) */
+.hero-media video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
 .hero-tint {
   background: #3DFF6E;
   mix-blend-mode: multiply;
@@ -1133,7 +1136,9 @@ h1, h2, h3 {
     /* Pick the loop for this screen: the 9:16 reframe (keeps Piero and
        the panels in shot) for phones held upright, 720p for other small
        screens, 1080p otherwise. Reduced motion: the poster only, no
-       download. Pauses while the hero is scrolled away. */
+       download. Pauses while the hero is scrolled away. iPhones in
+       Low Power Mode refuse to autoplay even a muted film but let a
+       tap start it, so each tap or key tries again until it runs. */
     (function () {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       var v = document.getElementById('hero-video');
@@ -1141,13 +1146,28 @@ h1, h2, h3 {
       var size = mq('(orientation: portrait) and (max-width: 900px)') ? 'portrait'
                : mq('(max-width: 900px)') ? '720' : '1080';
       v.src = 'media/intre-noi-loop-piero-' + size + '.mp4';
-      function play() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      var inView = true;
+      function play() {
+        if (!inView) return;
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      }
       play();
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(function (entries) {
-          if (entries[0].isIntersecting) play(); else v.pause();
+          inView = entries[0].isIntersecting;
+          if (inView) play(); else v.pause();
         }).observe(document.querySelector('.hero'));
       }
+      // links and buttons start it on their own click, left undelayed
+      var gestures = ['touchend', 'click', 'keydown'];
+      function retry(e) {
+        if (e.type === 'touchend' && e.target.closest && e.target.closest('a, button')) return;
+        if (v.paused) play();
+      }
+      gestures.forEach(function (ev) { window.addEventListener(ev, retry, { passive: true }); });
+      v.addEventListener('playing', function () {
+        gestures.forEach(function (ev) { window.removeEventListener(ev, retry); });
+      }, { once: true });
     })();
     </script>
     <div class="hero-tint"></div>

@@ -349,6 +349,9 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   height: 100%;
   object-fit: cover;
 }
+/* iOS draws a play glyph over a film it won't autoplay; the first tap
+   starts the film instead (see "Hero" in the script) */
+.hero-media video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
 /* Scrim: the copy sits bottom-left, the nav on top. White-on-film
    needs a real backing, not just a hopeful shadow. */
 .hero-scrim {
@@ -1650,6 +1653,21 @@ var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   window.heroVideo = { apply: apply };
 
   if (reduceMotion) return;
+
+  // iPhones in Low Power Mode refuse to autoplay even a muted film but
+  // let a tap start it, so each tap or key tries again until it runs.
+  // Links and buttons wait for their own click, which starting the film
+  // on touchend would delay until the intro had moved them.
+  var gestures = ['touchend', 'click', 'keydown'];
+  function retry(e) {
+    if (e.type === 'touchend' && e.target.closest && e.target.closest('a, button')) return;
+    if (video.paused) apply();
+  }
+  gestures.forEach(function (ev) { window.addEventListener(ev, retry, { passive: true }); });
+  video.addEventListener('playing', function () {
+    gestures.forEach(function (ev) { window.removeEventListener(ev, retry); });
+  }, { once: true });
+
   var ticking = false;
   function onScroll() {
     if (ticking) return;
