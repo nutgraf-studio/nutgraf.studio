@@ -213,6 +213,10 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   justify-content: space-between;
   gap: 1rem;
   padding-block: 1rem;
+  /* home and workshops' container, not this page's wider one, so the
+     bar keeps its place from page to page */
+  max-width: 72rem;
+  padding-inline: 1.5rem;
 }
 .nav.scrolled {
   background: var(--black);
@@ -276,17 +280,16 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .nav-links a.icon-link svg { width: 1.5rem; height: 1.5rem; max-width: none; flex-shrink: 0; fill: currentColor; }
 
 @media (max-width: 599px) {
-  /* the longer booking label needs a slightly smaller mark to fit 360px */
-  .nav-brand img { height: 2rem; }
   .nav-links { gap: 0.875rem; }
   .nav-links a { font-size: 0.875rem; }
-  .nav-links a:not(.chip):not(.icon-link) { display: none; }
+  /* hide the whole item, or its empty slot keeps a gap and squeezes the logo */
+  .nav-links li:has(> a:not(.chip):not(.icon-link)) { display: none; }
   .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
 }
 
 /* Tablet: in-page anchors step aside so the cross-page links fit */
 @media (min-width: 600px) and (max-width: 819px) {
-  .nav-links a[href^="#"]:not(.chip) { display: none; }
+  .nav-links li:has(> a[href^="#"]:not(.chip)) { display: none; }
 }
 
 /* nav waits for the iris to open */

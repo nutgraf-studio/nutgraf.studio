@@ -371,21 +371,23 @@ h1, h2, h3 {
 .nav-links a.icon-link svg {
   width: 1.5rem;
   height: 1.5rem;
+  max-width: none; /* never squeezed out when the bar is tight */
+  flex-shrink: 0;
   fill: currentColor;
 }
 
 @media (max-width: 599px) {
-  .nav-brand img { height: 2.5rem; }
   .nav-links { gap: 0.875rem; }
   .nav-links a { font-size: 0.875rem; }
   /* Only the booking chip and the Instagram icon stay in the bar on mobile */
-  .nav-links a:not(.chip):not(.icon-link) { display: none; }
+  /* hide the whole item, or its empty slot keeps a gap and squeezes the logo */
+  .nav-links li:has(> a:not(.chip):not(.icon-link)) { display: none; }
   .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
 }
 
 /* Tablet: in-page anchors step aside so the cross-page links fit */
 @media (min-width: 600px) and (max-width: 819px) {
-  .nav-links a[href^="#"]:not(.chip) { display: none; }
+  .nav-links li:has(> a[href^="#"]:not(.chip)) { display: none; }
 }
 
 /* ============================================================
