@@ -113,7 +113,7 @@ setTimeout(function () {
    NUTGRAF.STUDIO — /exhibitions/ subpage
    Cinematic black hero, gallery-wall cream for reading, violet
    for the ask. Sections:
-   NAV / HERO (intro loader + iris) / TICKER / INTRO / CASE STUDY /
+   NAV / HERO (intro loader + iris) / INTRO / CASE STUDY /
    GALLERY / PROCESS / CTA / FOOTER / DIALOGS (film, lightbox)
    Contrast: cream on black and black on cream pass AA at any size.
    White on violet passes only as large text (3.54:1), so violet
@@ -622,34 +622,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 @media (max-width: 1023px) { .scroll-cue { display: none; } }
 
 /* ============================================================
-   3. TICKER — violet band, the subjects an exhibition can carry
-   ============================================================ */
-.ticker {
-  background: var(--violet);
-  color: var(--white);
-  overflow: hidden;
-  padding-block: 1.25rem;
-  border-block: 2px solid var(--black);
-}
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker 48s linear infinite;
-}
-.ticker-track span {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(1.75rem, 3.8vw, 3rem);
-  letter-spacing: -0.02em;
-  line-height: 1;
-  white-space: nowrap;
-  padding-right: 0.5em;
-}
-.ticker-track span:nth-child(even) { font-style: italic; font-weight: 600; color: var(--black); }
-@keyframes ticker { to { transform: translateX(-50%); } }
-
-/* ============================================================
-   4. INTRO — the pitch, as a statement that lights up on scroll
+   3. INTRO — the pitch, as a statement that lights up on scroll
    ============================================================ */
 .pitch {
   background: var(--cream);
@@ -689,7 +662,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .values p { font-size: 0.9375rem; max-width: 30rem; }
 
 /* ============================================================
-   5. CASE STUDY — Între noi
+   4. CASE STUDY — Între noi
    ============================================================ */
 .case {
   background: var(--black);
@@ -730,10 +703,12 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   margin-bottom: 0.375rem;
 }
 .case-facts dd { font-size: 0.9375rem; font-weight: 500; }
-.case-facts .logos { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
-.case-facts .logos img { filter: brightness(0) invert(0.92); width: auto; }
-.case-facts .logo-iic { height: 2.5rem; }
-.case-facts .logo-ita { height: 2rem; }
+/* partner logos get the full row */
+.case-facts .case-partners { grid-column: 1 / -1; }
+.case-facts .logos { display: flex; align-items: center; gap: 1.5rem 2.25rem; flex-wrap: wrap; margin-top: 0.25rem; }
+.case-facts .logos img { filter: brightness(0) invert(0.92); width: auto; max-width: 100%; }
+.case-facts .logo-iic { height: 4.75rem; }
+.case-facts .logo-ita { height: 3.75rem; }
 
 /* film card: poster with a spinning text ring around the play button */
 .film-card {
@@ -812,7 +787,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .film-meta .d { font-variant-numeric: tabular-nums; }
 
 /* ============================================================
-   6. GALLERY — editorial photo grid, opens in a lightbox
+   5. GALLERY — editorial photo grid, opens in a lightbox
    ============================================================ */
 .gallery {
   background: var(--black);
@@ -820,15 +795,9 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   /* photos sit in black and white; colour returns on hover and in the lightbox */
   --photo-filter: grayscale(1) contrast(1.12) brightness(0.95);
 }
-.gallery-head {
-  display: grid;
-  gap: 1rem;
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
-}
-@media (min-width: 900px) { .gallery-head { grid-template-columns: 1fr auto; align-items: end; } }
+.gallery-head { margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
 .gallery .kicker { color: var(--mint); }
 .gallery h2 { color: var(--white); font-size: clamp(2.25rem, 5.2vw, 4.25rem); max-width: 14ch; }
-.gallery-note { font-size: 0.9375rem; color: rgba(237, 233, 225, 0.7); max-width: 22rem; }
 
 /* 12-column grid; each tile sets its own shape with --c (columns)
    and --r (rows), and --mc / --mr on phones. */
@@ -895,7 +864,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .js .tile.in a:hover img, .js .tile.in a:focus-visible img { transform: scale(1.05); transition-duration: 1.2s, 0.6s; }
 
 /* ============================================================
-   7. PROCESS — how an exhibition comes together
+   6. PROCESS — how an exhibition comes together
    ============================================================ */
 .process {
   background: var(--cream);
@@ -950,7 +919,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .chips li:hover { background: var(--black); color: var(--mint); }
 
 /* ============================================================
-   8. CTA
+   7. CTA
    ============================================================ */
 .cta {
   background: var(--violet);
@@ -977,7 +946,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .cta .btn-ghost .play { background: var(--black); }
 
 /* ============================================================
-   9. FOOTER — black, same as home
+   8. FOOTER — black, same as home
    ============================================================ */
 .footer {
   background: var(--black);
@@ -1005,7 +974,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .footer-meta a:hover { color: var(--mint); }
 
 /* ============================================================
-   10. DIALOGS — film player and photo lightbox
+   9. DIALOGS — film player and photo lightbox
    ============================================================ */
 .overlay {
   width: 100vw;
@@ -1097,7 +1066,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .reveal.in { opacity: 1; transform: none; }
 html:not(.js) .reveal { opacity: 1; transform: none; }
 
-/* ---------- Reduced motion: no intro, no ticker, no parallax ---------- */
+/* ---------- Reduced motion: no intro, no parallax ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .hero-media, .js.porthole .hero-media, .js.open .hero-media { clip-path: none; transition: none; }
@@ -1107,7 +1076,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .js .hero .kicker, .js .hero-sub, .js .hero-actions,
   .js .wall-label, .js .hero-toggle, .js .scroll-cue { opacity: 1; transform: none; transition: none; }
   .hero-content, .hero-media-inner { transform: none; opacity: 1; }
-  .ticker-track, .film-badge svg.ring, .scroll-cue::after, .wall-label .wl-now::before { animation: none; }
+  .film-badge svg.ring, .scroll-cue::after, .wall-label .wl-now::before { animation: none; }
   .fx-underline-svg path { animation: none; stroke-dashoffset: 0; }
   .js .statement .w { color: inherit; transition: none; }
   .js .tile > a, .js .tile img { clip-path: none; transform: none; transition: none; }
@@ -1209,7 +1178,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <span class="wl-now">Now showing</span>
       <span class="wl-title" lang="ro">Între noi</span>
       <span class="wl-sub" lang="it">Italia e Romania, raccontate con i dati</span>
-      <span class="wl-meta">A data exhibition curated by Nutgraf</span>
+      <span class="wl-meta">A data exhibition by Nutgraf</span>
     </aside>
     -->
   </div>
@@ -1223,17 +1192,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </section>
 
 <!-- ============================================================
-     3. TICKER — decorative
-     ============================================================ -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Trade</span><span>Language</span><span>Investment</span><span>Cultural exchanges</span><span>Culture</span><span>Memory</span><span>Food</span><span>Music</span>
-    <span>Trade</span><span>Language</span><span>Investment</span><span>Cultural exchanges</span><span>Culture</span><span>Memory</span><span>Food</span><span>Music</span>
-  </div>
-</div>
-
-<!-- ============================================================
-     4. INTRO
+     3. INTRO
      ============================================================ -->
 <section class="pitch" id="intro" aria-labelledby="intro-kicker">
   <div class="wrap">
@@ -1258,7 +1217,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </section>
 
 <!-- ============================================================
-     5. CASE STUDY — Între noi
+     4. CASE STUDY — Între noi
      TODO: add the venue, city, dates and visitor numbers to
      .case-facts when they are confirmed.
      ============================================================ -->
@@ -1278,14 +1237,10 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <dd>Italy · Romania</dd>
         </div>
         <div>
-          <dt>Curated by</dt>
-          <dd>Nutgraf</dd>
-        </div>
-        <div>
           <dt>Format</dt>
           <dd>Data exhibition and film</dd>
         </div>
-        <div>
+        <div class="case-partners">
           <dt>With</dt>
           <dd class="logos">
             <img class="logo-iic" src="../logos/istituto-italiano-di-cultura.svg" alt="Istituto Italiano di Cultura">
@@ -1315,7 +1270,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </section>
 
 <!-- ============================================================
-     6. GALLERY
+     5. GALLERY
      Între noi at Ion Mincu University, Bucharest. Each photo comes
      as img/intre-noi-NN.jpg (1600px, opened by the lightbox) and
      img/intre-noi-NN-800.jpg (smaller tiles); NN is the original
@@ -1328,11 +1283,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
   <div class="wrap">
     <div class="gallery-head reveal">
-      <div>
-        <span class="kicker">Inside the exhibition</span>
-        <h2 id="gallery-heading">On the walls, <em>and in the room.</em></h2>
-      </div>
-      <p class="gallery-note">Select any photo to see it full size.</p>
+      <span class="kicker">Inside the exhibition</span>
+      <h2 id="gallery-heading">On the walls, <em>and in the room.</em></h2>
     </div>
 
     <div class="grid">
@@ -1431,7 +1383,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </section>
 
 <!-- ============================================================
-     7. PROCESS
+     6. PROCESS
      ============================================================ -->
 <section class="process" id="process" aria-labelledby="process-heading">
   <div class="wrap">
@@ -1473,7 +1425,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </section>
 
 <!-- ============================================================
-     8. CTA
+     7. CTA
      ============================================================ -->
 <section class="cta" id="contact" aria-labelledby="cta-heading">
   <div class="wrap reveal">
@@ -1492,7 +1444,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </main>
 
 <!-- ============================================================
-     9. FOOTER
+     8. FOOTER
      ============================================================ -->
 <footer class="footer">
   <div class="wrap footer-inner">
@@ -1507,7 +1459,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </footer>
 
 <!-- ============================================================
-     10. DIALOGS
+     9. DIALOGS
      ============================================================ -->
 <dialog class="overlay film-dialog" id="film-dialog" aria-label="Între noi, the film">
   <button class="overlay-close" type="button" aria-label="Close the film">
