@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu bar — Workshops &amp; Exhibitions highlight options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Inter", -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  padding: 3rem 1.5rem 5rem;
+}
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.sub { text-align: center; opacity: 0.7; margin: 0 auto 3rem; font-size: 0.95rem; max-width: 44rem; line-height: 1.5; }
+.sub code { font-size: 0.85em; background: rgba(10,10,10,0.07); padding: 0.05rem 0.35rem; border-radius: 0.3rem; }
+.list { display: grid; gap: 1.5rem; max-width: 72rem; margin: 0 auto; }
+.card {
+  background: var(--white);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(10,10,10,0.08);
+}
+.card h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+.card h2 span {
+  display: inline-block;
+  background: var(--violet);
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.4rem;
+  vertical-align: 2px;
+}
+.card > p { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.25rem; max-width: 46rem; line-height: 1.5; }
+.strips { display: grid; gap: 0.9rem; }
+.cap {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.5;
+  margin-bottom: 0.35rem;
+}
+
+/* ============================================================
+   Bar replicas — same type, gaps and chip as the live nav.
+   Each bar sets its own colours; the options only read the vars.
+   ============================================================ */
+.bar {
+  --fg: var(--black);
+  --hover: var(--black);    /* the hover underline every other link gets */
+  --accent: var(--violet);  /* the highlight colour */
+  --on-accent: var(--black);
+  --chip-bg: var(--black);
+  --chip-fg: var(--cream);
+  --chip-wipe: var(--violet);
+  --chip-hover-fg: var(--white);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 0.6rem;
+  color: var(--fg);
+}
+.bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+.bar .logo { height: 2rem; width: auto; display: block; }
+.bar ul { display: flex; align-items: center; gap: 1.25rem; list-style: none; }
+.bar ul a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.bar ul a:hover,
+.bar ul a:focus-visible { border-bottom-color: var(--hover); }
+
+.bar a.chip {
+  background: var(--chip-bg);
+  color: var(--chip-fg);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border-bottom: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0;
+  transition: color 0.3s ease;
+}
+.bar a.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--chip-wipe);
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+.bar a.chip:hover,
+.bar a.chip:focus-visible { border-bottom: none; color: var(--chip-hover-fg); }
+.bar a.chip:hover::before,
+.bar a.chip:focus-visible::before { transform: translateX(0); }
+
+.bar a.icon-link { display: inline-flex; align-items: center; border-bottom: none; opacity: 0.85; padding: 0.4rem 0; }
+.bar a.icon-link:hover { opacity: 1; }
+.bar a.icon-link svg { width: 1.5rem; height: 1.5rem; fill: currentColor; }
+
+/* Home, over the film: approximation of the phosphor hero behind the bar */
+.bar--film { --fg: var(--cream); --hover: var(--mint); --accent: var(--mint); --chip-bg: var(--mint); --chip-fg: var(--black); background: #040B06; }
+.bar--film .bar-inner { padding-bottom: 1.75rem; }
+.bar--film::before,
+.bar--film::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.bar--film::before {
+  background: url("media/intre-noi-loop-panels-poster.jpg") center 30% / cover;
+  filter: grayscale(1) contrast(1.3) brightness(1.05) blur(0.4px);
+}
+.bar--film::after {
+  background:
+    linear-gradient(to bottom, rgba(4, 11, 6, 0.6), rgba(4, 11, 6, 0.1)),
+    repeating-linear-gradient(to bottom, rgba(18, 10, 60, 0.55) 0 1px, rgba(18, 10, 60, 0) 1px 3px),
+    radial-gradient(ellipse at 55% 50%, rgba(14, 8, 48, 0) 45%, rgba(14, 8, 48, 0.88) 100%),
+    #3DFF6E;
+  background-blend-mode: normal, normal, normal, normal;
+  mix-blend-mode: multiply;
+}
+/* Home, scrolled: cream bar */
+.bar--cream { background: var(--cream); box-shadow: 0 1px 0 rgba(10, 10, 10, 0.12), inset 0 0 0 1px rgba(10,10,10,0.06); }
+/* Workshops: violet bar, black chip with mint wipe */
+.bar--violet { --accent: var(--mint); --chip-wipe: var(--mint); --chip-hover-fg: var(--black); background: var(--violet); }
+/* Exhibitions: black bar, mint chip with cream wipe */
+.bar--black { --fg: var(--cream); --hover: var(--mint); --accent: var(--mint); --chip-bg: var(--mint); --chip-fg: var(--black); --chip-wipe: var(--cream); --chip-hover-fg: var(--black); background: var(--black); }
+
+/* the arrow only shows in option 1 */
+.page-link .arr { display: none; }
+
+/* ============ 1. ARROW OUT ============ */
+.opt-arrow .page-link .arr {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.3em;
+  vertical-align: 0.02em;
+  color: var(--accent);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.opt-arrow .page-link:hover .arr,
+.opt-arrow .page-link:focus-visible .arr { transform: translate(2px, -2px); }
+
+/* ============ 2. OUTLINE PILL ============ */
+.opt-pill .page-link {
+  display: inline-block;
+  padding: calc(0.4rem - 1.5px) 0.85rem;
+  border: 1.5px solid color-mix(in srgb, var(--fg) 40%, transparent);
+  border-radius: 999px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.opt-pill .page-link:hover,
+.opt-pill .page-link:focus-visible {
+  border-color: var(--fg);
+  background: color-mix(in srgb, var(--fg) 10%, transparent);
+}
+
+/* ============ 3. MARKER STROKE ============ */
+.opt-marker .page-link {
+  position: relative;
+  z-index: 0;
+  transition: color 0.3s ease;
+}
+.opt-marker .page-link::after {
+  content: "";
+  position: absolute;
+  left: -0.2em;
+  right: -0.2em;
+  top: 62%;
+  bottom: 8%;
+  background: var(--accent);
+  border-radius: 0.15em 0.35em 0.2em 0.4em;
+  transform: rotate(-1.2deg);
+  z-index: -1;
+  transition: top 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.opt-marker .page-link:hover,
+.opt-marker .page-link:focus-visible { border-bottom-color: transparent; color: var(--on-accent); }
+.opt-marker .page-link:hover::after,
+.opt-marker .page-link:focus-visible::after { top: 12%; }
+
+/* ============ 4. SERIF ITALIC ============ */
+.opt-serif .page-link {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+}
+.opt-serif .page-link:hover,
+.opt-serif .page-link:focus-visible { border-bottom-color: var(--accent); }
+
+/* ============ 5. GHOST OFFSET ============ */
+/* a text-shadow is painted under the glyphs, so the ghost always
+   lines up with the label whatever the line-height */
+.opt-ghost .page-link {
+  font-weight: 700;
+  text-shadow: 0.12em -0.12em 0 var(--accent);
+  transition: text-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.opt-ghost .page-link:hover,
+.opt-ghost .page-link:focus-visible { text-shadow: 0.2em -0.2em 0 var(--accent); }
+
+/* ============ 6. PHOSPHOR DOT ============ */
+.opt-dot .page-link::before {
+  content: "";
+  display: inline-block;
+  width: 0.42em;
+  height: 0.42em;
+  margin-right: 0.45em;
+  vertical-align: 0.12em;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dot-pulse 2.4s ease-in-out infinite;
+}
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+  50%      { box-shadow: 0 0 8px 2px color-mix(in srgb, var(--accent) 70%, transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar a.chip, .bar a.chip::before,
+  .opt-arrow .page-link .arr, .opt-pill .page-link,
+  .opt-marker .page-link, .opt-marker .page-link::after,
+  .opt-ghost .page-link { transition: none; }
+  .opt-dot .page-link::before { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<h1>Highlighting Workshops &amp; Exhibitions</h1>
+<p class="sub">Six ways to set the two service pages apart from the in-page links. Each option is shown on all four bars it has to live on — hover the links to see the hover state. The highlighted links carry a <code>page-link</code> class, so whichever you pick is a class plus a few lines of CSS on each page.</p>
+
+<div class="list">
+
+  <section class="card" data-opt="arrow">
+    <h2><span>1</span>Arrow out</h2>
+    <p>A small accent arrow after the label says “this is its own page”. On hover the arrow nudges up and out, and the usual underline appears. The quietest option.</p>
+  </section>
+
+  <section class="card" data-opt="pill">
+    <h2><span>2</span>Outline pill</h2>
+    <p>A ghost version of the contact chip: same shape, hairline outline, no fill — so it reads as a destination while the filled chip stays the one action. Hover firms up the outline and adds a faint tint.</p>
+  </section>
+
+  <section class="card" data-opt="marker">
+    <h2><span>3</span>Marker stroke</h2>
+    <p>A thick, slightly tilted highlighter stroke under the label, mint on dark bars and violet on cream. On hover the stroke fills the whole word, the way the chip’s wipe fills the pill.</p>
+  </section>
+
+  <section class="card" data-opt="serif">
+    <h2><span>4</span>Serif italic</h2>
+    <p>The two labels switch to Fraunces italic, the same voice as the italic words in the headlines. All typography, no new shapes. Hover draws the underline in the accent colour.</p>
+  </section>
+
+  <section class="card" data-opt="ghost">
+    <h2><span>5</span>Ghost offset</h2>
+    <p>The layered-wordmark treatment from the brand: bold label with an offset ghost copy behind it in mint or violet. On hover the ghost slides further out.</p>
+  </section>
+
+  <section class="card" data-opt="dot">
+    <h2><span>6</span>Phosphor dot</h2>
+    <p>A small dot before each label that slowly glows and dims, like a pixel on the hero film’s phosphor screen. Violet on cream, mint elsewhere. Stays still for people who turn off motion.</p>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var insta = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.77 1.153a4.902 4.902 0 0 1 1.153 1.77c.249.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.216 1.79-.465 2.428a4.902 4.902 0 0 1-1.153 1.77 4.902 4.902 0 0 1-1.77 1.153c-.637.249-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.216-2.428-.465a4.902 4.902 0 0 1-1.77-1.153 4.902 4.902 0 0 1-1.153-1.77c-.249-.637-.415-1.363-.465-2.428C2.01 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.065.216-1.79.465-2.428a4.902 4.902 0 0 1 1.153-1.77A4.902 4.902 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.01 9.283 2 12 2Zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.467.181-.8.398-1.15.748-.35.35-.567.683-.748 1.15-.137.353-.3.882-.344 1.858-.05 1.054-.06 1.37-.06 4.04s.01 2.986.06 4.04c.045.976.207 1.505.344 1.858.181.467.398.8.748 1.15.35.35.683.567 1.15.748.353.137.882.3 1.858.344 1.054.05 1.37.06 4.04.06s2.986-.01 4.04-.06c.976-.045 1.505-.207 1.858-.344.467-.181.8-.398 1.15-.748.35-.35.567-.683.748-1.15.137-.353.3-.882.344-1.858.05-1.054.06-1.37.06-4.04s-.01-2.986-.06-4.04c-.045-.976-.207-1.505-.344-1.858a3.1 3.1 0 0 0-.748-1.15 3.1 3.1 0 0 0-1.15-.748c-.353-.137-.882-.3-1.858-.344-1.054-.05-1.37-.059-4.04-.059Zm0 3.064a5.134 5.134 0 1 1 0 10.268 5.134 5.134 0 0 1 0-10.268Zm0 1.802a3.332 3.332 0 1 0 0 6.664 3.332 3.332 0 0 0 0-6.664Zm5.338-1.982a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>';
+  var arrow = '<svg class="arr" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg>';
+
+  // The live bars, link for link. "page: true" marks the ones to highlight.
+  var bars = [
+    { cap: "Home · over the film", cls: "bar--film", logo: "logos/nutgraf-logo-white.svg",
+      links: [["Services"], ["Methodology"], ["Partners"], ["Workshops", true], ["Exhibitions", true]], chip: "Contact us" },
+    { cap: "Home · scrolled", cls: "bar--cream", logo: "logos/nutgraf-logo.svg",
+      links: [["Services"], ["Methodology"], ["Partners"], ["Workshops", true], ["Exhibitions", true]], chip: "Contact us" },
+    { cap: "Workshops page", cls: "bar--violet", logo: "logos/nutgraf-logo-white.svg",
+      links: [["Studio"], ["Exhibitions", true], ["Modules"], ["FAQ"]], chip: "Book a workshop" },
+    { cap: "Exhibitions page", cls: "bar--black", logo: "logos/nutgraf-logo-white.svg",
+      links: [["Studio"], ["Workshops", true], ["Între noi"], ["Process"]], chip: "Plan an exhibition" }
+  ];
+
+  function barHTML(b) {
+    var items = b.links.map(function (l) {
+      return l[1]
+        ? '<li><a class="page-link" href="#">' + l[0] + arrow + '</a></li>'
+        : '<li><a href="#">' + l[0] + '</a></li>';
+    }).join("");
+    return '<div><div class="cap">' + b.cap + '</div>' +
+      '<div class="bar ' + b.cls + '"><div class="bar-inner">' +
+      '<img class="logo" src="' + b.logo + '" alt="Nutgraf.studio">' +
+      '<ul>' + items +
+      '<li><a class="chip" href="#">' + b.chip + '</a></li>' +
+      '<li><a class="icon-link" href="#" aria-label="Instagram">' + insta + '</a></li>' +
+      '</ul></div></div></div>';
+  }
+
+  document.querySelectorAll(".card[data-opt]").forEach(function (card) {
+    var wrap = document.createElement("div");
+    wrap.className = "strips opt-" + card.dataset.opt;
+    wrap.innerHTML = bars.map(barHTML).join("");
+    card.appendChild(wrap);
+  });
+
+  document.addEventListener("click", function (e) {
+    if (e.target.closest(".bar a")) e.preventDefault();
+  });
+})();
+</script>
+
+</body>
+</html>

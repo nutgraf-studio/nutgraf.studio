@@ -240,6 +240,24 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .nav-links a:hover,
 .nav-links a:focus-visible { border-bottom-color: var(--mint); }
 
+/* Workshops / Exhibitions are pages of their own: an accent arrow
+   follows the label and nudges up and out on hover */
+.nav-links a.page-link .arr {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.3em;
+  vertical-align: 0.02em;
+  fill: none;
+  stroke: var(--mint);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-links a.page-link:hover .arr,
+.nav-links a.page-link:focus-visible .arr { transform: translate(2px, -2px); }
+
 /* booking chip: mint pill on black, cream wipe on hover */
 .nav-links a.chip {
   background: var(--mint);
@@ -1085,6 +1103,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .js .tile > a, .js .tile img { clip-path: none; transform: none; transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .film-card img, .tile img, .overlay, .film-player { transition: none; }
+  .nav-links a.page-link .arr { transition: none; }
 }
 </style>
 </head>
@@ -1102,7 +1121,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <nav aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="/">Studio</a></li>
-        <li><a href="/workshops/">Workshops</a></li>
+        <li><a class="page-link" href="/workshops/">Workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a href="#intre-noi">Între noi</a></li>
         <li><a href="#process">Process</a></li>
         <li><a class="chip" href="#contact">Plan an exhibition</a></li>

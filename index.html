@@ -293,6 +293,24 @@ h1, h2, h3 {
 .nav-links a:hover,
 .nav-links a:focus-visible { border-bottom-color: var(--black); }
 
+/* Workshops / Exhibitions are pages of their own: an accent arrow
+   follows the label and nudges up and out on hover */
+.nav-links a.page-link .arr {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.3em;
+  vertical-align: 0.02em;
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-links a.page-link:hover .arr,
+.nav-links a.page-link:focus-visible .arr { transform: translate(2px, -2px); }
+
 .nav-links a.chip {
   background: var(--black);
   color: var(--cream);
@@ -326,7 +344,8 @@ h1, h2, h3 {
   transform: translateX(0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav-links a.chip, .nav-links a.chip::before { transition: none; }
+  .nav-links a.chip, .nav-links a.chip::before,
+  .nav-links a.page-link .arr { transition: none; }
 }
 
 .nav-links a.icon-link {
@@ -372,6 +391,7 @@ h1, h2, h3 {
 .nav:not(.scrolled) .nav-links a { color: var(--cream); }
 .nav:not(.scrolled) .nav-links a:hover,
 .nav:not(.scrolled) .nav-links a:focus-visible { border-bottom-color: var(--mint); }
+.nav:not(.scrolled) .nav-links a.page-link .arr { stroke: var(--mint); }
 .nav:not(.scrolled) .nav-links a.chip { background: var(--mint); color: var(--black); }
 .nav:not(.scrolled) .nav-links a.chip:hover,
 .nav:not(.scrolled) .nav-links a.chip:focus-visible { color: var(--white); }
@@ -1080,8 +1100,8 @@ h1, h2, h3 {
         <li><a href="#services">Services</a></li>
         <li><a href="#methodology">Methodology</a></li>
         <li><a href="#partners">Partners</a></li>
-        <li><a href="/workshops/">Workshops</a></li>
-        <li><a href="/exhibitions/">Exhibitions</a></li>
+        <li><a class="page-link" href="/workshops/">Workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
+        <li><a class="page-link" href="/exhibitions/">Exhibitions<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <!-- Work nav link disabled for v1 launch — re-enable with the section below -->
         <!-- <li><a href="#work">Work</a></li> -->
         <li><a class="chip" href="#contact">Contact us</a></li>

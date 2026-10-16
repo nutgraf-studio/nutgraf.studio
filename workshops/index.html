@@ -319,6 +319,24 @@ h1, h2, h3 {
 .nav-links a:hover,
 .nav-links a:focus-visible { border-bottom-color: var(--black); }
 
+/* Workshops / Exhibitions are pages of their own: an accent arrow
+   follows the label and nudges up and out on hover */
+.nav-links a.page-link .arr {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.3em;
+  vertical-align: 0.02em;
+  fill: none;
+  stroke: var(--mint);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-links a.page-link:hover .arr,
+.nav-links a.page-link:focus-visible .arr { transform: translate(2px, -2px); }
+
 /* booking chip: black pill, mint wipe on hover (home-page pattern) */
 .nav-links a.chip {
   background: var(--black);
@@ -353,7 +371,8 @@ h1, h2, h3 {
   transform: translateX(0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav-links a.chip, .nav-links a.chip::before { transition: none; }
+  .nav-links a.chip, .nav-links a.chip::before,
+  .nav-links a.page-link .arr { transition: none; }
 }
 
 .nav-links a.icon-link {
@@ -713,7 +732,7 @@ h1, h2, h3 {
     <nav aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="/">Studio</a></li>
-        <li><a href="/exhibitions/">Exhibitions</a></li>
+        <li><a class="page-link" href="/exhibitions/">Exhibitions<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a href="#modules">Modules</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a class="chip" href="#book">Book a workshop</a></li>
