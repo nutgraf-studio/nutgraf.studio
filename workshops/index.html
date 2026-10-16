@@ -423,45 +423,10 @@ h1, h2, h3 {
 }
 .hero-actions { margin-top: 2.25rem; }
 
-/* ---------- Spinning cube (true CSS 3D), from header-options.html ---------- */
+/* ---------- Tumbling icosahedron, from the home page's contact section ----------
+   Drawn by the script at the end of the page. */
 .hero-visual { margin-inline: auto; width: min(100%, 26rem); }
-.scene3d { position: relative; width: min(100%, 26rem); aspect-ratio: 1; margin-inline: auto; }
-.scene3d .backdrop { position: absolute; inset: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.8); }
-.stage3d { position: absolute; inset: 0; display: grid; place-items: center; perspective: 1000px; }
-.cube3d-spin {
-  position: relative;
-  width: 170px;
-  height: 170px;
-  transform-style: preserve-3d;
-  animation: cube3d-turn 14s linear infinite;
-}
-@keyframes cube3d-turn {
-  from { transform: rotateX(-22deg) rotateY(0deg); }
-  to   { transform: rotateX(-22deg) rotateY(360deg); }
-}
-.face { position: absolute; inset: 0; border: 2.5px solid var(--black); }
-.face.f-front  { background: var(--violet); transform: translateZ(85px); }
-.face.f-back   { background: var(--violet); transform: rotateY(180deg) translateZ(85px); }
-.face.f-right  { background: var(--cream);  transform: rotateY(90deg) translateZ(85px); }
-.face.f-left   { background: var(--cream);  transform: rotateY(-90deg) translateZ(85px); }
-.face.f-top    { background: var(--mint);   transform: rotateX(90deg) translateZ(85px); }
-.face.f-bottom { background: var(--black);  transform: rotateX(-90deg) translateZ(85px); }
-.cube-shadow {
-  position: absolute;
-  left: 50%;
-  bottom: 16%;
-  width: 200px;
-  height: 26px;
-  transform: translateX(-50%);
-  background: rgba(10, 10, 10, 0.2);
-  border-radius: 50%;
-  filter: blur(5px);
-  animation: shadow-breathe 3.5s ease-in-out infinite;
-}
-@keyframes shadow-breathe {
-  0%, 100% { transform: translateX(-50%) scaleX(1); }
-  50%      { transform: translateX(-50%) scaleX(1.18); }
-}
+.hero-visual svg { width: 100%; height: auto; }
 
 /* ---------- Headline emphasis: mint marker underline ---------- */
 .fx { position: relative; white-space: nowrap; }
@@ -729,8 +694,6 @@ h1, h2, h3 {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn { transition: none; }
-  .cube3d-spin, .cube-shadow { animation: none; }
-  .cube3d-spin { transform: rotateX(-22deg) rotateY(35deg); }
 }
 </style>
 </head>
@@ -779,24 +742,16 @@ h1, h2, h3 {
         <a class="btn" href="#book">Book a workshop</a>
       </div>
     </div>
-    <!-- Spinning cube, adapted from header-options.html option 8: same
-         brand cube, true CSS 3D, decorative. Static frame held under
-         prefers-reduced-motion. -->
+    <!-- Tumbling wireframe icosahedron, as in the home page's contact
+         section, projected in real time by the script at the end of the
+         page. Decorative: aria-hidden. A static readable frame is drawn
+         under prefers-reduced-motion. -->
     <div class="hero-visual" aria-hidden="true">
-      <div class="scene3d">
-        <div class="backdrop"></div>
-        <div class="cube-shadow"></div>
-        <div class="stage3d">
-          <div class="cube3d-spin">
-            <div class="face f-front"></div>
-            <div class="face f-back"></div>
-            <div class="face f-right"></div>
-            <div class="face f-left"></div>
-            <div class="face f-top"></div>
-            <div class="face f-bottom"></div>
-          </div>
-        </div>
-      </div>
+      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <!-- white circle behind the wireframe -->
+        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
+        <g id="hero-ico"></g>
+      </svg>
     </div>
   </div>
 </section>
@@ -971,6 +926,105 @@ h1, h2, h3 {
 </footer>
 
 <script>
+/* Hero: tumbling wireframe icosahedron (same as the home page's contact
+   section). Vertices and edges are projected orthographically each
+   frame (two-axis tumble); front vertices light up mint/violet, back
+   ones dim to grey, edges deepen with proximity.
+   Draws one static frame for reduced motion; pauses while off screen. */
+(function () {
+  var g = document.getElementById('hero-ico');
+  if (!g) return;
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var CX = 260, CY = 260, R = 172;
+  var PHI = (1 + Math.sqrt(5)) / 2;
+  var raw = [
+    [0, 1, PHI], [0, 1, -PHI], [0, -1, PHI], [0, -1, -PHI],
+    [1, PHI, 0], [1, -PHI, 0], [-1, PHI, 0], [-1, -PHI, 0],
+    [PHI, 0, 1], [-PHI, 0, 1], [PHI, 0, -1], [-PHI, 0, -1]
+  ];
+  var S = R / Math.sqrt(1 + PHI * PHI);
+  var verts = raw.map(function (v) { return [v[0] * S, v[1] * S, v[2] * S]; });
+
+  /* edges = vertex pairs at the icosahedron's edge length (2 pre-scale) */
+  var edges = [];
+  for (var i = 0; i < 12; i++) {
+    for (var j = i + 1; j < 12; j++) {
+      var dx = raw[i][0] - raw[j][0], dy = raw[i][1] - raw[j][1], dz = raw[i][2] - raw[j][2];
+      if (dx * dx + dy * dy + dz * dz < 4.2) edges.push([i, j]);
+    }
+  }
+
+  function el(tag, attrs) {
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    g.appendChild(n);
+    return n;
+  }
+  var edgeEls = edges.map(function () {
+    return el('line', { stroke: '#0A0A0A', 'stroke-width': 2, 'stroke-linecap': 'round' });
+  });
+  var vertEls = verts.map(function (_, k) {
+    return el('circle', { r: 5, fill: k % 2 ? '#7B7BF0' : '#9FF29A' });
+  });
+
+  function draw(t) {
+    var a = t * 0.5, b = t * 0.21 + 0.4;
+    var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+    var proj = verts.map(function (v) {
+      var x1 = v[0] * ca + v[2] * sa;
+      var z1 = -v[0] * sa + v[2] * ca;
+      var y2 = v[1] * cb - z1 * sb;
+      var z2 = v[1] * sb + z1 * cb;
+      return [CX + x1, CY - y2, z2];
+    });
+    edgeEls.forEach(function (ln, k) {
+      var p = proj[edges[k][0]], q = proj[edges[k][1]];
+      ln.setAttribute('x1', p[0].toFixed(1)); ln.setAttribute('y1', p[1].toFixed(1));
+      ln.setAttribute('x2', q[0].toFixed(1)); ln.setAttribute('y2', q[1].toFixed(1));
+      var depth = ((p[2] + q[2]) / 2 / R + 1) / 2; /* 0 back … 1 front */
+      ln.setAttribute('opacity', (0.15 + 0.45 * depth).toFixed(2));
+    });
+    vertEls.forEach(function (c, k) {
+      var p = proj[k];
+      c.setAttribute('cx', p[0].toFixed(1));
+      c.setAttribute('cy', p[1].toFixed(1));
+      if (p[2] > 0) {
+        c.setAttribute('r', (5.5 + 2 * p[2] / R).toFixed(1));
+        c.setAttribute('fill', k % 2 ? '#7B7BF0' : '#9FF29A');
+        c.setAttribute('stroke', '#0A0A0A');
+        c.setAttribute('stroke-width', 1.5);
+        c.setAttribute('opacity', 1);
+      } else {
+        c.setAttribute('r', 3.5);
+        c.setAttribute('fill', '#0A0A0A');
+        c.setAttribute('stroke', 'none');
+        c.setAttribute('opacity', 0.25);
+      }
+    });
+  }
+
+  /* readable first frame (also the only frame under reduced motion) */
+  draw(0.9);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var rafId = null;
+  function frame(now) {
+    draw(now / 1000);
+    rafId = requestAnimationFrame(frame);
+  }
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting && rafId === null) {
+        rafId = requestAnimationFrame(frame);
+      } else if (!e.isIntersecting && rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    });
+  }, { threshold: 0.1 }).observe(document.querySelector('.hero'));
+})();
+
 /* Nav: solidify on scroll */
 (function () {
   var nav = document.querySelector('.nav');
