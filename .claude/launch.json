@@ -21,6 +21,13 @@
       "runtimeArgs": ["-m", "http.server", "8903"],
       "port": 8903,
       "autoPort": false
+    },
+    {
+      "name": "static-site-4",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8904"],
+      "port": 8904,
+      "autoPort": false
     }
   ]
 }
