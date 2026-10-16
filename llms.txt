@@ -8,6 +8,7 @@ Nutgraf works with newsrooms, NGOs, cultural institutions and public-sector clie
 
 - [Studio](https://nutgraf.studio/): Services, methodology and selected work — data design, research and reports, mapping and visualisations.
 - [Workshops](https://nutgraf.studio/workshops/): Flagship half-day-to-two-day workshops in data research, data design and data storytelling for teams, built around state-of-the-art AI. Includes format, pricing approach and frequently asked questions.
+- [Exhibitions](https://nutgraf.studio/exhibitions/): Data exhibitions for cultural diplomacy, designed for embassies, cultural institutes and trade agencies. Features Între noi, an exhibition on Italy and Romania told with data, with its film and photos.
 
 ## Contact
 

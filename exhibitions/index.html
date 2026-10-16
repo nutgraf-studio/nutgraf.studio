@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8YD4TDRXT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Q8YD4TDRXT');
+</script>
+
+<!-- Flags the page as JS-enabled before first paint, so the intro
+     (loader ring + iris reveal) can hide the hero without a flash.
+     Failsafe: if the intro script never runs, the hero opens anyway. -->
+<script>
+document.documentElement.classList.add('js', 'intro');
+setTimeout(function () {
+  document.documentElement.classList.add('porthole', 'open', 'ready');
+  document.documentElement.classList.remove('intro');
+}, 7000);
+</script>
+
+<title>Data Exhibitions for Cultural Diplomacy — Nutgraf</title>
+<meta name="description" content="Nutgraf designs data exhibitions for embassies, cultural institutes and trade agencies, turning the ties between two countries into a show the public stops for. See Între noi: Italy and Romania, told with data.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Nutgraf.studio">
+<link rel="canonical" href="https://nutgraf.studio/exhibitions/">
+<meta name="theme-color" content="#0A0A0A">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nutgraf.studio">
+<meta property="og:title" content="Data Exhibitions for Cultural Diplomacy — Nutgraf">
+<meta property="og:description" content="Data exhibitions for embassies, cultural institutes and trade agencies. See Între noi: Italy and Romania, told with data.">
+<meta property="og:url" content="https://nutgraf.studio/exhibitions/">
+<meta property="og:image" content="https://nutgraf.studio/exhibitions/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Visitors among the data panels of the Între noi exhibition.">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data Exhibitions for Cultural Diplomacy — Nutgraf">
+<meta name="twitter:description" content="Data exhibitions for embassies, cultural institutes and trade agencies. See Între noi: Italy and Romania, told with data.">
+<meta name="twitter:image" content="https://nutgraf.studio/exhibitions/og-image.jpg">
+<meta name="twitter:image:alt" content="Visitors among the data panels of the Între noi exhibition.">
+
+<!-- WebPage entity, tied to the site-wide Organization defined on the
+     home page; the Între noi film is described as a VideoObject. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://nutgraf.studio/exhibitions/#webpage",
+  "url": "https://nutgraf.studio/exhibitions/",
+  "name": "Data Exhibitions for Cultural Diplomacy — Nutgraf",
+  "description": "Nutgraf designs data exhibitions for embassies, cultural institutes and trade agencies, turning the ties between two countries into a show the public stops for.",
+  "inLanguage": "en-GB",
+  "isPartOf": { "@type": "WebSite", "name": "Nutgraf.studio", "url": "https://nutgraf.studio/" },
+  "about": { "@id": "https://nutgraf.studio/#organization" },
+  "primaryImageOfPage": "https://nutgraf.studio/exhibitions/og-image.jpg",
+  "video": {
+    "@type": "VideoObject",
+    "name": "Între noi — Italia e Romania, raccontate con i dati",
+    "description": "A short film from Între noi, a data exhibition by Nutgraf on the ties between Italy and Romania.",
+    "thumbnailUrl": "https://nutgraf.studio/exhibitions/media/intre-noi-poster.jpg",
+    "contentUrl": "https://nutgraf.studio/exhibitions/media/intre-noi-film-1080.mp4",
+    "uploadDate": "2026-10-16",
+    "duration": "PT1M6S",
+    "creator": { "@id": "https://nutgraf.studio/#organization" }
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".hero-sub", ".statement"]
+  }
+}
+</script>
+
+<!-- Breadcrumb: Home > Exhibitions -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Nutgraf.studio", "item": "https://nutgraf.studio/" },
+    { "@type": "ListItem", "position": 2, "name": "Exhibitions", "item": "https://nutgraf.studio/exhibitions/" }
+  ]
+}
+</script>
+
+<!-- Same font pairing as the home page, plus true Fraunces italics
+     (as on /workshops/), so emphasis isn't a browser-synthesised slant. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="media/intre-noi-poster.jpg">
+
+<style>
+/* ============================================================
+   NUTGRAF.STUDIO — /exhibitions/ subpage
+   Cinematic black hero, gallery-wall cream for reading, violet
+   for the ask. Sections:
+   NAV / HERO (intro loader + iris) / TICKER / INTRO / CASE STUDY /
+   GALLERY / PROCESS / CTA / FOOTER / DIALOGS (film, lightbox)
+   Contrast: cream on black and black on cream pass AA at any size.
+   White on violet passes only as large text (3.54:1), so violet
+   carries white display type and black body copy, as site-wide.
+   ============================================================ */
+
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+  --ink-2:  #1A1A1A;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max-w: 80rem;
+  --pad: 1.5rem;
+
+  /* intro ring diameter; the porthole radius is derived from it */
+  --ring-d: clamp(11rem, 34vmin, 18rem);
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-io:  cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+/* ---------- Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+html.intro, html.modal-open { overflow: hidden; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--cream);
+  background: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, video { display: block; max-width: 100%; }
+
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
+
+.wrap {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+@media (min-width: 900px) { :root { --pad: 2.5rem; } }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  z-index: 200;
+}
+.skip-link:focus { left: 0; }
+
+.kicker {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1.25rem;
+}
+
+:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+
+/* ============================================================
+   1. NAV — transparent over the film, solid black on scroll
+   ============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, opacity 0.8s ease, transform 0.8s var(--ease-out);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+.nav.scrolled {
+  background: var(--black);
+  box-shadow: 0 1px 0 rgba(237, 233, 225, 0.12);
+}
+.nav-brand { display: inline-flex; align-items: center; text-decoration: none; }
+.nav-brand img { height: 2rem; width: auto; display: block; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { border-bottom-color: var(--mint); }
+
+/* booking chip: mint pill on black, cream wipe on hover */
+.nav-links a.chip {
+  background: var(--mint);
+  color: var(--black);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border-bottom: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0;
+}
+.nav-links a.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+.nav-links a.chip:hover,
+.nav-links a.chip:focus-visible { border-bottom: none; }
+.nav-links a.chip:hover::before,
+.nav-links a.chip:focus-visible::before { transform: translateX(0); }
+
+.nav-links a.icon-link {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: none;
+  opacity: 0.85;
+  padding: 0.4rem 0;
+}
+.nav-links a.icon-link:hover,
+.nav-links a.icon-link:focus-visible { border-bottom: none; opacity: 1; }
+.nav-links a.icon-link svg { width: 1.5rem; height: 1.5rem; max-width: none; flex-shrink: 0; fill: currentColor; }
+
+@media (max-width: 599px) {
+  /* the longer booking label needs a slightly smaller mark to fit 360px */
+  .nav-brand img { height: 2rem; }
+  .nav-links { gap: 0.875rem; }
+  .nav-links a { font-size: 0.875rem; }
+  .nav-links a:not(.chip):not(.icon-link) { display: none; }
+  .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
+}
+
+/* Tablet: in-page anchors step aside so the cross-page links fit */
+@media (min-width: 600px) and (max-width: 819px) {
+  .nav-links a[href^="#"]:not(.chip) { display: none; }
+}
+
+/* nav waits for the iris to open */
+.js .nav { opacity: 0; transform: translateY(-0.75rem); }
+.js.open .nav { opacity: 1; transform: none; transition-delay: 0.9s; }
+.js.ready .nav { transition-delay: 0s; }
+
+/* ============================================================
+   2. HERO — full-screen film loop
+   Intro sequence (driven by the script, states on <html>):
+     .intro    ring draws as the video buffers, counter ticks up
+     .porthole video fades in inside the ring
+     .open     the porthole irises out to full screen, copy rises
+     .ready    clip-path dropped, loader removed
+   ============================================================ */
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 34rem;
+  overflow: hidden;
+  background: var(--black);
+  isolation: isolate;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.hero-media-inner {
+  position: absolute;
+  inset: 0;
+  transform: scale(calc(1 + var(--p, 0) * 0.08));
+  will-change: transform;
+}
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Scrim: the copy sits bottom-left, the nav on top. White-on-film
+   needs a real backing, not just a hopeful shadow. */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0) 22%),
+    linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.5) 45%, rgba(10, 10, 10, 0) 80%),
+    linear-gradient(to right, rgba(10, 10, 10, 0.6) 0%, rgba(10, 10, 10, 0.25) 45%, rgba(10, 10, 10, 0) 70%),
+    rgba(10, 10, 10, 0.15);
+}
+
+/* intro states */
+.js .hero-media { clip-path: circle(0px at 50% 50%); }
+.js .hero-media video { transform: scale(1.25); opacity: 0; transition: opacity 0.8s ease, transform 2.4s var(--ease-out); }
+.js.porthole .hero-media {
+  clip-path: circle(calc(var(--ring-d) * 0.48 - 0.5rem) at 50% 50%);
+  transition: clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.js.porthole .hero-media video { opacity: 1; }
+.js.open .hero-media {
+  clip-path: circle(75vmax at 50% 50%);
+  transition: clip-path 1.5s var(--ease-io);
+}
+.js.open .hero-media video { transform: none; }
+.js.ready .hero-media { clip-path: none; transition: none; }
+
+/* loader: thin mint ring with a riding dot, counter in the middle */
+.loader {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 5;
+  pointer-events: none;
+}
+.no-js .loader, html:not(.js) .loader { display: none; }
+.loader-stage {
+  position: relative;
+  width: var(--ring-d);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  transition: transform 1.5s var(--ease-io), opacity 0.9s ease;
+}
+.loader-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; transform: rotate(-90deg); }
+.loader-track { fill: none; stroke: rgba(237, 233, 225, 0.14); stroke-width: 1.2; }
+.loader-arc {
+  fill: none;
+  stroke: var(--mint);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.loader-dot-rotor { transform-origin: 100px 100px; }
+.loader-dot { fill: var(--mint); }
+.loader-pct {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: calc(var(--ring-d) * 0.24);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--cream);
+  transition: opacity 0.4s ease, transform 0.6s var(--ease-out);
+}
+.loader-pct sup { font-size: 0.35em; vertical-align: top; margin-left: 0.05em; position: relative; top: 0.35em; font-style: italic; }
+.loader-label {
+  position: absolute;
+  top: calc(100% + 1.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(237, 233, 225, 0.6);
+  transition: opacity 0.4s ease;
+}
+.porthole .loader-pct { opacity: 0; transform: scale(0.85); }
+.porthole .loader-label { opacity: 0; }
+.open .loader-stage { transform: scale(4); opacity: 0; }
+.ready .loader { display: none; }
+
+/* copy */
+.hero-content {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding-bottom: clamp(4.5rem, 10vh, 7rem);
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+  transform: translateY(calc(var(--p, 0) * 18vh));
+  opacity: calc(1 - var(--p, 0) * 1.4);
+}
+@media (min-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr auto; }
+}
+.hero .kicker { color: var(--mint); }
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(2.75rem, 7.4vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+.hero-line { display: block; overflow: hidden; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+/* extra room so the marker underline isn't clipped by overflow: hidden */
+.hero-line:last-child { padding-bottom: 0.42em; margin-bottom: -0.42em; }
+.hero-line > span { display: inline-block; }
+.hero h1 em { padding-right: 0.06em; }
+
+/* ---------- Headline emphasis: mint marker underline (home-page pattern) ---------- */
+.fx { position: relative; white-space: nowrap; }
+.fx-underline-svg {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.14em;
+  width: 106%;
+  max-width: none;
+  height: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+.fx-underline-svg path {
+  fill: none;
+  stroke: var(--mint);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  animation: fx-underline-draw 4.5s ease-in-out infinite;
+}
+@keyframes fx-underline-draw {
+  0%        { stroke-dashoffset: 330; opacity: 1; }
+  28%, 78%  { stroke-dashoffset: 0;   opacity: 1; }
+  90%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+.hero-sub {
+  margin-top: 1.5rem;
+  max-width: 34rem;
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  font-weight: 500;
+  color: var(--cream);
+}
+.hero-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.875rem; }
+
+/* gallery wall label, bottom right */
+.wall-label {
+  display: none;
+  width: 16rem;
+  padding: 1.125rem 1.25rem 1.25rem;
+  background: rgba(237, 233, 225, 0.94);
+  color: var(--black);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+@media (min-width: 1024px) { .wall-label { display: block; } }
+.wall-label .wl-now {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.wall-label .wl-now::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #E5484D;
+  animation: rec 1.6s ease-in-out infinite;
+}
+@keyframes rec { 50% { opacity: 0.25; } }
+.wall-label .wl-title {
+  display: block;
+  margin-top: 0.625rem;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.wall-label .wl-sub { display: block; margin-top: 0.25rem; font-style: italic; }
+.wall-label .wl-meta { display: block; margin-top: 0.75rem; padding-top: 0.625rem; border-top: 1px solid rgba(10, 10, 10, 0.2); }
+
+/* copy rises in once the iris opens */
+.js .hero-line > span { transform: translateY(185%); }
+.js .hero .kicker,
+.js .hero-sub,
+.js .hero-actions,
+.js .wall-label,
+.js .hero-toggle,
+.js .scroll-cue { opacity: 0; transform: translateY(1rem); }
+.js.open .hero-line > span { transform: none; transition: transform 1.1s var(--ease-out); }
+.js.open .hero-line:nth-child(1) > span { transition-delay: 0.65s; }
+.js.open .hero-line:nth-child(2) > span { transition-delay: 0.75s; }
+.js.open .hero-line:nth-child(3) > span { transition-delay: 0.85s; }
+.js.open .hero .kicker,
+.js.open .hero-sub,
+.js.open .hero-actions,
+.js.open .wall-label,
+.js.open .hero-toggle,
+.js.open .scroll-cue { opacity: 1; transform: none; transition: opacity 0.9s ease, transform 0.9s var(--ease-out); }
+.js.open .hero .kicker { transition-delay: 0.55s; }
+.js.open .hero-sub     { transition-delay: 1.05s; }
+.js.open .hero-actions { transition-delay: 1.15s; }
+.js.open .wall-label   { transition-delay: 1.3s; }
+.js.open .hero-toggle,
+.js.open .scroll-cue   { transition-delay: 1.5s; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+  padding: 0.9375rem 1.5rem;
+  border: 2px solid var(--black);
+  background: var(--black);
+  color: var(--mint);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.btn:hover, .btn:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--mint);
+}
+.btn-mint { background: var(--mint); border-color: var(--mint); color: var(--black); }
+.btn-mint:hover, .btn-mint:focus-visible { box-shadow: 4px 4px 0 var(--violet); }
+.btn-ghost { background: transparent; border-color: var(--cream); color: var(--cream); }
+.btn-ghost:hover, .btn-ghost:focus-visible { background: var(--cream); color: var(--black); box-shadow: 4px 4px 0 var(--mint); }
+.btn .play {
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 50%;
+  background: var(--black);
+  display: grid;
+  place-items: center;
+}
+.btn .play svg { width: 0.5rem; height: 0.5rem; fill: var(--mint); margin-left: 0.1rem; }
+.btn .dur { font-weight: 500; opacity: 0.7; font-variant-numeric: tabular-nums; }
+
+/* background-video pause control (WCAG 2.2.2) */
+.hero-toggle {
+  position: absolute;
+  right: var(--pad);
+  bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(237, 233, 225, 0.75);
+  padding: 0.5rem 0;
+}
+.hero-toggle:hover { color: var(--cream); }
+.hero-toggle svg { width: 0.75rem; height: 0.75rem; fill: currentColor; }
+.hero-toggle .i-play { display: none; }
+.hero-toggle[aria-pressed="true"] .i-play { display: block; }
+.hero-toggle[aria-pressed="true"] .i-pause { display: none; }
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  margin-left: -0.5px;
+  width: 1px;
+  height: 3rem;
+  background: rgba(237, 233, 225, 0.25);
+  overflow: hidden;
+  text-indent: -999px;
+}
+.scroll-cue::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mint);
+  animation: cue 2.2s var(--ease-io) infinite;
+}
+@keyframes cue {
+  0%   { transform: translateY(-100%); }
+  60%  { transform: translateY(100%); }
+  100% { transform: translateY(100%); }
+}
+@media (max-width: 1023px) { .scroll-cue { display: none; } }
+
+/* ============================================================
+   3. TICKER — violet band, the subjects an exhibition can carry
+   ============================================================ */
+.ticker {
+  background: var(--violet);
+  color: var(--white);
+  overflow: hidden;
+  padding-block: 1.25rem;
+  border-block: 2px solid var(--black);
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 48s linear infinite;
+}
+.ticker-track span {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.75rem, 3.8vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  padding-right: 0.5em;
+}
+.ticker-track span:nth-child(even) { font-style: italic; font-weight: 600; color: var(--black); }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* ============================================================
+   4. INTRO — the pitch, as a statement that lights up on scroll
+   ============================================================ */
+.pitch {
+  background: var(--cream);
+  color: var(--black);
+  padding-block: clamp(5rem, 12vw, 9rem);
+}
+.statement {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.625rem, 3.6vw, 3rem);
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  max-width: 24ch;
+}
+@media (min-width: 900px) { .statement { max-width: 28ch; } }
+.statement em { font-style: italic; }
+.js .statement .w { color: rgba(10, 10, 10, 0.16); transition: color 0.35s ease; }
+.js .statement .w.on { color: var(--black); }
+
+.values {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+}
+@media (min-width: 760px) { .values { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+.values li { border-top: 2px solid var(--black); padding-top: 1.125rem; }
+.values strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.values p { font-size: 0.9375rem; max-width: 30rem; }
+
+/* ============================================================
+   5. CASE STUDY — Între noi
+   ============================================================ */
+.case {
+  background: var(--black);
+  padding-top: clamp(5rem, 11vw, 8rem);
+}
+.case .kicker { color: var(--mint); }
+.case-grid { display: grid; gap: 2.5rem; }
+@media (min-width: 960px) { .case-grid { grid-template-columns: 1.05fr 1fr; gap: 5rem; align-items: end; } }
+.case h2 {
+  color: var(--white);
+  font-size: clamp(3.25rem, 8.5vw, 7rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+.case-tag {
+  margin-top: 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.1vw, 1.625rem);
+  line-height: 1.2;
+  color: var(--cream);
+}
+.case-tag em { font-style: italic; color: var(--mint); }
+.case-body p { max-width: 36rem; }
+.case-body p + p { margin-top: 1rem; }
+.case-facts {
+  margin-top: 2.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+}
+.case-facts dt {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(237, 233, 225, 0.6);
+  margin-bottom: 0.375rem;
+}
+.case-facts dd { font-size: 0.9375rem; font-weight: 500; }
+.case-facts .logos { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.case-facts .logos img { filter: brightness(0) invert(0.92); width: auto; }
+.case-facts .logo-iic { height: 2.5rem; }
+.case-facts .logo-ita { height: 2rem; }
+
+/* film card: poster with a spinning text ring around the play button */
+.film-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--ink-2);
+  text-align: left;
+}
+.film-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.6s var(--ease-out), filter 0.6s ease;
+  filter: saturate(0.85) brightness(0.8);
+}
+.film-card:hover img,
+.film-card:focus-visible img { transform: scale(1.04); filter: saturate(1) brightness(0.9); }
+.film-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(7.5rem, 16vw, 11rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: transform 0.5s var(--ease-out);
+}
+.film-card:hover .film-badge,
+.film-card:focus-visible .film-badge { transform: translate(-50%, -50%) scale(1.08); }
+.film-badge svg.ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 18s linear infinite; }
+.film-badge svg.ring text {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  fill: var(--cream);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.film-badge .disc {
+  width: 46%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--mint);
+  display: grid;
+  place-items: center;
+}
+.film-badge .disc svg { width: 28%; fill: var(--black); margin-left: 8%; }
+.film-meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0));
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+.film-meta .t { font-family: var(--font-display); font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 600; letter-spacing: 0; text-transform: none; }
+.film-meta .d { font-variant-numeric: tabular-nums; }
+
+/* ============================================================
+   6. GALLERY — editorial photo grid, opens in a lightbox
+   ============================================================ */
+.gallery { background: var(--black); padding-block: clamp(5rem, 10vw, 8rem); }
+.gallery-head {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+@media (min-width: 900px) { .gallery-head { grid-template-columns: 1fr auto; align-items: end; } }
+.gallery .kicker { color: var(--mint); }
+.gallery h2 { color: var(--white); font-size: clamp(2.25rem, 5.2vw, 4.25rem); max-width: 14ch; }
+.gallery-note { font-size: 0.9375rem; color: rgba(237, 233, 225, 0.7); max-width: 22rem; }
+
+/* 12-column grid; each tile sets its own shape with --c (columns)
+   and --r (rows), and --mc / --mr on phones. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 44vw;
+  grid-auto-flow: dense;
+  gap: 0.5rem;
+}
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: clamp(8rem, 13vw, 12.5rem);
+    gap: 0.75rem;
+  }
+}
+.tile {
+  grid-column: span var(--mc, 1);
+  grid-row: span var(--mr, 1);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 760px) {
+  .tile { grid-column: span var(--c, 4); grid-row: span var(--r, 1); }
+}
+.tile a { display: block; width: 100%; height: 100%; cursor: zoom-in; background: var(--ink-2); }
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+.tile a:hover img, .tile a:focus-visible img { transform: scale(1.05); }
+.tile figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem 1rem 0.875rem;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0));
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--cream);
+  display: flex;
+  gap: 0.625rem;
+  transform: translateY(100%);
+  transition: transform 0.45s var(--ease-out);
+  pointer-events: none;
+}
+.tile figcaption .n { font-variant-numeric: tabular-nums; color: var(--mint); font-weight: 700; }
+.tile a:hover + figcaption,
+.tile a:focus-visible + figcaption { transform: none; }
+@media (hover: none) { .tile figcaption { display: none; } }
+
+/* reveal: each tile wipes up from its bottom edge. The clip sits on
+   the inner link, not the observed figure: Chrome's
+   IntersectionObserver treats a fully clipped target as invisible. */
+.js .tile > a { clip-path: inset(100% 0 0 0); transition: clip-path 1.1s var(--ease-io); }
+.js .tile img { transform: scale(1.18); }
+.js .tile.in > a { clip-path: inset(0 0 0 0); }
+.js .tile.in img { transform: none; transition: transform 1.6s var(--ease-out); }
+.js .tile.in a:hover img, .js .tile.in a:focus-visible img { transform: scale(1.05); transition-duration: 1.2s; }
+
+/* ============================================================
+   7. PROCESS — how an exhibition comes together
+   ============================================================ */
+.process {
+  background: var(--cream);
+  color: var(--black);
+  padding-block: clamp(5rem, 11vw, 8rem);
+}
+.process h2 { font-size: clamp(2.25rem, 5.2vw, 4.25rem); max-width: 16ch; }
+.steps {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  list-style: none;
+  display: grid;
+  gap: 2.5rem;
+  counter-reset: step;
+}
+@media (min-width: 700px) { .steps { grid-template-columns: repeat(2, 1fr); gap: 3rem 2.5rem; } }
+@media (min-width: 1100px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+.steps li { border-top: 2px solid var(--black); padding-top: 1rem; counter-increment: step; }
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  line-height: 1;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+.steps h3 { font-size: 1.75rem; line-height: 1.05; margin-bottom: 0.625rem; }
+.steps p { font-size: 0.9375rem; max-width: 30rem; }
+
+.audiences {
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--black);
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 900px) { .audiences { grid-template-columns: 14rem 1fr; align-items: start; } }
+.audiences .kicker { margin: 0.5rem 0 0; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.625rem; }
+.chips li {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.0625rem, 1.8vw, 1.375rem);
+  line-height: 1;
+  padding: 0.625rem 1.125rem 0.6875rem;
+  border: 1.5px solid var(--black);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.chips li:hover { background: var(--black); color: var(--mint); }
+
+/* ============================================================
+   8. CTA
+   ============================================================ */
+.cta {
+  background: var(--violet);
+  color: var(--black);
+  padding-block: clamp(6rem, 13vw, 10rem);
+  text-align: center;
+  border-top: 2px solid var(--black);
+}
+.cta h2 {
+  color: var(--white);
+  font-size: clamp(2.5rem, 6.2vw, 5.25rem);
+  max-width: 14ch;
+  margin-inline: auto;
+}
+.cta p {
+  margin: 1.75rem auto 2.5rem;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.875rem; }
+.cta .btn-ghost { border-color: var(--black); color: var(--black); }
+.cta .btn-ghost:hover, .cta .btn-ghost:focus-visible { background: var(--black); color: var(--mint); box-shadow: 4px 4px 0 var(--mint); }
+.cta .btn-ghost .play { background: var(--black); }
+
+/* ============================================================
+   9. FOOTER — black, same as home
+   ============================================================ */
+.footer {
+  background: var(--black);
+  color: var(--cream);
+  padding-block: 3rem;
+}
+.footer-brand { display: inline-flex; align-items: center; }
+.footer-brand img { height: 2.25rem; width: auto; display: block; }
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+.footer a { color: var(--cream); }
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+.footer-meta a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.footer-meta a:hover { color: var(--mint); }
+
+/* ============================================================
+   10. DIALOGS — film player and photo lightbox
+   ============================================================ */
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: clamp(3.5rem, 6vw, 4.5rem) clamp(0.75rem, 4vw, 3rem);
+  background: rgba(10, 10, 10, 0.96);
+  color: var(--cream);
+  display: none;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.overlay[open] { display: grid; }
+.overlay.shown { opacity: 1; }
+.overlay::backdrop { background: transparent; }
+.overlay-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(237, 233, 225, 0.4);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.overlay-close:hover, .overlay-close:focus-visible { background: var(--mint); color: var(--black); border-color: var(--mint); }
+.overlay-close svg { width: 1rem; height: 1rem; stroke: currentColor; stroke-width: 2; fill: none; }
+
+.film-player {
+  width: min(100%, calc((100dvh - 9rem) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  background: var(--black);
+  transform: scale(0.96);
+  transition: transform 0.5s var(--ease-out);
+}
+.overlay.shown .film-player { transform: none; }
+
+.lb-figure {
+  display: grid;
+  gap: 0.875rem;
+  justify-items: center;
+  max-width: 100%;
+}
+.lb-figure img {
+  max-width: 100%;
+  max-height: calc(100dvh - 10rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.lb-figure figcaption {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.lb-count { color: var(--mint); font-weight: 700; font-variant-numeric: tabular-nums; }
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin-top: -1.5rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(237, 233, 225, 0.4);
+  display: grid;
+  place-items: center;
+  background: rgba(10, 10, 10, 0.5);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.lb-nav:hover, .lb-nav:focus-visible { background: var(--mint); color: var(--black); border-color: var(--mint); }
+.lb-nav svg { width: 1.125rem; height: 1.125rem; stroke: currentColor; stroke-width: 2; fill: none; }
+.lb-prev { left: clamp(0.5rem, 2vw, 1.5rem); }
+.lb-next { right: clamp(0.5rem, 2vw, 1.5rem); }
+
+/* ---------- Scroll-reveal (progressive enhancement) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease-out);
+}
+.reveal.in { opacity: 1; transform: none; }
+html:not(.js) .reveal { opacity: 1; transform: none; }
+
+/* ---------- Reduced motion: no intro, no ticker, no parallax ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .hero-media, .js.porthole .hero-media, .js.open .hero-media { clip-path: none; transition: none; }
+  .js .hero-media video { opacity: 1; transform: none; transition: none; }
+  .loader { display: none; }
+  .js .nav, .js .hero-line > span,
+  .js .hero .kicker, .js .hero-sub, .js .hero-actions,
+  .js .wall-label, .js .hero-toggle, .js .scroll-cue { opacity: 1; transform: none; transition: none; }
+  .hero-content, .hero-media-inner { transform: none; opacity: 1; }
+  .ticker-track, .film-badge svg.ring, .scroll-cue::after, .wall-label .wl-now::before { animation: none; }
+  .fx-underline-svg path { animation: none; stroke-dashoffset: 0; }
+  .js .statement .w { color: inherit; transition: none; }
+  .js .tile > a, .js .tile img { clip-path: none; transform: none; transition: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .film-card img, .tile img, .overlay, .film-player { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<span id="top"></span>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     1. NAV
+     ============================================================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="/"><img src="../logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="/">Studio</a></li>
+        <li><a href="/workshops/">Workshops</a></li>
+        <li><a href="#intre-noi">Între noi</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a class="chip" href="#contact">Plan an exhibition</a></li>
+        <li>
+          <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.77 1.153a4.902 4.902 0 0 1 1.153 1.77c.249.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.216 1.79-.465 2.428a4.902 4.902 0 0 1-1.153 1.77 4.902 4.902 0 0 1-1.77 1.153c-.637.249-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.216-2.428-.465a4.902 4.902 0 0 1-1.77-1.153 4.902 4.902 0 0 1-1.153-1.77c-.249-.637-.415-1.363-.465-2.428C2.01 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.065.216-1.79.465-2.428a4.902 4.902 0 0 1 1.153-1.77A4.902 4.902 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.01 9.283 2 12 2Zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.467.181-.8.398-1.15.748-.35.35-.567.683-.748 1.15-.137.353-.3.882-.344 1.858-.05 1.054-.06 1.37-.06 4.04s.01 2.986.06 4.04c.045.976.207 1.505.344 1.858.181.467.398.8.748 1.15.35.35.683.567 1.15.748.353.137.882.3 1.858.344 1.054.05 1.37.06 4.04.06s2.986-.01 4.04-.06c.976-.045 1.505-.207 1.858-.344.467-.181.8-.398 1.15-.748.35-.35.567-.683.748-1.15.137-.353.3-.882.344-1.858.05-1.054.06-1.37.06-4.04s-.01-2.986-.06-4.04c-.045-.976-.207-1.505-.344-1.858a3.1 3.1 0 0 0-.748-1.15 3.1 3.1 0 0 0-1.15-.748c-.353-.137-.882-.3-1.858-.344-1.054-.05-1.37-.059-4.04-.059Zm0 3.064a5.134 5.134 0 1 1 0 10.268 5.134 5.134 0 0 1 0-10.268Zm0 1.802a3.332 3.332 0 1 0 0 6.664 3.332 3.332 0 0 0 0-6.664Zm5.338-1.982a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     2. HERO — muted 22-second loop cut from the Între noi film
+     (only the shots without burned-in subtitles or title cards).
+     The full film with sound plays in the dialog at the bottom.
+     ============================================================ -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-media">
+    <div class="hero-media-inner">
+      <video id="hero-video" autoplay muted loop playsinline preload="auto"
+             poster="media/intre-noi-poster.jpg" aria-hidden="true" tabindex="-1">
+        <source src="media/intre-noi-loop-720.mp4" type="video/mp4" media="(max-width: 900px)">
+        <source src="media/intre-noi-loop-1080.mp4" type="video/mp4">
+      </video>
+      <script>
+      /* Reduced motion: never autoplay the background film. */
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var hv = document.getElementById('hero-video');
+        hv.removeAttribute('autoplay');
+        hv.pause();
+      }
+      </script>
+    </div>
+    <div class="hero-scrim"></div>
+  </div>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader-stage">
+      <svg class="loader-ring" viewBox="0 0 200 200">
+        <circle class="loader-track" cx="100" cy="100" r="96"/>
+        <circle class="loader-arc" cx="100" cy="100" r="96" pathLength="100"/>
+        <g class="loader-dot-rotor"><circle class="loader-dot" cx="196" cy="100" r="3.2"/></g>
+      </svg>
+      <span class="loader-pct"><span class="loader-num">0</span><sup>%</sup></span>
+      <span class="loader-label"><span lang="ro">Între noi</span> · opening the doors</span>
+    </div>
+  </div>
+
+  <div class="wrap hero-content">
+    <div>
+      <span class="kicker">Exhibitions · Cultural diplomacy</span>
+      <h1 id="hero-heading">
+        <span class="hero-line"><span>Diplomacy</span></span>
+        <span class="hero-line"><span>you can <em>walk</em></span></span>
+        <span class="hero-line"><span><em class="fx">through.<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em></span></span>
+      </h1>
+      <p class="hero-sub">We design data exhibitions for embassies, cultural institutes and trade agencies, turning the ties between two countries into a show the public stops for.</p>
+      <div class="hero-actions">
+        <button class="btn btn-mint" type="button" data-film>
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span>
+          Watch the film <span class="dur">1:06</span>
+        </button>
+        <a class="btn btn-ghost" href="#contact">Plan an exhibition</a>
+      </div>
+    </div>
+
+    <!-- "Now showing" wall label: hidden for now. Uncomment to restore;
+         its styles (.wall-label) are still in the stylesheet.
+    <aside class="wall-label" aria-label="Featured exhibition">
+      <span class="wl-now">Now showing</span>
+      <span class="wl-title" lang="ro">Între noi</span>
+      <span class="wl-sub" lang="it">Italia e Romania, raccontate con i dati</span>
+      <span class="wl-meta">A data exhibition curated by Nutgraf</span>
+    </aside>
+    -->
+  </div>
+
+  <button class="hero-toggle" type="button" aria-pressed="false" aria-label="Pause background video">
+    <svg class="i-pause" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 0h3.5v12H1zM7.5 0H11v12H7.5z"/></svg>
+    <svg class="i-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 0l11 6-11 6z"/></svg>
+    <span class="hero-toggle-text">Pause</span>
+  </button>
+  <a class="scroll-cue" href="#intro">Scroll to the introduction</a>
+</section>
+
+<!-- ============================================================
+     3. TICKER — decorative
+     ============================================================ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Trade</span><span>Language</span><span>Investment</span><span>Migration</span><span>Culture</span><span>Memory</span><span>Food</span><span>Music</span>
+    <span>Trade</span><span>Language</span><span>Investment</span><span>Migration</span><span>Culture</span><span>Memory</span><span>Food</span><span>Music</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     4. INTRO
+     ============================================================ -->
+<section class="pitch" id="intro" aria-labelledby="intro-kicker">
+  <div class="wrap">
+    <span class="kicker" id="intro-kicker">Cultural diplomacy, in data</span>
+    <p class="statement">Between any two countries run millions of quiet connections: <em>goods and investment, students and workers, borrowed words and shared stories.</em> We find them in the data, check every number, and put them on the wall where people can see them.</p>
+
+    <ul class="values">
+      <li class="reveal">
+        <strong>For visitors</strong>
+        <p>Panels anyone can read in a minute and want to stay with for ten. In both languages, for every age.</p>
+      </li>
+      <li class="reveal">
+        <strong>For institutions</strong>
+        <p>Evidence of a relationship worth investing in, presented with the authority that only well-sourced data carries.</p>
+      </li>
+      <li class="reveal">
+        <strong>For the press</strong>
+        <p>A story with numbers, photographs and a film, ready to publish on opening day.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. CASE STUDY — Între noi
+     TODO: add the venue, city, dates and visitor numbers to
+     .case-facts when they are confirmed.
+     ============================================================ -->
+<section class="case" id="intre-noi" aria-labelledby="case-heading">
+  <div class="wrap case-grid">
+    <div class="case-head reveal">
+      <span class="kicker">Case study</span>
+      <h2 id="case-heading" lang="ro">Între noi</h2>
+      <p class="case-tag"><em lang="it">Italia e Romania, raccontate con i dati.</em> Italy and Romania, told with data.</p>
+    </div>
+    <div class="case-body reveal">
+      <p><span lang="ro">Între noi</span> means “between us” in Romanian. The exhibition told the story of Italy and Romania through data: who trades with whom, who invests where, and how far each language and culture reaches into the other.</p>
+      <p>We researched the numbers, designed the panels and curated the show. The film follows visitors through the hall, in their own words.</p>
+      <dl class="case-facts">
+        <div>
+          <dt>Countries</dt>
+          <dd>Italy · Romania</dd>
+        </div>
+        <div>
+          <dt>Curated by</dt>
+          <dd>Nutgraf</dd>
+        </div>
+        <div>
+          <dt>Format</dt>
+          <dd>Data exhibition and film</dd>
+        </div>
+        <div>
+          <dt>With</dt>
+          <dd class="logos">
+            <img class="logo-iic" src="../logos/istituto-italiano-di-cultura.svg" alt="Istituto Italiano di Cultura">
+            <img class="logo-ita" src="../logos/ita.png" alt="Italian Trade Agency">
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <button class="film-card reveal" type="button" data-film aria-label="Watch the Între noi film, 1 minute 6 seconds">
+      <img src="media/intre-noi-poster.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+      <span class="film-badge" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 120 120">
+          <defs><path id="badge-circle" d="M60 60 m-48 0 a48 48 0 1 1 96 0 a48 48 0 1 1 -96 0"/></defs>
+          <text><textPath href="#badge-circle" textLength="298" lengthAdjust="spacing">Watch the film · Între noi ·</textPath></text>
+        </svg>
+        <span class="disc"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span>
+      </span>
+      <span class="film-meta" aria-hidden="true">
+        <span class="t" lang="ro">Între noi, the film</span>
+        <span class="d">1:06</span>
+      </span>
+    </button>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. GALLERY
+     PLACEHOLDER PHOTOS: these are stills pulled from the Între noi
+     film. To swap in real photos, replace img/placeholder-NN.jpg
+     (same filenames), or edit each tile's href, src, alt and
+     data-caption. Each tile's shape is set by --c (columns out of
+     12) and --r (rows) on desktop, --mc / --mr on phones.
+     ============================================================ -->
+<section class="gallery" id="gallery" aria-labelledby="gallery-heading">
+  <div class="wrap">
+    <div class="gallery-head reveal">
+      <div>
+        <span class="kicker">Inside the exhibition</span>
+        <h2 id="gallery-heading">On the walls, <em>and in the room.</em></h2>
+      </div>
+      <p class="gallery-note">Select any photo to see it full size.</p>
+    </div>
+
+    <div class="grid">
+      <figure class="tile" style="--c:8;--r:2;--mc:2;--mr:1">
+        <a href="img/placeholder-01.jpg" data-caption="Visitors in the hall">
+          <img src="img/placeholder-01.jpg" alt="Visitors walk among the Între noi panels in a pillared hall." width="1600" height="900" loading="lazy" decoding="async">
+        </a>
+        <figcaption><span class="n">01</span>Visitors in the hall</figcaption>
+      </figure>
+      <figure class="tile" style="--c:4;--r:2;--mc:1;--mr:2">
+        <a href="img/placeholder-02.jpg" data-caption="Reading the panels together">
+          <img src="img/placeholder-02.jpg" alt="A man and a woman discuss a data panel; she points at the chart." width="1600" height="900" loading="lazy" decoding="async" style="object-position:62% 50%">
+        </a>
+        <figcaption><span class="n">02</span>Reading the panels together</figcaption>
+      </figure>
+      <figure class="tile" style="--c:4;--r:1;--mc:1;--mr:1">
+        <a href="img/placeholder-03.jpg" data-caption="The hall from above">
+          <img src="img/placeholder-03.jpg" alt="The exhibition hall seen from a balcony, visitors between the panels." width="1600" height="900" loading="lazy" decoding="async">
+        </a>
+        <figcaption><span class="n">03</span>The hall from above</figcaption>
+      </figure>
+      <figure class="tile" style="--c:4;--r:2;--mc:1;--mr:1">
+        <a href="img/placeholder-04.jpg" data-caption="At the title wall">
+          <img src="img/placeholder-04.jpg" alt="Three women talk in front of the Între noi title panel." width="1600" height="900" loading="lazy" decoding="async" style="object-position:30% 50%">
+        </a>
+        <figcaption><span class="n">04</span>At the title wall</figcaption>
+      </figure>
+      <figure class="tile" style="--c:4;--r:2;--mc:1;--mr:2">
+        <a href="img/placeholder-05.jpg" data-caption="A closer look">
+          <img src="img/placeholder-05.jpg" alt="A visitor looks up at a panel." width="1600" height="900" loading="lazy" decoding="async" style="object-position:48% 30%">
+        </a>
+        <figcaption><span class="n">05</span>A closer look</figcaption>
+      </figure>
+      <figure class="tile" style="--c:4;--r:1;--mc:1;--mr:1">
+        <a href="img/placeholder-06.jpg" data-caption="Charts at eye level">
+          <img src="img/placeholder-06.jpg" alt="A row of data panels hung at eye level, visitors standing beneath." width="1600" height="900" loading="lazy" decoding="async" style="object-position:50% 20%">
+        </a>
+        <figcaption><span class="n">06</span>Charts at eye level</figcaption>
+      </figure>
+      <figure class="tile" style="--c:6;--r:2;--mc:2;--mr:1">
+        <a href="img/placeholder-07.jpg" data-caption="Between the columns">
+          <img src="img/placeholder-07.jpg" alt="A group of visitors stands between the columns near the Între noi poster." width="1600" height="900" loading="lazy" decoding="async">
+        </a>
+        <figcaption><span class="n">07</span>Between the columns</figcaption>
+      </figure>
+      <figure class="tile" style="--c:6;--r:2;--mc:2;--mr:1">
+        <a href="img/placeholder-08.jpg" data-caption="Pointing out the numbers">
+          <img src="img/placeholder-08.jpg" alt="A visitor points at a chart on a hanging panel while others watch." width="1600" height="900" loading="lazy" decoding="async">
+        </a>
+        <figcaption><span class="n">08</span>Pointing out the numbers</figcaption>
+      </figure>
+      <figure class="tile" style="--c:7;--r:2;--mc:1;--mr:1">
+        <a href="img/placeholder-09.jpg" data-caption="Two visitors, three panels">
+          <img src="img/placeholder-09.jpg" alt="Two visitors seen from behind, reading three data panels." width="1600" height="900" loading="lazy" decoding="async">
+        </a>
+        <figcaption><span class="n">09</span>Two visitors, three panels</figcaption>
+      </figure>
+      <figure class="tile" style="--c:5;--r:2;--mc:2;--mr:1">
+        <a href="img/placeholder-10.jpg" data-caption="Talking it over">
+          <img src="img/placeholder-10.jpg" alt="A group of women chat in the exhibition hall." width="1600" height="900" loading="lazy" decoding="async">
+        </a>
+        <figcaption><span class="n">10</span>Talking it over</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. PROCESS
+     ============================================================ -->
+<section class="process" id="process" aria-labelledby="process-heading">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">How it works</span>
+      <h2 id="process-heading">From a bilateral brief to <em>opening night.</em></h2>
+    </div>
+    <ol class="steps">
+      <li class="reveal">
+        <h3>Brief</h3>
+        <p>Which two countries, which story, which audience. We agree on the relationship you want the public to see, and the venue it has to fill.</p>
+      </li>
+      <li class="reveal">
+        <h3>Research</h3>
+        <p>We gather and verify the data: trade, investment, migration, language, culture. Official statistics and archives, with every number sourced.</p>
+      </li>
+      <li class="reveal">
+        <h3>Design</h3>
+        <p>Panels, maps and installations built for a hall, not a screen: legible from three metres, rewarding at thirty centimetres.</p>
+      </li>
+      <li class="reveal">
+        <h3>Opening</h3>
+        <p>Print-ready files, installation support, and a film and social kit, so the exhibition keeps travelling after the doors close.</p>
+      </li>
+    </ol>
+
+    <div class="audiences reveal">
+      <span class="kicker">Made for</span>
+      <ul class="chips">
+        <li>Embassies</li>
+        <li>Cultural institutes</li>
+        <li>Trade &amp; investment agencies</li>
+        <li>Chambers of commerce</li>
+        <li>Foreign ministries</li>
+        <li>Festivals &amp; universities</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. CTA
+     ============================================================ -->
+<section class="cta" id="contact" aria-labelledby="cta-heading">
+  <div class="wrap reveal">
+    <h2 id="cta-heading">Two countries, one story. <em>Let’s put it on the wall.</em></h2>
+    <p>Tell us which relationship you want to show, and where. We’ll come back with a concept, a data plan and a timeline within a week.</p>
+    <div class="cta-actions">
+      <a class="btn" href="mailto:hello@nutgraf.studio?subject=Exhibition%20enquiry">Plan an exhibition</a>
+      <button class="btn btn-ghost" type="button" data-film>
+        <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span>
+        Watch the film
+      </button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     9. FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="footer-brand" href="/"><img src="../logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
+    <div class="footer-meta">
+      <a href="/">Studio</a>
+      <a href="/workshops/">Workshops</a>
+      <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     10. DIALOGS
+     ============================================================ -->
+<dialog class="overlay film-dialog" id="film-dialog" aria-label="Între noi, the film">
+  <button class="overlay-close" type="button" aria-label="Close the film">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14"/></svg>
+  </button>
+  <video class="film-player" controls playsinline preload="none" poster="media/intre-noi-poster.jpg">
+    <source src="media/intre-noi-film-720.mp4" type="video/mp4" media="(max-width: 900px)">
+    <source src="media/intre-noi-film-1080.mp4" type="video/mp4">
+  </video>
+</dialog>
+
+<dialog class="overlay lightbox" id="lightbox" aria-label="Exhibition photos">
+  <button class="overlay-close" type="button" aria-label="Close photo">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14"/></svg>
+  </button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg>
+  </button>
+  <figure class="lb-figure">
+    <img alt="">
+    <figcaption><span class="lb-count"></span><span class="lb-caption"></span></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg>
+  </button>
+</dialog>
+
+<script>
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Nav: solidify on scroll */
+(function () {
+  var nav = document.querySelector('.nav');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* Intro: the ring fills as the loop buffers (with a timed floor so it
+   always moves), then the video appears inside the ring and irises
+   out to full screen. Never waits more than 4.5 s for the network;
+   any scroll, key or click skips straight to the reveal. */
+(function () {
+  var root = document.documentElement;
+  var video = document.getElementById('hero-video');
+  var arc = document.querySelector('.loader-arc');
+  var rotor = document.querySelector('.loader-dot-rotor');
+  var num = document.querySelector('.loader-num');
+
+  function finishInstantly() {
+    root.classList.remove('intro');
+    root.classList.add('porthole', 'open', 'ready');
+  }
+
+  // No intro under reduced motion, or when arriving on an anchor link.
+  if (reduceMotion || window.location.hash) { finishInstantly(); return; }
+
+  // Progress is a function of elapsed time (not of frame count), so a
+  // throttled or janky frame rate delays the reveal by a frame at most.
+  var start = performance.now();
+  var minTime = 1.6;   // the ring always gets this long to draw
+  var finishTime = 0.6; // last stretch to 100% once the video is ready
+  var shown = 0;
+  var ready = false;
+  var readyAt = 0;
+  var readyFrom = 0;
+  var done = false;
+
+  function markReady() { ready = true; }
+  if (video.readyState >= 3) markReady();
+  video.addEventListener('canplaythrough', markReady);
+  video.addEventListener('playing', markReady);
+  setTimeout(markReady, 4500);
+
+  var p = video.play();
+  if (p && p.catch) p.catch(function () { /* autoplay blocked: the poster carries the hero */ });
+
+  function buffered() {
+    try {
+      if (video.duration && video.buffered.length) {
+        return video.buffered.end(video.buffered.length - 1) / video.duration * 100;
+      }
+    } catch (e) {}
+    return 0;
+  }
+
+  function render(v) {
+    arc.style.strokeDashoffset = 100 - v;
+    rotor.style.transform = 'rotate(' + (v * 3.6) + 'deg)';
+    num.textContent = Math.round(v);
+  }
+
+  function tick() {
+    if (done) return;
+    if (root.classList.contains('open')) { done = true; return; } // failsafe in <head> won
+    var t = (performance.now() - start) / 1000;
+    if (!readyAt) {
+      var floor = 90 * (1 - Math.exp(-t / 0.9));
+      shown = Math.max(shown, Math.min(94, Math.max(floor, buffered())));
+      if (ready && t >= minTime) { readyAt = t; readyFrom = shown; }
+    }
+    if (readyAt) {
+      var k = Math.min(1, (t - readyAt) / finishTime);
+      shown = readyFrom + (100 - readyFrom) * (1 - Math.pow(1 - k, 3));
+      if (k === 1) { reveal(); return; }
+    }
+    render(shown);
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  function reveal() {
+    if (done) return;
+    done = true;
+    render(100);
+    root.classList.add('porthole');
+    setTimeout(function () {
+      root.classList.remove('intro');
+      root.classList.add('open');
+    }, 950);
+    setTimeout(function () { root.classList.add('ready'); }, 950 + 1600);
+  }
+
+  function skip() {
+    ready = true;
+    minTime = 0;
+    finishTime = 0.25;
+  }
+  ['wheel', 'touchmove', 'keydown', 'pointerdown'].forEach(function (ev) {
+    window.addEventListener(ev, skip, { once: true, passive: true });
+  });
+})();
+
+/* Hero: pause control, pause when off-screen, gentle parallax */
+(function () {
+  var hero = document.querySelector('.hero');
+  var video = document.getElementById('hero-video');
+  var toggle = document.querySelector('.hero-toggle');
+  var label = toggle.querySelector('.hero-toggle-text');
+  var userPaused = reduceMotion;
+  var inView = true;
+
+  function sync() {
+    toggle.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+    toggle.setAttribute('aria-label', userPaused ? 'Play background video' : 'Pause background video');
+    label.textContent = userPaused ? 'Play' : 'Pause';
+  }
+  function apply() {
+    if (userPaused || !inView || document.documentElement.classList.contains('modal-open')) {
+      video.pause();
+    } else {
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  }
+  toggle.addEventListener('click', function () { userPaused = !userPaused; sync(); apply(); });
+  sync();
+
+  new IntersectionObserver(function (entries) {
+    inView = entries[0].isIntersecting;
+    apply();
+  }).observe(hero);
+
+  window.heroVideo = { apply: apply };
+
+  if (reduceMotion) return;
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var p = Math.min(1, Math.max(0, window.scrollY / hero.offsetHeight));
+      hero.style.setProperty('--p', p.toFixed(4));
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* Statement: words light up as the paragraph scrolls through view */
+(function () {
+  var el = document.querySelector('.statement');
+  if (!el || reduceMotion) return;
+  var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  var nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function (n) {
+    var frag = document.createDocumentFragment();
+    n.textContent.split(/(\s+)/).forEach(function (part) {
+      if (!part) return;
+      if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+      var s = document.createElement('span');
+      s.className = 'w';
+      s.textContent = part;
+      frag.appendChild(s);
+    });
+    n.parentNode.replaceChild(frag, n);
+  });
+  var words = el.querySelectorAll('.w');
+  var lit = -1;
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var r = el.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var p = (vh * 0.85 - r.top) / (r.height + vh * 0.3);
+    var n = Math.round(Math.min(1, Math.max(0, p)) * words.length);
+    if (n === lit) return;
+    for (var i = 0; i < words.length; i++) words[i].classList.toggle('on', i < n);
+    lit = n;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
+/* Scroll-reveal for blocks and gallery tiles (tiles stagger per row) */
+(function () {
+  var els = document.querySelectorAll('.reveal, .tile');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    var batch = entries.filter(function (e) { return e.isIntersecting; });
+    batch.forEach(function (e, i) {
+      if (e.target.classList.contains('tile')) e.target.firstElementChild.style.transitionDelay = (i * 90) + 'ms';
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* Dialog helpers: fade in/out, lock page scroll, close on backdrop */
+function openOverlay(d) {
+  document.documentElement.classList.add('modal-open');
+  d.showModal();
+  requestAnimationFrame(function () { d.classList.add('shown'); });
+  if (window.heroVideo) window.heroVideo.apply();
+}
+function closeOverlay(d) {
+  d.classList.remove('shown');
+  setTimeout(function () { if (d.open) d.close(); }, reduceMotion ? 0 : 300);
+}
+document.querySelectorAll('.overlay').forEach(function (d) {
+  d.querySelector('.overlay-close').addEventListener('click', function () { closeOverlay(d); });
+  d.addEventListener('click', function (e) { if (e.target === d) closeOverlay(d); });
+  d.addEventListener('cancel', function (e) { e.preventDefault(); closeOverlay(d); });
+  d.addEventListener('close', function () {
+    document.documentElement.classList.remove('modal-open');
+    if (window.heroVideo) window.heroVideo.apply();
+  });
+});
+
+/* Film: full cut with sound, loaded only when asked for */
+(function () {
+  var d = document.getElementById('film-dialog');
+  var player = d.querySelector('video');
+  document.querySelectorAll('[data-film]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      openOverlay(d);
+      var p = player.play();
+      if (p && p.catch) p.catch(function () {});
+      if (window.gtag) gtag('event', 'film_open', { film: 'intre-noi' });
+    });
+  });
+  d.addEventListener('close', function () { player.pause(); });
+})();
+
+/* Lightbox: gallery photos, arrow keys and buttons to move */
+(function () {
+  var d = document.getElementById('lightbox');
+  var img = d.querySelector('img');
+  var cap = d.querySelector('.lb-caption');
+  var count = d.querySelector('.lb-count');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.tile a'));
+  var idx = 0;
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function show(i) {
+    idx = (i + links.length) % links.length;
+    var a = links[idx];
+    img.src = a.getAttribute('href');
+    img.alt = a.querySelector('img').alt;
+    cap.textContent = a.getAttribute('data-caption');
+    count.textContent = pad(idx + 1) + ' / ' + pad(links.length);
+  }
+  links.forEach(function (a, i) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      show(i);
+      openOverlay(d);
+    });
+  });
+  d.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
+  d.querySelector('.lb-next').addEventListener('click', function () { show(idx + 1); });
+  d.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+})();
+</script>
+
+</body>
+</html>

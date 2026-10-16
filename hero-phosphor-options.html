@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Hero video — phosphor options</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   HERO VIDEO — phosphor family, six takes on the Între noi loop
+   Nav + hero copied from index.html; switch looks with the bar
+   at the bottom or keys 1–6. All CSS on the <video>, except
+   Afterglow, which redraws the film into a canvas to leave trails.
+   The upper bar swaps the film itself: the original loop or one of
+   two new cuts (Piero + panels, slow panels), plus a Raw toggle to
+   judge the footage without any treatment.
+   ============================================================ */
+
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+  --forest: #040B06;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max-w: 72rem;
+  --pad: 1.5rem;
+}
+
+/* ---------- Reset / base (as index.html) ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.wrap { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad); }
+.kicker {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   NAV — as index.html, plus a light variant while over the film
+   ============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+.nav.scrolled {
+  background: var(--cream);
+  box-shadow: 0 1px 0 rgba(10, 10, 10, 0.12);
+}
+.nav-brand { font-size: 1.25rem; text-decoration: none; display: inline-flex; align-items: center; }
+.nav-brand img { height: 2rem; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 1.25rem; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.25s ease;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { border-bottom-color: var(--black); }
+
+.nav-links a.chip {
+  background: var(--black);
+  color: var(--cream);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border-bottom: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0;
+  transition: color 0.3s ease, background-color 0.25s ease;
+}
+.nav-links a.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--violet);
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+.nav-links a.chip:hover,
+.nav-links a.chip:focus-visible { border-bottom: none; color: var(--white); }
+.nav-links a.chip:hover::before,
+.nav-links a.chip:focus-visible::before { transform: translateX(0); }
+
+.nav-links a.icon-link { display: inline-flex; align-items: center; border-bottom: none; opacity: 0.85; padding: 0.4rem 0; }
+.nav-links a.icon-link:hover,
+.nav-links a.icon-link:focus-visible { border-bottom: none; opacity: 1; }
+.nav-links a.icon-link svg { width: 1.5rem; height: 1.5rem; fill: currentColor; }
+
+/* Over the film: white logo, cream links, mint chip */
+.nav .logo-light { display: none; }
+.nav:not(.scrolled) .logo-dark { display: none; }
+.nav:not(.scrolled) .logo-light { display: block; }
+.nav:not(.scrolled) .nav-links a { color: var(--cream); }
+.nav:not(.scrolled) .nav-links a:hover,
+.nav:not(.scrolled) .nav-links a:focus-visible { border-bottom-color: var(--mint); }
+.nav:not(.scrolled) .nav-links a.chip { background: var(--mint); color: var(--black); }
+.nav:not(.scrolled) .nav-links a.chip:hover,
+.nav:not(.scrolled) .nav-links a.chip:focus-visible { color: var(--white); }
+
+@media (max-width: 599px) {
+  .nav-brand img { height: 2.5rem; }
+  .nav-links { gap: 0.875rem; }
+  .nav-links a { font-size: 0.875rem; }
+  .nav-links a:not(.chip):not(.icon-link) { display: none; }
+  .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
+}
+@media (min-width: 600px) and (max-width: 819px) {
+  .nav-links a[href^="#"]:not(.chip) { display: none; }
+}
+
+/* ============================================================
+   HERO — full-screen film behind nav + headline
+   ============================================================ */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--forest);
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+.hero-grid { display: grid; gap: 2.5rem; align-items: center; }
+.hero h1 {
+  font-size: clamp(2.5rem, 7.5vw, 4.5rem);
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(4, 11, 6, 0.45);
+}
+.hero h1 em { font-style: italic; font-weight: 600; }
+.hero-sub {
+  margin-top: 1.25rem;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  max-width: 34rem;
+  color: var(--cream);
+  text-shadow: 0 1px 12px rgba(4, 11, 6, 0.6);
+}
+/* The icosahedron is parked for this test — the film is the visual */
+.hero-visual { display: none; }
+
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+}
+
+/* Violet marker underline (as index.html) */
+.fx { position: relative; white-space: nowrap; }
+.fx-underline-svg {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.14em;
+  width: 106%;
+  max-width: none;
+  height: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+.fx-underline-svg path {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  animation: fx-underline-draw 4.5s ease-in-out infinite;
+}
+@keyframes fx-underline-draw {
+  0%        { stroke-dashoffset: 330; opacity: 1; }
+  28%, 78%  { stroke-dashoffset: 0;   opacity: 1; }
+  90%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+
+/* ---------- Film layers ---------- */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  isolation: isolate;  /* blend layers only mix with the film */
+  overflow: hidden;
+}
+.hero-media > * { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-media video { object-fit: cover; }
+.hero-trail { display: none; }
+.fx-layer { display: none; pointer-events: none; }
+
+/* Scrim: copy sits left, nav on top — give both a real backing */
+.hero-scrim {
+  background:
+    linear-gradient(to bottom, rgba(4, 11, 6, 0.6) 0%, rgba(4, 11, 6, 0) 22%),
+    linear-gradient(to right, rgba(4, 11, 6, 0.78) 0%, rgba(4, 11, 6, 0.45) 42%, rgba(4, 11, 6, 0) 72%);
+}
+/* Narrow screens: the copy spans the full width, so darken the band it
+   sits in and leave the top and bottom of the film at full strength */
+@media (max-width: 1023px) {
+  .hero-scrim {
+    background: linear-gradient(to bottom,
+      rgba(4, 11, 6, 0.6) 0%,
+      rgba(4, 11, 6, 0.15) 20%,
+      rgba(4, 11, 6, 0.55) 38%,
+      rgba(4, 11, 6, 0.55) 72%,
+      rgba(4, 11, 6, 0.1) 92%);
+  }
+}
+
+/* ============================================================
+   PHOSPHOR TUBE — shared by every option
+   The film is crushed to greyscale, multiplied by a tube colour,
+   then scanlines, a rolling refresh band, vignette and grain sit
+   on top. Each option below only retunes these variables or adds
+   one extra layer.
+   ============================================================ */
+body {
+  --film:      grayscale(1) contrast(2.2) brightness(1.15) blur(0.4px);
+  --phos:      #3DFF6E;                    /* tube colour (multiply) */
+  --glow:      rgba(110, 255, 140, 0.22);  /* centre bloom (screen) */
+  --band:      rgba(140, 255, 160, 0.12);  /* rolling refresh band */
+  --line:      rgba(0, 0, 0, 0.5);         /* scanline colour */
+  --line-w:    1px;                        /* scanline thickness */
+  --line-step: 3px;                        /* scanline pitch */
+  --edge:      rgba(0, 6, 2, 0.85);        /* vignette edge */
+  --grain:     0.16;
+}
+
+.hero-media video,
+.hero-trail { filter: var(--film); }
+
+.fx-tint {
+  display: block;
+  background: var(--phos);
+  mix-blend-mode: multiply;
+  animation: phosphor-flicker 0.14s steps(2) infinite;
+}
+.fx-lift {
+  display: block;
+  background: radial-gradient(ellipse at 60% 45%, var(--glow), rgba(0, 0, 0, 0) 65%);
+  mix-blend-mode: screen;
+}
+.fx-lines {
+  display: block;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--band) 50%, rgba(0, 0, 0, 0) 100%) 0 -30% / 100% 30% no-repeat,
+    repeating-linear-gradient(to bottom, var(--line) 0 var(--line-w), rgba(0, 0, 0, 0) var(--line-w) var(--line-step));
+  animation: phosphor-roll 7s linear infinite;
+}
+.fx-vignette {
+  display: block;
+  background: radial-gradient(ellipse at 55% 50%, rgba(0, 0, 0, 0) 45%, var(--edge) 100%);
+}
+.fx-grain {
+  display: block;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: var(--grain);
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 1  0 0 0 0 0.65  0 0 0 1.2 -0.25'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain-jitter 0.5s steps(5) infinite;
+}
+@keyframes phosphor-flicker {
+  from { opacity: 1; }
+  to   { opacity: 0.94; }
+}
+@keyframes phosphor-roll {
+  from { background-position: 0 -30%, 0 0; }
+  to   { background-position: 0 130%, 0 0; }
+}
+@keyframes grain-jitter {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-7%, 4%); }
+  40%  { transform: translate(5%, -6%); }
+  60%  { transform: translate(-3%, -9%); }
+  80%  { transform: translate(8%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ---------- 1. PHOSPHOR — the original, untouched ---------- */
+
+/* ---------- 2. CRT ----------
+   Heavier tube: thick scanlines, an aperture grille, rounded glass
+   inside a black bezel, and a power-on flicker when it appears. */
+[data-fx="crt"] {
+  --film:      grayscale(1) contrast(2.5) brightness(1.25) blur(0.7px);
+  --glow:      rgba(120, 255, 150, 0.32);
+  --band:      rgba(160, 255, 180, 0.2);
+  --line:      rgba(0, 0, 0, 0.6);
+  --line-w:    2px;
+  --line-step: 4px;
+}
+[data-fx="crt"] .fx-grille {
+  display: block;
+  background: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.28) 0 1px, rgba(0, 0, 0, 0) 1px 3px);
+}
+[data-fx="crt"] .fx-mask {
+  display: block;
+  inset: clamp(6px, 1.4vmin, 14px);
+  width: auto;
+  height: auto;
+  border-radius: clamp(18px, 4vmin, 44px);
+  box-shadow: 0 0 0 100vmax #010302, inset 0 0 7vmin 2vmin rgba(0, 8, 3, 0.9);
+}
+[data-fx="crt"] .hero-media { animation: crt-on 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes crt-on {
+  0%   { transform: scale(0.02, 0.004); filter: brightness(6); }
+  35%  { transform: scale(1, 0.004);    filter: brightness(4); }
+  65%  { transform: scale(1, 1);        filter: brightness(1.8); }
+  100% { transform: none;               filter: none; }
+}
+
+/* ---------- 3. NIGHT VISION ----------
+   Brighter, yellower green, heavy grain, a fast interference line
+   and the round edge of an image-intensifier tube. */
+[data-fx="nightvision"] {
+  --film:      grayscale(1) contrast(1.7) brightness(1.55) blur(0.6px);
+  --phos:      #8CFF3F;
+  --glow:      rgba(190, 255, 120, 0.38);
+  --band:      rgba(220, 255, 180, 0.3);
+  --line:      rgba(0, 0, 0, 0.18);
+  --line-step: 2px;
+  --grain:     0.38;
+}
+[data-fx="nightvision"] .fx-lift {
+  background: radial-gradient(circle at 62% 50%, var(--glow), rgba(0, 0, 0, 0) 55%);
+}
+[data-fx="nightvision"] .fx-lines { background-size: 100% 6%, auto; animation-duration: 2.4s; }
+[data-fx="nightvision"] .fx-mask {
+  display: block;
+  background: radial-gradient(circle min(54svh, 46vw) at 62% 50%,
+    rgba(0, 4, 1, 0) 0%, rgba(0, 4, 1, 0) 86%, rgba(0, 4, 1, 0.97) 100%);
+}
+@media (max-width: 1023px) {
+  [data-fx="nightvision"] .fx-lift { background: radial-gradient(circle at 50% 45%, var(--glow), rgba(0, 0, 0, 0) 60%); }
+  [data-fx="nightvision"] .fx-mask {
+    background: radial-gradient(circle min(46svh, 64vw) at 50% 45%,
+      rgba(0, 4, 1, 0) 0%, rgba(0, 4, 1, 0) 84%, rgba(0, 4, 1, 0.97) 100%);
+  }
+}
+
+/* ---------- 4. AFTERGLOW ----------
+   Real phosphor persistence: bright things leave a fading trail.
+   The film is redrawn into a canvas that never fully clears. */
+[data-fx="afterglow"] {
+  --glow: rgba(120, 255, 150, 0.28);
+}
+[data-fx="afterglow"] .hero-trail { display: block; }
+
+/* ---------- 5. VIOLET DRIFT ----------
+   Green tube, but a band of studio violet sweeps across the frame
+   (hue blend: keeps the film's light and contrast, swaps the hue)
+   and the scanlines and edges pick up violet too. */
+[data-fx="violet-drift"] {
+  --band: rgba(160, 150, 255, 0.22);
+  --line: rgba(18, 10, 60, 0.55);
+  --edge: rgba(14, 8, 48, 0.88);
+}
+[data-fx="violet-drift"] .fx-hue {
+  display: block;
+  mix-blend-mode: hue;
+  background:
+    radial-gradient(ellipse at 55% 50%, rgba(123, 123, 240, 0) 50%, rgba(123, 123, 240, 0.9) 100%),
+    linear-gradient(110deg, rgba(123, 123, 240, 0) 25%, rgba(123, 123, 240, 1) 50%, rgba(123, 123, 240, 0) 75%) 0 0 / 260% 100%;
+  animation: hue-drift 12s ease-in-out infinite alternate;
+}
+@keyframes hue-drift {
+  from { background-position: 0 0, 100% 0; }
+  to   { background-position: 0 0, 0% 0; }
+}
+
+/* ---------- 6. VIOLET PHOSPHOR ----------
+   The whole tube in studio violet, with mint as the accent: the
+   refresh band and the grain glint mint over the violet image. */
+[data-fx="violet"] {
+  --film:  grayscale(1) contrast(2.2) brightness(1.3) blur(0.4px);
+  --phos:  #8F8BFF;
+  --glow:  rgba(150, 140, 255, 0.3);
+  --band:  rgba(159, 242, 154, 0.22);
+  --line:  rgba(8, 4, 30, 0.55);
+  --edge:  rgba(8, 4, 26, 0.9);
+  --grain: 0.22;
+}
+[data-fx="violet"] .hero { background: #08051A; }
+[data-fx="violet"] .fx-underline-svg path { stroke: var(--mint); }  /* violet-on-violet vanishes */
+
+/* ============================================================
+   NEXT SECTION — just enough page to see the nav turn cream
+   ============================================================ */
+.services { background: var(--cream); padding-block: 5rem 40vh; }
+.section-head h2 { font-size: clamp(1.875rem, 4.5vw, 2.75rem); margin-bottom: 0.75rem; }
+.section-head p { max-width: 38rem; }
+.note { margin-top: 2rem; font-size: 0.9375rem; opacity: 0.6; max-width: 38rem; }
+
+/* ============================================================
+   OPTION SWITCHERS (prototype only)
+   ============================================================ */
+.switches {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+}
+.fx-switch,
+.film-switch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(237, 233, 225, 0.12);
+}
+.fx-switch button,
+.film-switch button {
+  font: 500 0.8125rem/1 var(--font-body);
+  color: var(--cream);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+.fx-switch button:hover,
+.film-switch button:hover { background: rgba(237, 233, 225, 0.1); }
+.fx-switch button:focus-visible,
+.film-switch button:focus-visible { outline: 2px solid var(--mint); outline-offset: 1px; }
+.fx-switch button[aria-pressed="true"],
+.film-switch button[aria-pressed="true"] { background: var(--mint); color: var(--black); }
+.fx-switch .k {
+  font-weight: 700;
+  font-size: 0.6875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(237, 233, 225, 0.14);
+}
+.fx-switch button[aria-pressed="true"] .k { background: rgba(10, 10, 10, 0.12); }
+.fx-switch .tech { font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; }
+/* film bar: smaller, sits above the looks */
+.film-switch { gap: 0.125rem; padding: 0.2rem; align-items: center; }
+.film-switch button { font-size: 0.75rem; padding: 0.4rem 0.7rem; }
+.film-switch .label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(237, 233, 225, 0.55);
+  padding: 0 0.4rem 0 0.6rem;
+}
+.film-switch .sep { width: 1px; align-self: stretch; margin: 0.3rem 0.2rem; background: rgba(237, 233, 225, 0.18); }
+.film-switch button.raw-toggle[aria-pressed="true"] { background: var(--cream); color: var(--black); }
+
+/* Raw: the footage with every treatment switched off */
+.raw .hero-media video { filter: none; }
+.raw .fx-layer, .raw .hero-trail { display: none !important; }
+.raw .hero-media { animation: none; }
+
+/* violet options get a violet "on" state */
+.fx-switch button.is-violet[aria-pressed="true"] { background: var(--violet); color: var(--white); }
+.fx-switch .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--violet); }
+@media (max-width: 599px) {
+  .fx-switch { display: grid; grid-template-columns: repeat(3, 1fr); width: calc(100vw - 2rem); border-radius: 1.1rem; gap: 0.125rem; }
+  .fx-switch button { justify-content: center; padding: 0.55rem 0.4rem; font-size: 0.75rem; }
+  .fx-switch .k { display: none; }
+  .film-switch { flex-wrap: nowrap; justify-content: center; }
+  .film-switch button { padding: 0.4rem 0.55rem; font-size: 0.6875rem; }
+  .film-switch .label, .film-switch .sep { display: none; }
+}
+
+/* ---------- Reduced motion: still frame, no drifting layers ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fx-underline-svg path { animation: none; stroke-dashoffset: 0; }
+  .fx-layer, .hero-media { animation: none !important; }
+  .nav-links a.chip, .nav-links a.chip::before { transition: none; }
+}
+</style>
+</head>
+<body data-fx="phosphor">
+
+<span id="top"></span>
+
+<!-- ============================================================
+     NAV (as index.html, with a white logo for over-the-film)
+     ============================================================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#top">
+      <img class="logo-dark" src="logos/nutgraf-logo.svg" alt="Nutgraf.studio">
+      <img class="logo-light" src="logos/nutgraf-logo-white.svg" alt="Nutgraf.studio">
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="/workshops/">Workshops</a></li>
+        <li><a href="/exhibitions/">Exhibitions</a></li>
+        <li><a class="chip" href="#contact">Contact us</a></li>
+        <li>
+          <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.77 1.153a4.902 4.902 0 0 1 1.153 1.77c.249.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.216 1.79-.465 2.428a4.902 4.902 0 0 1-1.153 1.77 4.902 4.902 0 0 1-1.77 1.153c-.637.249-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.216-2.428-.465a4.902 4.902 0 0 1-1.77-1.153 4.902 4.902 0 0 1-1.153-1.77c-.249-.637-.415-1.363-.465-2.428C2.01 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.065.216-1.79.465-2.428a4.902 4.902 0 0 1 1.153-1.77A4.902 4.902 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.01 9.283 2 12 2Zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.467.181-.8.398-1.15.748-.35.35-.567.683-.748 1.15-.137.353-.3.882-.344 1.858-.05 1.054-.06 1.37-.06 4.04s.01 2.986.06 4.04c.045.976.207 1.505.344 1.858.181.467.398.8.748 1.15.35.35.683.567 1.15.748.353.137.882.3 1.858.344 1.054.05 1.37.06 4.04.06s2.986-.01 4.04-.06c.976-.045 1.505-.207 1.858-.344.467-.181.8-.398 1.15-.748.35-.35.567-.683.748-1.15.137-.353.3-.882.344-1.858.05-1.054.06-1.37.06-4.04s-.01-2.986-.06-4.04c-.045-.976-.207-1.505-.344-1.858a3.1 3.1 0 0 0-.748-1.15 3.1 3.1 0 0 0-1.15-.748c-.353-.137-.882-.3-1.858-.344-1.054-.05-1.37-.059-4.04-.059Zm0 3.064a5.134 5.134 0 1 1 0 10.268 5.134 5.134 0 0 1 0-10.268Zm0 1.802a3.332 3.332 0 1 0 0 6.664 3.332 3.332 0 0 0 0-6.664Zm5.338-1.982a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     HERO — the Între noi loop (22 s, no subtitles or title cards)
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <video id="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="exhibitions/media/intre-noi-poster.jpg" tabindex="-1">
+      <source src="exhibitions/media/intre-noi-loop-720.mp4" type="video/mp4" media="(max-width: 900px)">
+      <source src="exhibitions/media/intre-noi-loop-1080.mp4" type="video/mp4">
+    </video>
+    <canvas class="hero-trail" id="hero-trail"></canvas>
+    <div class="fx-layer fx-tint"></div>
+    <div class="fx-layer fx-lift"></div>
+    <div class="fx-layer fx-hue"></div>
+    <div class="fx-layer fx-lines"></div>
+    <div class="fx-layer fx-grille"></div>
+    <div class="fx-layer fx-vignette"></div>
+    <div class="fx-layer fx-grain"></div>
+    <div class="fx-layer fx-mask"></div>
+    <div class="hero-scrim"></div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div>
+      <h1>We make<br>your&nbsp;data<br><em class="fx">impossible<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em><br>to ignore.</h1>
+      <p class="hero-sub">We are a data design studio. We turn your numbers into charts, reports and maps your audience understands in seconds, remembers, and acts on.</p>
+    </div>
+    <div class="hero-visual" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Services</span>
+      <h2>What you get</h2>
+      <p>Three services, one outcome: your&nbsp;data, seen, understood and acted on.</p>
+      <p class="note">Prototype page — the rest of the home page is unchanged. Scroll back up and switch looks with the bar below or keys 1–6, and the film with the bar above it.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="switches">
+<div class="film-switch" role="group" aria-label="Film">
+  <span class="label">Film</span>
+  <button type="button" data-film="original" aria-pressed="true">Original</button>
+  <button type="button" data-film="piero" aria-pressed="false">Piero + panels</button>
+  <button type="button" data-film="panels" aria-pressed="false">Panels</button>
+  <span class="sep" aria-hidden="true"></span>
+  <button type="button" class="raw-toggle" aria-pressed="false">Raw</button>
+</div>
+<div class="fx-switch" role="group" aria-label="Video treatment">
+  <button type="button" data-key="1" data-fx="phosphor" aria-pressed="true"><span class="k">1</span>Phosphor</button>
+  <button type="button" data-key="2" data-fx="crt" aria-pressed="false"><span class="k">2</span>CRT</button>
+  <button type="button" data-key="3" data-fx="nightvision" aria-pressed="false"><span class="k">3</span>Night vision</button>
+  <button type="button" data-key="4" data-fx="afterglow" aria-pressed="false"><span class="k">4</span>Afterglow</button>
+  <button type="button" data-key="5" data-fx="violet-drift" class="is-violet" aria-pressed="false"><span class="k">5</span>Violet drift<span class="dot"></span></button>
+  <button type="button" data-key="6" data-fx="violet" class="is-violet" aria-pressed="false"><span class="k">6</span>Violet<span class="dot"></span></button>
+</div>
+</div>
+
+<script>
+/* Nav: solidify on scroll (as index.html) */
+(function () {
+  var nav = document.querySelector('.nav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* Hero film: six phosphor treatments, all CSS on the <video> except
+   Afterglow, which redraws each frame into a canvas over a slowly
+   fading copy of the last one, so moving highlights leave trails. */
+(function () {
+  var body = document.body;
+  var hero = document.querySelector('.hero');
+  var media = document.querySelector('.hero-media');
+  var video = document.getElementById('hero-video');
+  var trail = document.getElementById('hero-trail');
+  var ctx = trail.getContext('2d', { alpha: false });
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.fx-switch button'));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Reduced motion: never autoplay; the first frame stays put */
+  if (reduce) { video.removeAttribute('autoplay'); video.pause(); }
+
+  var DECAY = 0.1;   /* share of the old frame wiped each tick: lower = longer trails */
+  var running = false, onScreen = true, last = 0;
+
+  function sizeTrail() {
+    var w = hero.clientWidth, h = hero.clientHeight;
+    if (trail.width !== w || trail.height !== h) {
+      trail.width = w; trail.height = h;
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, w, h);
+    }
+  }
+
+  function drawTrail(fresh) {
+    if (video.readyState < 2) return;
+    var cw = trail.width, ch = trail.height;
+    var vw = video.videoWidth, vh = video.videoHeight;
+    var s = Math.max(cw / vw, ch / vh), dw = vw * s, dh = vh * s;
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = fresh ? 1 : DECAY;
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, cw, ch);
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = 'lighten';
+    ctx.drawImage(video, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+  }
+
+  function isTrail() { return body.dataset.fx === 'afterglow'; }
+
+  function loop(now) {
+    if (!isTrail() || !onScreen || reduce) { running = false; return; }
+    if (now - last >= 33) { drawTrail(false); last = now; }
+    requestAnimationFrame(loop);
+  }
+  function kick(fresh) {
+    if (!isTrail()) return;
+    sizeTrail();
+    if (fresh || reduce) drawTrail(true);
+    if (!reduce && !running && onScreen) { running = true; requestAnimationFrame(loop); }
+  }
+  video.addEventListener('loadeddata', function () { kick(true); });
+  window.addEventListener('resize', function () { kick(true); });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      onScreen = entries[0].isIntersecting;
+      if (onScreen) kick(false);
+    }).observe(hero);
+  }
+
+  /* ---------- Option switcher ---------- */
+  function setMode(fx) {
+    if (body.dataset.fx !== fx) {
+      body.dataset.fx = fx;
+      /* restart the CRT power-on each time it is picked */
+      media.style.animation = 'none';
+      void media.offsetWidth;
+      media.style.animation = '';
+    }
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.fx === fx)); });
+    var key = buttons.filter(function (b) { return b.dataset.fx === fx; })[0].dataset.key;
+    if (location.hash !== '#' + key) history.replaceState(null, '', '#' + key);
+    kick(true);
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setMode(b.dataset.fx); }); });
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var b = buttons.filter(function (b) { return b.dataset.key === e.key; })[0];
+    if (b) setMode(b.dataset.fx);
+  });
+  function fromHash() {
+    var b = buttons.filter(function (b) { return '#' + b.dataset.key === location.hash; })[0];
+    setMode(b ? b.dataset.fx : 'phosphor');
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+
+  /* ---------- Film switcher ----------
+     New cuts come in three files: 1080p, 720p, and a 9:16 phone
+     reframe that keeps Piero and the panels in shot. */
+  var CUT_VERSION = '2';   /* bump when the cuts are re-encoded, so browsers drop the cache */
+  function cut(name) {
+    var b = 'media/intre-noi-loop-' + name, v = '?v=' + CUT_VERSION;
+    return {
+      poster: b + '-poster.jpg' + v,
+      sources: [
+        [b + '-portrait.mp4' + v, '(orientation: portrait) and (max-width: 900px)'],
+        [b + '-720.mp4' + v, '(max-width: 900px)'],
+        [b + '-1080.mp4' + v]
+      ]
+    };
+  }
+  var FILMS = {
+    original: {
+      poster: 'exhibitions/media/intre-noi-poster.jpg',
+      sources: [
+        ['exhibitions/media/intre-noi-loop-720.mp4', '(max-width: 900px)'],
+        ['exhibitions/media/intre-noi-loop-1080.mp4']
+      ]
+    },
+    piero: cut('piero'),
+    panels: cut('panels')
+  };
+  var filmButtons = Array.prototype.slice.call(document.querySelectorAll('.film-switch [data-film]'));
+  var current = null;
+
+  /* Pick the file ourselves: <source media> isn't honoured reliably */
+  function pick(sources) {
+    for (var i = 0; i < sources.length; i++) {
+      if (!sources[i][1] || window.matchMedia(sources[i][1]).matches) return sources[i][0];
+    }
+    return sources[sources.length - 1][0];
+  }
+
+  function setFilm(name) {
+    if (!FILMS[name]) name = 'original';
+    filmButtons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.film === name)); });
+    var url = new URL(location.href);
+    if (name === 'original') url.searchParams.delete('film'); else url.searchParams.set('film', name);
+    history.replaceState(null, '', url);
+    if (name === current) return;
+    current = name;
+    var f = FILMS[name];
+    var file = pick(f.sources);
+    if (video.currentSrc && video.currentSrc.indexOf(file) !== -1) return;
+    video.pause();
+    video.innerHTML = '';
+    video.poster = f.poster;
+    video.src = file;
+    if (!reduce) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+  }
+  filmButtons.forEach(function (b) { b.addEventListener('click', function () { setFilm(b.dataset.film); }); });
+  setFilm(new URL(location.href).searchParams.get('film') || 'original');
+
+  var rawButton = document.querySelector('.raw-toggle');
+  rawButton.addEventListener('click', function () {
+    var on = !body.classList.contains('raw');
+    body.classList.toggle('raw', on);
+    rawButton.setAttribute('aria-pressed', String(on));
+  });
+})();
+</script>
+</body>
+</html>

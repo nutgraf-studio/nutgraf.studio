@@ -357,11 +357,34 @@ h1, h2, h3 {
   .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
 }
 
+/* Tablet: in-page anchors step aside so the cross-page links fit */
+@media (min-width: 600px) and (max-width: 819px) {
+  .nav-links a[href^="#"]:not(.chip) { display: none; }
+}
+
+/* Over the hero film: white logo, cream links, mint chip.
+   Back to the dark set once the nav turns cream on scroll. */
+.nav .logo-light { display: none; }
+.nav:not(.scrolled) .logo-dark { display: none; }
+.nav:not(.scrolled) .logo-light { display: block; }
+.nav:not(.scrolled) .nav-links a { color: var(--cream); }
+.nav:not(.scrolled) .nav-links a:hover,
+.nav:not(.scrolled) .nav-links a:focus-visible { border-bottom-color: var(--mint); }
+.nav:not(.scrolled) .nav-links a.chip { background: var(--mint); color: var(--black); }
+.nav:not(.scrolled) .nav-links a.chip:hover,
+.nav:not(.scrolled) .nav-links a.chip:focus-visible { color: var(--white); }
+
 /* ============================================================
-   2. HERO — mint, headline left, animated network right
+   2. HERO — full-screen Între noi film through a green phosphor
+      tube with a band of studio violet drifting across it
+      ("violet drift"), headline left. The film file is chosen by
+      the small script next to the <video>.
    ============================================================ */
 .hero {
-  background: var(--mint);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #040B06;
   min-height: 100svh;
   display: grid;
   align-items: center;
@@ -375,6 +398,8 @@ h1, h2, h3 {
 }
 .hero h1 {
   font-size: clamp(2.5rem, 7.5vw, 4.5rem);
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(4, 11, 6, 0.45);
 }
 .hero h1 em {
   font-style: italic;
@@ -384,18 +409,111 @@ h1, h2, h3 {
   margin-top: 1.25rem;
   font-size: clamp(1.0625rem, 2vw, 1.25rem);
   max-width: 34rem;
+  color: var(--cream);
+  text-shadow: 0 1px 12px rgba(4, 11, 6, 0.6);
 }
-.hero-visual { margin-inline: auto; width: min(100%, 30rem); }
 
+/* keeps the headline in the left column on wide screens */
 @media (min-width: 1024px) {
   .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
 }
 
-/* --- Hero icosahedron: geometry is drawn and animated by the script
-       at the end of the page; no CSS animation needed here --- */
+/* --- Film + phosphor layers ---
+   The film is crushed to greyscale and multiplied by phosphor green;
+   a centre glow, a violet hue band, violet-tinted scanlines with a
+   rolling refresh band, a vignette and live grain sit on top.
+   isolation keeps the blends inside the hero. */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero-media > * { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero-media video {
+  object-fit: cover;
+  filter: grayscale(1) contrast(2.2) brightness(1.15) blur(0.4px);
+}
+.hero-tint {
+  background: #3DFF6E;
+  mix-blend-mode: multiply;
+  animation: phosphor-flicker 0.14s steps(2) infinite;
+}
+.hero-glow {
+  background: radial-gradient(ellipse at 60% 45%, rgba(110, 255, 140, 0.22), rgba(0, 0, 0, 0) 65%);
+  mix-blend-mode: screen;
+}
+/* Violet drift: a hue blend keeps the film's light and contrast but
+   swaps its hue, so violet sweeps across the green and settles in
+   the corners. */
+.hero-hue {
+  mix-blend-mode: hue;
+  background:
+    radial-gradient(ellipse at 55% 50%, rgba(123, 123, 240, 0) 50%, rgba(123, 123, 240, 0.9) 100%),
+    linear-gradient(110deg, rgba(123, 123, 240, 0) 25%, rgba(123, 123, 240, 1) 50%, rgba(123, 123, 240, 0) 75%) 0 0 / 260% 100%;
+  animation: hue-drift 12s ease-in-out infinite alternate;
+}
+.hero-lines {
+  background:
+    linear-gradient(to bottom, rgba(160, 150, 255, 0) 0%, rgba(160, 150, 255, 0.22) 50%, rgba(160, 150, 255, 0) 100%) 0 -30% / 100% 30% no-repeat,
+    repeating-linear-gradient(to bottom, rgba(18, 10, 60, 0.55) 0 1px, rgba(18, 10, 60, 0) 1px 3px);
+  animation: phosphor-roll 7s linear infinite;
+}
+.hero-vignette {
+  background: radial-gradient(ellipse at 55% 50%, rgba(14, 8, 48, 0) 45%, rgba(14, 8, 48, 0.88) 100%);
+}
+.hero-media .hero-grain {
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0.16;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 1  0 0 0 0 0.65  0 0 0 1.2 -0.25'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain-jitter 0.5s steps(5) infinite;
+}
+/* Scrim: the copy sits left and the nav on top — give both a backing */
+.hero-scrim {
+  background:
+    linear-gradient(to bottom, rgba(4, 11, 6, 0.6) 0%, rgba(4, 11, 6, 0) 22%),
+    linear-gradient(to right, rgba(4, 11, 6, 0.78) 0%, rgba(4, 11, 6, 0.45) 42%, rgba(4, 11, 6, 0) 72%);
+}
+/* Narrow screens: the copy spans the full width, so darken the band
+   it sits in and leave the top and bottom of the film at full strength */
+@media (max-width: 1023px) {
+  .hero-scrim {
+    background: linear-gradient(to bottom,
+      rgba(4, 11, 6, 0.6) 0%,
+      rgba(4, 11, 6, 0.15) 20%,
+      rgba(4, 11, 6, 0.55) 38%,
+      rgba(4, 11, 6, 0.55) 72%,
+      rgba(4, 11, 6, 0.1) 92%);
+  }
+}
+@keyframes phosphor-flicker {
+  from { opacity: 1; }
+  to   { opacity: 0.94; }
+}
+@keyframes hue-drift {
+  from { background-position: 0 0, 100% 0; }
+  to   { background-position: 0 0, 0% 0; }
+}
+@keyframes phosphor-roll {
+  from { background-position: 0 -30%, 0 0; }
+  to   { background-position: 0 130%, 0 0; }
+}
+@keyframes grain-jitter {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-7%, 4%); }
+  40%  { transform: translate(5%, -6%); }
+  60%  { transform: translate(-3%, -9%); }
+  80%  { transform: translate(8%, 3%); }
+  100% { transform: translate(0, 0); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .hero-tint, .hero-hue, .hero-lines, .hero-media .hero-grain { animation: none; }
   .sk-scan { opacity: 0 !important; }
   .sk-ribbon { transition: none; }
   .loop-feedback { animation: none; }
@@ -858,13 +976,17 @@ h1, h2, h3 {
      ============================================================ -->
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="nav-brand" href="#top"><img src="logos/nutgraf-logo.svg" alt="Nutgraf.studio"></a>
+    <a class="nav-brand" href="#top">
+      <img class="logo-dark" src="logos/nutgraf-logo.svg" alt="Nutgraf.studio">
+      <img class="logo-light" src="logos/nutgraf-logo-white.svg" alt="Nutgraf.studio">
+    </a>
     <nav aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#methodology">Methodology</a></li>
         <li><a href="#partners">Partners</a></li>
         <li><a href="/workshops/">Workshops</a></li>
+        <li><a href="/exhibitions/">Exhibitions</a></li>
         <!-- Work nav link disabled for v1 launch — re-enable with the section below -->
         <!-- <li><a href="#work">Work</a></li> -->
         <li><a class="chip" href="#contact">Contact us</a></li>
@@ -886,21 +1008,46 @@ h1, h2, h3 {
      2. HERO
      ============================================================ -->
 <section class="hero">
+  <!-- Background film: a 17-second loop cut from the Între noi film
+       (Piero photographing the panels, visitors at the charts), seen
+       through the violet-drift phosphor layers. Decorative: aria-hidden. -->
+  <div class="hero-media" aria-hidden="true">
+    <video id="hero-video" muted loop playsinline preload="none" tabindex="-1"
+           poster="media/intre-noi-loop-piero-poster.jpg"></video>
+    <script>
+    /* Pick the loop for this screen: the 9:16 reframe (keeps Piero and
+       the panels in shot) for phones held upright, 720p for other small
+       screens, 1080p otherwise. Reduced motion: the poster only, no
+       download. Pauses while the hero is scrolled away. */
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var v = document.getElementById('hero-video');
+      function mq(q) { return window.matchMedia(q).matches; }
+      var size = mq('(orientation: portrait) and (max-width: 900px)') ? 'portrait'
+               : mq('(max-width: 900px)') ? '720' : '1080';
+      v.src = 'media/intre-noi-loop-piero-' + size + '.mp4';
+      function play() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      play();
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) play(); else v.pause();
+        }).observe(document.querySelector('.hero'));
+      }
+    })();
+    </script>
+    <div class="hero-tint"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-hue"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-scrim"></div>
+  </div>
+
   <div class="wrap hero-grid">
     <div>
       <h1>We make<br>your&nbsp;data<br><em class="fx">impossible<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em><br>to ignore.</h1>
       <p class="hero-sub">We are a data design studio. We turn your numbers into charts, reports and maps your audience understands in seconds, remembers, and acts on.</p>
-    </div>
-
-    <!-- Tumbling wireframe icosahedron, projected in real time by the
-         script at the end of the page. Decorative: aria-hidden. A static
-         readable frame is drawn under prefers-reduced-motion. -->
-    <div class="hero-visual" aria-hidden="true">
-      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
-        <!-- white circle behind the wireframe -->
-        <circle cx="260" cy="260" r="245" fill="#FFFFFF" opacity="0.8"/>
-        <g id="hero-ico"></g>
-      </svg>
     </div>
   </div>
 </section>
@@ -1354,7 +1501,7 @@ h1, h2, h3 {
         <div class="work-card-body">
           <h3>Între Noi</h3>
           <p>A data exhibition exploring trade and cultural ties between Italy and Romania, translating economic flows into a physical visual narrative.</p>
-          <span class="work-link" data-soon>Case study coming soon</span>
+          <a class="work-link" href="/exhibitions/#intre-noi">See the exhibition</a>
         </div>
       </article>
 
@@ -1390,6 +1537,7 @@ h1, h2, h3 {
     <a class="footer-brand" href="#top"><img src="logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
     <div class="footer-meta">
       <a href="/workshops/">Workshops</a>
+      <a href="/exhibitions/">Exhibitions</a>
       <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
       <a href="#top">Back to top ↑</a>
     </div>
@@ -1397,104 +1545,6 @@ h1, h2, h3 {
 </footer>
 
 <script>
-/* Hero: tumbling wireframe icosahedron. Vertices and edges are projected
-   orthographically each frame (two-axis tumble); front vertices light up
-   mint/violet, back ones dim to grey, edges deepen with proximity.
-   Draws one static frame for reduced motion; pauses while off screen. */
-(function () {
-  var g = document.getElementById('hero-ico');
-  if (!g) return;
-
-  var NS = 'http://www.w3.org/2000/svg';
-  var CX = 260, CY = 260, R = 172;
-  var PHI = (1 + Math.sqrt(5)) / 2;
-  var raw = [
-    [0, 1, PHI], [0, 1, -PHI], [0, -1, PHI], [0, -1, -PHI],
-    [1, PHI, 0], [1, -PHI, 0], [-1, PHI, 0], [-1, -PHI, 0],
-    [PHI, 0, 1], [-PHI, 0, 1], [PHI, 0, -1], [-PHI, 0, -1]
-  ];
-  var S = R / Math.sqrt(1 + PHI * PHI);
-  var verts = raw.map(function (v) { return [v[0] * S, v[1] * S, v[2] * S]; });
-
-  /* edges = vertex pairs at the icosahedron's edge length (2 pre-scale) */
-  var edges = [];
-  for (var i = 0; i < 12; i++) {
-    for (var j = i + 1; j < 12; j++) {
-      var dx = raw[i][0] - raw[j][0], dy = raw[i][1] - raw[j][1], dz = raw[i][2] - raw[j][2];
-      if (dx * dx + dy * dy + dz * dz < 4.2) edges.push([i, j]);
-    }
-  }
-
-  function el(tag, attrs) {
-    var n = document.createElementNS(NS, tag);
-    for (var k in attrs) n.setAttribute(k, attrs[k]);
-    g.appendChild(n);
-    return n;
-  }
-  var edgeEls = edges.map(function () {
-    return el('line', { stroke: '#0A0A0A', 'stroke-width': 2, 'stroke-linecap': 'round' });
-  });
-  var vertEls = verts.map(function (_, k) {
-    return el('circle', { r: 5, fill: k % 2 ? '#7B7BF0' : '#9FF29A' });
-  });
-
-  function draw(t) {
-    var a = t * 0.5, b = t * 0.21 + 0.4;
-    var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
-    var proj = verts.map(function (v) {
-      var x1 = v[0] * ca + v[2] * sa;
-      var z1 = -v[0] * sa + v[2] * ca;
-      var y2 = v[1] * cb - z1 * sb;
-      var z2 = v[1] * sb + z1 * cb;
-      return [CX + x1, CY - y2, z2];
-    });
-    edgeEls.forEach(function (ln, k) {
-      var p = proj[edges[k][0]], q = proj[edges[k][1]];
-      ln.setAttribute('x1', p[0].toFixed(1)); ln.setAttribute('y1', p[1].toFixed(1));
-      ln.setAttribute('x2', q[0].toFixed(1)); ln.setAttribute('y2', q[1].toFixed(1));
-      var depth = ((p[2] + q[2]) / 2 / R + 1) / 2; /* 0 back … 1 front */
-      ln.setAttribute('opacity', (0.15 + 0.45 * depth).toFixed(2));
-    });
-    vertEls.forEach(function (c, k) {
-      var p = proj[k];
-      c.setAttribute('cx', p[0].toFixed(1));
-      c.setAttribute('cy', p[1].toFixed(1));
-      if (p[2] > 0) {
-        c.setAttribute('r', (5.5 + 2 * p[2] / R).toFixed(1));
-        c.setAttribute('fill', k % 2 ? '#7B7BF0' : '#9FF29A');
-        c.setAttribute('stroke', '#0A0A0A');
-        c.setAttribute('stroke-width', 1.5);
-        c.setAttribute('opacity', 1);
-      } else {
-        c.setAttribute('r', 3.5);
-        c.setAttribute('fill', '#0A0A0A');
-        c.setAttribute('stroke', 'none');
-        c.setAttribute('opacity', 0.25);
-      }
-    });
-  }
-
-  /* readable first frame (also the only frame under reduced motion) */
-  draw(0.9);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  var rafId = null;
-  function frame(now) {
-    draw(now / 1000);
-    rafId = requestAnimationFrame(frame);
-  }
-  new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting && rafId === null) {
-        rafId = requestAnimationFrame(frame);
-      } else if (!e.isIntersecting && rafId !== null) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      }
-    });
-  }, { threshold: 0.1 }).observe(document.querySelector('.hero'));
-})();
-
 /* Nav: solidify on scroll */
 (function () {
   var nav = document.querySelector('.nav');

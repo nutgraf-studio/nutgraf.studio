@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Hero video — green treatment options</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   HERO VIDEO — four green treatments of the Între noi loop
+   Nav + hero copied from index.html; switch looks with the bar
+   at the bottom or keys 1–4. Options 1–2 are CSS only,
+   options 3–4 draw the film through a small WebGL shader.
+   ============================================================ */
+
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+  --forest: #040B06;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max-w: 72rem;
+  --pad: 1.5rem;
+}
+
+/* ---------- Reset / base (as index.html) ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.wrap { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad); }
+.kicker {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   NAV — as index.html, plus a light variant while over the film
+   ============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+.nav.scrolled {
+  background: var(--cream);
+  box-shadow: 0 1px 0 rgba(10, 10, 10, 0.12);
+}
+.nav-brand { font-size: 1.25rem; text-decoration: none; display: inline-flex; align-items: center; }
+.nav-brand img { height: 2rem; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 1.25rem; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.25s ease;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { border-bottom-color: var(--black); }
+
+.nav-links a.chip {
+  background: var(--black);
+  color: var(--cream);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border-bottom: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0;
+  transition: color 0.3s ease, background-color 0.25s ease;
+}
+.nav-links a.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--violet);
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+.nav-links a.chip:hover,
+.nav-links a.chip:focus-visible { border-bottom: none; color: var(--white); }
+.nav-links a.chip:hover::before,
+.nav-links a.chip:focus-visible::before { transform: translateX(0); }
+
+.nav-links a.icon-link { display: inline-flex; align-items: center; border-bottom: none; opacity: 0.85; padding: 0.4rem 0; }
+.nav-links a.icon-link:hover,
+.nav-links a.icon-link:focus-visible { border-bottom: none; opacity: 1; }
+.nav-links a.icon-link svg { width: 1.5rem; height: 1.5rem; fill: currentColor; }
+
+/* Over the film: white logo, cream links, mint chip */
+.nav .logo-light { display: none; }
+.nav:not(.scrolled) .logo-dark { display: none; }
+.nav:not(.scrolled) .logo-light { display: block; }
+.nav:not(.scrolled) .nav-links a { color: var(--cream); }
+.nav:not(.scrolled) .nav-links a:hover,
+.nav:not(.scrolled) .nav-links a:focus-visible { border-bottom-color: var(--mint); }
+.nav:not(.scrolled) .nav-links a.chip { background: var(--mint); color: var(--black); }
+.nav:not(.scrolled) .nav-links a.chip:hover,
+.nav:not(.scrolled) .nav-links a.chip:focus-visible { color: var(--white); }
+
+@media (max-width: 599px) {
+  .nav-brand img { height: 2.5rem; }
+  .nav-links { gap: 0.875rem; }
+  .nav-links a { font-size: 0.875rem; }
+  .nav-links a:not(.chip):not(.icon-link) { display: none; }
+  .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
+}
+@media (min-width: 600px) and (max-width: 819px) {
+  .nav-links a[href^="#"]:not(.chip) { display: none; }
+}
+
+/* ============================================================
+   HERO — full-screen film behind nav + headline
+   ============================================================ */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--forest);
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+.hero-grid { display: grid; gap: 2.5rem; align-items: center; }
+.hero h1 {
+  font-size: clamp(2.5rem, 7.5vw, 4.5rem);
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(4, 11, 6, 0.45);
+}
+.hero h1 em { font-style: italic; font-weight: 600; }
+.hero-sub {
+  margin-top: 1.25rem;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  max-width: 34rem;
+  color: var(--cream);
+  text-shadow: 0 1px 12px rgba(4, 11, 6, 0.6);
+}
+/* The icosahedron is parked for this test — the film is the visual */
+.hero-visual { display: none; }
+
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+}
+
+/* Violet marker underline (as index.html) */
+.fx { position: relative; white-space: nowrap; }
+.fx-underline-svg {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.14em;
+  width: 106%;
+  max-width: none;
+  height: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+.fx-underline-svg path {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  animation: fx-underline-draw 4.5s ease-in-out infinite;
+}
+@keyframes fx-underline-draw {
+  0%        { stroke-dashoffset: 330; opacity: 1; }
+  28%, 78%  { stroke-dashoffset: 0;   opacity: 1; }
+  90%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+
+/* ---------- Film layers ---------- */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  isolation: isolate;  /* blend layers only mix with the film */
+  overflow: hidden;
+}
+.hero-media > * { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-media video { object-fit: cover; }
+.hero-gl { display: none; }
+.fx-layer { display: none; pointer-events: none; }
+
+/* Scrim: copy sits left, nav on top — give both a real backing */
+.hero-scrim {
+  background:
+    linear-gradient(to bottom, rgba(4, 11, 6, 0.6) 0%, rgba(4, 11, 6, 0) 22%),
+    linear-gradient(to right, rgba(4, 11, 6, 0.78) 0%, rgba(4, 11, 6, 0.45) 42%, rgba(4, 11, 6, 0) 72%);
+}
+/* Narrow screens: the copy spans the full width, so darken the band it
+   sits in and leave the top and bottom of the film at full strength */
+@media (max-width: 1023px) {
+  .hero-scrim {
+    background: linear-gradient(to bottom,
+      rgba(4, 11, 6, 0.6) 0%,
+      rgba(4, 11, 6, 0.15) 20%,
+      rgba(4, 11, 6, 0.55) 38%,
+      rgba(4, 11, 6, 0.55) 72%,
+      rgba(4, 11, 6, 0.1) 92%);
+  }
+}
+
+/* ---------- 1. MINT DUOTONE (CSS) ----------
+   Greyscale + hard contrast, then multiplied by a slowly drifting
+   mint → acid-green gradient: blacks stay black, whites turn mint. */
+[data-fx="duotone"] .hero-media video,
+.gl-off[data-fx="halftone"] .hero-media video,
+.gl-off[data-fx="grid"] .hero-media video {
+  filter: grayscale(1) contrast(1.9) brightness(1.08);
+}
+[data-fx="duotone"] .fx-tint,
+.gl-off[data-fx="halftone"] .fx-tint,
+.gl-off[data-fx="grid"] .fx-tint {
+  display: block;
+  background: linear-gradient(115deg, #9FF29A 0%, #3CF27A 32%, #B6FF66 58%, #9FF29A 82%, #3CF27A 100%);
+  background-size: 300% 300%;
+  mix-blend-mode: multiply;
+  animation: tint-drift 18s ease-in-out infinite alternate;
+}
+[data-fx="duotone"] .fx-lift,
+.gl-off[data-fx="halftone"] .fx-lift,
+.gl-off[data-fx="grid"] .fx-lift {
+  display: block;
+  background: #06240F;
+  mix-blend-mode: screen;
+}
+@keyframes tint-drift {
+  from { background-position: 0% 50%; }
+  to   { background-position: 100% 50%; }
+}
+
+/* ---------- 2. PHOSPHOR (CSS) ----------
+   Night-vision green: crushed greyscale × phosphor green, scanlines,
+   a rolling refresh band, vignette and live grain. */
+[data-fx="phosphor"] .hero-media video {
+  filter: grayscale(1) contrast(2.2) brightness(1.15) blur(0.4px);
+}
+[data-fx="phosphor"] .fx-tint {
+  display: block;
+  background: #3DFF6E;
+  mix-blend-mode: multiply;
+  animation: phosphor-flicker 0.14s steps(2) infinite;
+}
+[data-fx="phosphor"] .fx-lift {
+  display: block;
+  background: radial-gradient(ellipse at 60% 45%, rgba(110, 255, 140, 0.22), rgba(0, 0, 0, 0) 65%);
+  mix-blend-mode: screen;
+}
+[data-fx="phosphor"] .fx-lines {
+  display: block;
+  background:
+    linear-gradient(to bottom, rgba(140, 255, 160, 0) 0%, rgba(140, 255, 160, 0.12) 50%, rgba(140, 255, 160, 0) 100%) 0 -30% / 100% 30% no-repeat,
+    repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0 1px, rgba(0, 0, 0, 0) 1px 3px);
+  animation: phosphor-roll 7s linear infinite;
+}
+[data-fx="phosphor"] .fx-vignette {
+  display: block;
+  background: radial-gradient(ellipse at 55% 50%, rgba(0, 0, 0, 0) 45%, rgba(0, 6, 2, 0.85) 100%);
+}
+[data-fx="phosphor"] .fx-grain {
+  display: block;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0.16;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 1  0 0 0 0 0.65  0 0 0 1.2 -0.25'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain-jitter 0.5s steps(5) infinite;
+}
+@keyframes phosphor-flicker {
+  from { opacity: 1; }
+  to   { opacity: 0.94; }
+}
+@keyframes phosphor-roll {
+  from { background-position: 0 -30%, 0 0; }
+  to   { background-position: 0 130%, 0 0; }
+}
+@keyframes grain-jitter {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-7%, 4%); }
+  40%  { transform: translate(5%, -6%); }
+  60%  { transform: translate(-3%, -9%); }
+  80%  { transform: translate(8%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ---------- 3. HALFTONE / 4. DATA GRID (WebGL) ---------- */
+[data-fx="halftone"] .hero-gl,
+[data-fx="grid"] .hero-gl { display: block; }
+.gl-off .hero-gl { display: none !important; }
+
+/* ============================================================
+   NEXT SECTION — just enough page to see the nav turn cream
+   ============================================================ */
+.services { background: var(--cream); padding-block: 5rem 40vh; }
+.section-head h2 { font-size: clamp(1.875rem, 4.5vw, 2.75rem); margin-bottom: 0.75rem; }
+.section-head p { max-width: 38rem; }
+.note { margin-top: 2rem; font-size: 0.9375rem; opacity: 0.6; max-width: 38rem; }
+
+/* ============================================================
+   OPTION SWITCHER (prototype only)
+   ============================================================ */
+.fx-switch {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(237, 233, 225, 0.12);
+}
+.fx-switch button {
+  font: 500 0.8125rem/1 var(--font-body);
+  color: var(--cream);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+.fx-switch button:hover { background: rgba(237, 233, 225, 0.1); }
+.fx-switch button:focus-visible { outline: 2px solid var(--mint); outline-offset: 1px; }
+.fx-switch button[aria-pressed="true"] { background: var(--mint); color: var(--black); }
+.fx-switch .k {
+  font-weight: 700;
+  font-size: 0.6875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(237, 233, 225, 0.14);
+}
+.fx-switch button[aria-pressed="true"] .k { background: rgba(10, 10, 10, 0.12); }
+.fx-switch .tech { font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; }
+@media (max-width: 599px) {
+  .fx-switch { flex-wrap: nowrap; gap: 0.125rem; }
+  .fx-switch button { padding: 0.55rem 0.65rem; font-size: 0.75rem; }
+  .fx-switch .k, .fx-switch .tech { display: none; }
+}
+
+/* ---------- Reduced motion: still frame, no drifting layers ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fx-underline-svg path { animation: none; stroke-dashoffset: 0; }
+  .fx-layer { animation: none !important; }
+  .nav-links a.chip, .nav-links a.chip::before { transition: none; }
+}
+</style>
+</head>
+<body data-fx="duotone">
+
+<span id="top"></span>
+
+<!-- ============================================================
+     NAV (as index.html, with a white logo for over-the-film)
+     ============================================================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#top">
+      <img class="logo-dark" src="logos/nutgraf-logo.svg" alt="Nutgraf.studio">
+      <img class="logo-light" src="logos/nutgraf-logo-white.svg" alt="Nutgraf.studio">
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="/workshops/">Workshops</a></li>
+        <li><a href="/exhibitions/">Exhibitions</a></li>
+        <li><a class="chip" href="#contact">Contact us</a></li>
+        <li>
+          <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.77 1.153a4.902 4.902 0 0 1 1.153 1.77c.249.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.216 1.79-.465 2.428a4.902 4.902 0 0 1-1.153 1.77 4.902 4.902 0 0 1-1.77 1.153c-.637.249-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.216-2.428-.465a4.902 4.902 0 0 1-1.77-1.153 4.902 4.902 0 0 1-1.153-1.77c-.249-.637-.415-1.363-.465-2.428C2.01 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.065.216-1.79.465-2.428a4.902 4.902 0 0 1 1.153-1.77A4.902 4.902 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.01 9.283 2 12 2Zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.467.181-.8.398-1.15.748-.35.35-.567.683-.748 1.15-.137.353-.3.882-.344 1.858-.05 1.054-.06 1.37-.06 4.04s.01 2.986.06 4.04c.045.976.207 1.505.344 1.858.181.467.398.8.748 1.15.35.35.683.567 1.15.748.353.137.882.3 1.858.344 1.054.05 1.37.06 4.04.06s2.986-.01 4.04-.06c.976-.045 1.505-.207 1.858-.344.467-.181.8-.398 1.15-.748.35-.35.567-.683.748-1.15.137-.353.3-.882.344-1.858.05-1.054.06-1.37.06-4.04s-.01-2.986-.06-4.04c-.045-.976-.207-1.505-.344-1.858a3.1 3.1 0 0 0-.748-1.15 3.1 3.1 0 0 0-1.15-.748c-.353-.137-.882-.3-1.858-.344-1.054-.05-1.37-.059-4.04-.059Zm0 3.064a5.134 5.134 0 1 1 0 10.268 5.134 5.134 0 0 1 0-10.268Zm0 1.802a3.332 3.332 0 1 0 0 6.664 3.332 3.332 0 0 0 0-6.664Zm5.338-1.982a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     HERO — the Între noi loop (22 s, no subtitles or title cards)
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <video id="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="exhibitions/media/intre-noi-poster.jpg" tabindex="-1">
+      <source src="exhibitions/media/intre-noi-loop-720.mp4" type="video/mp4" media="(max-width: 900px)">
+      <source src="exhibitions/media/intre-noi-loop-1080.mp4" type="video/mp4">
+    </video>
+    <div class="fx-layer fx-tint"></div>
+    <div class="fx-layer fx-lift"></div>
+    <div class="fx-layer fx-lines"></div>
+    <div class="fx-layer fx-vignette"></div>
+    <div class="fx-layer fx-grain"></div>
+    <canvas class="hero-gl" id="hero-gl"></canvas>
+    <div class="hero-scrim"></div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div>
+      <h1>We make<br>your&nbsp;data<br><em class="fx">impossible<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em><br>to ignore.</h1>
+      <p class="hero-sub">We are a data design studio. We turn your numbers into charts, reports and maps your audience understands in seconds, remembers, and acts on.</p>
+    </div>
+    <div class="hero-visual" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Services</span>
+      <h2>What you get</h2>
+      <p>Three services, one outcome: your&nbsp;data, seen, understood and acted on.</p>
+      <p class="note">Prototype page — the rest of the home page is unchanged. Scroll back up and switch looks with the bar below or keys 1–4.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="fx-switch" role="group" aria-label="Video treatment">
+  <button type="button" data-key="1" data-fx="duotone" aria-pressed="true"><span class="k">1</span>Duotone<span class="tech">CSS</span></button>
+  <button type="button" data-key="2" data-fx="phosphor" aria-pressed="false"><span class="k">2</span>Phosphor<span class="tech">CSS</span></button>
+  <button type="button" data-key="3" data-fx="halftone" aria-pressed="false"><span class="k">3</span>Halftone<span class="tech">WebGL</span></button>
+  <button type="button" data-key="4" data-fx="grid" aria-pressed="false"><span class="k">4</span>Data grid<span class="tech">WebGL</span></button>
+</div>
+
+<script>
+/* Nav: solidify on scroll (as index.html) */
+(function () {
+  var nav = document.querySelector('.nav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* Hero film: four green treatments.
+   1–2 are pure CSS on the <video>. 3–4 copy each frame into a WebGL
+   texture and redraw it as halftone dots or a heat-map grid. */
+(function () {
+  var body = document.body;
+  var hero = document.querySelector('.hero');
+  var video = document.getElementById('hero-video');
+  var canvas = document.getElementById('hero-gl');
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.fx-switch button'));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Reduced motion: never autoplay; the first frame stays put */
+  if (reduce) { video.removeAttribute('autoplay'); video.pause(); }
+
+  /* ---------- WebGL ---------- */
+  var gl = null, prog, tex, u = {}, hasFrame = false;
+  try {
+    gl = canvas.getContext('webgl', { alpha: false, antialias: false, depth: false, preserveDrawingBuffer: false });
+  } catch (e) { gl = null; }
+
+  var VERT = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
+  var FRAG = [
+    'precision mediump float;',
+    'uniform sampler2D uTex;',
+    'uniform vec2 uRes, uVid, uMouse;',
+    'uniform float uMode, uCell, uTime;',
+
+    /* cover-fit the 16:9 film to whatever shape the hero is */
+    'vec2 cover(vec2 px){',
+    '  vec2 uv = px / uRes;',
+    '  float ra = uRes.x / uRes.y, va = uVid.x / uVid.y;',
+    '  vec2 s = ra > va ? vec2(1.0, va / ra) : vec2(ra / va, 1.0);',
+    '  return (uv - 0.5) * s + 0.5;',
+    '}',
+    'float luma(vec2 px){ return dot(texture2D(uTex, cover(px)).rgb, vec3(0.2126, 0.7152, 0.0722)); }',
+    'float cellLuma(vec2 px, float r){',
+    '  return luma(px) * 0.4 + (luma(px + vec2(r, 0.0)) + luma(px - vec2(r, 0.0)) + luma(px + vec2(0.0, r)) + luma(px - vec2(0.0, r))) * 0.15;',
+    '}',
+    /* hard S-curve: the "high contrast" bit */
+    'float punch(float l){',
+    '  l = clamp((l - 0.5) * 1.7 + 0.5, 0.0, 1.0);',
+    '  return l * l * (3.0 - 2.0 * l);',
+    '}',
+    /* near-black forest → deep green → green → mint → mint-white */
+    'vec3 ramp(float t){',
+    '  vec3 c0 = vec3(0.016, 0.043, 0.024);',
+    '  vec3 c1 = vec3(0.047, 0.204, 0.094);',
+    '  vec3 c2 = vec3(0.120, 0.640, 0.280);',
+    '  vec3 c3 = vec3(0.624, 0.949, 0.604);',
+    '  vec3 c4 = vec3(0.914, 1.000, 0.902);',
+    '  t = clamp(t, 0.0, 1.0) * 4.0;',
+    '  if (t < 1.0) return mix(c0, c1, t);',
+    '  if (t < 2.0) return mix(c1, c2, t - 1.0);',
+    '  if (t < 3.0) return mix(c2, c3, t - 2.0);',
+    '  return mix(c3, c4, t - 3.0);',
+    '}',
+    'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }',
+
+    'void main(){',
+    '  vec2 fc = gl_FragCoord.xy;',
+    '  vec3 bg = vec3(0.012, 0.035, 0.020);',
+    '  vec3 col;',
+    '  if (uMode < 0.5) {',
+           /* HALFTONE — 45° screen, dot radius follows brightness */
+    '    mat2 R = mat2(0.7071, 0.7071, -0.7071, 0.7071);',
+    '    vec2 p = R * fc;',
+    '    vec2 cp = (floor(p / uCell) + 0.5) * uCell;',
+    '    vec2 cs = cp * R;',
+    '    float l = punch(cellLuma(cs, uCell * 0.3));',
+    '    float lens = smoothstep(uCell * 9.0, 0.0, distance(cs, uMouse));',
+    '    l = min(1.0, l + lens * 0.35);',
+    '    float r = sqrt(l) * 0.64;',
+    '    float d = length(p - cp) / uCell;',
+    '    float aa = 1.2 / uCell;',
+    '    float dotMask = 1.0 - smoothstep(r - aa, r + aa, d);',
+    '    col = mix(bg, ramp(0.45 + l * 0.3), dotMask);',
+    '  } else {',
+           /* DATA GRID — heat-map cells in five green steps */
+    '    vec2 cell = floor(fc / uCell);',
+    '    vec2 cp = (cell + 0.5) * uCell;',
+    '    float l = punch(cellLuma(cp, uCell * 0.3));',
+    '    float lens = smoothstep(uCell * 7.0, 0.0, distance(cp, uMouse));',
+    '    float q = min(4.0, floor(l * 4.999 + lens * 1.6)) / 4.0;',
+    '    vec2 f = fract(fc / uCell);',
+    '    float g = 1.0 / uCell;',
+    '    float inside = step(g, f.x) * step(f.x, 1.0 - g) * step(g, f.y) * step(f.y, 1.0 - g);',
+    '    vec3 cellCol = q < 0.01 ? vec3(0.035, 0.085, 0.05) : ramp(0.22 + q * 0.53);',
+    '    float tw = step(0.9965, hash(cell + floor(uTime * 1.4)));',
+    '    cellCol = mix(cellCol, vec3(0.914, 1.0, 0.902), tw * 0.9);',
+    '    col = mix(bg, cellCol, inside);',
+    '  }',
+    '  gl_FragColor = vec4(col, 1.0);',
+    '}'
+  ].join('\n');
+
+  function compile(type, src) {
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+    return s;
+  }
+
+  if (gl) {
+    try {
+      prog = gl.createProgram();
+      gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
+      gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+      gl.useProgram(prog);
+
+      var buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+      var loc = gl.getAttribLocation(prog, 'p');
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+      ['uTex', 'uRes', 'uVid', 'uMouse', 'uMode', 'uCell', 'uTime'].forEach(function (n) {
+        u[n] = gl.getUniformLocation(prog, n);
+      });
+
+      tex = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 1, 1, 0, gl.RGB, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0]));
+      gl.uniform1i(u.uTex, 0);
+    } catch (e) {
+      console.warn('Hero WebGL unavailable, falling back to CSS duotone:', e);
+      gl = null;
+    }
+  }
+  if (!gl) body.classList.add('gl-off');
+
+  /* ---------- Sizing + pointer ---------- */
+  var dpr = 1, mouse = [-1e4, -1e4];
+  function resize() {
+    if (!gl) return;
+    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    var w = Math.round(hero.clientWidth * dpr), h = Math.round(hero.clientHeight * dpr);
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w; canvas.height = h;
+      gl.viewport(0, 0, w, h);
+    }
+  }
+  window.addEventListener('resize', function () { resize(); kick(); });
+  hero.addEventListener('pointermove', function (e) {
+    var r = canvas.getBoundingClientRect();
+    mouse = [(e.clientX - r.left) * dpr, (r.bottom - e.clientY) * dpr];
+    if (reduce) kick();
+  });
+  hero.addEventListener('pointerleave', function () { mouse = [-1e4, -1e4]; if (reduce) kick(); });
+
+  /* ---------- Render loop (≈30 fps, only while the hero is on screen) ---------- */
+  var running = false, onScreen = true, last = 0, lastVideoTime = -1, t0 = performance.now();
+  function isGLMode() { return gl && (body.dataset.fx === 'halftone' || body.dataset.fx === 'grid'); }
+
+  function draw(now) {
+    if (video.readyState >= 2 && (video.currentTime !== lastVideoTime || !hasFrame)) {
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, video);
+      lastVideoTime = video.currentTime;
+      hasFrame = true;
+    }
+    var small = window.innerWidth < 600;
+    var css = body.dataset.fx === 'halftone' ? (small ? 7 : 9) : (small ? 9 : 12);
+    gl.uniform2f(u.uRes, canvas.width, canvas.height);
+    gl.uniform2f(u.uVid, video.videoWidth || 1920, video.videoHeight || 1080);
+    gl.uniform2f(u.uMouse, mouse[0], mouse[1]);
+    gl.uniform1f(u.uMode, body.dataset.fx === 'halftone' ? 0 : 1);
+    gl.uniform1f(u.uCell, Math.max(4, Math.round(css * dpr)));
+    gl.uniform1f(u.uTime, reduce ? 0 : (now - t0) / 1000);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+
+  function loop(now) {
+    if (!isGLMode() || !onScreen || reduce) { running = false; return; }
+    if (now - last >= 33) { draw(now); last = now; }
+    requestAnimationFrame(loop);
+  }
+  function kick() {
+    if (!isGLMode()) return;
+    resize();
+    if (reduce) { draw(performance.now()); return; }
+    if (!running && onScreen) { running = true; requestAnimationFrame(loop); }
+  }
+  video.addEventListener('loadeddata', kick);
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      onScreen = entries[0].isIntersecting;
+      if (onScreen) kick();
+    }).observe(hero);
+  }
+
+  /* ---------- Option switcher ---------- */
+  function setMode(fx) {
+    body.dataset.fx = fx;
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.fx === fx)); });
+    var key = buttons.filter(function (b) { return b.dataset.fx === fx; })[0].dataset.key;
+    history.replaceState(null, '', '#' + key);
+    hasFrame = false;
+    kick();
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setMode(b.dataset.fx); }); });
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var b = buttons.filter(function (b) { return b.dataset.key === e.key; })[0];
+    if (b) setMode(b.dataset.fx);
+  });
+  function fromHash() {
+    var b = buttons.filter(function (b) { return '#' + b.dataset.key === location.hash; })[0];
+    setMode(b ? b.dataset.fx : 'duotone');
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>

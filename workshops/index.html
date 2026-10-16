@@ -383,6 +383,11 @@ h1, h2, h3 {
   .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
 }
 
+/* Tablet: in-page anchors step aside so the cross-page links fit */
+@media (min-width: 600px) and (max-width: 819px) {
+  .nav-links a[href^="#"]:not(.chip) { display: none; }
+}
+
 /* ============================================================
    2. HERO — the headline is the visual
    ============================================================ */
@@ -743,6 +748,7 @@ h1, h2, h3 {
     <nav aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="/">Studio</a></li>
+        <li><a href="/exhibitions/">Exhibitions</a></li>
         <li><a href="#modules">Modules</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a class="chip" href="#book">Book a workshop</a></li>
@@ -957,6 +963,7 @@ h1, h2, h3 {
     <a class="footer-brand" href="/"><img src="../logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
     <div class="footer-meta">
       <a href="/">Back to the studio</a>
+      <a href="/exhibitions/">Exhibitions</a>
       <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
       <a href="#top">Back to top ↑</a>
     </div>
