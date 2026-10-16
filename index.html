@@ -560,6 +560,85 @@ h1, h2, h3 {
   .service-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* Banner motion: each banner builds in when its card reveals (.in),
+   then loops gently. Loops run only while the card is on screen (JS
+   toggles .svc-live, see end of page). Every build-in animates *from*
+   a hidden state to the static artwork, so reduced motion simply gets
+   the finished frame. */
+.svc-ping { opacity: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .svc-dot, .svc-contour, .svc-pin, .svc-ping {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  /* Data design: peaks rise from behind the baseline, then bob —
+     downward only, so a base edge never lifts into view */
+  .service-card.in .svc-peak {
+    animation:
+      peak-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.25s + var(--i) * 0.12s) both,
+      peak-bob var(--t) ease-in-out calc(1.15s + var(--i) * 0.12s) infinite;
+  }
+
+  /* Research: rings draw left to right, the dot pops in, then hops
+     lens to lens along the chain and back */
+  .service-card.in .svc-ring {
+    stroke-dasharray: 252; /* ≥ circumference 2π·40 */
+    animation: ring-draw 0.7s ease-out calc(0.25s + var(--i) * 0.08s) both;
+  }
+  .service-card.in .svc-dot {
+    animation:
+      pin-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s both,
+      dot-hop 13s ease-in-out 2.2s infinite;
+  }
+
+  /* Mapping: contours ripple out from their centres, the route draws
+     pin to pin, then its dashes march toward the destination */
+  .service-card.in .svc-contour {
+    animation: contour-ripple 1s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.25s + var(--i) * 0.12s) both;
+  }
+  .service-card.in .svc-route-draw {
+    stroke-dasharray: 360;
+    animation: route-draw 1.2s ease-in-out 0.8s both;
+  }
+  .service-card.in .svc-route { animation: route-march 0.9s linear infinite; }
+  .service-card.in .svc-pin {
+    animation: pin-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d) both;
+  }
+  .service-card.in .svc-ping { animation: pin-ping 2.4s ease-out 2.4s infinite; }
+
+  .service-card.in:not(.svc-live) svg * { animation-play-state: paused; }
+}
+
+@keyframes peak-rise { from { transform: translateY(110px); } }
+@keyframes peak-bob { 50% { transform: translateY(var(--dip)); } }
+@keyframes ring-draw { from { stroke-dashoffset: 252; } }
+@keyframes pin-pop { from { transform: scale(0); } }
+/* dwell at each lens, then glide 55 units: centre → right end → left end → centre */
+@keyframes dot-hop {
+  0%, 3.33%    { transform: translateX(0); }
+  8.33%, 11.67% { transform: translateX(55px); }
+  16.67%, 20%  { transform: translateX(110px); }
+  25%, 28.33%  { transform: translateX(165px); }
+  33.33%, 36.67% { transform: translateX(110px); }
+  41.67%, 45%  { transform: translateX(55px); }
+  50%, 53.33%  { transform: translateX(0); }
+  58.33%, 61.67% { transform: translateX(-55px); }
+  66.67%, 70%  { transform: translateX(-110px); }
+  75%, 78.33%  { transform: translateX(-165px); }
+  83.33%, 86.67% { transform: translateX(-110px); }
+  91.67%, 95%  { transform: translateX(-55px); }
+  100%         { transform: translateX(0); }
+}
+@keyframes contour-ripple { from { transform: scale(0.3); opacity: 0; } }
+@keyframes route-draw { from { stroke-dashoffset: 360; } }
+@keyframes route-march { to { stroke-dashoffset: -12; } }
+@keyframes pin-ping {
+  from { transform: scale(1); opacity: 0.9; }
+  to   { transform: scale(3.5); opacity: 0; }
+}
+
 /* ============================================================
    4. METHODOLOGY — violet, looped SVG flow diagram
    Contrast notes (WCAG AA on #7B7BF0):
@@ -1082,18 +1161,28 @@ h1, h2, h3 {
         <!-- header banner: faceted triangle range, like a chart skyline -->
         <svg viewBox="0 0 400 120" aria-hidden="true">
           <rect width="400" height="120" fill="#EDE9E1"/>
+          <!-- each peak is grouped with its black inset so it rises as one;
+               --i = rise order (left to right), --dip / --t = idle bob -->
           <g stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round">
-            <polygon points="160,58 225,120 95,120" fill="#9FF29A"/>
-            <polygon points="160,58 225,120 160,120" fill="#7B7BF0"/>
-            <polygon points="55,34 140,120 -30,120" fill="#9FF29A"/>
-            <polygon points="55,34 140,120 55,120" fill="#7B7BF0"/>
-            <polygon points="345,50 430,120 285,120" fill="#9FF29A"/>
-            <polygon points="345,50 430,120 345,120" fill="#7B7BF0"/>
-            <polygon points="250,16 340,120 160,120" fill="#9FF29A"/>
-            <polygon points="250,16 340,120 250,120" fill="#7B7BF0"/>
+            <g class="svc-peak" style="--i:1; --dip:6px; --t:3.9s">
+              <polygon points="160,58 225,120 95,120" fill="#9FF29A"/>
+              <polygon points="160,58 225,120 160,120" fill="#7B7BF0"/>
+            </g>
+            <g class="svc-peak" style="--i:0; --dip:8px; --t:4.8s">
+              <polygon points="55,34 140,120 -30,120" fill="#9FF29A"/>
+              <polygon points="55,34 140,120 55,120" fill="#7B7BF0"/>
+              <polygon points="55,72 77,120 33,120" fill="#0A0A0A" stroke="none"/>
+            </g>
+            <g class="svc-peak" style="--i:3; --dip:7px; --t:4.4s">
+              <polygon points="345,50 430,120 285,120" fill="#9FF29A"/>
+              <polygon points="345,50 430,120 345,120" fill="#7B7BF0"/>
+            </g>
+            <g class="svc-peak" style="--i:2; --dip:10px; --t:5.6s">
+              <polygon points="250,16 340,120 160,120" fill="#9FF29A"/>
+              <polygon points="250,16 340,120 250,120" fill="#7B7BF0"/>
+              <polygon points="250,63 290,120 210,120" fill="#0A0A0A" stroke="none"/>
+            </g>
           </g>
-          <polygon points="250,63 290,120 210,120" fill="#0A0A0A"/>
-          <polygon points="55,72 77,120 33,120" fill="#0A0A0A"/>
         </svg>
         <h3>Data design</h3>
         <p>Your numbers become charts and graphics your audience understands in seconds — and can't scroll past.</p>
@@ -1104,16 +1193,17 @@ h1, h2, h3 {
         <svg viewBox="0 0 400 120" aria-hidden="true">
           <rect width="400" height="120" fill="#7B7BF0"/>
           <g fill="none" stroke="#9FF29A" stroke-width="2">
-            <circle cx="20" cy="60" r="40"/>
-            <circle cx="75" cy="60" r="40"/>
-            <circle cx="130" cy="60" r="40"/>
-            <circle cx="185" cy="60" r="40"/>
-            <circle cx="240" cy="60" r="40"/>
-            <circle cx="295" cy="60" r="40"/>
-            <circle cx="350" cy="60" r="40"/>
-            <circle cx="405" cy="60" r="40"/>
+            <circle class="svc-ring" style="--i:0" cx="20" cy="60" r="40"/>
+            <circle class="svc-ring" style="--i:1" cx="75" cy="60" r="40"/>
+            <circle class="svc-ring" style="--i:2" cx="130" cy="60" r="40"/>
+            <circle class="svc-ring" style="--i:3" cx="185" cy="60" r="40"/>
+            <circle class="svc-ring" style="--i:4" cx="240" cy="60" r="40"/>
+            <circle class="svc-ring" style="--i:5" cx="295" cy="60" r="40"/>
+            <circle class="svc-ring" style="--i:6" cx="350" cy="60" r="40"/>
+            <circle class="svc-ring" style="--i:7" cx="405" cy="60" r="40"/>
           </g>
-          <circle cx="212.5" cy="60" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
+          <!-- rests in the middle lens; hops lens to lens (every 55 units) -->
+          <circle class="svc-dot" cx="212.5" cy="60" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
         </svg>
         <h3>Research and reports</h3>
         <p>Your findings become publications your stakeholders actually read, quote and share.</p>
@@ -1123,21 +1213,28 @@ h1, h2, h3 {
         <!-- header banner: topographic contours + dashed route on black -->
         <svg viewBox="0 0 400 120" aria-hidden="true">
           <clipPath id="svc-map"><rect width="400" height="120"/></clipPath>
+          <!-- solid copy of the route (length ≈ 358) that draws in, revealing
+               the dashed route beneath it; the mid pin sits at 50% -->
+          <mask id="svc-route-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="120">
+            <path class="svc-route-draw" d="M40 40 Q 140 8 210 62 T 380 78" fill="none"
+                  stroke="#fff" stroke-width="8"/>
+          </mask>
           <rect width="400" height="120" fill="#0A0A0A"/>
           <g clip-path="url(#svc-map)">
             <g fill="none" stroke="#9FF29A" stroke-width="2">
-              <ellipse cx="90" cy="140" rx="82" ry="56"/>
-              <ellipse cx="90" cy="140" rx="56" ry="37"/>
-              <ellipse cx="90" cy="140" rx="30" ry="19"/>
-              <ellipse cx="330" cy="-18" rx="86" ry="60"/>
-              <ellipse cx="330" cy="-18" rx="59" ry="41"/>
-              <ellipse cx="330" cy="-18" rx="32" ry="22"/>
+              <ellipse class="svc-contour" style="--i:2" cx="90" cy="140" rx="82" ry="56"/>
+              <ellipse class="svc-contour" style="--i:1" cx="90" cy="140" rx="56" ry="37"/>
+              <ellipse class="svc-contour" style="--i:0" cx="90" cy="140" rx="30" ry="19"/>
+              <ellipse class="svc-contour" style="--i:3" cx="330" cy="-18" rx="86" ry="60"/>
+              <ellipse class="svc-contour" style="--i:2" cx="330" cy="-18" rx="59" ry="41"/>
+              <ellipse class="svc-contour" style="--i:1" cx="330" cy="-18" rx="32" ry="22"/>
             </g>
-            <path d="M40 40 Q 140 8 210 62 T 380 78" fill="none"
+            <path class="svc-route" mask="url(#svc-route-mask)" d="M40 40 Q 140 8 210 62 T 380 78" fill="none"
                   stroke="#7B7BF0" stroke-width="2" stroke-dasharray="6 6"/>
-            <circle cx="40" cy="40" r="6" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
-            <circle cx="210" cy="62" r="6" fill="#7B7BF0" stroke="#9FF29A" stroke-width="2"/>
-            <circle cx="380" cy="78" r="6" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
+            <circle class="svc-pin" style="--d:0.65s" cx="40" cy="40" r="6" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
+            <circle class="svc-pin" style="--d:1.4s" cx="210" cy="62" r="6" fill="#7B7BF0" stroke="#9FF29A" stroke-width="2"/>
+            <circle class="svc-ping" cx="380" cy="78" r="6" fill="none" stroke="#9FF29A" stroke-width="1.5"/>
+            <circle class="svc-pin" style="--d:2s" cx="380" cy="78" r="6" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
           </g>
         </svg>
         <h3>Mapping and visualisations</h3>
@@ -1693,6 +1790,17 @@ h1, h2, h3 {
     });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+
+/* Service banners: their CSS loops run only while the card is on screen
+   (the reveal observer above unobserves after the first hit, so it
+   can't pause them). Skipped for reduced motion — nothing animates. */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { e.target.classList.toggle('svc-live', e.isIntersecting); });
+  });
+  document.querySelectorAll('.service-card').forEach(function (el) { io.observe(el); });
 })();
 
 /* Methodology loop: a mint pulse orbits the ring with a brief dwell at
