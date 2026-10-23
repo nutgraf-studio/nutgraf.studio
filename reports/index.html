@@ -25,7 +25,7 @@ setTimeout(function () {
 }, 4000);
 </script>
 
-<title>Data Reports, Made to Measure — Nutgraf</title>
+<title>Data Reports and Dashboards — Nutgraf</title>
 <meta name="description" content="Nutgraf designs data-intensive reports, from flagship studies to ESG disclosures, and turns PDF reports into interactive dashboards. See Afrobarometer’s Beyond borders and Rețele Electrice’s 2024 sustainability report.">
 <!-- Unlisted, for sharing internally: kept out of search engines, the
      sitemap, llms.txt and every menu. Not blocked in robots.txt, or
@@ -46,21 +46,21 @@ setTimeout(function () {
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nutgraf.studio">
-<meta property="og:title" content="Data Reports, Made to Measure — Nutgraf">
+<meta property="og:title" content="Data Reports and Dashboards — Nutgraf">
 <meta property="og:description" content="Data-intensive reports with state-of-the-art data design and bespoke craft, and PDF reports turned into interactive dashboards.">
 <meta property="og:url" content="https://nutgraf.studio/reports/">
-<meta property="og:image" content="https://nutgraf.studio/reports/og-image.jpg?v=1">
+<meta property="og:image" content="https://nutgraf.studio/reports/og-image.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Data reports, made to measure: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
+<meta property="og:image:alt" content="Bring us the data, leave with the report: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
 <meta property="og:locale" content="en_GB">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Data Reports, Made to Measure — Nutgraf">
+<meta name="twitter:title" content="Data Reports and Dashboards — Nutgraf">
 <meta name="twitter:description" content="Data-intensive reports with state-of-the-art data design and bespoke craft, and PDF reports turned into interactive dashboards.">
-<meta name="twitter:image" content="https://nutgraf.studio/reports/og-image.jpg?v=1">
-<meta name="twitter:image:alt" content="Data reports, made to measure: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
+<meta name="twitter:image" content="https://nutgraf.studio/reports/og-image.jpg?v=2">
+<meta name="twitter:image:alt" content="Bring us the data, leave with the report: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
 
 <!-- WebPage entity, tied to the site-wide Organization defined on the
      home page; the two showcased reports are listed as mentions. -->
@@ -70,7 +70,7 @@ setTimeout(function () {
   "@type": "WebPage",
   "@id": "https://nutgraf.studio/reports/#webpage",
   "url": "https://nutgraf.studio/reports/",
-  "name": "Data Reports, Made to Measure — Nutgraf",
+  "name": "Data Reports and Dashboards — Nutgraf",
   "description": "Nutgraf designs data-intensive reports, from flagship studies to ESG disclosures, and turns PDF reports into interactive dashboards connected to their datasets.",
   "inLanguage": "en-GB",
   "isPartOf": { "@type": "WebSite", "@id": "https://nutgraf.studio/#website", "name": "Nutgraf.studio", "url": "https://nutgraf.studio/" },
@@ -409,13 +409,13 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   background: var(--violet);
 }
 .hero h1 {
-  font-size: clamp(3rem, 8.4vw, 6.75rem);
+  /* four set lines: "Bring us / the data. / Leave with / the report." */
+  font-size: clamp(2.75rem, 7vw, 6rem);
   line-height: 0.98;
   letter-spacing: -0.03em;
-  max-width: 9ch;
 }
 .hero-line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
-/* room for the marker underline under "measure." */
+/* room for the marker underline under "report." */
 .hero-line:last-child { padding-bottom: 0.4em; margin-bottom: -0.4em; }
 .hero-line > span { display: inline-block; }
 .hero h1 em { padding-right: 0.06em; }
@@ -465,6 +465,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .js .loaded .hero-line > span { transform: none; transition: transform 1s var(--ease-out); }
 .js .loaded .hero-line:nth-child(2) > span { transition-delay: 0.08s; }
 .js .loaded .hero-line:nth-child(3) > span { transition-delay: 0.16s; }
+.js .loaded .hero-line:nth-child(4) > span { transition-delay: 0.24s; }
 .js .loaded .kicker, .js .loaded .hero-sub, .js .loaded .hero-actions {
   opacity: 1; transform: none;
   transition: opacity 0.8s ease, transform 0.8s var(--ease-out);
@@ -598,7 +599,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .colorbar span.sw { display: flex; }
 .colorbar i { width: 0.875rem; height: 0.875rem; display: block; }
 
-/* the ruler: "made to measure", 1 mm ticks along the hero's foot */
+/* the ruler: 1 mm ticks along the hero's foot, as on a proof */
 .ruler {
   position: absolute;
   left: 0;
@@ -1439,14 +1440,15 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <div class="hero-copy">
       <span class="kicker">Data reports · Flagship publications</span>
       <h1 id="hero-heading">
-        <span class="hero-line"><span>Data reports,</span></span>
-        <span class="hero-line"><span>made to</span></span>
-        <span class="hero-line"><span><em class="fx">measure.<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em></span></span>
+        <span class="hero-line"><span>Bring us</span></span>
+        <span class="hero-line"><span>the data.</span></span>
+        <span class="hero-line"><span><em>Leave with</em></span></span>
+        <span class="hero-line"><span><em>the <span class="fx">report.<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></span></em></span></span>
       </h1>
-      <p class="hero-sub">We design data-intensive reports, from flagship studies to ESG disclosures, with state-of-the-art data design and bespoke craft: every chart made for its finding, every page made for its reader.</p>
+      <p class="hero-sub">Survey rounds, spreadsheets, ESG disclosures: we turn them into a flagship report your board, funders and press will read. Send us the brief and we’ll come back within a week with a page plan, a chart system and a timeline.</p>
       <div class="hero-actions">
-        <a class="btn" href="#flagship">See the reports</a>
-        <a class="btn btn-ghost" href="#contact">Commission a report</a>
+        <a class="btn" href="#contact">Commission a report</a>
+        <a class="btn btn-ghost" href="#flagship">See the reports</a>
       </div>
     </div>
 
@@ -1896,7 +1898,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="cta" id="contact" aria-labelledby="cta-heading">
   <div class="wrap reveal">
     <h2 id="cta-heading">Got a report full of numbers? <em>Let’s make it read.</em></h2>
-    <p>Send us the brief, the dataset or last year’s PDF. We’ll come back within a week with a page plan, a chart system and a timeline.</p>
+    <p>State-of-the-art data design, bespoke craft, every number checked. A brief, a dataset or last year’s PDF is all we need to start.</p>
     <div class="cta-actions">
       <a class="btn" href="mailto:hello@nutgraf.studio?subject=Report%20enquiry">Commission a report</a>
       <a class="btn btn-ghost" href="mailto:hello@nutgraf.studio?subject=Dashboard%20enquiry">Ask about dashboards</a>
