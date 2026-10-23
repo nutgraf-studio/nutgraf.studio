@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshops — section background options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Inter", -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  padding: 3rem 1.5rem 5rem;
+}
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.sub { text-align: center; opacity: 0.7; margin: 0 auto 3rem; font-size: 0.95rem; max-width: 46rem; line-height: 1.5; }
+.sub code { font-size: 0.85em; background: rgba(10,10,10,0.07); padding: 0.05rem 0.35rem; border-radius: 0.3rem; }
+
+/* ============================================================
+   Overview — the whole page, scaled down, once per option.
+   Each frame is the real /workshops/ page at 1280px wide with
+   that option's CSS laid over it; click one to see it full size.
+   ============================================================ */
+.overview {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .overview { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.opt {
+  background: var(--white);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(10,10,10,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.opt h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  min-height: 2.6em;
+}
+.opt h2 span, .seg button span {
+  display: inline-block;
+  background: var(--violet);
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.4rem;
+  vertical-align: 2px;
+}
+.opt[data-opt="before"] h2 span { background: rgba(10,10,10,0.55); }
+.opt p { font-size: 0.8125rem; line-height: 1.5; opacity: 0.75; }
+.opt .seq { font-size: 0.75rem; opacity: 0.55; }
+
+.thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 40rem;
+  padding: 0;
+  border: 1px solid rgba(10,10,10,0.15);
+  border-radius: 0.375rem;
+  overflow: hidden;
+  background: var(--violet);
+  cursor: zoom-in;
+  transition: outline-color 0.2s ease;
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+}
+.thumb:hover, .thumb:focus-visible { outline-color: rgba(10,10,10,0.25); }
+.thumb.active { outline-color: var(--violet); }
+.thumb iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 800px;
+  border: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Viewer — one full-size frame. Switching only swaps the CSS
+   inside it, so the scroll position holds between options.
+   ============================================================ */
+.viewer { max-width: 90rem; margin: 4rem auto 0; scroll-margin-top: 0.5rem; }
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  background: var(--cream);
+}
+.bar h2 { font-family: "Fraunces", Georgia, serif; font-size: 1.25rem; }
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.125rem;
+  background: var(--white);
+  border-radius: 999px;
+  padding: 0.25rem;
+  box-shadow: 0 1px 3px rgba(10,10,10,0.08);
+}
+.seg button {
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 0;
+  background: transparent;
+  color: var(--black);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.seg button span { margin-right: 0.3rem; }
+.seg button[aria-pressed="true"] { background: var(--black); color: var(--mint); }
+.seg button[aria-pressed="true"] span { background: var(--mint); color: var(--black); }
+.stage { display: flex; justify-content: center; }
+.stage iframe {
+  width: 100%;
+  height: min(60rem, calc(100svh - 6rem));
+  border: 1px solid rgba(10,10,10,0.15);
+  border-radius: 0.75rem;
+  background: var(--violet);
+}
+.stage.phone iframe { width: 390px; height: min(844px, calc(100svh - 6rem)); }
+.foot { max-width: 46rem; margin: 2rem auto 0; text-align: center; font-size: 0.85rem; opacity: 0.65; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<h1>Workshops — section backgrounds</h1>
+<p class="sub">Option 2 shipped on 23 October 2026. Each frame is the real <code>/workshops/</code> page, which now carries option 2. The other frames lay CSS over it: first the old violet page, then option 1 or 3 on top. All three keep violet for the hero and give the modules a violet surface, so the page still reads as Workshops; what changes is everything around them. Click a frame to open it full size below.</p>
+
+<div class="overview">
+  <article class="opt" data-opt="before">
+    <h2><span>Before</span>One violet canvas</h2>
+    <button class="thumb" type="button" data-opt="before" aria-label="Open the page as it was full size"><iframe title="Workshops page before" tabindex="-1"></iframe></button>
+    <p>Every section on the same violet, split only by thin white rules, so hero, statement, modules, format, FAQ and booking run together.</p>
+  </article>
+
+  <article class="opt" data-opt="1">
+    <h2><span>1</span>Home rhythm</h2>
+    <button class="thumb" type="button" data-opt="1" aria-label="Open option 1 full size"><iframe title="Option 1: home rhythm" tabindex="-1"></iframe></button>
+    <p>Every section turns colour, the way the home page does. Violet stays where the workshops live, the hero and the three modules; the rest steps through cream, black and mint.</p>
+    <p class="seq">Hero violet · AI statement cream · modules violet · format black · FAQ cream · booking mint · footer black</p>
+  </article>
+
+  <article class="opt" data-opt="2">
+    <h2><span>2</span>Cards on cream (live)</h2>
+    <button class="thumb" type="button" data-opt="2" aria-label="Open option 2 full size"><iframe title="Option 2: cards on cream" tabindex="-1"></iframe></button>
+    <p>Violet bookends, a calm cream middle. The modules become three white cards with the home page's 2px black border, each with a violet panel in the dot grid of the home's Workshops card.</p>
+    <p class="seq">Hero violet · AI statement cream · module cards · format black · FAQ cream · booking violet · footer black</p>
+  </article>
+
+  <article class="opt" data-opt="3">
+    <h2><span>3</span>Violet, varied surface</h2>
+    <button class="thumb" type="button" data-opt="3" aria-label="Open option 3 full size"><iframe title="Option 3: violet, varied surface" tabindex="-1"></iframe></button>
+    <p>The page stays violet, but no two neighbours share a surface: a black band for the AI statement, a mint strip for the format, and each module on the paper of its craft: graph paper, dot grid, ruled lines.</p>
+    <p class="seq">Hero violet · AI statement black · modules grid / dots / lines · format mint · FAQ and booking violet · footer black</p>
+  </article>
+</div>
+
+<section class="viewer" id="viewer" aria-label="Full-size preview">
+  <div class="bar">
+    <h2>Full size</h2>
+    <div class="seg" role="group" aria-label="Option">
+      <button type="button" data-opt="before" aria-pressed="false">Before</button>
+      <button type="button" data-opt="1" aria-pressed="false"><span>1</span>Home rhythm</button>
+      <button type="button" data-opt="2" aria-pressed="true"><span>2</span>Cards on cream (live)</button>
+      <button type="button" data-opt="3" aria-pressed="false"><span>3</span>Varied surface</button>
+    </div>
+    <div class="seg" role="group" aria-label="Width">
+      <button type="button" data-width="desktop" aria-pressed="true">Desktop</button>
+      <button type="button" data-width="phone" aria-pressed="false">Phone</button>
+    </div>
+  </div>
+  <div class="stage"><iframe id="view" title="Workshops page, full size"></iframe></div>
+</section>
+
+<p class="foot">Option 2 is folded into the stylesheet of <code>workshops/index.html</code>. The <code>&lt;template&gt;</code> blocks at the end of this file hold the old violet page and options 1 and 3, written as overrides of the page's own sections.</p>
+
+<!-- ============================================================
+     The options. "Before" turns the live page (option 2) back into
+     the old violet canvas; options 1 and 3 were written against
+     that canvas, so they are laid over it and only restate what
+     changes. Contrast follows the page's rules: white display type
+     only on violet or black, black body copy on violet, cream and
+     mint, cream body copy on black, and mint or violet only for
+     decoration where they fall below 3:1.
+     ============================================================ -->
+
+<!-- Before · one violet canvas: undoes option 2 in the live stylesheet -->
+<template id="opt-before"><style>
+body { background: var(--violet); }
+.stance { padding-block: 5.5rem; border-top: 2px solid rgba(255, 255, 255, 0.45); }
+.stance h2 { color: var(--white); }
+
+.modules { padding-bottom: 3rem; }
+.module {
+  width: auto;
+  max-width: var(--max-w);
+  padding: 4.5rem var(--pad);
+  gap: 2.5rem;
+  border: 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  background: none;
+}
+.module + .module { margin-top: 0; }
+.module-head, .module-points { padding: 0; border: 0; background: none; }
+@media (min-width: 900px) { .module { gap: 4rem; } }
+.module-points li { border-left-color: var(--mint); }
+
+.format { background: none; color: inherit; border-top: 2px solid rgba(255, 255, 255, 0.45); }
+.format-item .label { color: var(--black); }
+
+.faq { border-top: 2px solid rgba(255, 255, 255, 0.45); }
+.faq h2 { color: var(--white); }
+.faq-item { border-left-color: var(--mint); }
+
+.cta { border-top: 2px solid rgba(255, 255, 255, 0.45); }
+</style></template>
+
+<!-- 1 · Home rhythm: every section turns colour -->
+<template id="opt-1"><style>
+.stance { background: var(--cream); border-top: 0; }
+.stance h2 { color: var(--black); }
+
+/* modules keep the violet; the rule above the first one is no longer needed */
+.modules .module:first-child { border-top: 0; }
+
+.format { background: var(--black); color: var(--cream); border-top: 0; }
+.format-item .label { color: var(--mint); }
+.format-item .value { color: var(--white); }
+
+.faq { background: var(--cream); border-top: 0; }
+.faq h2 { color: var(--black); }
+.faq-item { border-left-color: var(--violet); }
+
+.cta { background: var(--mint); border-top: 0; }
+.cta h2 { color: var(--black); }
+.cta .btn:hover, .cta .btn:focus-visible { box-shadow: 4px 4px 0 var(--violet); }
+</style></template>
+
+<!-- 3 · Violet, varied surface: one canvas, no two neighbours alike -->
+<template id="opt-3"><style>
+.stance { background: var(--black); color: var(--cream); border-top: 0; }
+
+/* Each module paints a full-bleed surface behind itself: graph paper
+   for research, the home's dot grid for design, ruled lines for
+   storytelling. The section clips the overhang (100vw counts the
+   scrollbar). */
+.modules { padding-bottom: 0; overflow-x: clip; }
+.module { position: relative; isolation: isolate; border-top: 0; }
+.module::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+}
+.module + .module::before { border-top: 2px solid rgba(255, 255, 255, 0.45); }
+.module:nth-child(1)::before {
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+}
+.module:nth-child(2)::before {
+  background-image: radial-gradient(rgba(10, 10, 10, 0.22) 1.2px, transparent 1.7px);
+  background-size: 20px 20px;
+}
+.module:nth-child(3)::before {
+  background-image: repeating-linear-gradient(transparent 0 31px, rgba(10, 10, 10, 0.13) 31px 32px);
+}
+
+.format { background: var(--mint); border-top: 0; }
+.format-item .value { color: var(--black); }
+
+.faq { border-top: 0; }
+</style></template>
+
+<script>
+(function () {
+  var pageUrl = new URL('workshops/', location.href).href;
+  /* the page's GA4 snippet comes out, so previews don't count as visits */
+  var GA = /<script async src="https:\/\/www\.googletagmanager\.com[\s\S]*?<\/script>\s*<script>[\s\S]*?<\/script>/;
+  /* overview only: a fixed hero height (88svh of an 800px window,
+     since the frame is as tall as the whole page) and every
+     scroll-reveal already in */
+  var THUMB = '\nhtml { scroll-behavior: auto; } .hero { min-height: 704px; }' +
+    ' .reveal, .reveal > * { opacity: 1 !important; transform: none !important; transition: none !important; }';
+
+  /* option 2 is the page as served; options 1 and 3 sit on the old
+     violet canvas, so "before" goes under them */
+  function tpl(id) {
+    return document.getElementById('opt-' + id).content.querySelector('style').textContent;
+  }
+  function css(opt) {
+    if (opt === '2') return '';
+    return opt === 'before' ? tpl('before') : tpl('before') + tpl(opt);
+  }
+
+  var view = document.getElementById('view');
+  var stage = view.parentNode;
+  var current = '2';
+
+  fetch(pageUrl, { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (html) {
+    html = html.replace(GA, '').replace('<head>', '<head><base href="' + pageUrl + '">');
+    function doc(opt, extra) {
+      return html.replace('</head>', '<style id="bg-opt">' + css(opt) + (extra || '') + '</style></head>');
+    }
+
+    document.querySelectorAll('.thumb').forEach(function (box) {
+      var f = box.querySelector('iframe');
+      f.addEventListener('load', function () { fit(box, f); }, { once: true });
+      f.srcdoc = doc(box.dataset.opt, THUMB);
+      box.addEventListener('click', function () {
+        show(box.dataset.opt);
+        document.getElementById('viewer').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    view.addEventListener('load', function () {
+      /* in-page anchors would resolve against <base> and leave the
+         preview, so they scroll inside it instead */
+      var d = view.contentDocument;
+      d.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+        e.preventDefault();
+        var t = d.getElementById(a.getAttribute('href').slice(1));
+        (t || d.documentElement).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    view.srcdoc = doc(current);
+  });
+
+  /* Scale a 1280px page to the column, and keep the frame as tall as
+     the page as fonts land and columns resize */
+  function fit(box, f) {
+    var d = f.contentDocument;
+    function measure() {
+      var h = d.documentElement.scrollHeight;
+      var s = box.clientWidth / 1280;
+      f.style.height = h + 'px';
+      f.style.transform = 'scale(' + s + ')';
+      box.style.height = Math.round(h * s) + 'px';
+    }
+    measure();
+    if (d.fonts) d.fonts.ready.then(measure);
+    new f.contentWindow.ResizeObserver(measure).observe(d.body);
+    var w = box.clientWidth;
+    new ResizeObserver(function () {
+      if (box.clientWidth !== w) { w = box.clientWidth; measure(); }
+    }).observe(box);
+  }
+
+  function show(opt) {
+    current = opt;
+    var s = view.contentDocument && view.contentDocument.getElementById('bg-opt');
+    if (s) s.textContent = css(opt);
+    document.querySelectorAll('.seg [data-opt]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.opt === opt ? 'true' : 'false');
+    });
+    document.querySelectorAll('.thumb').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.opt === opt);
+    });
+  }
+  show(current);
+
+  document.querySelectorAll('.seg [data-opt]').forEach(function (b) {
+    b.addEventListener('click', function () { show(b.dataset.opt); });
+  });
+  document.querySelectorAll('.seg [data-width]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var phone = b.dataset.width === 'phone';
+      stage.classList.toggle('phone', phone);
+      document.querySelectorAll('.seg [data-width]').forEach(function (o) {
+        o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

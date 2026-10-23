@@ -197,7 +197,9 @@ gtag('config', 'G-Q8YD4TDRXT');
 <style>
 /* ============================================================
    NUTGRAF.STUDIO — /workshops/ subpage
-   One violet canvas, typography-first. Sections:
+   Violet bookends on a cream page, typography-first: the hero and
+   the CTA are violet, the modules are white cards with a violet
+   panel, the format runs as a black strip. Sections:
    NAV / HERO / AI STANCE / MODULES / FORMAT / FAQ / CTA / FOOTER
    Contrast rules on violet #7B7BF0 (same maths as the home page):
    - white passes WCAG AA only as LARGE text (3.54:1) → white is
@@ -205,6 +207,9 @@ gtag('config', 'G-Q8YD4TDRXT');
    - black #0A0A0A passes for normal text (5.5:1) → all body copy.
    - mint #9FF29A on violet is 2.6:1 → decorative strokes and
      large aria-hidden numerals only, never load-bearing text.
+   On cream and white all type is black, and violet (2.9:1 on cream)
+   only draws rules and the dot grid. On black, copy is cream and
+   the small labels are mint.
    ============================================================ */
 
 :root {
@@ -231,7 +236,7 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--black);
-  background: var(--violet);
+  background: var(--cream);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -438,6 +443,7 @@ h1, h2, h3 {
    2. HERO — the headline is the visual
    ============================================================ */
 .hero {
+  background: var(--violet);
   min-height: 88svh;
   display: grid;
   align-items: center;
@@ -524,9 +530,9 @@ h1, h2, h3 {
 /* ============================================================
    3. AI STANCE — one large typographic statement
    ============================================================ */
-.stance { padding-block: 5.5rem; border-top: 2px solid rgba(255, 255, 255, 0.45); }
+.stance { padding-block: 5.5rem 3.5rem; }
 .stance h2 {
-  color: var(--white);
+  color: var(--black);
   font-size: clamp(2rem, 5.5vw, 3.5rem);
   max-width: 18ch;
 }
@@ -541,16 +547,34 @@ h1, h2, h3 {
 /* ============================================================
    4. MODULES — the flagship curriculum
    ============================================================ */
-.modules { padding-bottom: 3rem; }
+.modules { padding-bottom: 4.5rem; }
 
+/* Each module is a white card in the home page's 2px black border:
+   number and title on a violet panel in the dot grid of the home's
+   Workshops card, the three points on white beside it (below it on
+   phones). .wrap centres the card; its side padding moves into the
+   two panels. */
 .module {
-  border-top: 2px solid rgba(255, 255, 255, 0.45);
-  padding-block: 4.5rem;
+  width: calc(100% - 2 * var(--pad));
+  max-width: calc(var(--max-w) - 2 * var(--pad));
+  padding: 0;
   display: grid;
-  gap: 2.5rem;
+  border: 2px solid var(--black);
+  background: var(--white);
 }
+.module + .module { margin-top: 1.5rem; }
+.module-head {
+  padding: 2.25rem 1.75rem 2.5rem;
+  background-color: var(--violet);
+  background-image: radial-gradient(rgba(10, 10, 10, 0.22) 1.2px, transparent 1.7px);
+  background-size: 20px 20px;
+  border-bottom: 2px solid var(--black);
+}
+.module-points { padding: 2.25rem 1.75rem 2.5rem; }
 @media (min-width: 900px) {
-  .module { grid-template-columns: 1fr 1.15fr; gap: 4rem; }
+  .module { grid-template-columns: 1fr 1.15fr; }
+  .module-head { padding: 3rem 2.75rem; border-bottom: 0; border-right: 2px solid var(--black); }
+  .module-points { padding: 3rem 2.75rem; }
 }
 
 /* Layered numeral: mint figure with a ghosted offset copy behind it,
@@ -590,7 +614,7 @@ h1, h2, h3 {
   color: var(--black);
 }
 
-/* The three sub-points: mint rule, bold lead-in, plain body */
+/* The three sub-points: violet rule, bold lead-in, plain body */
 .module-points {
   list-style: none;
   display: grid;
@@ -598,7 +622,7 @@ h1, h2, h3 {
   align-content: center;
 }
 .module-points li {
-  border-left: 3px solid var(--mint);
+  border-left: 3px solid var(--violet);
   padding-left: 1.375rem;
 }
 .module-points strong {
@@ -610,10 +634,11 @@ h1, h2, h3 {
 .module-points p { font-size: 0.9375rem; max-width: 34rem; }
 
 /* ============================================================
-   5. FORMAT — practical details, type only
+   5. FORMAT — practical details, type only, on a black strip
    ============================================================ */
 .format {
-  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  background: var(--black);
+  color: var(--cream);
   padding-block: 4.5rem;
 }
 .format-grid {
@@ -629,7 +654,7 @@ h1, h2, h3 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--black);
+  color: var(--mint);
   margin-bottom: 0.625rem;
 }
 .format-item .value {
@@ -649,12 +674,9 @@ h1, h2, h3 {
    6. FAQ — plain Q&A, always expanded (crawlable without JS,
    mirrors the FAQPage structured data in <head>)
    ============================================================ */
-.faq {
-  border-top: 2px solid rgba(255, 255, 255, 0.45);
-  padding-block: 4.5rem;
-}
+.faq { padding-block: 4.5rem; }
 .faq h2 {
-  color: var(--white);
+  color: var(--black);
   font-size: clamp(2rem, 5vw, 3rem);
   max-width: 20ch;
 }
@@ -667,7 +689,7 @@ h1, h2, h3 {
   .faq-list { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; }
 }
 .faq-item {
-  border-left: 3px solid var(--mint);
+  border-left: 3px solid var(--violet);
   padding-left: 1.375rem;
 }
 .faq-item dt {
@@ -682,7 +704,7 @@ h1, h2, h3 {
    7. CTA
    ============================================================ */
 .cta {
-  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  background: var(--violet);
   padding-block: 6.5rem;
   text-align: center;
 }
