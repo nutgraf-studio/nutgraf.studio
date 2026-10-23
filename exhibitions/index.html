@@ -1228,15 +1228,17 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <main id="main">
 
 <!-- ============================================================
-     2. HERO — muted 20-second loop cut from the Între noi film
+     2. HERO — muted 22-second loop cut from the Între noi film
      (only the shots without burned-in subtitles or title cards).
-     The full film with sound plays in the dialog at the bottom.
+     It opens on visitors reading the chord diagram, the shot the
+     intro's zoom lands on. The full film with sound plays in the
+     dialog at the bottom.
      ============================================================ -->
 <section class="hero" aria-labelledby="hero-heading">
   <div class="hero-media">
     <div class="hero-media-inner">
       <video id="hero-video" autoplay muted loop playsinline preload="auto"
-             poster="media/intre-noi-poster.jpg" aria-hidden="true" tabindex="-1">
+             poster="media/intre-noi-loop-poster.jpg" aria-hidden="true" tabindex="-1">
         <source src="media/intre-noi-loop-720.mp4" type="video/mp4" media="(max-width: 900px)">
         <source src="media/intre-noi-loop-1080.mp4" type="video/mp4">
       </video>
@@ -1718,6 +1720,9 @@ var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (done) return;
     done = true;
     render(100);
+    // Rewind so the zoom always lands on the loop's opening shot
+    // (visitors reading a chart), however far the loader let it play.
+    try { video.currentTime = 0; } catch (e) {}
     root.classList.add('porthole');
     setTimeout(function () {
       root.classList.remove('intro');
