@@ -79,24 +79,27 @@ gtag('config', 'G-Q8YD4TDRXT');
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "Data design",
-        "description": "Charts, graphics and information systems that audiences understand in seconds."
+        "name": "Data reports",
+        "url": "https://nutgraf.studio/reports/",
+        "description": "Flagship, annual and ESG reports designed from the client's data, every number checked against its source, and PDF reports turned into interactive dashboards."
       }
     },
     {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "Research and reports",
-        "description": "Client findings turned into publications stakeholders read, quote and share."
+        "name": "Data design workshops",
+        "url": "https://nutgraf.studio/workshops/",
+        "description": "Workshops in data research, data design and data storytelling, built around state-of-the-art AI used well and safely. On-site or remote."
       }
     },
     {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "Mapping and visualisations",
-        "description": "Maps and interactive visuals audiences explore on their own and remember."
+        "name": "Data exhibitions",
+        "url": "https://nutgraf.studio/exhibitions/",
+        "description": "Data exhibitions for embassies, cultural institutes and trade agencies that turn the ties between two countries into a show the public stops for."
       }
     }
   ]
@@ -583,20 +586,21 @@ h1, h2, h3 {
 }
 
 /* ============================================================
-   3. SERVICES — cream, three cards
+   3. SERVICES — cream, one wide panel per service page
+   (Reports, Workshops, Exhibitions), each with an animated scene
    ============================================================ */
 .services { background: var(--cream); padding-block: 5rem; }
 .section-head h2 { font-size: clamp(1.875rem, 4.5vw, 2.75rem); margin-bottom: 0.75rem; }
 .section-head p { max-width: 38rem; }
 
-.service-grid {
+.service-list {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
   margin-top: 2.5rem;
 }
 .service-card {
+  display: grid;
   border: 2px solid var(--black);
-  padding: 1.75rem 1.5rem;
   background: var(--white);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -604,98 +608,358 @@ h1, h2, h3 {
   transform: translateY(-4px);
   box-shadow: 6px 6px 0 var(--black);
 }
-.service-card svg {
-  display: block;
-  width: calc(100% + 3rem);
-  max-width: none;
-  height: auto;
-  margin: -1.75rem -1.5rem 1.25rem;
+
+/* The scene fills a colour field: mint for the dashboards, violet for
+   the room, black for the gallery. The SVG covers the whole stage and
+   scales to fit ("meet"), so when the stage is taller or wider than the
+   scene, the floor, the audience and the textures run on past the
+   viewBox instead of stopping short. */
+.svc-stage {
+  position: relative;
+  width: 100%; /* a grid item with an aspect ratio won't stretch on its own */
+  aspect-ratio: 7 / 5;
+  max-height: 25rem;
   border-bottom: 2px solid var(--black);
+  overflow: hidden;
 }
-.service-card h3 { font-size: 1.375rem; margin-bottom: 0.5rem; }
-.service-card p { font-size: 0.9375rem; }
+.svc-stage svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.svc-reports .svc-stage {
+  background-color: var(--mint);
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 10, 10, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+}
+/* mm ruler along the bottom edge, as on the Reports page */
+.svc-reports .svc-stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 14px;
+  background:
+    repeating-linear-gradient(90deg, rgba(10, 10, 10, 0.35) 0 1.5px, transparent 1.5px 10px) left bottom / 100% 7px no-repeat,
+    repeating-linear-gradient(90deg, rgba(10, 10, 10, 0.35) 0 1.5px, transparent 1.5px 50px) left bottom / 100% 14px no-repeat;
+}
+.svc-workshops .svc-stage {
+  background-color: var(--violet);
+  background-image: radial-gradient(rgba(10, 10, 10, 0.22) 1.2px, transparent 1.7px);
+  background-size: 20px 20px;
+}
+.svc-exhibitions .svc-stage { background: var(--black); }
 
-@media (min-width: 600px) {
-  .service-grid { grid-template-columns: repeat(3, 1fr); }
+.svc-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.75rem 1.5rem 2rem;
+}
+.svc-label {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+.svc-num {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.125rem;
+  height: 1.625rem;
+  background: var(--black);
+  color: var(--mint);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+.svc-body h3 {
+  font-size: clamp(1.625rem, 3.2vw, 2.25rem);
+  max-width: 16ch;
+  margin-bottom: 0.875rem;
+}
+.svc-body > p { max-width: 34rem; }
+
+/* What you get, as a spec sheet */
+.svc-spec {
+  width: 100%;
+  margin: 1.5rem 0 1.75rem;
+  border-top: 2px solid var(--black);
+}
+.svc-spec div {
+  display: grid;
+  gap: 0.125rem;
+  padding-block: 0.625rem;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.18);
+}
+.svc-spec dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.svc-spec dd { font-size: 0.9375rem; line-height: 1.5; }
+@media (min-width: 420px) {
+  .svc-spec div { grid-template-columns: 6.5rem 1fr; gap: 1rem; }
+  .svc-spec dt { padding-top: 0.2rem; }
 }
 
-/* Banner motion: each banner builds in when its card reveals (.in),
-   then loops gently. Loops run only while the card is on screen (JS
-   toggles .svc-live, see end of page). Every build-in animates *from*
-   a hidden state to the static artwork, so reduced motion simply gets
-   the finished frame. */
-.svc-ping { opacity: 0; }
+.svc-link {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--black);
+  padding-bottom: 1px;
+}
+.svc-link:hover, .svc-link:focus-visible { background: var(--mint); }
+.svc-link .arr {
+  width: 0.7em;
+  height: 0.7em;
+  margin-left: 0.4em;
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.svc-link:hover .arr, .svc-link:focus-visible .arr { transform: translate(2px, -2px); }
+
+/* Wide screens: scene beside the copy, alternating sides */
+@media (min-width: 960px) {
+  .service-card { grid-template-columns: 1.1fr 1fr; }
+  .service-card:nth-child(even) { grid-template-columns: 1fr 1.1fr; }
+  .svc-stage {
+    aspect-ratio: auto;
+    max-height: none;
+    min-height: 26rem;
+    border-bottom: 0;
+    border-right: 2px solid var(--black);
+  }
+  .service-card:nth-child(even) .svc-stage {
+    order: 2;
+    border-right: 0;
+    border-left: 2px solid var(--black);
+  }
+  .svc-body { justify-content: center; padding: 2.5rem 2.75rem; }
+}
+
+/* Scene motion: each scene builds in when its card reveals (.in), then
+   loops. Loops run only while the card is on screen (JS toggles
+   .svc-live, see end of page). Every build-in animates *from* a hidden
+   state to the static artwork, and the motion-only extras (data bits,
+   the lens, speech bubbles) rest hidden, so reduced motion gets the
+   finished frame: the report, the story slide, the lit gallery. */
+.rp-bit, .ws-lens, .ws-bubble { opacity: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .svc-dot, .svc-contour, .svc-pin, .svc-ping {
+  .rp-sheet, .rp-page, .rp-dash, .rp-wipe, .rp-mark, .rp-bar, .rp-bit,
+  .ws-screen, .ws-person, .ws-dot, .ws-head, .ws-callout, .ws-lens, .ws-bubble, .ws-spark,
+  .ex-panel, .ex-bubble, .ex-bar, .ex-sway {
     transform-box: fill-box;
     transform-origin: center;
   }
+  .rp-wipe, .rp-mark, .ws-head { transform-origin: 0 50%; }
+  .rp-bar, .ex-bar, .ws-person, .ex-sway { transform-origin: 50% 100%; }
+  .ws-callout, .ws-bubble { transform-origin: 0 100%; }
 
-  /* Data design: peaks rise from behind the baseline, then bob —
-     downward only, so a base edge never lifts into view */
-  .service-card.in .svc-peak {
+  /* Reports: the spreadsheet and the page land, the page sets itself
+     (kicker, headline, text, bars, donut), data bits hop from sheet to
+     chart, and the dashboard flips between two filtered series */
+  .service-card.in .rp-sheet { animation: rp-from-left 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
+  .service-card.in .rp-page { animation: svc-from-below 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both; }
+  .service-card.in .rp-wipe { animation: svc-wipe 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.8s + var(--i) * 0.07s) both; }
+  .service-card.in .rp-bar {
     animation:
-      peak-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.25s + var(--i) * 0.12s) both,
-      peak-bob var(--t) ease-in-out calc(1.15s + var(--i) * 0.12s) infinite;
+      svc-grow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(1s + var(--i) * 0.08s) both,
+      rp-breathe var(--t) ease-in-out calc(1.9s + var(--i) * 0.08s) infinite;
   }
+  .service-card.in .rp-arc { animation: rp-arc 1s ease-out 1.3s both; }
+  .service-card.in .rp-mark { animation: rp-mark 6s ease-in-out 1.6s infinite both; }
+  .service-card.in .rp-scan { animation: rp-scan 4.6s steps(9) 1s infinite both; }
+  .service-card.in .rp-bit { animation: rp-bit 2.8s cubic-bezier(0.45, 0, 0.25, 1) calc(1.8s + var(--d)) infinite both; }
+  .service-card.in .rp-dash { animation: svc-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s both; }
+  .service-card.in .rp-line-a,
+  .service-card.in .rp-line-b { stroke-dasharray: 100; }
+  .service-card.in .rp-line-a { animation: rp-series-a 8s ease-in-out 2s infinite both; }
+  .service-card.in .rp-line-b { animation: rp-series-b 8s ease-in-out 2s infinite both; }
+  .service-card.in .rp-chip-a { animation: rp-chip-a 8s step-end 2s infinite both; }
+  .service-card.in .rp-chip-b { animation: rp-chip-b 8s step-end 2s infinite both; }
 
-  /* Research: rings draw left to right, the dot pops in, then hops
-     lens to lens along the chain and back */
-  .service-card.in .svc-ring {
-    stroke-dasharray: 252; /* ≥ circumference 2π·40 */
-    animation: ring-draw 0.7s ease-out calc(0.25s + var(--i) * 0.08s) both;
-  }
-  .service-card.in .svc-dot {
+  /* Workshops: one 10 s lesson on a loop. Research: raw dots, a lens
+     questions them. Design: they sort into columns. Storytelling: one
+     column turns mint, the rest step back, a headline and a callout
+     land. The room nods along. */
+  .service-card.in .ws-screen { animation: svc-from-below 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
+  .service-card.in .ws-person {
     animation:
-      pin-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s both,
-      dot-hop 13s ease-in-out 2.2s infinite;
+      ws-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.35s + var(--i) * 0.1s) both,
+      ws-sway var(--t) ease-in-out calc(1.4s + var(--i) * 0.3s) infinite;
   }
+  .service-card.in .ws-dot { animation: ws-dot 10s cubic-bezier(0.65, 0, 0.35, 1) calc(1s + var(--d)) infinite both; }
+  .service-card.in .ws-dot.hi { animation-name: ws-dot-hi; }
+  .service-card.in .ws-head { animation: ws-head 10s cubic-bezier(0.2, 0.8, 0.2, 1) 1s infinite both; }
+  .service-card.in .ws-note { stroke-dasharray: 100; animation: ws-note 10s ease-in-out 1s infinite both; }
+  .service-card.in .ws-callout { animation: ws-callout 10s cubic-bezier(0.34, 1.56, 0.64, 1) 1s infinite both; }
+  .service-card.in .ws-lens { animation: ws-lens 10s cubic-bezier(0.45, 0, 0.25, 1) 1s infinite both; }
+  .service-card.in .ws-l1 { animation: ws-l1 10s linear 1s infinite both; }
+  .service-card.in .ws-l2 { animation: ws-l2 10s linear 1s infinite both; }
+  .service-card.in .ws-l3 { animation: ws-l3 10s linear 1s infinite both; }
+  .service-card.in .ws-q { animation: ws-q 10s cubic-bezier(0.34, 1.56, 0.64, 1) 1s infinite both; }
+  .service-card.in .ws-x { animation: ws-x 10s cubic-bezier(0.34, 1.56, 0.64, 1) 1s infinite both; }
+  .service-card.in .ws-spark { animation: ws-spark 3.2s ease-in-out calc(1s + var(--i) * 0.9s) infinite both; }
 
-  /* Mapping: contours ripple out from their centres, the route draws
-     pin to pin, then its dashes march toward the destination */
-  .service-card.in .svc-contour {
-    animation: contour-ripple 1s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.25s + var(--i) * 0.12s) both;
+  /* Exhibitions: the spots come on one by one, the panels hang, the
+     chord diagram draws, then visitors stroll the room and its ribbons
+     light up in turn */
+  .service-card.in .ex-beam {
+    animation:
+      ex-light 0.9s ease-out calc(0.2s + var(--i) * 0.3s) both,
+      ex-glow 5s ease-in-out calc(1.4s + var(--i) * 0.7s) infinite;
   }
-  .service-card.in .svc-route-draw {
-    stroke-dasharray: 360;
-    animation: route-draw 1.2s ease-in-out 0.8s both;
+  .service-card.in .ex-panel { animation: ex-hang 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.3s + var(--i) * 0.3s) both; }
+  .service-card.in .ex-arc,
+  .service-card.in .ex-ribbon { stroke-dasharray: 100; }
+  .service-card.in .ex-arc { animation: ex-draw 1s cubic-bezier(0.65, 0, 0.35, 1) calc(1s + var(--i) * 0.15s) both; }
+  .service-card.in .ex-ribbon {
+    animation:
+      ex-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) calc(1.4s + var(--i) * 0.12s) both,
+      ex-ribbon 8s ease-in-out calc(2.6s + var(--i) * 2s) infinite;
   }
-  .service-card.in .svc-route { animation: route-march 0.9s linear infinite; }
-  .service-card.in .svc-pin {
-    animation: pin-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d) both;
-  }
-  .service-card.in .svc-ping { animation: pin-ping 2.4s ease-out 2.4s infinite; }
+  .service-card.in .ex-bubble { animation: svc-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) calc(0.9s + var(--i) * 0.12s) both; }
+  .service-card.in .ex-bar { animation: svc-grow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(1.2s + var(--i) * 0.08s) both; }
+  .service-card.in .ex-walk-a { animation: ex-walk-a 26s ease-in-out 1.2s infinite both; }
+  .service-card.in .ex-walk-b { animation: ex-walk-b 26s ease-in-out -4s infinite both; }
+  .service-card.in .ex-sway { animation: ex-sway 6s ease-in-out 1.5s infinite; }
 
   .service-card.in:not(.svc-live) svg * { animation-play-state: paused; }
 }
 
-@keyframes peak-rise { from { transform: translateY(110px); } }
-@keyframes peak-bob { 50% { transform: translateY(var(--dip)); } }
-@keyframes ring-draw { from { stroke-dashoffset: 252; } }
-@keyframes pin-pop { from { transform: scale(0); } }
-/* dwell at each lens, then glide 55 units: centre → right end → left end → centre */
-@keyframes dot-hop {
-  0%, 3.33%    { transform: translateX(0); }
-  8.33%, 11.67% { transform: translateX(55px); }
-  16.67%, 20%  { transform: translateX(110px); }
-  25%, 28.33%  { transform: translateX(165px); }
-  33.33%, 36.67% { transform: translateX(110px); }
-  41.67%, 45%  { transform: translateX(55px); }
-  50%, 53.33%  { transform: translateX(0); }
-  58.33%, 61.67% { transform: translateX(-55px); }
-  66.67%, 70%  { transform: translateX(-110px); }
-  75%, 78.33%  { transform: translateX(-165px); }
-  83.33%, 86.67% { transform: translateX(-110px); }
-  91.67%, 95%  { transform: translateX(-55px); }
-  100%         { transform: translateX(0); }
+/* shared build-ins */
+@keyframes svc-from-below { from { transform: translateY(40px); opacity: 0; } }
+@keyframes svc-wipe { from { transform: scaleX(0); } }
+@keyframes svc-grow { from { transform: scaleY(0); } }
+@keyframes svc-pop { from { transform: scale(0.6); opacity: 0; } }
+
+/* Reports */
+@keyframes rp-from-left { from { transform: translate(-28px, 18px); opacity: 0; } }
+@keyframes rp-breathe { 50% { transform: scaleY(var(--k)); } }
+@keyframes rp-arc { from { stroke-dashoffset: 77; } }
+@keyframes rp-mark {
+  0%, 6%    { transform: scaleX(0); }
+  18%, 84%  { transform: scaleX(1); opacity: 1; }
+  94%, 100% { transform: scaleX(1); opacity: 0; }
 }
-@keyframes contour-ripple { from { transform: scale(0.3); opacity: 0; } }
-@keyframes route-draw { from { stroke-dashoffset: 360; } }
-@keyframes route-march { to { stroke-dashoffset: -12; } }
-@keyframes pin-ping {
-  from { transform: scale(1); opacity: 0.9; }
-  to   { transform: scale(3.5); opacity: 0; }
+@keyframes rp-scan { to { transform: translateY(207px); } } /* 9 rows of 23 */
+/* pop up on the sheet, arc over to the chart, sink in */
+@keyframes rp-bit {
+  0%   { transform: translate(var(--x0), var(--y0)) scale(0.4); opacity: 0; }
+  15%  { transform: translate(var(--x0), var(--y0)) scale(1); opacity: 1; }
+  50%  { transform: translate(calc((var(--x0) + var(--x1)) / 2), calc((var(--y0) + var(--y1)) / 2 - 26px)) scale(1); }
+  85%  { transform: translate(var(--x1), var(--y1)) scale(1); opacity: 1; }
+  100% { transform: translate(var(--x1), var(--y1)) scale(0.3); opacity: 0; }
+}
+@keyframes rp-series-a {
+  0%        { stroke-dashoffset: 100; opacity: 1; }
+  14%, 42%  { stroke-dashoffset: 0; opacity: 1; }
+  48%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes rp-series-b {
+  0%, 48%   { stroke-dashoffset: 100; opacity: 1; }
+  62%, 92%  { stroke-dashoffset: 0; opacity: 1; }
+  98%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes rp-chip-a { 0% { fill: #9FF29A; } 48% { fill: #0A0A0A; } }
+@keyframes rp-chip-b { 0% { fill: #0A0A0A; } 48% { fill: #7B7BF0; } }
+
+/* Workshops — research 0–32%, design 32–56%, storytelling 56–94% */
+@keyframes ws-rise { from { transform: translateY(70px); } }
+@keyframes ws-sway { 50% { transform: rotate(var(--r)); } }
+@keyframes ws-dot {
+  0%        { transform: translate(var(--sx), var(--sy)) scale(0); opacity: 1; }
+  4%, 32%   { transform: translate(var(--sx), var(--sy)) scale(1); }
+  44%, 93%  { transform: translate(0, 0) scale(1); }
+  56%       { opacity: 1; }
+  62%, 100% { opacity: 0.3; }
+  98%, 100% { transform: translate(0, 0) scale(0); }
+}
+@keyframes ws-dot-hi {
+  0%        { transform: translate(var(--sx), var(--sy)) scale(0); fill: #0A0A0A; stroke-width: 0px; }
+  4%, 32%   { transform: translate(var(--sx), var(--sy)) scale(1); }
+  44%, 93%  { transform: translate(0, 0) scale(1); }
+  56%       { fill: #0A0A0A; stroke-width: 0px; }
+  61%, 100% { fill: #9FF29A; stroke-width: 2px; }
+  98%, 100% { transform: translate(0, 0) scale(0); }
+}
+@keyframes ws-head {
+  0%, 56%   { transform: scaleX(0); }
+  63%, 93%  { transform: scaleX(1); opacity: 1; }
+  97%, 100% { transform: scaleX(1); opacity: 0; }
+}
+@keyframes ws-note {
+  0%, 61%   { stroke-dashoffset: 100; opacity: 1; }
+  66%, 93%  { stroke-dashoffset: 0; opacity: 1; }
+  97%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes ws-callout {
+  0%, 65%   { transform: scale(0); }
+  70%, 93%  { transform: scale(1); opacity: 1; }
+  97%, 100% { transform: scale(1); opacity: 0; }
+}
+@keyframes ws-lens {
+  0%, 3%    { transform: translate(170px, 140px) scale(0.6); opacity: 0; }
+  7%        { transform: translate(184px, 140px) scale(1); opacity: 1; }
+  16%       { transform: translate(286px, 184px) scale(1); }
+  26%       { transform: translate(372px, 124px) scale(1); opacity: 1; }
+  30%, 100% { transform: translate(380px, 118px) scale(0.6); opacity: 0; }
+}
+@keyframes ws-l1 { 0%, 30% { opacity: 1; } 33%, 97% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes ws-l2 { 0%, 30% { opacity: 0; } 33%, 55% { opacity: 1; } 58%, 100% { opacity: 0; } }
+@keyframes ws-l3 { 0%, 55% { opacity: 0; } 58%, 94% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes ws-q {
+  0%, 10%   { transform: scale(0); opacity: 1; }
+  13%, 26%  { transform: scale(1); }
+  29%, 100% { transform: scale(0); opacity: 1; }
+}
+@keyframes ws-x {
+  0%, 70%   { transform: scale(0); opacity: 1; }
+  73%, 89%  { transform: scale(1); }
+  92%, 100% { transform: scale(0); opacity: 1; }
+}
+@keyframes ws-spark {
+  0%, 100% { transform: scale(0.55) rotate(0deg); opacity: 0.6; }
+  50%      { transform: scale(1.1) rotate(45deg); opacity: 1; }
+}
+
+/* Exhibitions — offsets are from each visitor's resting spot */
+@keyframes ex-light { from { opacity: 0; } }
+@keyframes ex-glow { 50% { opacity: 0.72; } }
+@keyframes ex-hang { from { transform: translateY(-14px); opacity: 0; } }
+@keyframes ex-draw { from { stroke-dashoffset: 100; } }
+@keyframes ex-ribbon {
+  0%, 20%, 100% { stroke-opacity: 0.5; }
+  8%, 12%       { stroke-opacity: 1; }
+}
+@keyframes ex-walk-a {
+  0%        { transform: translateX(-450px); }
+  20%, 36%  { transform: translateX(0); }
+  46%, 62%  { transform: translateX(180px); }
+  80%, 100% { transform: translateX(510px); }
+}
+@keyframes ex-walk-b {
+  0%        { transform: translateX(290px); }
+  14%, 28%  { transform: translateX(0); }
+  40%, 56%  { transform: translateX(-164px); }
+  84%, 100% { transform: translateX(-670px); }
+}
+@keyframes ex-sway { 50% { transform: rotate(-2deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-link .arr { transition: none; }
 }
 
 /* ============================================================
@@ -1247,7 +1511,7 @@ h1, h2, h3 {
 </section>
 
 <!-- ============================================================
-     3. SERVICES
+     3. SERVICES — one panel per service page, each with a scene
      ============================================================ -->
 <section class="services" id="services">
   <div class="wrap">
@@ -1257,89 +1521,375 @@ h1, h2, h3 {
       <p>Three services, one outcome: your&nbsp;data, seen, understood and acted on.</p>
     </div>
 
-    <div class="service-grid">
-      <article class="service-card reveal">
-        <!-- header banner: faceted triangle range, like a chart skyline -->
-        <svg viewBox="0 0 400 120" aria-hidden="true">
-          <rect width="400" height="120" fill="#EDE9E1"/>
-          <!-- each peak is grouped with its black inset so it rises as one;
-               --i = rise order (left to right), --dip / --t = idle bob -->
-          <g stroke="#0A0A0A" stroke-width="2" stroke-linejoin="round">
-            <g class="svc-peak" style="--i:1; --dip:6px; --t:3.9s">
-              <polygon points="160,58 225,120 95,120" fill="#9FF29A"/>
-              <polygon points="160,58 225,120 160,120" fill="#7B7BF0"/>
+    <div class="service-list">
+      <article class="service-card svc-reports reveal">
+        <div class="svc-stage" aria-hidden="true">
+          <!-- Scene: a spreadsheet and the report page it becomes, with a
+               dashboard coming off the page. Print marks (crop marks,
+               colour bar, mm ruler) echo the Reports page. -->
+          <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet">
+            <!-- the data: a spreadsheet, a violet row scanning down it -->
+            <g transform="translate(34 100) rotate(-6)">
+              <g class="rp-sheet">
+                <rect width="196" height="231" fill="#EDE9E1" stroke="#0A0A0A" stroke-width="2"/>
+                <rect width="196" height="24" fill="#0A0A0A"/>
+                <g fill="#9FF29A">
+                  <rect x="10" y="10" width="36" height="4"/><rect x="88" y="10" width="18" height="4"/>
+                  <rect x="126" y="10" width="18" height="4"/><rect x="170" y="10" width="18" height="4"/>
+                </g>
+                <path d="M74 24V231M112 24V231M150 24V231M0 47H196M0 70H196M0 93H196M0 116H196M0 139H196M0 162H196M0 185H196M0 208H196"
+                      stroke="#0A0A0A" stroke-opacity="0.18"/>
+                <rect class="rp-scan" y="24" width="196" height="23" fill="#7B7BF0" fill-opacity="0.35"/>
+                <g fill="#0A0A0A" fill-opacity="0.6">
+                  <rect x="10" y="34" width="38" height="4"/><rect x="10" y="57" width="32" height="4"/>
+                  <rect x="10" y="80" width="40" height="4"/><rect x="10" y="103" width="48" height="4"/>
+                  <rect x="10" y="126" width="29" height="4"/><rect x="10" y="149" width="30" height="4"/>
+                  <rect x="10" y="172" width="45" height="4"/><rect x="10" y="195" width="31" height="4"/>
+                  <rect x="10" y="218" width="39" height="4"/>
+                </g>
+                <g fill="#0A0A0A" fill-opacity="0.4">
+                  <rect x="85" y="34" width="21" height="4"/><rect x="132" y="34" width="12" height="4"/><rect x="162" y="34" width="26" height="4"/>
+                  <rect x="86" y="57" width="20" height="4"/><rect x="129" y="57" width="15" height="4"/><rect x="176" y="57" width="12" height="4"/>
+                  <rect x="93" y="80" width="13" height="4"/><rect x="126" y="80" width="18" height="4"/><rect x="170" y="80" width="18" height="4"/>
+                  <rect x="93" y="103" width="13" height="4"/><rect x="129" y="103" width="15" height="4"/><rect x="175" y="103" width="13" height="4"/>
+                  <rect x="86" y="126" width="20" height="4"/><rect x="126" y="126" width="18" height="4"/><rect x="176" y="126" width="12" height="4"/>
+                  <rect x="81" y="149" width="25" height="4"/><rect x="123" y="149" width="21" height="4"/><rect x="175" y="149" width="13" height="4"/>
+                  <rect x="91" y="172" width="15" height="4"/><rect x="122" y="172" width="22" height="4"/><rect x="166" y="172" width="22" height="4"/>
+                  <rect x="85" y="195" width="21" height="4"/><rect x="132" y="195" width="12" height="4"/><rect x="167" y="195" width="21" height="4"/>
+                  <rect x="85" y="218" width="21" height="4"/><rect x="126" y="218" width="18" height="4"/><rect x="176" y="218" width="12" height="4"/>
+                </g>
+              </g>
             </g>
-            <g class="svc-peak" style="--i:0; --dip:8px; --t:4.8s">
-              <polygon points="55,34 140,120 -30,120" fill="#9FF29A"/>
-              <polygon points="55,34 140,120 55,120" fill="#7B7BF0"/>
-              <polygon points="55,72 77,120 33,120" fill="#0A0A0A" stroke="none"/>
+
+            <!-- the report: an A4 page (210 × 297) with crop marks and a colour bar -->
+            <g transform="translate(262 44) rotate(3)">
+              <g class="rp-page">
+                <path d="M-14 0H-4M0 -14V-4M214 0H224M210 -14V-4M-14 297H-4M0 301V311M214 297H224M210 301V311"
+                      stroke="#0A0A0A" stroke-width="1.2"/>
+                <g stroke="#0A0A0A">
+                  <rect x="134" y="-18" width="12" height="8" fill="#0A0A0A"/>
+                  <rect x="146" y="-18" width="12" height="8" fill="#7B7BF0"/>
+                  <rect x="158" y="-18" width="12" height="8" fill="#9FF29A"/>
+                  <rect x="170" y="-18" width="12" height="8" fill="#EDE9E1"/>
+                  <rect x="182" y="-18" width="12" height="8" fill="#FFFFFF"/>
+                </g>
+                <rect x="8" y="8" width="210" height="297" fill="#0A0A0A"/>
+                <rect width="210" height="297" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="2"/>
+                <rect class="rp-wipe" style="--i:0" x="18" y="20" width="38" height="5" fill="#7B7BF0"/>
+                <rect class="rp-mark" x="16" y="55" width="118" height="9" fill="#9FF29A"/>
+                <rect class="rp-wipe" style="--i:1" x="18" y="32" width="158" height="12" fill="#0A0A0A"/>
+                <rect class="rp-wipe" style="--i:2" x="18" y="49" width="112" height="12" fill="#0A0A0A"/>
+                <g fill="#0A0A0A" fill-opacity="0.3">
+                  <rect class="rp-wipe" style="--i:3" x="18" y="74" width="174" height="3.5"/>
+                  <rect class="rp-wipe" style="--i:4" x="18" y="82" width="166" height="3.5"/>
+                  <rect class="rp-wipe" style="--i:5" x="18" y="90" width="122" height="3.5"/>
+                </g>
+                <rect class="rp-wipe" style="--i:5" x="18" y="108" width="62" height="4" fill="#0A0A0A" fill-opacity="0.6"/>
+                <path d="M18 134H192M18 164H192M18 194H192" stroke="#0A0A0A" stroke-opacity="0.12"/>
+                <g fill="#0A0A0A">
+                  <rect class="rp-bar" style="--i:0; --k:0.8; --t:4.2s" x="22" y="174" width="20" height="40"/>
+                  <rect class="rp-bar" style="--i:1; --k:1.12; --t:3.6s" x="51" y="150" width="20" height="64"/>
+                  <rect class="rp-bar" style="--i:2; --k:0.86; --t:4.8s" x="80" y="162" width="20" height="52"/>
+                  <rect class="rp-bar" style="--i:3; --k:1.08; --t:3.9s" x="109" y="126" width="20" height="88"/>
+                  <rect class="rp-bar" style="--i:4; --k:0.9; --t:4.4s" x="138" y="140" width="20" height="74"/>
+                </g>
+                <rect class="rp-bar" style="--i:5; --k:0.94; --t:5.2s" x="167" y="110" width="20" height="104"
+                      fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+                <path d="M18 214H192" stroke="#0A0A0A" stroke-width="1.5"/>
+                <circle cx="44" cy="254" r="18" fill="none" stroke="#0A0A0A" stroke-opacity="0.12" stroke-width="8"/>
+                <!-- 68% of the ring (circumference ≈ 113) -->
+                <circle class="rp-arc" cx="44" cy="254" r="18" fill="none" stroke="#7B7BF0" stroke-width="8"
+                        stroke-dasharray="77 200" transform="rotate(-90 44 254)"/>
+                <rect class="rp-wipe" style="--i:6" x="76" y="242" width="96" height="5" fill="#0A0A0A"/>
+                <g fill="#0A0A0A" fill-opacity="0.3">
+                  <rect class="rp-wipe" style="--i:7" x="76" y="252" width="116" height="3.5"/>
+                  <rect class="rp-wipe" style="--i:8" x="76" y="260" width="88" height="3.5"/>
+                </g>
+                <g fill="#0A0A0A" fill-opacity="0.5">
+                  <rect x="18" y="282" width="16" height="3"/><rect x="176" y="282" width="16" height="3"/>
+                </g>
+              </g>
             </g>
-            <g class="svc-peak" style="--i:3; --dip:7px; --t:4.4s">
-              <polygon points="345,50 430,120 285,120" fill="#9FF29A"/>
-              <polygon points="345,50 430,120 345,120" fill="#7B7BF0"/>
+
+            <!-- data bits hop from the sheet into the chart (stage coordinates) -->
+            <rect class="rp-bit" style="--x0:196px; --y0:150px; --x1:316px; --y1:226px; --d:0s" x="-4" y="-4" width="8" height="8" fill="#0A0A0A"/>
+            <rect class="rp-bit" style="--x0:204px; --y0:206px; --x1:356px; --y1:198px; --d:0.7s" x="-4" y="-4" width="8" height="8" fill="#7B7BF0"/>
+            <rect class="rp-bit" style="--x0:186px; --y0:258px; --x1:338px; --y1:172px; --d:1.4s" x="-4" y="-4" width="8" height="8" fill="#0A0A0A"/>
+            <rect class="rp-bit" style="--x0:200px; --y0:114px; --x1:300px; --y1:250px; --d:2.1s" x="-4" y="-4" width="8" height="8" fill="#7B7BF0"/>
+
+            <!-- PDF in, dashboard out: two filters, two series -->
+            <g transform="translate(386 262)">
+              <g class="rp-dash">
+                <rect x="6" y="6" width="150" height="104" fill="#7B7BF0"/>
+                <rect width="150" height="104" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="2"/>
+                <g fill="#EDE9E1" fill-opacity="0.45">
+                  <circle cx="11" cy="11" r="2.5"/><circle cx="19" cy="11" r="2.5"/><circle cx="27" cy="11" r="2.5"/>
+                </g>
+                <rect class="rp-chip-a" x="80" y="5" width="30" height="12" rx="6" fill="#9FF29A" stroke="#9FF29A" stroke-width="1.5"/>
+                <rect class="rp-chip-b" x="114" y="5" width="30" height="12" rx="6" fill="#0A0A0A" stroke="#7B7BF0" stroke-width="1.5"/>
+                <path d="M10 42H140M10 64H140M10 86H140" stroke="#EDE9E1" stroke-opacity="0.14"/>
+                <g fill="none" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+                  <path class="rp-line-a" d="M10 84L30 74L50 78L70 60L90 64L110 46L140 34" stroke="#9FF29A" pathLength="100"/>
+                  <path class="rp-line-b" d="M10 66L30 70L50 56L70 62L90 48L110 54L140 40" stroke="#7B7BF0" pathLength="100" opacity="0"/>
+                </g>
+              </g>
             </g>
-            <g class="svc-peak" style="--i:2; --dip:10px; --t:5.6s">
-              <polygon points="250,16 340,120 160,120" fill="#9FF29A"/>
-              <polygon points="250,16 340,120 250,120" fill="#7B7BF0"/>
-              <polygon points="250,63 290,120 210,120" fill="#0A0A0A" stroke="none"/>
-            </g>
-          </g>
-        </svg>
-        <h3>Data design</h3>
-        <p>Your numbers become charts and graphics your audience understands in seconds — and can't scroll past.</p>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <p class="svc-label"><span class="svc-num">01</span>Reports</p>
+          <h3>Bring us the data.<br>Leave with the report.</h3>
+          <p>Survey rounds, spreadsheets, ESG disclosures: we turn them into a flagship report your board, funders and press will read, with every number checked against its source.</p>
+          <dl class="svc-spec">
+            <div><dt>Made for</dt><dd>Flagship, annual and ESG reports, survey research, policy briefs</dd></div>
+            <div><dt>You get</dt><dd>A chart system, a print-ready PDF, a digital edition and social cards for launch day</dd></div>
+            <div><dt>Then</dt><dd>A dashboard, when you want the data to keep working</dd></div>
+          </dl>
+          <a class="svc-link" href="/reports/">See the reports<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+        </div>
       </article>
 
-      <article class="service-card reveal">
-        <!-- header banner: chain of overlapping circles on violet -->
-        <svg viewBox="0 0 400 120" aria-hidden="true">
-          <rect width="400" height="120" fill="#7B7BF0"/>
-          <g fill="none" stroke="#9FF29A" stroke-width="2">
-            <circle class="svc-ring" style="--i:0" cx="20" cy="60" r="40"/>
-            <circle class="svc-ring" style="--i:1" cx="75" cy="60" r="40"/>
-            <circle class="svc-ring" style="--i:2" cx="130" cy="60" r="40"/>
-            <circle class="svc-ring" style="--i:3" cx="185" cy="60" r="40"/>
-            <circle class="svc-ring" style="--i:4" cx="240" cy="60" r="40"/>
-            <circle class="svc-ring" style="--i:5" cx="295" cy="60" r="40"/>
-            <circle class="svc-ring" style="--i:6" cx="350" cy="60" r="40"/>
-            <circle class="svc-ring" style="--i:7" cx="405" cy="60" r="40"/>
-          </g>
-          <!-- rests in the middle lens; hops lens to lens (every 55 units) -->
-          <circle class="svc-dot" cx="212.5" cy="60" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
-        </svg>
-        <h3>Research and reports</h3>
-        <p>Your findings become publications your stakeholders actually read, quote and share.</p>
+      <article class="service-card svc-workshops reveal">
+        <div class="svc-stage" aria-hidden="true">
+          <!-- Scene: a workshop room. The screen runs the three modules on a
+               loop (raw dots → sorted columns → one highlighted story) while
+               the room watches. Sparkles nod to the AI in every module. -->
+          <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMax meet">
+
+            <!-- the screen hangs from the ceiling: cables run up past the
+                 viewBox when the stage is taller than the scene -->
+            <path d="M140-600V18M420-600V44" stroke="#0A0A0A" stroke-opacity="0.45" stroke-width="1.5"/>
+            <g class="ws-screen">
+              <rect x="118" y="52" width="340" height="206" fill="#0A0A0A"/>
+              <rect x="110" y="44" width="340" height="206" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="2.5"/>
+              <!-- module tab: the label in step with the screen -->
+              <rect x="110" y="18" width="178" height="26" fill="#0A0A0A"/>
+              <g font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#9FF29A">
+                <text class="ws-l1" x="122" y="35.5" opacity="0">01 · RESEARCH</text>
+                <text class="ws-l2" x="122" y="35.5" opacity="0">02 · DESIGN</text>
+                <text class="ws-l3" x="122" y="35.5">03 · STORYTELLING</text>
+              </g>
+              <!-- storytelling: headline and standfirst -->
+              <rect class="ws-head" x="134" y="64" width="168" height="12" fill="#0A0A0A"/>
+              <rect class="ws-head" x="134" y="82" width="116" height="5" fill="#0A0A0A" fill-opacity="0.3"/>
+              <path d="M134 231H426" stroke="#0A0A0A" stroke-width="1.5"/>
+              <g fill="#0A0A0A" fill-opacity="0.3">
+                <rect x="158" y="237" width="20" height="3"/><rect x="212" y="237" width="20" height="3"/>
+                <rect x="266" y="237" width="20" height="3"/><rect x="320" y="237" width="20" height="3"/>
+                <rect x="374" y="237" width="20" height="3"/>
+              </g>
+              <!-- 20 dots: each rests in its column; --sx/--sy is its scattered spot -->
+              <circle class="ws-dot" style="--sx:-21.9px; --sy:-94.9px; --d:0.1s" cx="168" cy="222" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-13.9px; --sy:-51px; --d:0.2s" cx="168" cy="206" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-51.7px; --sy:-28.9px; --d:0.2s" cx="222" cy="222" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-50.8px; --sy:-68.6px; --d:0.1s" cx="222" cy="206" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-33.8px; --sy:-84.3px; --d:0.1s" cx="222" cy="190" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-26.5px; --sy:-13.7px; --d:0.2s" cx="222" cy="174" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-79px; --sy:-91.4px; --d:0.1s" cx="276" cy="222" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-45.5px; --sy:-76.7px; --d:0.2s" cx="276" cy="206" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-11.9px; --sy:6.7px; --d:0.2s" cx="276" cy="190" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot hi" style="--sx:-62.8px; --sy:-56.4px; --d:0s" cx="330" cy="222" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+              <circle class="ws-dot hi" style="--sx:-61.4px; --sy:-71.4px; --d:0.2s" cx="330" cy="206" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+              <circle class="ws-dot hi" style="--sx:-42.4px; --sy:-79.4px; --d:0s" cx="330" cy="190" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+              <circle class="ws-dot hi" style="--sx:-34.1px; --sy:-20.8px; --d:0.3s" cx="330" cy="174" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+              <circle class="ws-dot hi" style="--sx:-15.2px; --sy:33.2px; --d:0.1s" cx="330" cy="158" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+              <circle class="ws-dot hi" style="--sx:1.8px; --sy:-33.4px; --d:0.1s" cx="330" cy="142" r="7" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+              <circle class="ws-dot" style="--sx:-32.6px; --sy:-74px; --d:0.2s" cx="384" cy="222" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-24.4px; --sy:-82.5px; --d:0.1s" cx="384" cy="206" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:-12.8px; --sy:-8.1px; --d:0.1s" cx="384" cy="190" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:9.7px; --sy:-18.8px; --d:0.2s" cx="384" cy="174" r="7" fill="#0A0A0A"/>
+              <circle class="ws-dot" style="--sx:25.2px; --sy:52.1px; --d:0.1s" cx="384" cy="158" r="7" fill="#0A0A0A"/>
+              <!-- storytelling: annotation on the mint column -->
+              <path class="ws-note" d="M334 133L351 106" fill="none" stroke="#0A0A0A" stroke-width="1.5" pathLength="100"/>
+              <g class="ws-callout">
+                <rect x="350" y="68" width="76" height="36" fill="#0A0A0A"/>
+                <rect x="359" y="78" width="46" height="6" fill="#9FF29A"/>
+                <rect x="359" y="90" width="32" height="4" fill="#EDE9E1" fill-opacity="0.7"/>
+              </g>
+              <!-- research: a lens sweeps the raw dots (placed by its animation) -->
+              <g class="ws-lens">
+                <circle r="22" fill="#7B7BF0" fill-opacity="0.18" stroke="#0A0A0A" stroke-width="3"/>
+                <path d="M16 16L32 32" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/>
+              </g>
+            </g>
+
+            <g transform="translate(476 34)"><path class="ws-spark" style="--i:0" d="M0-14Q2-2 14 0Q2 2 0 14Q-2 2-14 0Q-2-2 0-14Z" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/></g>
+            <g transform="translate(503 66)"><path class="ws-spark" style="--i:1" d="M0-8Q1-1 8 0Q1 1 0 8Q-1 1-8 0Q-1-1 0-8Z" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/></g>
+            <g transform="translate(76 70)"><path class="ws-spark" style="--i:2" d="M0-9Q1.3-1.3 9 0Q1.3 1.3 0 9Q-1.3 1.3-9 0Q-1.3-1.3 0-9Z" fill="#EDE9E1" stroke="#0A0A0A" stroke-width="1.5"/></g>
+
+            <!-- the room, seen from the back row (the outer two only show
+                 when the stage is wider than the scene) -->
+            <g fill="#0A0A0A">
+              <g class="ws-person" style="--i:5; --t:6.3s; --r:-1.2deg">
+                <circle cx="-44" cy="318" r="21"/><path d="M-94 400V371Q-94 345-68 345H-20Q6 345 6 371V400Z"/>
+              </g>
+              <g class="ws-person" style="--i:5; --t:5.4s; --r:1.4deg">
+                <circle cx="604" cy="316" r="21"/><path d="M554 400V369Q554 343 580 343H628Q654 343 654 369V400Z"/>
+              </g>
+              <g class="ws-person" style="--i:0; --t:5.2s; --r:1.5deg">
+                <circle cx="64" cy="322" r="21"/><path d="M14 400V375Q14 349 40 349H88Q114 349 114 375V400Z"/>
+              </g>
+              <g class="ws-person" style="--i:1; --t:6.1s; --r:-1.2deg">
+                <circle cx="172" cy="295" r="8"/><circle cx="172" cy="316" r="21"/><path d="M122 400V369Q122 343 148 343H196Q222 343 222 369V400Z"/>
+              </g>
+              <g class="ws-person" style="--i:2; --t:5.6s; --r:1.8deg">
+                <circle cx="280" cy="324" r="21"/><path d="M230 400V377Q230 351 256 351H304Q330 351 330 377V400Z"/>
+              </g>
+              <g class="ws-person" style="--i:3; --t:6.6s; --r:-1.5deg">
+                <circle cx="388" cy="314" r="21"/><path d="M338 400V367Q338 341 364 341H412Q438 341 438 367V400Z"/>
+              </g>
+              <g class="ws-person" style="--i:4; --t:5.9s; --r:1.2deg">
+                <circle cx="496" cy="320" r="21"/><path d="M446 400V373Q446 347 472 347H520Q546 347 546 373V400Z"/>
+              </g>
+            </g>
+            <!-- a question while researching, an aha at the story -->
+            <g class="ws-bubble ws-q">
+              <path d="M201 262H219Q227 262 227 270V282Q227 290 219 290H206L196 299L199 290Q193 290 193 282V270Q193 262 201 262Z" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="2"/>
+              <text x="210" y="283" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="900" fill="#0A0A0A">?</text>
+            </g>
+            <g class="ws-bubble ws-x">
+              <path d="M417 260H435Q443 260 443 268V280Q443 288 435 288H422L412 297L415 288Q409 288 409 280V268Q409 260 417 260Z" fill="#9FF29A" stroke="#0A0A0A" stroke-width="2"/>
+              <text x="426" y="281" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="900" fill="#0A0A0A">!</text>
+            </g>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <p class="svc-label"><span class="svc-num">02</span>Workshops</p>
+          <h3>Teach your team to speak data fluently.</h3>
+          <p>Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI, used well and used safely. Every workshop runs on your own data.</p>
+          <dl class="svc-spec">
+            <div><dt>Modules</dt><dd>Data research, data design, data storytelling</dd></div>
+            <div><dt>Format</dt><dd>Half a day to four days, at your office or remote, for six to twenty people</dd></div>
+            <div><dt>You get</dt><dd>Working methods, reusable templates and at least one real piece of work already improved</dd></div>
+          </dl>
+          <a class="svc-link" href="/workshops/">See the workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+        </div>
       </article>
 
-      <article class="service-card reveal">
-        <!-- header banner: topographic contours + dashed route on black -->
-        <svg viewBox="0 0 400 120" aria-hidden="true">
-          <clipPath id="svc-map"><rect width="400" height="120"/></clipPath>
-          <!-- solid copy of the route (length ≈ 358) that draws in, revealing
-               the dashed route beneath it; the mid pin sits at 50% -->
-          <mask id="svc-route-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="120">
-            <path class="svc-route-draw" d="M40 40 Q 140 8 210 62 T 380 78" fill="none"
-                  stroke="#fff" stroke-width="8"/>
-          </mask>
-          <rect width="400" height="120" fill="#0A0A0A"/>
-          <g clip-path="url(#svc-map)">
-            <g fill="none" stroke="#9FF29A" stroke-width="2">
-              <ellipse class="svc-contour" style="--i:2" cx="90" cy="140" rx="82" ry="56"/>
-              <ellipse class="svc-contour" style="--i:1" cx="90" cy="140" rx="56" ry="37"/>
-              <ellipse class="svc-contour" style="--i:0" cx="90" cy="140" rx="30" ry="19"/>
-              <ellipse class="svc-contour" style="--i:3" cx="330" cy="-18" rx="86" ry="60"/>
-              <ellipse class="svc-contour" style="--i:2" cx="330" cy="-18" rx="59" ry="41"/>
-              <ellipse class="svc-contour" style="--i:1" cx="330" cy="-18" rx="32" ry="22"/>
+      <article class="service-card svc-exhibitions reveal">
+        <div class="svc-stage" aria-hidden="true">
+          <!-- Scene: a gallery at night. Spots come on over three panels,
+               the centre one a chord diagram of two countries (IT and RO,
+               as in Între noi), and visitors stroll the room. -->
+          <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMax meet">
+            <defs>
+              <linearGradient id="ex-beam" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#EDE9E1" stop-opacity="0.3"/>
+                <stop offset="1" stop-color="#EDE9E1" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="ex-shine" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#EDE9E1" stop-opacity="0.12"/>
+                <stop offset="1" stop-color="#EDE9E1" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect x="-400" y="300" width="1360" height="100" fill="#161616"/>
+            <path d="M-400 300H960" stroke="#2C2C2C" stroke-width="2"/>
+
+            <!-- lamps on long cables, and their beams -->
+            <path d="M110-600V22M280-600V22M450-600V22" stroke="#3A3A3A" stroke-width="1.5"/>
+            <polygon class="ex-beam" style="--i:0" points="104,36 116,36 186,300 34,300" fill="url(#ex-beam)"/>
+            <polygon class="ex-beam" style="--i:1" points="274,36 286,36 370,300 190,300" fill="url(#ex-beam)"/>
+            <polygon class="ex-beam" style="--i:2" points="444,36 456,36 526,300 374,300" fill="url(#ex-beam)"/>
+            <g fill="#2E2E2E" stroke="#4A4A4A">
+              <path d="M104 22H116L119 36H101Z"/><path d="M274 22H286L289 36H271Z"/><path d="M444 22H456L459 36H441Z"/>
             </g>
-            <path class="svc-route" mask="url(#svc-route-mask)" d="M40 40 Q 140 8 210 62 T 380 78" fill="none"
-                  stroke="#7B7BF0" stroke-width="2" stroke-dasharray="6 6"/>
-            <circle class="svc-pin" style="--d:0.65s" cx="40" cy="40" r="6" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
-            <circle class="svc-pin" style="--d:1.4s" cx="210" cy="62" r="6" fill="#7B7BF0" stroke="#9FF29A" stroke-width="2"/>
-            <circle class="svc-ping" cx="380" cy="78" r="6" fill="none" stroke="#9FF29A" stroke-width="1.5"/>
-            <circle class="svc-pin" style="--d:2s" cx="380" cy="78" r="6" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
-          </g>
-        </svg>
-        <h3>Mapping and visualisations</h3>
-        <p>Your data becomes maps and interactive visuals your audience explores on its own — and remembers.</p>
+            <g fill="#EDE9E1" fill-opacity="0.9">
+              <ellipse cx="110" cy="36.5" rx="8" ry="2"/><ellipse cx="280" cy="36.5" rx="8" ry="2"/><ellipse cx="450" cy="36.5" rx="8" ry="2"/>
+            </g>
+            <!-- light pools and panel reflections on the floor -->
+            <g fill="#EDE9E1" fill-opacity="0.07">
+              <ellipse cx="110" cy="306" rx="74" ry="9"/><ellipse cx="280" cy="306" rx="90" ry="10"/><ellipse cx="450" cy="306" rx="74" ry="9"/>
+            </g>
+            <g fill="url(#ex-shine)">
+              <rect x="50" y="302" width="120" height="34"/><rect x="196" y="302" width="168" height="40"/><rect x="390" y="302" width="120" height="34"/>
+            </g>
+
+            <!-- left panel: proportional bubbles -->
+            <g class="ex-panel" style="--i:0">
+              <rect x="50" y="90" width="120" height="160" fill="#EDE9E1"/>
+              <rect x="62" y="104" width="56" height="6" fill="#0A0A0A"/>
+              <rect x="62" y="114" width="80" height="3" fill="#0A0A0A" fill-opacity="0.3"/>
+              <circle class="ex-bubble" style="--i:0" cx="96" cy="182" r="28" fill="#7B7BF0"/>
+              <circle class="ex-bubble" style="--i:1" cx="142" cy="212" r="13" fill="#9FF29A" stroke="#0A0A0A" stroke-width="1.5"/>
+              <circle class="ex-bubble" style="--i:2" cx="134" cy="152" r="8" fill="#0A0A0A"/>
+              <circle class="ex-bubble" style="--i:3" cx="70" cy="230" r="6" fill="#0A0A0A" fill-opacity="0.5"/>
+            </g>
+
+            <!-- centre panel: chord diagram, two countries -->
+            <g class="ex-panel" style="--i:1">
+              <rect x="196" y="58" width="168" height="192" fill="#EDE9E1"/>
+              <rect x="212" y="72" width="28" height="4" fill="#7B7BF0"/>
+              <rect x="212" y="81" width="84" height="7" fill="#0A0A0A"/>
+              <g fill="none" stroke-linecap="butt" stroke-opacity="0.5">
+                <path class="ex-ribbon" style="--i:0" d="M247.9 191.7Q280 156 326.6 144.4" stroke="#7B7BF0" stroke-width="6" pathLength="100"/>
+                <path class="ex-ribbon" style="--i:1" d="M234.3 170.8Q280 156 315.7 188.1" stroke="#0A0A0A" stroke-width="9" pathLength="100"/>
+                <path class="ex-ribbon" style="--i:2" d="M234.3 141.2Q280 156 312.1 120.3" stroke="#0A0A0A" stroke-width="4" pathLength="100"/>
+                <path class="ex-ribbon" style="--i:3" d="M247.9 120.3Q280 156 326.6 167.6" stroke="#7B7BF0" stroke-width="7" pathLength="100"/>
+              </g>
+              <g fill="none" stroke-width="7">
+                <path class="ex-arc" style="--i:0" d="M261.5 105.3A54 54 0 0 0 261.5 206.7" stroke="#0A0A0A" pathLength="100"/>
+                <path class="ex-arc" style="--i:1" d="M298.5 105.3A54 54 0 0 1 298.5 206.7" stroke="#7B7BF0" pathLength="100"/>
+              </g>
+              <g font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="0.5" fill="#0A0A0A">
+                <text x="217" y="159" text-anchor="end">IT</text>
+                <text x="343" y="159">RO</text>
+              </g>
+              <rect x="212" y="224" width="92" height="6" fill="#0A0A0A"/>
+              <rect x="212" y="235" width="120" height="3" fill="#0A0A0A" fill-opacity="0.3"/>
+            </g>
+
+            <!-- right panel: bars -->
+            <g class="ex-panel" style="--i:2">
+              <rect x="390" y="90" width="120" height="160" fill="#EDE9E1"/>
+              <rect x="402" y="104" width="56" height="6" fill="#0A0A0A"/>
+              <rect x="402" y="114" width="76" height="3" fill="#0A0A0A" fill-opacity="0.3"/>
+              <g fill="#0A0A0A">
+                <rect class="ex-bar" style="--i:0" x="406" y="190" width="16" height="42"/>
+                <rect class="ex-bar" style="--i:1" x="428" y="162" width="16" height="70"/>
+                <rect class="ex-bar" style="--i:2" x="450" y="178" width="16" height="54"/>
+              </g>
+              <rect class="ex-bar" style="--i:3" x="472" y="136" width="16" height="96" fill="#7B7BF0"/>
+              <path d="M400 232H500" stroke="#0A0A0A" stroke-width="1.5"/>
+            </g>
+
+            <!-- visitors, back to front; each figure stands on its feet at 0,0 -->
+            <g transform="translate(470 344)">
+              <g class="ex-walk-b">
+                <g transform="scale(1)" fill="#9FF29A">
+                  <circle cy="-98" r="11"/><path d="M-15-24L-17-62Q-17-82 0-82Q17-82 17-62L15-24Z"/>
+                  <rect x="-10" y="-26" width="7" height="26"/><rect x="3" y="-26" width="7" height="26"/>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(110 352)">
+              <g class="ex-sway">
+                <g transform="scale(1.08)" fill="#EDE9E1">
+                  <circle cy="-98" r="11"/><path d="M-15-24L-17-62Q-17-82 0-82Q17-82 17-62L15-24Z"/>
+                  <rect x="-10" y="-26" width="7" height="26"/><rect x="3" y="-26" width="7" height="26"/>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(250 362)">
+              <g class="ex-walk-a">
+                <g transform="scale(1.16)" fill="#7B7BF0">
+                  <circle cy="-98" r="11"/><path d="M-15-24L-17-62Q-17-82 0-82Q17-82 17-62L15-24Z"/>
+                  <rect x="-10" y="-26" width="7" height="26"/><rect x="3" y="-26" width="7" height="26"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <p class="svc-label"><span class="svc-num">03</span>Exhibitions</p>
+          <h3>Diplomacy you can walk through.</h3>
+          <p>Data exhibitions for embassies, cultural institutes and trade agencies, turning the ties between two countries into a show the public stops for.</p>
+          <dl class="svc-spec">
+            <div><dt>Made for</dt><dd>Embassies, cultural institutes, trade and investment agencies, chambers of commerce</dd></div>
+            <div><dt>You get</dt><dd>Sourced research, then panels, maps and installations legible from three metres</dd></div>
+            <div><dt>Then</dt><dd>Print-ready files, installation support, and a film and social kit for after the opening</dd></div>
+          </dl>
+          <a class="svc-link" href="/exhibitions/">See the exhibitions<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+        </div>
       </article>
     </div>
   </div>
