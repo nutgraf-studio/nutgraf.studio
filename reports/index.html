@@ -1,0 +1,2589 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8YD4TDRXT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Q8YD4TDRXT');
+</script>
+
+<!-- Flags the page as JS-enabled before first paint, so the hero can
+     animate in without a flash. Failsafe: if the hero script never
+     runs, the copy and pages show anyway. -->
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function () {
+  var h = document.querySelector('.hero'), s = document.querySelector('.stack');
+  if (h) h.classList.add('loaded');
+  if (s) s.classList.add('dealt');
+}, 4000);
+</script>
+
+<title>Data Reports, Made to Measure — Nutgraf</title>
+<meta name="description" content="Nutgraf designs data-intensive reports, from flagship studies to ESG disclosures, and turns PDF reports into interactive dashboards. See Afrobarometer’s Beyond borders and Rețele Electrice’s 2024 sustainability report.">
+<!-- Unlisted, for sharing internally: kept out of search engines, the
+     sitemap, llms.txt and every menu. Not blocked in robots.txt, or
+     crawlers could never read this noindex. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta name="author" content="Nutgraf.studio">
+<link rel="canonical" href="https://nutgraf.studio/reports/">
+<meta name="theme-color" content="#EDE9E1">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nutgraf.studio">
+<meta property="og:title" content="Data Reports, Made to Measure — Nutgraf">
+<meta property="og:description" content="Data-intensive reports with state-of-the-art data design and bespoke craft, and PDF reports turned into interactive dashboards.">
+<meta property="og:url" content="https://nutgraf.studio/reports/">
+<meta property="og:image" content="https://nutgraf.studio/reports/og-image.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Data reports, made to measure: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data Reports, Made to Measure — Nutgraf">
+<meta name="twitter:description" content="Data-intensive reports with state-of-the-art data design and bespoke craft, and PDF reports turned into interactive dashboards.">
+<meta name="twitter:image" content="https://nutgraf.studio/reports/og-image.jpg?v=1">
+<meta name="twitter:image:alt" content="Data reports, made to measure: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
+
+<!-- WebPage entity, tied to the site-wide Organization defined on the
+     home page; the two showcased reports are listed as mentions. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://nutgraf.studio/reports/#webpage",
+  "url": "https://nutgraf.studio/reports/",
+  "name": "Data Reports, Made to Measure — Nutgraf",
+  "description": "Nutgraf designs data-intensive reports, from flagship studies to ESG disclosures, and turns PDF reports into interactive dashboards connected to their datasets.",
+  "inLanguage": "en-GB",
+  "isPartOf": { "@type": "WebSite", "@id": "https://nutgraf.studio/#website", "name": "Nutgraf.studio", "url": "https://nutgraf.studio/" },
+  "about": { "@type": "Organization", "@id": "https://nutgraf.studio/#organization", "name": "Nutgraf.studio", "url": "https://nutgraf.studio/" },
+  "primaryImageOfPage": "https://nutgraf.studio/reports/og-image.jpg",
+  "mentions": [
+    {
+      "@type": "Report",
+      "name": "Beyond borders: Citizen perspectives on a shifting global order (African insights 2026)",
+      "publisher": { "@type": "Organization", "name": "Afrobarometer", "url": "https://www.afrobarometer.org/" },
+      "inLanguage": "en",
+      "contributor": { "@type": "Organization", "@id": "https://nutgraf.studio/#organization", "name": "Nutgraf.studio" }
+    },
+    {
+      "@type": "Report",
+      "name": "Raport de Sustenabilitate 2024",
+      "publisher": { "@type": "Organization", "name": "Rețele Electrice România (PPC Group)" },
+      "inLanguage": "ro",
+      "contributor": { "@type": "Organization", "@id": "https://nutgraf.studio/#organization", "name": "Nutgraf.studio" }
+    }
+  ],
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".hero-sub", ".statement"]
+  }
+}
+</script>
+
+<!-- Breadcrumb: Home > Reports -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Nutgraf.studio", "item": "https://nutgraf.studio/" },
+    { "@type": "ListItem", "position": 2, "name": "Reports", "item": "https://nutgraf.studio/reports/" }
+  ]
+}
+</script>
+
+<!-- Same font pairing as the rest of the site, with true Fraunces italics -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="preload" as="image" href="img/ppc-p49-800.jpg">
+
+<style>
+/* ============================================================
+   NUTGRAF.STUDIO — /reports/ subpage
+   The printed page is the motif: cream paper, proof marks (crop
+   marks, registration target, colour bar) and a ruler for "made
+   to measure". Black is the screen: where a page comes alive.
+   Sections:
+   NAV / HERO (proof stack + ruler) / STATEMENT / FLAGSHIP REPORTS
+   (two cases + page strips) / PAGE 49 (printed vs live Sankey) /
+   DASHBOARDS (outwards vs inwards demo) / PROCESS / CTA / FOOTER /
+   LIGHTBOX
+   Contrast: black on cream and cream on black pass AA at any size;
+   violet on cream (2.9:1) is used only for decoration, never text.
+   ============================================================ */
+
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+  --ink-2:  #1A1A1A;
+  --paper-shadow: 0 1px 0 rgba(10, 10, 10, 0.06), 0 22px 40px -18px rgba(10, 10, 10, 0.45);
+
+  /* page 49's own palette, sampled from the printed page */
+  --scope1: #00C18C;
+  --scope2: #FF4900;
+  --scope3: #00A1DF;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max-w: 80rem;
+  --pad: 1.5rem;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-io:  cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+/* ---------- Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+html.modal-open { overflow: hidden; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, video { display: block; max-width: 100%; }
+
+a { color: inherit; }
+button, select { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
+
+.wrap {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+@media (min-width: 900px) { :root { --pad: 2.5rem; } }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  z-index: 200;
+}
+.skip-link:focus { left: 0; }
+
+.kicker {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1.25rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
+
+/* ============================================================
+   1. NAV — black on paper, cream bar on scroll
+   ============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+  /* home and workshops' container, so the bar keeps its place from page to page */
+  max-width: 72rem;
+  padding-inline: 1.5rem;
+}
+.nav.scrolled {
+  background: var(--cream);
+  box-shadow: 0 1px 0 rgba(10, 10, 10, 0.14);
+}
+.nav-brand { display: inline-flex; align-items: center; text-decoration: none; }
+.nav-brand svg { height: 2rem; width: auto; display: block; overflow: visible; }
+/* Logo: the nut cracks along its seams, once a beat after the page
+   loads (the script adds .crack) and for as long as the pointer rests
+   on it. Directions per shard are in the markup (--ux, --uy, --s);
+   312 SVG units ≈ 2rem, so 24 units ≈ 2.5px. */
+.nav-brand .shard {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+@media (hover: hover) {
+  .nav-brand:hover .shard {
+    transform: translate(calc(var(--ux) * 24px), calc(var(--uy) * 24px)) rotate(calc(var(--s) * 6deg));
+  }
+}
+.nav-brand:focus-visible .shard {
+  transform: translate(calc(var(--ux) * 24px), calc(var(--uy) * 24px)) rotate(calc(var(--s) * 6deg));
+}
+.nav-brand.crack .shard { animation: logo-crack 1.1s cubic-bezier(0.3, 0, 0.3, 1); }
+@keyframes logo-crack {
+  35%, 55% { transform: translate(calc(var(--ux) * 24px), calc(var(--uy) * 24px)) rotate(calc(var(--s) * 6deg)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-brand .shard { transition: none; animation: none; }
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { border-bottom-color: var(--black); }
+
+/* Workshops / Exhibitions are pages of their own: an accent arrow
+   follows the label and nudges up and out on hover */
+.nav-links a.page-link .arr {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.3em;
+  vertical-align: 0.02em;
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-links a.page-link:hover .arr,
+.nav-links a.page-link:focus-visible .arr { transform: translate(2px, -2px); }
+
+/* booking chip: black pill, mint wipe on hover */
+.nav-links a.chip {
+  background: var(--black);
+  color: var(--cream);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border-bottom: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0;
+  transition: color 0.3s ease;
+}
+.nav-links a.chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mint);
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+}
+.nav-links a.chip:hover,
+.nav-links a.chip:focus-visible { border-bottom: none; color: var(--black); }
+.nav-links a.chip:hover::before,
+.nav-links a.chip:focus-visible::before { transform: translateX(0); }
+
+.nav-links a.icon-link {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: none;
+  opacity: 0.85;
+  padding: 0.4rem 0;
+}
+.nav-links a.icon-link:hover,
+.nav-links a.icon-link:focus-visible { border-bottom: none; opacity: 1; }
+.nav-links a.icon-link svg { width: 1.5rem; height: 1.5rem; max-width: none; flex-shrink: 0; fill: currentColor; }
+
+@media (max-width: 599px) {
+  .nav-links { gap: 0.875rem; }
+  .nav-links a { font-size: 0.875rem; }
+  /* hide the whole item, or its empty slot keeps a gap and squeezes the logo */
+  .nav-links li:has(> a:not(.chip):not(.icon-link)) { display: none; }
+  .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
+}
+/* small phones: the chip says just "Commission", so the logo keeps its size */
+@media (max-width: 419px) {
+  .nav-links .chip-more { display: none; }
+}
+
+/* Tablet and small laptop: in-page anchors step aside so the
+   cross-page links fit */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .nav-links li:has(> a[href^="#"]:not(.chip)) { display: none; }
+}
+/* ...and Studio too, where it's tightest: the logo already leads home */
+@media (min-width: 600px) and (max-width: 759px) {
+  .nav-links li:has(> a[href="/"]) { display: none; }
+}
+/* Narrow tablet: tighter, as on phones, so three page links fit */
+@media (min-width: 600px) and (max-width: 699px) {
+  .nav-links { gap: 0.875rem; }
+  .nav-links a { font-size: 0.875rem; }
+}
+/* a page link never breaks its arrow onto a line of its own */
+.nav-links a.page-link { white-space: nowrap; }
+
+/* ============================================================
+   2. HERO — a printer's proof: headline left, a fanned stack of
+   real report pages right, crop marks, colour bar, ruler below
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding-top: clamp(6.5rem, 12vh, 8.5rem);
+  padding-bottom: 4.5rem;
+  display: grid;
+  align-items: center;
+  overflow: clip;
+  /* faint baseline grid, like a layout file */
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 23px, rgba(10, 10, 10, 0.045) 23px 24px),
+    var(--cream);
+}
+.hero-grid { display: grid; gap: 3rem; align-items: center; }
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 3.5rem; }
+}
+.hero .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.hero .kicker::before {
+  content: "";
+  width: 0.625rem;
+  height: 0.625rem;
+  background: var(--violet);
+}
+.hero h1 {
+  font-size: clamp(3rem, 8.4vw, 6.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  max-width: 9ch;
+}
+.hero-line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+/* room for the marker underline under "measure." */
+.hero-line:last-child { padding-bottom: 0.4em; margin-bottom: -0.4em; }
+.hero-line > span { display: inline-block; }
+.hero h1 em { padding-right: 0.06em; }
+
+/* ---------- Headline emphasis: hand-drawn underline (home-page pattern) ---------- */
+.fx { position: relative; white-space: nowrap; }
+.fx-underline-svg {
+  position: absolute;
+  left: -0.04em;
+  bottom: -0.14em;
+  width: 106%;
+  max-width: none;
+  height: 0.3em;
+  overflow: visible;
+  pointer-events: none;
+}
+.fx-underline-svg path {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+  animation: fx-underline-draw 4.5s ease-in-out infinite;
+}
+@keyframes fx-underline-draw {
+  0%        { stroke-dashoffset: 330; opacity: 1; }
+  28%, 78%  { stroke-dashoffset: 0;   opacity: 1; }
+  90%, 100% { stroke-dashoffset: 0;   opacity: 0; }
+}
+.hero-sub {
+  margin-top: 1.75rem;
+  max-width: 33rem;
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  font-weight: 500;
+}
+.hero-actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 0.875rem; }
+@media (max-width: 599px) {
+  /* stacked, and the same width, as on the home page */
+  .hero-actions { flex-direction: column; align-items: stretch; max-width: 20rem; }
+  .hero-actions .btn { justify-content: center; }
+}
+
+/* copy rises in on load */
+.js .hero-line > span { transform: translateY(110%); }
+.js .hero .kicker, .js .hero-sub, .js .hero-actions { opacity: 0; transform: translateY(1rem); }
+.js .loaded .hero-line > span { transform: none; transition: transform 1s var(--ease-out); }
+.js .loaded .hero-line:nth-child(2) > span { transition-delay: 0.08s; }
+.js .loaded .hero-line:nth-child(3) > span { transition-delay: 0.16s; }
+.js .loaded .kicker, .js .loaded .hero-sub, .js .loaded .hero-actions {
+  opacity: 1; transform: none;
+  transition: opacity 0.8s ease, transform 0.8s var(--ease-out);
+}
+.js .loaded .hero-sub { transition-delay: 0.35s; }
+.js .loaded .hero-actions { transition-delay: 0.45s; }
+
+/* ---------- The proof stack ---------- */
+.stack {
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1.02;
+  perspective: 1600px;
+}
+@media (max-width: 1023px) { .stack { max-width: 26rem; } }
+.stack-inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.7s var(--ease-out);
+}
+.sheet {
+  position: absolute;
+  width: 56%;
+  aspect-ratio: 595 / 842;
+  background: var(--white);
+  box-shadow: var(--paper-shadow);
+  transform: translateZ(var(--z)) rotate(var(--r));
+  transition: transform 1.2s var(--ease-out), opacity 0.6s ease;
+}
+.sheet img { width: 100%; height: 100%; object-fit: cover; }
+.sheet-a { --r: -8deg;  --z: -60px; left: 1%;  top: 10%; }
+.sheet-b { --r: 6.5deg; --z: -30px; right: 0;  top: 2%; }
+.sheet-c { --r: -1.5deg; --z: 20px; left: 23%; top: 15%; }
+/* pages deal in from below, back to front */
+.js .stack:not(.dealt) .sheet { opacity: 0; transform: translate3d(0, 4rem, var(--z)) rotate(0deg); }
+.sheet-a { transition-delay: 0.15s; }
+.sheet-b { transition-delay: 0.3s; }
+.sheet-c { transition-delay: 0.45s; }
+
+/* crop marks just outside the trim of the front page */
+.crop {
+  position: absolute;
+  inset: -16px;
+  pointer-events: none;
+  --m: rgba(10, 10, 10, 0.75);
+  background:
+    linear-gradient(var(--m), var(--m)) 0 16px / 10px 1px no-repeat,
+    linear-gradient(var(--m), var(--m)) 16px 0 / 1px 10px no-repeat,
+    linear-gradient(var(--m), var(--m)) 100% 16px / 10px 1px no-repeat,
+    linear-gradient(var(--m), var(--m)) calc(100% - 16px) 0 / 1px 10px no-repeat,
+    linear-gradient(var(--m), var(--m)) 0 calc(100% - 16px) / 10px 1px no-repeat,
+    linear-gradient(var(--m), var(--m)) 16px 100% / 1px 10px no-repeat,
+    linear-gradient(var(--m), var(--m)) 100% calc(100% - 16px) / 10px 1px no-repeat,
+    linear-gradient(var(--m), var(--m)) calc(100% - 16px) 100% / 1px 10px no-repeat;
+}
+
+/* proof callouts: black tags with a leader line onto the page */
+.callout {
+  position: absolute;
+  z-index: 2;
+  padding: 0.4rem 0.6rem 0.45rem;
+  background: var(--black);
+  color: var(--mint);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.callout b { display: block; font-family: var(--font-display); font-size: 1.125rem; letter-spacing: 0; text-transform: none; color: var(--cream); }
+.callout::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 2.25rem;
+  height: 1px;
+  background: var(--black);
+}
+.callout::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 3px);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--black);
+}
+.callout-r { left: 88%; top: 56%; }
+.callout-r::before { right: 100%; }
+.callout-r::after  { right: calc(100% + 2.25rem - 3px); }
+/* sits on the strip of the back page that the front page leaves
+   visible, clear of the headline column */
+.callout-l { left: -7%; top: 66%; transform: translateZ(100px); }
+/* lets the tag above come forward of the front page */
+.sheet-a { transform-style: preserve-3d; }
+.callout-l::before { left: 100%; width: 0.75rem; }
+.callout-l::after  { left: calc(100% + 0.75rem - 3px); }
+.js .stack:not(.dealt) .callout { opacity: 0; }
+.callout { transition: opacity 0.6s ease 1.4s; }
+@media (max-width: 479px) { .callout { display: none; } }
+
+/* registration target and colour bar, as on a press proof */
+.reg {
+  position: absolute;
+  right: -0.25rem;
+  bottom: 2%;
+  width: 2rem;
+  height: 2rem;
+  stroke: var(--black);
+  fill: none;
+  stroke-width: 1;
+}
+.colorbar {
+  position: absolute;
+  left: 1%;
+  bottom: -1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.7);
+}
+.colorbar span.sw { display: flex; }
+.colorbar i { width: 0.875rem; height: 0.875rem; display: block; }
+
+/* the ruler: "made to measure", 1 mm ticks along the hero's foot */
+.ruler {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.75rem;
+  border-top: 1px solid rgba(10, 10, 10, 0.5);
+  pointer-events: none;
+}
+.ruler svg { width: 100%; height: 100%; max-width: none; }
+.ruler path { stroke: rgba(10, 10, 10, 0.55); stroke-width: 1; fill: none; }
+.ruler text { font: 700 9px var(--font-body); fill: rgba(10, 10, 10, 0.6); }
+.js .ruler { clip-path: inset(0 100% 0 0); }
+.js .loaded .ruler { clip-path: inset(0 0 0 0); transition: clip-path 1.8s var(--ease-io) 0.3s; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+  padding: 0.9375rem 1.5rem;
+  border: 2px solid var(--black);
+  background: var(--black);
+  color: var(--mint);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.btn:hover, .btn:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--violet);
+}
+.btn-ghost { background: transparent; color: var(--black); }
+.btn-ghost:hover, .btn-ghost:focus-visible { background: var(--black); color: var(--mint); }
+.btn .arrow { width: 0.875rem; height: 0.875rem; stroke: currentColor; stroke-width: 2; fill: none; }
+
+/* Email links: Chrome with no mail app set up drops a mailto: click
+   without a word, so every click also copies the address and says so
+   here (see "Email links" in the script) */
+.mail-toast {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1.5rem;
+  z-index: 200;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0.75rem 1.25rem;
+  background: var(--black);
+  color: var(--mint);
+  border: 2px solid var(--black);
+  box-shadow: 4px 4px 0 var(--violet);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  overflow-wrap: break-word;
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mail-toast.show { opacity: 1; transform: none; }
+
+/* ============================================================
+   3. STATEMENT — the pitch, lighting up word by word
+   ============================================================ */
+.pitch {
+  background: var(--black);
+  color: var(--cream);
+  padding-block: clamp(5rem, 12vw, 9rem);
+}
+.pitch .kicker { color: var(--mint); }
+.statement {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.625rem, 3.6vw, 3rem);
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  max-width: 26ch;
+}
+@media (min-width: 900px) { .statement { max-width: 30ch; } }
+.statement em { font-style: italic; color: var(--mint); }
+.js .statement .w { color: rgba(237, 233, 225, 0.18); transition: color 0.35s ease; }
+.js .statement .w.on { color: var(--cream); }
+.js .statement em .w.on { color: var(--mint); }
+
+.values {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+}
+@media (min-width: 760px) { .values { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+.values li { border-top: 2px solid var(--cream); padding-top: 1.125rem; }
+.values strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.values p { font-size: 0.9375rem; max-width: 30rem; color: rgba(237, 233, 225, 0.85); }
+
+/* ============================================================
+   4. FLAGSHIP REPORTS — two cases, each with a page strip
+   ============================================================ */
+.flagship {
+  background: var(--cream);
+  padding-top: clamp(5rem, 11vw, 8rem);
+}
+.flagship-head { margin-bottom: clamp(3rem, 6vw, 4.5rem); }
+.flagship-head h2 { font-size: clamp(2.5rem, 6vw, 5rem); max-width: 14ch; }
+.flagship-head p { margin-top: 1.25rem; max-width: 34rem; font-weight: 500; }
+
+.case {
+  padding-block: clamp(3rem, 6vw, 4.5rem) clamp(4rem, 8vw, 6rem);
+  border-top: 2px solid var(--black);
+}
+.case-grid { display: grid; gap: 2.5rem; }
+@media (min-width: 960px) {
+  .case-grid { grid-template-columns: 7rem 1fr 15rem; gap: 3rem; align-items: start; }
+}
+.case-no {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 0.85;
+  color: var(--violet);
+}
+.case-client {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.case-client img { height: 2rem; width: auto; }
+.case-client .logo-ppc { height: 1.75rem; }
+.case-grid > * { min-width: 0; }
+.case h3 {
+  /* 2.25rem floor: "Sustenabilitate" has to fit a 320px phone unbroken */
+  font-size: clamp(2.25rem, 6.5vw, 5.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  overflow-wrap: break-word;
+}
+.case-sub {
+  margin-top: 0.875rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.125rem, 1.9vw, 1.5rem);
+  line-height: 1.25;
+  max-width: 30ch;
+}
+.case-sub em { font-style: italic; }
+.case-body { margin-top: 1.75rem; max-width: 38rem; }
+.case-body p + p { margin-top: 1rem; }
+.credit {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px dashed var(--black);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.credit q { font-style: italic; }
+
+.facts {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  max-width: 38rem;
+}
+@media (min-width: 600px) { .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.facts div { border-top: 1px solid rgba(10, 10, 10, 0.3); padding-top: 0.625rem; }
+.facts dt {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10, 10, 10, 0.65);
+  margin-bottom: 0.25rem;
+}
+.facts dd { font-size: 0.9375rem; font-weight: 500; line-height: 1.4; }
+.facts dd strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* cover, slightly tilted, as if laid on the desk */
+.case-cover { justify-self: start; width: min(15rem, 60%); }
+@media (min-width: 960px) { .case-cover { width: 100%; } }
+.case-cover a {
+  display: block;
+  background: var(--white);
+  box-shadow: var(--paper-shadow);
+  transform: rotate(2.5deg);
+  transition: transform 0.5s var(--ease-out), box-shadow 0.3s ease;
+  cursor: zoom-in;
+}
+.case-cover a:hover, .case-cover a:focus-visible { transform: rotate(0deg) translateY(-4px); }
+.case-cover img { width: 100%; height: auto; }
+.case-cover figcaption {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ---------- Page strip: the report, page by page ---------- */
+.strip { margin-top: clamp(3rem, 6vw, 4rem); }
+.strip-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+.strip-bar .kicker { margin: 0; }
+.strip-nav { display: flex; gap: 0.5rem; }
+.strip-nav button {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--black);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.strip-nav button:hover, .strip-nav button:focus-visible { background: var(--black); color: var(--mint); }
+.strip-nav button:disabled { opacity: 0.3; pointer-events: none; }
+.strip-nav svg { width: 1rem; height: 1rem; stroke: currentColor; stroke-width: 2; fill: none; }
+.strip-track {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(var(--pad), calc((100vw - var(--max-w)) / 2 + var(--pad)));
+  /* the strip bleeds off the right edge, but starts on the text column */
+  padding: 1.5rem max(var(--pad), calc((100vw - var(--max-w)) / 2 + var(--pad))) 1.5rem;
+  scrollbar-width: none;
+  list-style: none;
+}
+.strip-track::-webkit-scrollbar { display: none; }
+.pg { flex: 0 0 auto; width: clamp(10.5rem, 17vw, 14.5rem); scroll-snap-align: start; position: relative; }
+.pg a[data-group] {
+  display: block;
+  aspect-ratio: 595 / 842;
+  background: var(--white);
+  box-shadow: var(--paper-shadow);
+  cursor: zoom-in;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.pg a[data-group]:hover, .pg a[data-group]:focus-visible { transform: translate(-3px, -6px); box-shadow: 8px 10px 0 var(--violet); }
+.pg img { width: 100%; height: 100%; object-fit: cover; }
+.pg figcaption { margin-top: 0.875rem; font-size: 0.8125rem; line-height: 1.35; padding-right: 0.5rem; }
+.pg .folio {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.125rem;
+  margin-bottom: 0.125rem;
+}
+/* the page that comes alive further down */
+.pg-live {
+  position: absolute;
+  top: 0.75rem;
+  left: -0.5rem;
+  z-index: 1;
+  padding: 0.35rem 0.6rem;
+  background: var(--black);
+  color: var(--mint);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--mint);
+}
+.pg-live:hover, .pg-live:focus-visible { background: var(--mint); color: var(--black); box-shadow: 3px 3px 0 var(--black); }
+
+/* strip pages slide in as the strip arrives */
+.js .strip .pg { opacity: 0; transform: translateX(3rem); transition: opacity 0.7s ease, transform 0.9s var(--ease-out); }
+.js .strip.in .pg { opacity: 1; transform: none; }
+
+/* ============================================================
+   5. PAGE 49 — the printed page beside its live rebuild
+   ============================================================ */
+.live {
+  background: var(--black);
+  color: var(--cream);
+  padding-block: clamp(5rem, 11vw, 8rem);
+}
+.live .kicker { color: var(--mint); }
+.live h2 { color: var(--white); font-size: clamp(2.5rem, 6vw, 5rem); max-width: 13ch; }
+.live-lead { margin-top: 1.5rem; max-width: 40rem; font-size: 1.125rem; font-weight: 500; }
+.live-grid { margin-top: clamp(3rem, 6vw, 4.5rem); display: grid; gap: 2.5rem; align-items: start; }
+@media (min-width: 1100px) { .live-grid { grid-template-columns: minmax(15rem, 0.62fr) 2fr; gap: 3rem; } }
+
+.printed { max-width: 20rem; }
+@media (min-width: 1100px) { .printed { max-width: none; position: sticky; top: 6rem; } }
+.printed-frame { position: relative; margin: 16px; }
+.printed-frame .crop { --m: rgba(237, 233, 225, 0.7); }
+.printed a { display: block; background: var(--white); cursor: zoom-in; }
+.printed img { width: 100%; height: auto; }
+.printed figcaption, .screen-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.printed figcaption { margin-top: 1.25rem; color: rgba(237, 233, 225, 0.75); }
+.printed figcaption::before { content: ""; width: 1.25rem; height: 1px; background: currentColor; }
+
+/* the screen: white card, offset mint shadow */
+.screen {
+  background: var(--white);
+  color: var(--black);
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  box-shadow: 10px 10px 0 var(--mint);
+  min-width: 0;
+}
+.screen-bar { justify-content: space-between; color: rgba(10, 10, 10, 0.7); margin-bottom: 1.5rem; }
+.screen-bar .live-dot { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--black); }
+.screen-bar .live-dot::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--scope1);
+  animation: blink 1.6s ease-in-out infinite;
+}
+@keyframes blink { 50% { opacity: 0.25; } }
+.sk-title { font-family: var(--font-body); font-weight: 700; font-size: 1rem; letter-spacing: 0; line-height: 1.35; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(10, 10, 10, 0.25); }
+.sk-hint { margin-top: 0.625rem; font-size: 0.8125rem; color: rgba(10, 10, 10, 0.7); }
+
+.sk-wrap { position: relative; margin-top: 1.25rem; }
+.sk { width: 100%; height: auto; max-width: none; overflow: visible; touch-action: manipulation; }
+.sk-link { mix-blend-mode: multiply; transition: opacity 0.25s ease; cursor: pointer; }
+.sk-hit { fill: transparent; cursor: pointer; }
+.sk-node rect.bar { fill: var(--black); }
+.sk-node:focus { outline: none; }
+.sk-node:focus-visible .sk-hit { stroke: var(--violet); stroke-width: 2; }
+.sk text { font-family: var(--font-body); font-size: 12.5px; fill: var(--black); }
+.sk text .v { font-weight: 700; font-variant-numeric: tabular-nums; }
+.sk text.sm { font-size: 11px; }
+.sk-label { transition: opacity 0.25s ease; }
+.sk[data-focus] .sk-link { opacity: 0.1; }
+.sk[data-focus] .sk-link.on { opacity: 1; }
+.sk[data-focus] .sk-label { opacity: 0.3; }
+.sk[data-focus] .sk-label.on { opacity: 1; }
+
+/* readout: the total by default, the hovered flow otherwise.
+   Wide screens: in the empty corner under Scope 3, like the print. */
+.sk-readout { margin-top: 1rem; min-height: 7.5rem; }
+@media (min-width: 760px) {
+  .sk-readout {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 46%;
+    margin: 0;
+    pointer-events: none;
+    text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff;
+  }
+}
+.ro-kicker { display: block; font-weight: 700; font-size: 0.9375rem; line-height: 1.3; }
+.ro-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.75rem, 6.2vw, 4.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.ro-unit { font-weight: 700; font-size: 0.9375rem; }
+.ro-note { display: block; margin-top: 0.25rem; font-size: 0.8125rem; color: rgba(10, 10, 10, 0.75); max-width: 28rem; }
+
+.sk-table { margin-top: 1.5rem; border-top: 1px solid rgba(10, 10, 10, 0.25); padding-top: 1rem; }
+.sk-table summary { cursor: pointer; font-size: 0.875rem; font-weight: 700; }
+.sk-table summary:hover { text-decoration: underline; }
+.table-scroll { overflow-x: auto; margin-top: 1rem; }
+.sk-table table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
+.sk-table caption { text-align: left; font-weight: 500; margin-bottom: 0.5rem; color: rgba(10, 10, 10, 0.75); }
+.sk-table th, .sk-table td { padding: 0.375rem 0.5rem; border-bottom: 1px solid rgba(10, 10, 10, 0.12); text-align: right; }
+.sk-table th:first-child { text-align: left; font-weight: 400; padding-left: 1.25rem; }
+.sk-table thead th { font-weight: 700; border-bottom-color: rgba(10, 10, 10, 0.5); }
+.sk-table tr.sk-scope th, .sk-table tr.sk-scope td, .sk-table tfoot th, .sk-table tfoot td { font-weight: 700; }
+.sk-table tr.sk-scope th:first-child, .sk-table tfoot th:first-child { padding-left: 0.5rem; }
+.sk-table tr.sk-scope th::before {
+  content: "";
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-right: 0.5rem;
+  background: var(--c);
+  vertical-align: -0.05em;
+}
+@media (max-width: 599px) {
+  /* all four columns on a phone, no sideways swipe */
+  .sk-table th, .sk-table td { padding-inline: 0.25rem; }
+  .sk-table th:first-child { padding-left: 0.75rem; }
+  .sk-table tr.sk-scope th:first-child, .sk-table tfoot th:first-child { padding-left: 0; }
+}
+.sk-note { margin-top: 1rem; font-size: 0.75rem; color: rgba(10, 10, 10, 0.7); }
+
+/* ============================================================
+   6. DASHBOARDS — outwards and inwards, with a live demo
+   ============================================================ */
+.dash {
+  background: var(--mint);
+  color: var(--black);
+  padding-block: clamp(5rem, 11vw, 8rem);
+}
+.dash h2 { font-size: clamp(2.75rem, 7vw, 5.75rem); max-width: 12ch; }
+.dash-lead { margin-top: 1.5rem; max-width: 40rem; font-size: 1.125rem; font-weight: 500; }
+
+.ways { margin-top: clamp(3rem, 6vw, 4rem); display: grid; gap: 1.5rem; }
+@media (min-width: 800px) { .ways { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.way { border-top: 2px solid var(--black); padding-top: 1.25rem; }
+.way-dir {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.way-dir svg { width: 3.25rem; height: 1.25rem; stroke: var(--black); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.way h3 { margin-top: 0.75rem; font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.way p { margin-top: 0.625rem; max-width: 32rem; }
+.way ul { margin-top: 1rem; list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.way li {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.375rem 0.75rem;
+  border: 1.5px solid var(--black);
+  border-radius: 999px;
+}
+
+/* the demo: a black screen on the mint */
+.demo {
+  margin-top: clamp(3.5rem, 7vw, 5rem);
+  background: var(--black);
+  color: var(--cream);
+  padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  box-shadow: 10px 10px 0 var(--violet);
+}
+.demo-top { display: grid; gap: 1.25rem; }
+@media (min-width: 900px) { .demo-top { grid-template-columns: 1fr auto; align-items: end; } }
+.demo .kicker { color: var(--mint); margin-bottom: 0.75rem; }
+.demo h3 { font-size: clamp(1.75rem, 3.4vw, 2.75rem); color: var(--white); }
+.demo-def { margin-top: 0.5rem; font-size: 0.875rem; color: rgba(237, 233, 225, 0.8); max-width: 40rem; }
+
+.demo-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; }
+.field { display: grid; gap: 0.375rem; }
+.field-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(237, 233, 225, 0.75); }
+.demo select {
+  appearance: none;
+  background: var(--ink-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%239FF29A' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 0.875rem center / 0.75rem;
+  color: var(--cream);
+  border: 1.5px solid rgba(237, 233, 225, 0.4);
+  padding: 0.625rem 2.5rem 0.625rem 0.875rem;
+  font-weight: 700;
+  min-width: 13rem;
+  cursor: pointer;
+}
+.demo select:hover { border-color: var(--mint); }
+.seg { display: inline-flex; border: 1.5px solid rgba(237, 233, 225, 0.4); }
+.seg button {
+  padding: 0.625rem 1rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: rgba(237, 233, 225, 0.8);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.seg button svg { width: 1.375rem; height: 0.75rem; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.seg button[aria-pressed="true"] { background: var(--mint); color: var(--black); }
+.seg button:not([aria-pressed="true"]):hover { color: var(--cream); background: rgba(237, 233, 225, 0.08); }
+
+.demo-story {
+  margin-top: 2rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.375rem, 2.6vw, 2.125rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  max-width: 34ch;
+  min-height: 2.4em;
+}
+.demo-story strong { font-weight: 900; color: var(--mint); }
+.demo[data-mode="inwards"] .demo-story { display: none; }
+
+.demo-rows { margin-top: 2rem; display: grid; gap: 0.25rem; }
+.demo-legend, .demo-row {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 10rem) 1fr 3rem;
+  align-items: center;
+  gap: 0.25rem 1rem;
+}
+.demo[data-mode="inwards"] .demo-legend,
+.demo[data-mode="inwards"] .demo-row { grid-template-columns: minmax(6.5rem, 10rem) 1fr 3rem 5.5rem 4.5rem; }
+.demo-legend { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(237, 233, 225, 0.7); padding-bottom: 0.5rem; border-bottom: 1px solid rgba(237, 233, 225, 0.2); }
+.demo-legend .avg-key { display: inline-flex; align-items: center; gap: 0.5rem; }
+.demo-legend .avg-key::before { content: ""; width: 2px; height: 0.875rem; background: var(--cream); }
+.demo-legend .num { text-align: right; }
+.demo-row { padding-block: 0.5rem; border-bottom: 1px solid rgba(237, 233, 225, 0.12); }
+.demo-row .name { font-weight: 700; font-size: 0.9375rem; line-height: 1.2; }
+.track { position: relative; height: 1.5rem; }
+.track::before { content: ""; position: absolute; inset: 50% 0 auto; height: 1px; background: rgba(237, 233, 225, 0.15); }
+.bar {
+  position: absolute;
+  left: 0;
+  top: 0.125rem;
+  bottom: 0.125rem;
+  width: 0;
+  background: rgba(237, 233, 225, 0.32);
+  border-radius: 0 4px 4px 0;
+  transition: width 0.6s var(--ease-out), background-color 0.3s ease;
+}
+.demo-row.hi .bar, .demo[data-mode="inwards"] .bar { background: var(--mint); }
+.avg {
+  position: absolute;
+  top: -0.25rem;
+  bottom: -0.25rem;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--cream);
+  transition: left 0.6s var(--ease-out);
+}
+.demo-row .val { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.demo-row .rank, .demo-row .gap { text-align: right; font-size: 0.875rem; font-variant-numeric: tabular-nums; color: rgba(237, 233, 225, 0.85); }
+.demo-row .gap.up { color: var(--mint); }
+.demo:not([data-mode="inwards"]) .rank,
+.demo:not([data-mode="inwards"]) .gap,
+.demo:not([data-mode="inwards"]) .only-in { display: none; }
+@media (max-width: 599px) {
+  /* a phone: narrower name column so the bars keep their length; the
+     "%" header goes (the values say it) and the average key takes its room */
+  .demo-legend, .demo-row,
+  .demo[data-mode="inwards"] .demo-legend { grid-template-columns: 6.75rem 1fr 2.5rem; gap: 0.25rem 0.75rem; }
+  .demo-legend .num { display: none; }
+  .demo-legend .avg-key { grid-column: 2 / -1; }
+  /* inwards: rank and gap drop under the bar */
+  .demo[data-mode="inwards"] .demo-row {
+    grid-template-columns: 6.75rem 1fr 2.5rem;
+    grid-template-areas: "n t v" "n r g";
+  }
+  .demo[data-mode="inwards"] .demo-row .name { grid-area: n; }
+  .demo[data-mode="inwards"] .demo-row .track { grid-area: t; }
+  .demo[data-mode="inwards"] .demo-row .val { grid-area: v; }
+  .demo[data-mode="inwards"] .demo-row .rank { grid-area: r; text-align: left; }
+  .demo[data-mode="inwards"] .demo-row .gap { grid-area: g; }
+}
+.demo-src { margin-top: 1.5rem; font-size: 0.75rem; color: rgba(237, 233, 225, 0.7); max-width: 52rem; }
+
+/* ============================================================
+   7. PROCESS — how a report comes together
+   ============================================================ */
+.process {
+  background: var(--cream);
+  padding-block: clamp(5rem, 11vw, 8rem);
+}
+.process h2 { font-size: clamp(2.25rem, 5.2vw, 4.25rem); max-width: 16ch; }
+.steps {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  list-style: none;
+  display: grid;
+  gap: 2.5rem;
+  counter-reset: step;
+}
+@media (min-width: 700px) { .steps { grid-template-columns: repeat(2, 1fr); gap: 3rem 2.5rem; } }
+@media (min-width: 1100px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+.steps li { border-top: 2px solid var(--black); padding-top: 1rem; counter-increment: step; }
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  line-height: 1;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+.steps h3 { font-size: 1.75rem; line-height: 1.05; margin-bottom: 0.625rem; }
+.steps p { font-size: 0.9375rem; max-width: 30rem; }
+
+.audiences {
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--black);
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 900px) { .audiences { grid-template-columns: 14rem 1fr; align-items: start; } }
+.audiences .kicker { margin: 0.5rem 0 0; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.625rem; }
+.chips li {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.0625rem, 1.8vw, 1.375rem);
+  line-height: 1;
+  padding: 0.625rem 1.125rem 0.6875rem;
+  border: 1.5px solid var(--black);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.chips li:hover { background: var(--black); color: var(--mint); }
+
+/* ============================================================
+   8. CTA
+   ============================================================ */
+.cta {
+  background: var(--violet);
+  color: var(--black);
+  padding-block: clamp(6rem, 13vw, 10rem);
+  text-align: center;
+  border-top: 2px solid var(--black);
+}
+.cta h2 {
+  color: var(--white);
+  font-size: clamp(2.5rem, 6.2vw, 5.25rem);
+  max-width: 15ch;
+  margin-inline: auto;
+}
+.cta p {
+  margin: 1.75rem auto 2.5rem;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.875rem; }
+.cta .btn:hover, .cta .btn:focus-visible { box-shadow: 4px 4px 0 var(--mint); }
+.cta .btn-ghost:hover, .cta .btn-ghost:focus-visible { background: var(--black); color: var(--mint); }
+@media (max-width: 599px) {
+  .cta-actions { flex-direction: column; align-items: stretch; max-width: 20rem; margin-inline: auto; }
+  .cta-actions .btn { justify-content: center; }
+}
+
+/* ============================================================
+   9. FOOTER — black, as on every page
+   ============================================================ */
+.footer {
+  background: var(--black);
+  color: var(--cream);
+  padding-block: 3rem;
+}
+.footer-brand { display: inline-flex; align-items: center; }
+.footer-brand img { height: 2.25rem; width: auto; display: block; }
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+.footer a { color: var(--cream); }
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+}
+.footer-meta a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.footer-meta a:hover { color: var(--mint); }
+
+/* ============================================================
+   10. LIGHTBOX — report pages at reading size
+   ============================================================ */
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: clamp(3.5rem, 6vw, 4.5rem) clamp(0.75rem, 4vw, 3rem);
+  background: rgba(10, 10, 10, 0.96);
+  color: var(--cream);
+  display: none;
+  place-items: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.overlay[open] { display: grid; }
+.overlay.shown { opacity: 1; }
+.overlay::backdrop { background: transparent; }
+.overlay-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(237, 233, 225, 0.4);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.overlay-close:hover, .overlay-close:focus-visible { background: var(--mint); color: var(--black); border-color: var(--mint); }
+.overlay-close svg { width: 1rem; height: 1rem; stroke: currentColor; stroke-width: 2; fill: none; }
+.lb-figure { display: grid; gap: 0.875rem; justify-items: center; max-width: 100%; }
+.lb-figure img {
+  max-width: 100%;
+  max-height: calc(100dvh - 10rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: var(--white);
+}
+.lb-figure figcaption { display: flex; gap: 0.75rem; font-size: 0.875rem; font-weight: 500; text-align: center; }
+.lb-count { color: var(--mint); font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin-top: -1.5rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(237, 233, 225, 0.4);
+  display: grid;
+  place-items: center;
+  background: rgba(10, 10, 10, 0.5);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.lb-nav:hover, .lb-nav:focus-visible { background: var(--mint); color: var(--black); border-color: var(--mint); }
+.lb-nav svg { width: 1.125rem; height: 1.125rem; stroke: currentColor; stroke-width: 2; fill: none; }
+.lb-prev { left: clamp(0.5rem, 2vw, 1.5rem); }
+.lb-next { right: clamp(0.5rem, 2vw, 1.5rem); }
+.overlay[data-single] .lb-nav { display: none; }
+
+/* ---------- Scroll-reveal (progressive enhancement) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease-out);
+}
+.reveal.in { opacity: 1; transform: none; }
+html:not(.js) .reveal { opacity: 1; transform: none; }
+
+/* ---------- Reduced motion: everything in place, nothing moving ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .hero-line > span, .js .hero .kicker, .js .hero-sub, .js .hero-actions,
+  .js .stack:not(.dealt) .sheet, .js .stack:not(.dealt) .callout { opacity: 1; transform: translateZ(var(--z, 0)) rotate(var(--r, 0deg)); transition: none; }
+  .js .hero-line > span, .js .hero .kicker, .js .hero-sub, .js .hero-actions { transform: none; }
+  .js .ruler { clip-path: none; }
+  .stack-inner, .sheet, .callout { transition: none; }
+  .fx-underline-svg path { animation: none; stroke-dashoffset: 0; }
+  .screen-bar .live-dot::before { animation: none; }
+  .js .statement .w { color: inherit; transition: none; }
+  .js .strip .pg { opacity: 1; transform: none; transition: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .pg a, .case-cover a, .overlay, .mail-toast, .bar, .avg, .sk-link, .sk-label { transition: none; }
+  .nav-links a.page-link .arr, .nav-links a.chip, .nav-links a.chip::before { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<span id="top"></span>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     1. NAV
+     ============================================================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="/">
+      <svg viewBox="0 0 1199.38 312.13" width="1199.38" height="312.13" role="img" aria-label="Nutgraf.studio">
+        <g fill="#0A0A0A">
+          <path class="shard" style="--ux:.86;--uy:-.51;--s:1" d="M162.18,48.42c-6.51,18.01-13.34,36.35-19.96,54.08-10.37,27.81-21.09,56.57-30.91,85.06-.14,4.74,1.64,8.5,5.57,11.83,7.9,6.68,16.78,12.99,25.36,19.09,7.8,5.54,15.85,11.26,23.24,17.31,4.27,2.56,10.1,2.27,13.91-.71,10.07-8.47,20.47-17.04,30.53-25.32,15.29-12.6,31.1-25.62,46.33-38.77,2.41-3.56,2.65-8.08.6-11.61l-66.36-107.92c-4.11-5.7-12.09-11.29-18.87-10.41-3.83.49-7.97,3.72-9.44,7.36Z"/>
+          <path class="shard" style="--ux:-.79;--uy:-.61;--s:1" d="M88.75,61.02c-18.99,13.39-33.36,31.86-41.56,53.42-4.31,11.31-9.18,24.12.47,32.8,7.82,5.18,15.48,11.34,22.89,17.29,7.89,6.34,16.04,12.9,24.26,18.15,2.22,1.42,4.1,1.96,5.57,1.6,1.21-.3,2.32-1.29,3.3-2.93l52.51-141.97c-.64.01-1.38.08-1.79.11-.49.04-.93.08-1.27.09-23.18.66-45.44,8.07-64.38,21.43Z"/>
+          <path class="shard" style="--ux:.75;--uy:.66;--s:1" d="M266.85,176.08c-.44-.35-.89-.46-1.47-.37-.79.13-2.48,1.53-3.39,2.28-.33.27-.63.53-.92.75-12.78,10.06-25.43,20.79-37.66,31.17-12.09,10.26-24.58,20.87-37.24,30.85-2.16,2.03-3.23,3.88-3.18,5.51.05,1.72,1.37,3.66,3.91,5.78,13.36,11.11,18.37,11.3,33.47,1.29,20.01-13.27,35.77-32.79,44.38-54.96,1.53-3.94,4.71-12.13,4.4-16.49-.15-2.11-.99-4.78-2.29-5.81Z"/>
+          <path class="shard" style="--ux:-.35;--uy:.94;--s:1" d="M161.71,246.78c-.03-1.64-1.09-3.39-3.14-5.21l-46.96-35.21c-1.39-1.01-3.16-1.52-4.58-1.31-1.18.18-2.87,1.57-3.72,3.03-1.62,5.24-3.81,10.58-5.93,15.75-2.42,5.89-4.91,11.99-6.5,17.79-3.1,11.35,5.86,16.06,18.86,21.47l.96.4c14.75,6.16,23.04,8.92,35.63-1l.6-.47c3.75-2.95,8.43-6.63,11.67-9.7,2.1-1.99,3.15-3.86,3.12-5.54Z"/>
+          <path class="shard" style="--ux:-.91;--uy:.42;--s:-1" d="M92.08,212.77c1.14-3.42,2.31-6.95,3.49-10.33.28-4.52-1.3-8.68-4.36-11.46l-50.74-38.2c-.08.08-.16.16-.24.24-.25.24-.51.41-.76.55-.23,3.3.12,8.04.32,10.89,1.89,26,12.94,51.69,30.31,70.47l.13.14c4.79,5.18,6.52,6.14,7.13,6.25,2.38.38,4.13-.24,5.97-4.5,3.27-7.57,6.06-15.95,8.75-24.06Z"/>
+          <path class="shard" style="--ux:.84;--uy:-.54;--s:-1" d="M267.96,160.35c.29.15.67.25,1.26.17.86-.32,3.06-2.18,3.52-3.08.12-21.23-5.52-42.14-16.34-60.49-10.87-18.45-26.5-33.5-45.2-43.54-2.55-1.37-6.39-3.43-9.16-4.41-.46-.16-1.69-.59-2.58-.62.06.55.29,1.37.59,1.83l67.9,110.14Z"/>
+          <path class="shard" style="--ux:.12;--uy:.99;--s:-1" d="M180.28,257.93c-4.94-3.23-10.21-3.23-14.83.01l-15.77,13.16c.17.13.35.26.49.37.29.21.57.42.83.63.17.14.31.29.43.43,1.39.1,3.7.21,4.23.21h.26c8.6,0,18.27-1.12,26.56-3.09l.5-.12c1.96-.46,5.6-1.31,6.23-2.64.25-.54-.06-1.4-.37-2.03-.69-1.09-6.07-5.32-8.56-6.94Z"/>
+        </g>
+        <path fill="#0A0A0A" d="M382.35,102.78h26.43v30.18h5.41c1.67-21.23,17.69-32.89,38.09-32.89,23.73,0,38.09,14.78,38.09,41.22v72.44h-26.23v-67.44c0-16.65-9.78-25.6-23.52-25.6-19.36,0-31.85,17.48-31.85,48.08v44.96h-26.43v-110.95ZM511.62,175.22v-72.44h26.44v67.44c0,16.65,9.57,25.6,23.31,25.6,19.57,0,32.06-17.49,32.06-48.08v-44.96h26.23v110.95h-26.23v-30.18h-5.62c-1.66,21.23-17.69,32.89-38.09,32.89-23.73,0-38.09-14.57-38.09-41.21ZM661.71,170.85v-47.04h-29.97v-21.02h31.02v-31.64l25.19-13.53v45.17h43.92v21.02h-59.74v6.25h3.54c8.32.21,12.28,5.41,12.28,12.91v25.6c0,15.82,7.7,24.15,22.48,24.15h21.44v21.02h-28.1c-27.06,0-42.05-14.99-42.05-42.88ZM738.1,241.83l41.63-33.51,4.37-3.33c-28.31-2.08-46.63-23.1-46.63-50.37,0-29.98,23.52-51.83,58.08-51.83h60.16v21.02h-38.92v5.41c19.98,1.25,28.52,16.24,28.52,31.43s-7.91,25.6-17.9,34.35l-29.77,26.23c-9.37,8.32-16.24,11.03-29.14,11.03h-3.75v6.24h87.22v21.02h-113.86v-17.69ZM822.4,154.61c0-17.28-12.91-30.6-29.97-30.6s-30.18,12.91-30.18,30.6,12.7,30.81,30.18,30.81c18.94,0,29.97-14.57,29.97-30.81ZM870.91,102.78h26.44v38.3h5.41c1.87-27.27,17.69-39.34,42.46-39.34h13.95v23.1h-15.4c-31.85,0-46.42,18.94-46.42,53.29v35.59h-26.44v-110.95ZM967.49,179.17c0-15.4,7.91-26.64,15.61-33.51,16.24-14.57,20.4-15.4,36.43-15.4h14.78v-6.45h-65.36v-21.02h108.45v110.95h-26.44v-30.6h-5.41c-2.71,21.86-18.94,33.31-39.97,33.31-23.11,0-38.09-16.86-38.09-37.26ZM1050.96,148.57v-25.19l-38.09,26.23c-12.7,8.74-17.28,16.03-17.28,25.6,0,12.91,9.37,20.81,22.9,20.81,19.36,0,32.47-16.44,32.47-47.46ZM1160.46,51.37h38.92v21.02h-33.1c-13.53,0-20.61,7.08-20.61,20.19v10.2h53.7v21.02h-69.52v6.25h3.54c8.33.21,12.28,5.41,12.28,12.91v70.77h-26.23v-89.92h-29.97v-21.02h29.97v-10.62c0-25.81,14.57-40.8,41.01-40.8Z"/>
+      </svg>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="/">Studio</a></li>
+        <li><a class="page-link" href="/workshops/">Workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
+        <li><a class="page-link" href="/exhibitions/">Exhibitions<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
+        <li><a href="#flagship">Reports</a></li>
+        <li><a href="#dashboards">Dashboards</a></li>
+        <li><a class="chip" href="#contact">Commission<span class="chip-more"> a report</span></a></li>
+        <li>
+          <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.77 1.153a4.902 4.902 0 0 1 1.153 1.77c.249.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.216 1.79-.465 2.428a4.902 4.902 0 0 1-1.153 1.77 4.902 4.902 0 0 1-1.77 1.153c-.637.249-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.216-2.428-.465a4.902 4.902 0 0 1-1.77-1.153 4.902 4.902 0 0 1-1.153-1.77c-.249-.637-.415-1.363-.465-2.428C2.01 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.065.216-1.79.465-2.428a4.902 4.902 0 0 1 1.153-1.77A4.902 4.902 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.01 9.283 2 12 2Zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.467.181-.8.398-1.15.748-.35.35-.567.683-.748 1.15-.137.353-.3.882-.344 1.858-.05 1.054-.06 1.37-.06 4.04s.01 2.986.06 4.04c.045.976.207 1.505.344 1.858.181.467.398.8.748 1.15.35.35.683.567 1.15.748.353.137.882.3 1.858.344 1.054.05 1.37.06 4.04.06s2.986-.01 4.04-.06c.976-.045 1.505-.207 1.858-.344.467-.181.8-.398 1.15-.748.35-.35.567-.683.748-1.15.137-.353.3-.882.344-1.858.05-1.054.06-1.37.06-4.04s-.01-2.986-.06-4.04c-.045-.976-.207-1.505-.344-1.858a3.1 3.1 0 0 0-.748-1.15 3.1 3.1 0 0 0-1.15-.748c-.353-.137-.882-.3-1.858-.344-1.054-.05-1.37-.059-4.04-.059Zm0 3.064a5.134 5.134 0 1 1 0 10.268 5.134 5.134 0 0 1 0-10.268Zm0 1.802a3.332 3.332 0 1 0 0 6.664 3.332 3.332 0 0 0 0-6.664Zm5.338-1.982a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     2. HERO — three real pages on the proofing table: Table 2 of
+     Beyond borders (back left), the KPI tiles of the Rețele
+     Electrice report (back right) and its page 49 in front.
+     ============================================================ -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="kicker">Data reports · Flagship publications</span>
+      <h1 id="hero-heading">
+        <span class="hero-line"><span>Data reports,</span></span>
+        <span class="hero-line"><span>made to</span></span>
+        <span class="hero-line"><span><em class="fx">measure.<svg class="fx-underline-svg" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em></span></span>
+      </h1>
+      <p class="hero-sub">We design data-intensive reports, from flagship studies to ESG disclosures, with state-of-the-art data design and bespoke craft: every chart made for its finding, every page made for its reader.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#flagship">See the reports</a>
+        <a class="btn btn-ghost" href="#contact">Commission a report</a>
+      </div>
+    </div>
+
+    <div class="stack" aria-hidden="true">
+      <div class="stack-inner">
+        <div class="sheet sheet-a">
+          <img src="img/afro-p28-800.jpg" alt="" width="800" height="1131" decoding="async">
+          <span class="callout callout-l"><b>38 × 6</b>countries × powers</span>
+        </div>
+        <div class="sheet sheet-b">
+          <img src="img/ppc-p10-800.jpg" alt="" width="800" height="1132" decoding="async">
+        </div>
+        <div class="sheet sheet-c">
+          <img src="img/ppc-p49-800.jpg" alt="" width="800" height="1132" decoding="async" fetchpriority="high">
+          <span class="crop"></span>
+          <span class="callout callout-r"><b>793,348</b>tCO₂e · 11 flows</span>
+        </div>
+      </div>
+      <svg class="reg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="9"/><circle cx="16" cy="16" r="4.5"/><path d="M16 1v30M1 16h30"/></svg>
+      <div class="colorbar">
+        <span class="sw"><i style="background:#0A0A0A"></i><i style="background:#7B7BF0"></i><i style="background:#9FF29A"></i><i style="background:#FFFFFF"></i><i style="background:#FF4900"></i><i style="background:#00A1DF"></i><i style="background:#00C18C"></i></span>
+        Proof · Nutgraf.studio
+      </div>
+    </div>
+  </div>
+
+  <div class="ruler" aria-hidden="true"><svg></svg></div>
+</section>
+
+<!-- ============================================================
+     3. STATEMENT
+     ============================================================ -->
+<section class="pitch" id="intro" aria-labelledby="intro-kicker">
+  <div class="wrap">
+    <span class="kicker" id="intro-kicker">Our flagship service</span>
+    <p class="statement">A flagship report carries a year of research, thousands of numbers and an organisation’s name. <em>We make every one of those numbers count:</em> checked against its source, given the form its finding needs, set on a page people want to read.</p>
+
+    <ul class="values">
+      <li class="reveal">
+        <strong>Built for heavy data</strong>
+        <p>Dozens of charts, one visual system. We design the system first, so the thirty-eighth figure reads as easily as the first.</p>
+      </li>
+      <li class="reveal">
+        <strong>Bespoke, chart by chart</strong>
+        <p>No templates. Flows become a Sankey, 38 countries become a heatmap, and sometimes the right chart is a single number.</p>
+      </li>
+      <li class="reveal">
+        <strong>Checked before it’s drawn</strong>
+        <p>Every figure is traced back to its dataset before it reaches the page, and checked again on the proof.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. FLAGSHIP REPORTS
+     Page images are rendered from the client PDFs (PyMuPDF, then
+     Pillow): img/<report>-pNN.jpg (1400px wide, lightbox) and
+     img/<report>-pNN-800.jpg (strip, hero). NN is the folio printed
+     on the page (Beyond borders' PDF runs two pages ahead of it).
+     ============================================================ -->
+<section class="flagship" id="flagship" aria-labelledby="flagship-heading">
+  <div class="wrap flagship-head reveal">
+    <span class="kicker">Flagship reports</span>
+    <h2 id="flagship-heading">Two reports, <em>page by page.</em></h2>
+    <p>One pan-African survey, one corporate sustainability report. Both dense with data, both designed from the first page to the last.</p>
+  </div>
+
+  <!-- ---------- 01 · Afrobarometer ---------- -->
+  <article class="case" id="beyond-borders" aria-labelledby="afro-title">
+    <div class="wrap case-grid">
+      <span class="case-no reveal" aria-hidden="true">01</span>
+      <div class="reveal">
+        <p class="case-client"><img src="../logos/afrobarometer.svg" alt="Afrobarometer" width="152" height="64"></p>
+        <h3 id="afro-title">Beyond borders</h3>
+        <p class="case-sub"><em>African insights 2026.</em> Citizen perspectives on a shifting global order.</p>
+        <div class="case-body">
+          <p>Afrobarometer’s flagship report for 2026 asks how Africans see a world in flux: free trade under the AfCFTA, migration, the great powers, the continent’s voice in global institutions and climate action. Survey data from 38 countries, carried by 38 figures and 4 tables in a single chart system, from a 38-country heatmap to one-page country scorecards.</p>
+          <p class="credit">Colophon, p. 2: <q>Report design by nutgraf.studio</q></p>
+        </div>
+        <dl class="facts">
+          <div><dt>Pages</dt><dd><strong>48</strong>in English</dd></div>
+          <div><dt>Figures</dt><dd><strong>38</strong>plus 4 tables</dd></div>
+          <div><dt>Countries</dt><dd><strong>38</strong>Round 10 survey, 2024/2025</dd></div>
+          <div><dt>Data</dt><dd>Face-to-face interviews, nationally representative samples</dd></div>
+          <div><dt>Our role</dt><dd>Report design: editorial and chart design</dd></div>
+          <div><dt>Client</dt><dd>Afrobarometer, pan-African research network</dd></div>
+        </dl>
+      </div>
+      <figure class="case-cover reveal">
+        <a href="img/afro-cover-600.jpg" data-group="afro" data-caption="Cover · Beyond borders, African insights 2026">
+          <img src="img/afro-cover-600.jpg" alt="Cover of Beyond borders, African insights 2026: orange and red tiles framing photos of a border crossing, a crowded street and a man holding up an ID card." width="600" height="849" loading="lazy" decoding="async">
+        </a>
+        <figcaption>The cover</figcaption>
+      </figure>
+    </div>
+
+    <div class="strip" data-strip>
+      <div class="wrap strip-bar">
+        <span class="kicker">Inside · 8 of 48 pages</span>
+        <div class="strip-nav">
+          <button type="button" data-dir="-1" aria-label="Previous pages"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
+          <button type="button" data-dir="1" aria-label="Next pages"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <ul class="strip-track" aria-label="Pages from Beyond borders">
+        <li class="pg"><figure>
+          <a href="img/afro-p08.jpg" data-group="afro" data-caption="p. 8 · Figures 2 and 3: free trade or protection, and preferred trading partners">
+            <img src="img/afro-p08-800.jpg" alt="Page 8: two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 8</span>Free trade or protection?</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afro-p15.jpg" data-group="afro" data-caption="p. 15 · Figures 9 to 11: who has considered emigrating">
+            <img src="img/afro-p15-800.jpg" alt="Page 15: purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 15</span>Who is thinking of leaving</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afro-p17.jpg" data-group="afro" data-caption="p. 17 · Figure 15: Africans lead the way in looking to uproot">
+            <img src="img/afro-p17-800.jpg" alt="Page 17: a cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 17</span>Africa against two other regions</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afro-p20.jpg" data-group="afro" data-caption="p. 20 · Table 1: welcoming foreign residents?">
+            <img src="img/afro-p20-800.jpg" alt="Page 20: a green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 20</span>A 38-country heatmap</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afro-p28.jpg" data-group="afro" data-caption="p. 28 · Table 2: how Africans rate the major powers">
+            <img src="img/afro-p28-800.jpg" alt="Page 28: a blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 28</span>Rating the major powers <a href="#dashboards" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afro-p32.jpg" data-group="afro" data-caption="p. 32 · The battle is not ours: the Russia–Ukraine war">
+            <img src="img/afro-p32-800.jpg" alt="Page 32: a cream feature panel on the Russia–Ukraine war with a diverging bar chart by country." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 32</span>The Russia–Ukraine war</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afro-p39.jpg" data-group="afro" data-caption="p. 39 · Figures 37 and 38: responsibility for climate change, and support for climate action">
+            <img src="img/afro-p39-800.jpg" alt="Page 39: a dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 39</span>Who should act on climate</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afro-p45.jpg" data-group="afro" data-caption="p. 45 · Country scorecards: Ghana">
+            <img src="img/afro-p45-800.jpg" alt="Page 45: the country scorecard for Ghana, with bars, a pie and donut charts on trade, migration and great powers." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 45</span>One country on one page</figcaption>
+        </figure></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- ---------- 02 · PPC Group / Rețele Electrice România ---------- -->
+  <article class="case" id="retele-electrice" aria-labelledby="ppc-title">
+    <div class="wrap case-grid">
+      <span class="case-no reveal" aria-hidden="true">02</span>
+      <div class="reveal">
+        <p class="case-client"><img class="logo-ppc" src="../logos/ppc-group.svg" alt="PPC Group" width="100" height="42"> Rețele Electrice România</p>
+        <h3 id="ppc-title"><span lang="ro">Raport de Sustenabilitate</span> 2024</h3>
+        <p class="case-sub"><em>Sustainability Report 2024.</em> The first Rețele Electrice report prepared with reference to ESRS.</p>
+        <div class="case-body">
+          <p>PPC Group’s electricity distributor in Romania, covering Banat, Dobrogea and Muntenia, reports on materiality, governance, climate, its people and the modernisation of its grid, under the EU’s new sustainability reporting standards. We turned 105 pages of ESG disclosure into KPI tiles, flows and rings a non-specialist can read, without losing a decimal.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Pages</dt><dd><strong>105</strong>in Romanian</dd></div>
+          <div><dt>On one page</dt><dd><strong>793,348</strong>tCO₂e, traced from 3 scopes to 11 sources</dd></div>
+          <div><dt>Framework</dt><dd>ESRS, the reporting standards of the EU’s CSRD</dd></div>
+          <div><dt>Our role</dt><dd>Editorial design and data visualisation</dd></div>
+          <div><dt>Client</dt><dd>Rețele Electrice România, PPC Group</dd></div>
+        </dl>
+      </div>
+      <figure class="case-cover reveal">
+        <a href="img/ppc-cover-600.jpg" data-group="ppc" data-caption="Cover · Raport de Sustenabilitate 2024, Rețele Electrice România">
+          <img src="img/ppc-cover-600.jpg" alt="Cover of the Rețele Electrice 2024 sustainability report: a large 2024 over a forested mountain valley." width="600" height="849" loading="lazy" decoding="async">
+        </a>
+        <figcaption>The cover</figcaption>
+      </figure>
+    </div>
+
+    <div class="strip" data-strip>
+      <div class="wrap strip-bar">
+        <span class="kicker">Inside · 8 of 105 pages</span>
+        <div class="strip-nav">
+          <button type="button" data-dir="-1" aria-label="Previous pages"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
+          <button type="button" data-dir="1" aria-label="Next pages"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <ul class="strip-track" aria-label="Pages from the Rețele Electrice sustainability report">
+        <li class="pg"><figure>
+          <a href="img/ppc-p49.jpg" data-group="ppc" data-caption="p. 49 · Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024">
+            <img src="img/ppc-p49-800.jpg" alt="Page 49: a Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <a class="pg-live" href="#page-49">Live below ↓</a>
+          <figcaption><span class="folio">p. 49</span>Emissions, scope by scope</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/ppc-p10.jpg" data-group="ppc" data-caption="p. 10 · Financial and technical performance, 2024">
+            <img src="img/ppc-p10-800.jpg" alt="Page 10: orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 10</span>The year in KPI tiles</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/ppc-p12.jpg" data-group="ppc" data-caption="p. 12 · Energy use, workforce, health and safety indicators">
+            <img src="img/ppc-p12-800.jpg" alt="Page 12: green and blue KPI tiles for energy consumption, workforce and safety indicators." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 12</span>People and energy at a glance</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/ppc-p46.jpg" data-group="ppc" data-caption="p. 46 · Energy consumption, 2024">
+            <img src="img/ppc-p46-800.jpg" alt="Page 46: a grid of large green, ochre and orange tiles for energy consumption by source in 2024." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 46</span>Energy, by source</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/ppc-p50.jpg" data-group="ppc" data-caption="p. 50 · Emissions intensity per million euros of turnover">
+            <img src="img/ppc-p50-800.jpg" alt="Page 50: proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 50</span>Emissions intensity</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/ppc-p59.jpg" data-group="ppc" data-caption="p. 59 · Alignment with the EU Taxonomy">
+            <img src="img/ppc-p59-800.jpg" alt="Page 59: three orange ring charts showing the share of activities aligned with the EU Taxonomy." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 59</span>EU Taxonomy alignment</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/ppc-p69.jpg" data-group="ppc" data-caption="p. 69 · Workforce diversity by gender and age, 2023 and 2024">
+            <img src="img/ppc-p69-800.jpg" alt="Page 69: yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 69</span>Workforce diversity</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/ppc-p71.jpg" data-group="ppc" data-caption="p. 71 · Work–life balance and pay metrics">
+            <img src="img/ppc-p71-800.jpg" alt="Page 71: orange ring charts for family-related leave and blue tiles for pay indicators." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="folio">p. 71</span>Work–life balance and pay</figcaption>
+        </figure></li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============================================================
+     5. PAGE 49 — the printed page and its live rebuild.
+     The table below is the chart's only data source: the script
+     reads its rows (data-* attributes) and draws the Sankey from
+     them. Values are from page 49; labels translated from Romanian.
+     ============================================================ -->
+<section class="live" id="page-49" aria-labelledby="live-heading">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">From page to screen</span>
+      <h2 id="live-heading">Page 49, <em>off the page.</em></h2>
+      <p class="live-lead">On paper, page 49 of the Rețele Electrice report traces 793,348 tonnes of CO₂ equivalent from three scopes to eleven sources. On screen, rebuilt from the same numbers, it answers questions. Point at any flow to follow it.</p>
+    </div>
+
+    <div class="live-grid">
+      <figure class="printed reveal">
+        <div class="printed-frame">
+          <a href="img/ppc-p49.jpg" data-group="p49" data-caption="Printed · p. 49 · Raport de Sustenabilitate 2024, Rețele Electrice România">
+            <img src="img/ppc-p49-800.jpg" alt="Page 49 as printed: Romanian text above a Sankey diagram of gross Scope 1, 2 and 3 emissions, totalling 793.348 tCO2e." width="800" height="1132" loading="lazy" decoding="async">
+          </a>
+          <span class="crop"></span>
+        </div>
+        <figcaption>Printed · p. 49</figcaption>
+      </figure>
+
+      <div class="screen reveal">
+        <div class="screen-bar">
+          <span class="live-dot">Live</span>
+          <span>Rebuilt from page 49’s data</span>
+        </div>
+        <h3 class="sk-title" id="sk-title">Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024 (tCO₂e)</h3>
+        <p class="sk-hint" id="sk-hint">Point at, tap or tab to a scope or a source to follow its flow.</p>
+
+        <div class="sk-wrap">
+          <svg class="sk" role="group" aria-labelledby="sk-title" aria-describedby="sk-hint"></svg>
+          <div class="sk-readout" aria-live="polite">
+            <span class="ro-kicker">Total, 2024</span>
+            <span class="ro-value">793,348</span>
+            <span class="ro-unit">tCO₂e</span>
+            <span class="ro-note">Scope 2 is 61.7% of it: almost all network losses.</span>
+          </div>
+        </div>
+
+        <details class="sk-table">
+          <summary>See the data as a table</summary>
+          <div class="table-scroll">
+            <table id="sk-data">
+              <caption>Gross emissions by scope and source, tCO₂e. Rețele Electrice România, page 49.</caption>
+              <thead>
+                <tr><th scope="col">Scope and source</th><th scope="col">2024</th><th scope="col">2023</th><th scope="col">Share of 2024</th></tr>
+              </thead>
+              <tbody>
+                <tr class="sk-scope" data-scope="1" data-v="7688" data-v23="6911" data-name="Scope 1" data-full="Scope 1 · direct emissions" style="--c:var(--scope1)" data-color="#00C18C"><th scope="row">Scope 1 · direct emissions</th><td>7,688</td><td>6,911</td><td>0.97%</td></tr>
+                <tr data-of="1" data-v="6255" data-short="Mobile combustion" data-tiny="Mobile combustion" data-full="Direct emissions from mobile combustion"><th scope="row">Mobile combustion</th><td>6,255</td><td>–</td><td>0.79%</td></tr>
+                <tr data-of="1" data-v="931" data-short="Fugitive gases (SF₆, HFCs)" data-tiny="Fugitive gases" data-full="Direct fugitive emissions from released greenhouse gases (SF₆, HFCs)"><th scope="row">Fugitive gases (SF₆, HFCs)</th><td>931</td><td>–</td><td>0.12%</td></tr>
+                <tr data-of="1" data-v="502" data-short="Stationary combustion" data-tiny="Stationary combustion" data-full="Direct emissions from stationary combustion"><th scope="row">Stationary combustion</th><td>502</td><td>–</td><td>0.06%</td></tr>
+                <tr class="sk-scope" data-scope="2" data-v="489554" data-v23="483403" data-name="Scope 2" data-full="Scope 2 · indirect emissions from energy" style="--c:var(--scope2)" data-color="#FF4900"><th scope="row">Scope 2 · indirect, from energy</th><td>489,554</td><td>483,403</td><td>61.7%</td></tr>
+                <tr data-of="2" data-v="478282" data-v23="473226" data-short="Network losses (CPT)" data-tiny="Network losses (CPT)" data-full="Technological own consumption (CPT): network losses, including commercial losses"><th scope="row">Network losses (CPT), incl. commercial losses</th><td>478,282</td><td>473,226</td><td>60.3%</td></tr>
+                <tr data-of="2" data-v="10670" data-short="Offices &amp; facilities" data-tiny="Offices &amp; facilities" data-full="Purchased electricity used in offices and facilities"><th scope="row">Electricity for offices and facilities</th><td>10,670</td><td>–</td><td>1.3%</td></tr>
+                <tr data-of="2" data-v="590" data-short="Other purchased energy" data-tiny="Other energy" data-full="Purchased energy other than electricity"><th scope="row">Other purchased energy</th><td>590</td><td>–</td><td>0.07%</td></tr>
+                <tr data-of="2" data-v="12" data-short="Electricity for vehicles" data-tiny="Vehicles" data-full="Purchased electricity for vehicles"><th scope="row">Electricity for vehicles</th><td>12</td><td>–</td><td>&lt;0.01%</td></tr>
+                <tr class="sk-scope" data-scope="3" data-v="296106" data-name="Scope 3" data-full="Scope 3 · other indirect emissions" style="--c:var(--scope3)" data-color="#00A1DF"><th scope="row">Scope 3 · other indirect</th><td>296,106</td><td>–</td><td>37.3%</td></tr>
+                <tr data-of="3" data-v="145654" data-short="Purchased goods &amp; services" data-tiny="Purchased goods" data-full="Purchased goods and services (Category 1)"><th scope="row">Purchased goods and services (cat. 1)</th><td>145,654</td><td>–</td><td>18.4%</td></tr>
+                <tr data-of="3" data-v="145432" data-short="Capital goods" data-tiny="Capital goods" data-full="Capital goods (Category 2)"><th scope="row">Capital goods (cat. 2)</th><td>145,432</td><td>–</td><td>18.3%</td></tr>
+                <tr data-of="3" data-v="2616" data-short="Fuel &amp; energy activities" data-tiny="Fuel &amp; energy" data-full="Fuel- and energy-related activities (Category 3)"><th scope="row">Fuel- and energy-related activities (cat. 3)</th><td>2,616</td><td>–</td><td>0.33%</td></tr>
+                <tr data-of="3" data-v="2404" data-short="Waste from operations" data-tiny="Waste" data-full="Waste generated in operations (Category 5)"><th scope="row">Waste generated in operations (cat. 5)</th><td>2,404</td><td>–</td><td>0.30%</td></tr>
+              </tbody>
+              <tfoot>
+                <tr><th scope="row">Total</th><td>793,348</td><td>–</td><td>100%</td></tr>
+              </tfoot>
+            </table>
+          </div>
+        </details>
+        <p class="sk-note">Labels translated from the Romanian original. 2023 figures where the page gives them, restated by the client with 2024 emission factors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. DASHBOARDS — outwards and inwards. The demo runs on Table 2
+     of Beyond borders (page 28), transcribed in the script; every
+     column average matches the printed 38-country average.
+     ============================================================ -->
+<section class="dash" id="dashboards" aria-labelledby="dash-heading">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Reports into dashboards</span>
+      <h2 id="dash-heading">PDF in. <em>Dashboard out.</em></h2>
+      <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
+    </div>
+
+    <div class="ways">
+      <div class="way reveal">
+        <span class="way-dir">
+          <svg viewBox="0 0 52 20" aria-hidden="true"><path d="M2 10h46M40 3l8 7-8 7"/></svg>
+          Outwards
+        </span>
+        <h3>Show your impact</h3>
+        <p>Data-driven storytelling for funders, partners, the press and the public: shareable charts, country and programme pages, and a number behind every claim.</p>
+        <ul><li>Funders</li><li>Partners</li><li>Press</li><li>Public</li></ul>
+      </div>
+      <div class="way reveal">
+        <span class="way-dir">
+          <svg viewBox="0 0 52 20" aria-hidden="true"><path d="M50 10H4M12 3l-8 7 8 7"/></svg>
+          Inwards
+        </span>
+        <h3>Decide with data</h3>
+        <p>The same datasets for boards and teams: indicators that refresh as new data arrives, filters by region, year or programme, and the view each decision needs.</p>
+        <ul><li>Boards</li><li>Management</li><li>Programme teams</li><li>Analysts</li></ul>
+      </div>
+    </div>
+
+    <div class="demo reveal" data-mode="outwards" id="demo">
+      <div class="demo-top">
+        <div>
+          <span class="kicker">Live demo · one table, two dashboards</span>
+          <h3>How Africans rate the major powers</h3>
+          <p class="demo-def">% of citizens who say each power’s influence on their country is somewhat or very positive. Table 2 of <em>Beyond borders</em>, page 28, rebuilt as a dashboard.</p>
+        </div>
+        <div class="demo-controls">
+          <label class="field">
+            <span class="field-label">Country</span>
+            <select id="demo-country"></select>
+          </label>
+          <div class="field">
+            <span class="field-label" id="demo-view-label">View</span>
+            <div class="seg" role="group" aria-labelledby="demo-view-label">
+              <button type="button" data-mode="outwards" aria-pressed="true"><svg viewBox="0 0 22 12" aria-hidden="true"><path d="M1 6h18M15 2l4 4-4 4"/></svg>Outwards</button>
+              <button type="button" data-mode="inwards" aria-pressed="false"><svg viewBox="0 0 22 12" aria-hidden="true"><path d="M21 6H3M7 2L3 6l4 4"/></svg>Inwards</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="demo-story" aria-live="polite"></p>
+
+      <div class="demo-rows">
+        <div class="demo-legend" aria-hidden="true">
+          <span>Power</span>
+          <span class="avg-key">38-country average</span>
+          <span class="num">%</span>
+          <span class="num only-in">Rank</span>
+          <span class="num only-in">vs average</span>
+        </div>
+        <div class="demo-body"></div>
+      </div>
+
+      <p class="demo-src">Source: Afrobarometer Round 10 (2024/2025), in <em>Beyond borders</em> (African insights 2026), Table 2. Former colonial power: 37 countries (Liberia has none). Outwards turns the table into a sentence a press release can use; inwards adds the rank and the gap a programme team needs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. PROCESS
+     ============================================================ -->
+<section class="process" id="process" aria-labelledby="process-heading">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">How it works</span>
+      <h2 id="process-heading">From raw data to <em>final proof.</em></h2>
+    </div>
+    <ol class="steps">
+      <li class="reveal">
+        <h3>Data audit</h3>
+        <p>We start with the data, not the layout: what’s there, what’s missing, and what the numbers can honestly carry.</p>
+      </li>
+      <li class="reveal">
+        <h3>Chart system</h3>
+        <p>Palette, type and chart grammar for the whole report, so every figure speaks the same language.</p>
+      </li>
+      <li class="reveal">
+        <h3>Design and verify</h3>
+        <p>Every page laid out, every number checked against its source, on screen and again on the proof.</p>
+      </li>
+      <li class="reveal">
+        <h3>Publish, then extend</h3>
+        <p>Print-ready PDF and digital edition, social cards for launch day, and a dashboard when you want the data to keep working.</p>
+      </li>
+    </ol>
+
+    <div class="audiences reveal">
+      <span class="kicker">Made for</span>
+      <ul class="chips">
+        <li>Flagship reports</li>
+        <li>Sustainability &amp; ESG reports</li>
+        <li>Annual reports</li>
+        <li>Survey research</li>
+        <li>Policy briefs</li>
+        <li>Impact reports</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. CTA
+     ============================================================ -->
+<section class="cta" id="contact" aria-labelledby="cta-heading">
+  <div class="wrap reveal">
+    <h2 id="cta-heading">Got a report full of numbers? <em>Let’s make it read.</em></h2>
+    <p>Send us the brief, the dataset or last year’s PDF. We’ll come back within a week with a page plan, a chart system and a timeline.</p>
+    <div class="cta-actions">
+      <a class="btn" href="mailto:hello@nutgraf.studio?subject=Report%20enquiry">Commission a report</a>
+      <a class="btn btn-ghost" href="mailto:hello@nutgraf.studio?subject=Dashboard%20enquiry">Ask about dashboards</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     9. FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="footer-brand" href="/"><img src="../logos/nutgraf-logo-white.svg" alt="Nutgraf.studio"></a>
+    <div class="footer-meta">
+      <a href="/">Studio</a>
+      <a href="/workshops/">Workshops</a>
+      <a href="/exhibitions/">Exhibitions</a>
+      <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     10. LIGHTBOX
+     ============================================================ -->
+<dialog class="overlay lightbox" id="lightbox" aria-label="Report pages">
+  <button class="overlay-close" type="button" aria-label="Close page">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14"/></svg>
+  </button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous page">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg>
+  </button>
+  <figure class="lb-figure">
+    <img alt="">
+    <figcaption><span class="lb-count"></span><span class="lb-caption"></span></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" type="button" aria-label="Next page">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg>
+  </button>
+</dialog>
+
+<script>
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fmt = function (n) { return n.toLocaleString('en-GB'); };
+
+/* Nav: solidify on scroll */
+(function () {
+  var nav = document.querySelector('.nav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* Logo: one crack a beat after the page loads. The class comes off
+   once it has played. */
+(function () {
+  var brand = document.querySelector('.nav-brand');
+  if (reduceMotion) return;
+  setTimeout(function () {
+    brand.classList.add('crack');
+    setTimeout(function () { brand.classList.remove('crack'); }, 1300);
+  }, 900);
+})();
+
+/* Hero: copy rises, pages deal onto the table, the ruler runs out;
+   then the stack leans gently towards the pointer. */
+(function () {
+  var hero = document.querySelector('.hero');
+  var stack = document.querySelector('.stack');
+  var inner = document.querySelector('.stack-inner');
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      hero.classList.add('loaded');
+      stack.classList.add('dealt');
+    });
+  });
+  if (reduceMotion || !window.matchMedia('(hover: hover)').matches) return;
+  hero.addEventListener('pointermove', function (e) {
+    var r = hero.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5;
+    var y = (e.clientY - r.top) / r.height - 0.5;
+    inner.style.setProperty('--ry', (x * 9).toFixed(2) + 'deg');
+    inner.style.setProperty('--rx', (y * -7).toFixed(2) + 'deg');
+  });
+  hero.addEventListener('pointerleave', function () {
+    inner.style.setProperty('--ry', '0deg');
+    inner.style.setProperty('--rx', '0deg');
+  });
+})();
+
+/* Ruler: millimetre ticks across the hero's foot, numbered every
+   centimetre (96 CSS px = 25.4 mm). Redrawn on resize. */
+(function () {
+  var svg = document.querySelector('.ruler svg');
+  var NS = 'http://www.w3.org/2000/svg';
+  var mm = 96 / 25.4;
+  function draw() {
+    var w = svg.clientWidth;
+    var h = svg.clientHeight;
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    svg.textContent = '';
+    var d = '';
+    for (var i = 0; i * mm <= w; i++) {
+      var x = Math.round(i * mm) + 0.5;
+      var len = i % 10 === 0 ? 12 : i % 5 === 0 ? 8 : 4;
+      d += 'M' + x + ' 0V' + len;
+      if (i % 10 === 0 && i > 0) {
+        var t = document.createElementNS(NS, 'text');
+        t.setAttribute('x', x + 3);
+        t.setAttribute('y', 22);
+        t.textContent = i / 10;
+        svg.appendChild(t);
+      }
+    }
+    var p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', d);
+    svg.insertBefore(p, svg.firstChild);
+  }
+  draw();
+  var last = svg.clientWidth;
+  window.addEventListener('resize', function () {
+    if (svg.clientWidth !== last) { last = svg.clientWidth; draw(); }
+  });
+})();
+
+/* Statement: words light up as the paragraph scrolls through view */
+(function () {
+  var el = document.querySelector('.statement');
+  if (!el || reduceMotion) return;
+  var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  var nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(function (n) {
+    var frag = document.createDocumentFragment();
+    n.textContent.split(/(\s+)/).forEach(function (part) {
+      if (!part) return;
+      if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+      var s = document.createElement('span');
+      s.className = 'w';
+      s.textContent = part;
+      frag.appendChild(s);
+    });
+    n.parentNode.replaceChild(frag, n);
+  });
+  var words = el.querySelectorAll('.w');
+  var lit = -1;
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var r = el.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var p = (vh * 0.85 - r.top) / (r.height + vh * 0.3);
+    var n = Math.round(Math.min(1, Math.max(0, p)) * words.length);
+    if (n === lit) return;
+    for (var i = 0; i < words.length; i++) words[i].classList.toggle('on', i < n);
+    lit = n;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
+/* Scroll-reveal for blocks; strips stagger their pages in */
+(function () {
+  var els = document.querySelectorAll('.reveal, .strip');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  document.querySelectorAll('.strip').forEach(function (s) {
+    s.querySelectorAll('.pg').forEach(function (pg, i) { pg.style.transitionDelay = (i * 70) + 'ms'; });
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* Page strips: arrow buttons page through, and grey out at the ends */
+(function () {
+  document.querySelectorAll('[data-strip]').forEach(function (strip) {
+    var track = strip.querySelector('.strip-track');
+    var prev = strip.querySelector('[data-dir="-1"]');
+    var next = strip.querySelector('[data-dir="1"]');
+    function sync() {
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    }
+    [prev, next].forEach(function (b) {
+      b.addEventListener('click', function () {
+        track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth * 0.75, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    });
+    track.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  });
+})();
+
+/* Dialog helpers: fade in/out, lock page scroll, close on backdrop */
+function openOverlay(d) {
+  document.documentElement.classList.add('modal-open');
+  d.showModal();
+  requestAnimationFrame(function () { d.classList.add('shown'); });
+}
+function closeOverlay(d) {
+  d.classList.remove('shown');
+  setTimeout(function () { if (d.open) d.close(); }, reduceMotion ? 0 : 300);
+}
+document.querySelectorAll('.overlay').forEach(function (d) {
+  d.querySelector('.overlay-close').addEventListener('click', function () { closeOverlay(d); });
+  d.addEventListener('click', function (e) { if (e.target === d) closeOverlay(d); });
+  d.addEventListener('cancel', function (e) { e.preventDefault(); closeOverlay(d); });
+  d.addEventListener('close', function () { document.documentElement.classList.remove('modal-open'); });
+});
+
+/* Lightbox: report pages at reading size; arrows move within the
+   same report (data-group) */
+(function () {
+  var d = document.getElementById('lightbox');
+  var img = d.querySelector('img');
+  var cap = d.querySelector('.lb-caption');
+  var count = d.querySelector('.lb-count');
+  var group = [];
+  var idx = 0;
+  function show(i) {
+    idx = (i + group.length) % group.length;
+    var a = group[idx];
+    img.src = a.getAttribute('href');
+    img.alt = a.querySelector('img').alt;
+    cap.textContent = a.getAttribute('data-caption');
+    count.textContent = group.length > 1 ? (idx + 1) + ' / ' + group.length : '';
+  }
+  document.querySelectorAll('a[data-group]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      group = Array.prototype.slice.call(document.querySelectorAll('a[data-group="' + a.dataset.group + '"]'));
+      d.toggleAttribute('data-single', group.length < 2);
+      show(group.indexOf(a));
+      openOverlay(d);
+      if (window.gtag) gtag('event', 'report_page_open', { report: a.dataset.group });
+    });
+  });
+  d.querySelector('.lb-prev').addEventListener('click', function () { show(idx - 1); });
+  d.querySelector('.lb-next').addEventListener('click', function () { show(idx + 1); });
+  d.addEventListener('keydown', function (e) {
+    if (group.length < 2) return;
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+})();
+
+/* Page 49, live: a Sankey drawn from the rows of #sk-data. Scopes on
+   the left (1, 2, 3, top to bottom); sources on the right in the
+   printed order (Scope 3's, then 2's, then 1's), so the flows cross
+   as they do on paper. Bands are to scale; small sources get a label
+   slot of their own. Hover, tap or tab to a node or a flow to follow it. */
+(function () {
+  var table = document.getElementById('sk-data');
+  var svg = document.querySelector('.sk');
+  var wrap = document.querySelector('.sk-wrap');
+  var ro = {
+    kicker: document.querySelector('.ro-kicker'),
+    value: document.querySelector('.ro-value'),
+    unit: document.querySelector('.ro-unit'),
+    note: document.querySelector('.ro-note')
+  };
+  var defaults = { kicker: ro.kicker.textContent, value: ro.value.textContent, note: ro.note.textContent };
+  var NS = 'http://www.w3.org/2000/svg';
+
+  var scopes = [];
+  var byId = {};
+  var sources = [];
+  table.querySelectorAll('tbody tr').forEach(function (tr) {
+    var d = tr.dataset;
+    if (d.scope) {
+      var s = { id: d.scope, name: d.name, full: d.full, v: +d.v, v23: d.v23 ? +d.v23 : null, color: d.color, kids: [] };
+      scopes.push(s);
+      byId[s.id] = s;
+    } else {
+      var t = { of: d.of, short: d.short, tiny: d.tiny, full: d.full, v: +d.v, v23: d.v23 ? +d.v23 : null };
+      sources.push(t);
+      byId[d.of].kids.push(t);
+    }
+  });
+  var total = scopes.reduce(function (a, s) { return a + s.v; }, 0);
+  var right = [];
+  scopes.slice().reverse().forEach(function (s) { right = right.concat(s.kids); });
+
+  function share(v) {
+    var p = v / total * 100;
+    if (p < 0.01) return 'less than 0.01%';
+    return (p >= 1 ? p.toFixed(1) : p.toFixed(2)) + '%';
+  }
+  function vs23(v, v23) {
+    if (v23 == null) return '';
+    var ch = (v / v23 - 1) * 100;
+    return ' · 2023: ' + fmt(v23) + ' (' + (ch >= 0 ? '+' : '−') + Math.abs(ch).toFixed(1) + '%)';
+  }
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function label(parent, x, y, anchor, value, name, cls) {
+    var t = el('text', { x: x, y: y, 'text-anchor': anchor, class: cls || '' }, parent);
+    var v = el('tspan', { class: 'v' }, t);
+    v.textContent = fmt(value);
+    if (name) {
+      var n = el('tspan', { dx: 6 }, t);
+      n.textContent = name;
+    }
+    return t;
+  }
+
+  var focusKey = null;
+  var sticky = false;
+
+  function draw() {
+    var W = Math.round(wrap.clientWidth);
+    var narrow = W < 640;
+    var wide = W >= 760;
+    var H = narrow ? 470 : 540;
+    var pad = 6;
+    var gap = narrow ? 5 : 8;
+    var slot = narrow ? 30 : 26;
+    var Lw = narrow ? 62 : 86;
+    var Rw = narrow ? 132 : 240;
+    var nodeW = 5;
+    var xL = Lw;
+    var xR = W - Rw - nodeW;
+
+    // scale k so the right column fills H, small sources taking a label slot each
+    var room = H - 2 * pad - gap * (right.length - 1);
+    var k = room / total;
+    for (var it = 0; it < 8; it++) {
+      var fixed = 0, big = 0;
+      right.forEach(function (t) { if (t.v * k < slot) fixed += slot; else big += t.v; });
+      k = (room - fixed) / big;
+    }
+    var y = pad;
+    right.forEach(function (t) {
+      t.h = Math.max(t.v * k, 1);
+      t.y = y;
+      y += Math.max(t.v * k, slot) + gap;
+    });
+    // scopes: same scale, top-aligned like the print, room for Scope 1's label
+    var ly = pad;
+    var lgap = narrow ? 40 : 46;
+    scopes.forEach(function (s) {
+      s.h = Math.max(s.v * k, 2);
+      s.y = ly;
+      ly += s.h + lgap;
+    });
+
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.setAttribute('width', W);
+    svg.setAttribute('height', H);
+    svg.textContent = '';
+
+    var links = el('g', { style: 'isolation:isolate' }, svg);
+    scopes.forEach(function (s) {
+      var cy = s.y;
+      s.kids.forEach(function (t) {
+        var h = t.v * k;
+        var x0 = xL + nodeW, x1 = xR, xm = (x0 + x1) / 2;
+        var y0 = cy, y1 = t.y;
+        t.key = 't' + right.indexOf(t);
+        if (h >= 1.2) {
+          el('path', {
+            class: 'sk-link', 'data-key': t.key, 'data-scope': s.id, fill: s.color,
+            d: 'M' + x0 + ' ' + y0 + 'C' + xm + ' ' + y0 + ' ' + xm + ' ' + y1 + ' ' + x1 + ' ' + y1 +
+               'V' + (y1 + h) + 'C' + xm + ' ' + (y1 + h) + ' ' + xm + ' ' + (y0 + h) + ' ' + x0 + ' ' + (y0 + h) + 'Z'
+          }, links);
+        } else {
+          var ym0 = y0 + 0.5, ym1 = y1 + 0.5;
+          var dd = 'M' + x0 + ' ' + ym0 + 'C' + xm + ' ' + ym0 + ' ' + xm + ' ' + ym1 + ' ' + x1 + ' ' + ym1;
+          el('path', { class: 'sk-link', 'data-key': t.key, 'data-scope': s.id, d: dd, fill: 'none', stroke: s.color, 'stroke-width': 1 }, links);
+          // a wider invisible copy, so a hairline is still easy to hit
+          el('path', { class: 'sk-hit', 'data-key': t.key, d: dd, fill: 'none', stroke: 'transparent', 'stroke-width': 12 }, svg);
+        }
+        cy += h;
+      });
+    });
+
+    // scope nodes and labels
+    scopes.forEach(function (s) {
+      var g = el('g', { class: 'sk-node', 'data-key': 's' + s.id, tabindex: 0, role: 'img',
+        'aria-label': s.full + ': ' + fmt(s.v) + ' tonnes CO2e, ' + share(s.v) + ' of the total' + vs23(s.v, s.v23) }, svg);
+      el('rect', { class: 'sk-hit', x: 0, y: s.y - 6, width: xL + nodeW + 4, height: Math.max(s.h, 34) + 12 }, g);
+      el('rect', { class: 'bar', x: xL, y: s.y, width: nodeW, height: s.h }, g);
+      var lab = el('g', { class: 'sk-label', 'data-for': 's' + s.id }, g);
+      var ty = s.h > 60 ? s.y + s.h / 2 - 6 : s.y + 10;
+      var t1 = el('text', { x: xL - 8, y: ty, 'text-anchor': 'end' }, lab);
+      t1.textContent = s.name;
+      label(lab, xL - 8, ty + 16, 'end', s.v);
+    });
+
+    // source nodes and labels
+    right.forEach(function (t) {
+      var s = byId[t.of];
+      var full = t.full + ': ' + fmt(t.v) + ' tonnes CO2e, ' + share(t.v) + ' of the total' + vs23(t.v, t.v23);
+      var g = el('g', { class: 'sk-node', 'data-key': t.key, tabindex: 0, role: 'img', 'aria-label': s.name + ', ' + full }, svg);
+      var slotH = Math.max(t.h, slot);
+      el('rect', { class: 'sk-hit', x: xR - 4, y: t.y - gap / 2, width: W - xR + 4, height: slotH + gap }, g);
+      el('rect', { class: 'bar', x: xR, y: t.y, width: nodeW, height: t.h }, g);
+      var lab = el('g', { class: 'sk-label', 'data-for': t.key }, g);
+      var tx = xR + nodeW + 7;
+      // big bands: the label block is centred on the band (two lines on a phone)
+      var ty = t.h > slot ? t.y + t.h / 2 + (narrow ? -3 : 4) : t.y + 9;
+      if (narrow) {
+        label(lab, tx, ty, 'start', t.v, null, 'sm');
+        var n = el('text', { x: tx, y: ty + 13, class: 'sm' }, lab);
+        n.textContent = t.tiny;
+      } else {
+        label(lab, tx, ty, 'start', t.v, t.short);
+      }
+    });
+
+    apply();
+  }
+
+  function apply() {
+    if (!focusKey) svg.removeAttribute('data-focus');
+    else svg.setAttribute('data-focus', focusKey);
+    var on = {};
+    if (focusKey && focusKey[0] === 's') {
+      on[focusKey] = true;
+      byId[focusKey.slice(1)].kids.forEach(function (t) { on[t.key] = true; });
+    } else if (focusKey) {
+      on[focusKey] = true;
+      var t = right[+focusKey.slice(1)];
+      on['s' + t.of] = true;
+    }
+    svg.querySelectorAll('.sk-link').forEach(function (p) {
+      var hit = focusKey && (on[p.dataset.key] && (focusKey[0] === 's' ? p.dataset.scope === focusKey.slice(1) : p.dataset.key === focusKey));
+      p.classList.toggle('on', !!hit);
+    });
+    svg.querySelectorAll('.sk-label').forEach(function (l) { l.classList.toggle('on', !!on[l.dataset.for]); });
+
+    // readout
+    if (!focusKey) {
+      ro.kicker.textContent = defaults.kicker;
+      ro.value.textContent = defaults.value;
+      ro.note.textContent = defaults.note;
+      return;
+    }
+    var item = focusKey[0] === 's' ? byId[focusKey.slice(1)] : right[+focusKey.slice(1)];
+    var scope = focusKey[0] === 's' ? null : byId[item.of];
+    ro.kicker.textContent = scope ? scope.name + ' · ' + item.full : item.full;
+    ro.value.textContent = fmt(item.v);
+    ro.note.textContent = share(item.v) + ' of the 2024 total' + vs23(item.v, item.v23);
+  }
+
+  function keyFrom(e) {
+    var n = e.target.closest && e.target.closest('[data-key]');
+    return n ? n.dataset.key : null;
+  }
+  svg.addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse' || sticky) return;
+    var key = keyFrom(e);
+    if (key !== focusKey) { focusKey = key; apply(); }
+  });
+  svg.addEventListener('pointerleave', function (e) {
+    if (e.pointerType !== 'mouse' || sticky) return;
+    focusKey = null;
+    apply();
+  });
+  // taps (and clicks) pin a selection; tapping it again, or outside, clears it
+  svg.addEventListener('click', function (e) {
+    var key = keyFrom(e);
+    if (!key || (sticky && key === focusKey)) { sticky = false; focusKey = e.pointerType === 'mouse' ? key : null; }
+    else { sticky = true; focusKey = key; }
+    apply();
+  });
+  document.addEventListener('click', function (e) {
+    if (sticky && !svg.contains(e.target)) { sticky = false; focusKey = null; apply(); }
+  });
+  svg.addEventListener('focusin', function (e) { focusKey = keyFrom(e); apply(); });
+  svg.addEventListener('focusout', function () { if (!sticky) { focusKey = null; apply(); } });
+
+  draw();
+  var lastW = wrap.clientWidth;
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(function () {
+      if (Math.abs(wrap.clientWidth - lastW) < 1) return;
+      lastW = wrap.clientWidth;
+      draw();
+    }).observe(wrap);
+  } else {
+    window.addEventListener('resize', draw);
+  }
+})();
+
+/* Dashboard demo: Table 2 of Beyond borders (page 28), % who say each
+   power's influence is somewhat or very positive. null = not asked
+   (Liberia has no former colonial power). The averages are the
+   printed 38-country (37 for the former colonial power) averages;
+   the column means of these rows round to the same numbers. */
+(function () {
+  var POWERS = [
+    { name: 'China',                  of: 'China’s' },
+    { name: 'United States',          of: 'the United States’' },
+    { name: 'European Union',         of: 'the European Union’s' },
+    { name: 'Former colonial power',  of: 'their former colonial power’s' },
+    { name: 'India',                  of: 'India’s' },
+    { name: 'Russia',                 of: 'Russia’s' }
+  ];
+  var AVG = [62, 52, 50, 41, 39, 36];
+  var ROWS = [
+    ['Angola', 48, 47, 40, 45, 27, 39],
+    ['Benin', 69, 58, 47, 48, 36, 40],
+    ['Botswana', 37, 35, 31, 24, 21, 13],
+    ['Cabo Verde', 87, 84, 74, 84, 26, 27],
+    ['Cameroon', 72, 55, 47, 36, 41, 60],
+    ['Chad', 59, 56, 49, 20, 33, 49],
+    ['Comoros', 72, 20, 39, 34, 33, 24],
+    ['Congo-Brazzaville', 66, 40, 42, 37, 24, 49],
+    ['Côte d’Ivoire', 81, 69, 67, 57, 66, 55],
+    ['Eswatini', 75, 42, 47, 34, 38, 14],
+    ['Gabon', 61, 47, 37, 20, 35, 43],
+    ['The Gambia', 49, 49, 62, 43, 34, 37],
+    ['Ghana', 33, 51, 45, 43, 29, 26],
+    ['Guinea', 67, 60, 55, 51, 36, 49],
+    ['Guinea-Bissau', 60, 42, 56, 58, 46, 55],
+    ['Kenya', 64, 60, 47, 44, 48, 25],
+    ['Lesotho', 71, 62, 45, 26, 35, 14],
+    ['Liberia', 79, 86, 78, null, 58, 39],
+    ['Madagascar', 44, 55, 59, 47, 42, 31],
+    ['Malawi', 44, 45, 40, 36, 35, 23],
+    ['Mali', 80, 40, 30, 9, 49, 88],
+    ['Mauritania', 63, 61, 62, 57, 27, 38],
+    ['Mauritius', 68, 40, 56, 49, 76, 23],
+    ['Morocco', 60, 59, 69, 32, 28, 34],
+    ['Mozambique', 66, 59, 56, 51, 49, 40],
+    ['Namibia', 58, 56, 56, 48, 37, 42],
+    ['Nigeria', 62, 57, 49, 45, 42, 31],
+    ['São Tomé and Príncipe', 80, 57, 69, 79, 44, 32],
+    ['Senegal', 57, 51, 47, 35, 38, 37],
+    ['Seychelles', 53, 35, 45, 39, 55, 23],
+    ['Sierra Leone', 79, 82, 82, 70, 53, 41],
+    ['South Africa', 68, 46, 50, 37, 41, 40],
+    ['Tanzania', 61, 47, 45, 37, 43, 25],
+    ['Togo', 67, 60, 46, 34, 41, 49],
+    ['Tunisia', 43, 11, 23, 12, 14, 30],
+    ['Uganda', 56, 46, 44, 41, 43, 28],
+    ['Zambia', 51, 45, 33, 26, 30, 15],
+    ['Zimbabwe', 35, 46, 37, 34, 32, 28]
+  ];
+
+  var demo = document.getElementById('demo');
+  var select = document.getElementById('demo-country');
+  var body = demo.querySelector('.demo-body');
+  var story = demo.querySelector('.demo-story');
+  var buttons = demo.querySelectorAll('.seg button');
+
+  ROWS.forEach(function (r, i) {
+    var o = document.createElement('option');
+    o.value = i;
+    o.textContent = r[0];
+    select.appendChild(o);
+  });
+  select.value = ROWS.findIndex(function (r) { return r[0] === 'Sierra Leone'; });
+
+  function ordinal(n) {
+    var s = ['th', 'st', 'nd', 'rd'], v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  }
+  function rankOf(j, v) {
+    var higher = 0, same = 0, n = 0;
+    ROWS.forEach(function (r) {
+      if (r[j + 1] == null) return;
+      n++;
+      if (r[j + 1] > v) higher++;
+      else if (r[j + 1] === v) same++;
+    });
+    return { rank: higher + 1, tie: same > 1, n: n };
+  }
+  function place(name) { return name === 'The Gambia' ? 'the Gambia' : name; }
+
+  // one row per power, built once; render() only updates them
+  var rows = POWERS.map(function (p) {
+    var row = document.createElement('div');
+    row.className = 'demo-row';
+    row.innerHTML = '<span class="name"></span><span class="track"><span class="bar"></span><span class="avg"></span></span>' +
+      '<span class="val"></span><span class="rank"></span><span class="gap"></span>';
+    row.querySelector('.name').textContent = p.name;
+    body.appendChild(row);
+    return row;
+  });
+
+  function render() {
+    var r = ROWS[+select.value];
+    var best = -1, bestGap = -Infinity;
+    POWERS.forEach(function (p, j) {
+      var v = r[j + 1];
+      if (v == null) return;
+      if (v - AVG[j] > bestGap) { bestGap = v - AVG[j]; best = j; }
+    });
+
+    POWERS.forEach(function (p, j) {
+      var row = rows[j];
+      var v = r[j + 1];
+      row.classList.toggle('hi', j === best);
+      row.querySelector('.avg').style.left = AVG[j] + '%';
+      if (v == null) {
+        row.querySelector('.bar').style.width = '0';
+        row.querySelector('.val').textContent = 'n/a';
+        row.querySelector('.rank').textContent = 'not asked';
+        row.querySelector('.gap').textContent = '';
+        row.setAttribute('aria-label', p.name + ': not asked in ' + r[0]);
+        return;
+      }
+      var rk = rankOf(j, v);
+      var g = v - AVG[j];
+      row.querySelector('.bar').style.width = v + '%';
+      row.querySelector('.val').textContent = v;
+      row.querySelector('.rank').textContent = (rk.tie ? '=' : '') + ordinal(rk.rank) + ' of ' + rk.n;
+      var gapEl = row.querySelector('.gap');
+      gapEl.textContent = (g > 0 ? '+' : g < 0 ? '−' : '±') + Math.abs(g);
+      gapEl.classList.toggle('up', g > 0);
+    });
+
+    // outwards: the table, said as a sentence
+    var p = POWERS[best];
+    var v = r[best + 1];
+    var rk = rankOf(best, v);
+    story.textContent = '';
+    if (bestGap > 0) {
+      story.append('In ' + place(r[0]) + ', ');
+      var s = document.createElement('strong');
+      s.textContent = v + '%';
+      story.append(s, ' say ' + p.of + ' influence is positive: ' + bestGap + ' points above the ' + rk.n + '-country average' +
+        (rk.rank === 1 && !rk.tie ? ', the highest of all ' + rk.n + ' countries.' : '.'));
+    } else {
+      story.append('In ' + place(r[0]) + ', every major power scores at or below the average. ' + p.name + ' comes closest, at ');
+      var s2 = document.createElement('strong');
+      s2.textContent = v + '%';
+      story.append(s2, '.');
+    }
+  }
+
+  select.addEventListener('change', render);
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      demo.dataset.mode = b.dataset.mode;
+      buttons.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+    });
+  });
+  render();
+})();
+
+/* Email links: Chrome with no mail app set up drops a mailto: click
+   without a word. The click still asks for the mail app, and it also
+   copies the address and says so, so the visitor always has it. */
+(function () {
+  var toast = document.createElement('div');
+  toast.className = 'mail-toast';
+  toast.setAttribute('role', 'status');
+  document.body.appendChild(toast);
+  var timer;
+  function say(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.classList.remove('show'); }, 5000);
+  }
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var address = decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
+      var copied = navigator.clipboard && window.isSecureContext
+        ? navigator.clipboard.writeText(address) : Promise.reject();
+      copied.then(function () { say(address + ' copied to your clipboard'); },
+                  function () { say('Write to us at ' + address); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
