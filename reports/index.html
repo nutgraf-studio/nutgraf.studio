@@ -123,7 +123,7 @@ setTimeout(function () {
    Sections:
    NAV / HERO (proof stack + ruler) / STATEMENT / FLAGSHIP REPORTS
    (two cases + page strips) / PAGE 49 (printed vs live Sankey) /
-   DASHBOARDS (outwards vs inwards demo) / PROCESS / CTA / FOOTER /
+   DASHBOARDS (outwards vs inwards, three demos) / PROCESS / CTA / FOOTER /
    LIGHTBOX
    Contrast: black on cream and cream on black pass AA at any size;
    violet on cream (2.9:1) is used only for decoration, never text.
@@ -1021,7 +1021,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .sk-note { margin-top: 1rem; font-size: 0.75rem; color: rgba(10, 10, 10, 0.7); }
 
 /* ============================================================
-   6. DASHBOARDS — outwards and inwards, with a live demo
+   6. DASHBOARDS — outwards and inwards, with three live demos
    ============================================================ */
 .dash {
   background: var(--mint);
@@ -1055,9 +1055,32 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   border-radius: 999px;
 }
 
+/* the demos: three black screens on the mint, one tab each */
+.deck { margin-top: clamp(3.5rem, 7vw, 5rem); scroll-margin-top: 5.5rem; }
+.deck-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+.deck-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.deck-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9375rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: 1.5px solid var(--black);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.deck-tabs .no { font-variant-numeric: tabular-nums; opacity: 0.55; }
+.deck-tabs button[aria-selected="true"] { background: var(--black); color: var(--mint); }
+.deck-tabs button[aria-selected="true"] .no { opacity: 1; }
+.deck-tabs button:not([aria-selected="true"]):hover { background: rgba(10, 10, 10, 0.08); }
+.deck-nav { flex: none; }
+@media (max-width: 599px) { .deck-nav { display: none; } }
+.deck .demo.enter { animation: deck-in 0.45s var(--ease-out); }
+@keyframes deck-in { from { opacity: 0; transform: translateY(10px); } }
+
 /* the demo: a black screen on the mint */
 .demo {
-  margin-top: clamp(3.5rem, 7vw, 5rem);
   background: var(--black);
   color: var(--cream);
   padding: clamp(1.25rem, 3.5vw, 2.5rem);
@@ -1174,6 +1197,100 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   .demo[data-mode="inwards"] .demo-row .gap { grid-area: g; }
 }
 .demo-src { margin-top: 1.5rem; font-size: 0.75rem; color: rgba(237, 233, 225, 0.7); max-width: 52rem; }
+
+/* demo 2: the dot plot. 2016/2018 in violet, 2024/2025 in mint, the
+   change on the right; on a phone the dot labels go and the right
+   column carries the 2024/2025 value over the change */
+.dp-plot { margin-top: 2rem; }
+.dp-head, .dp-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) 1fr 4.5rem;
+  align-items: center;
+  gap: 0 1.25rem;
+}
+.dp-head { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(237, 233, 225, 0.7); padding-bottom: 0.625rem; border-bottom: 1px solid rgba(237, 233, 225, 0.2); }
+.dp-head .num { text-align: right; }
+.dp-keys { display: flex; flex-wrap: wrap; gap: 0.25rem 0.875rem; }
+.dp-key { display: inline-flex; align-items: center; gap: 0.375rem; }
+.dp-key::before { content: ""; width: 0.625rem; height: 0.625rem; border-radius: 50%; }
+.dp-key.then::before { background: var(--violet); }
+.dp-key.now::before { background: var(--mint); }
+.dp-axis { position: relative; height: 1rem; }
+.dp-axis span { position: absolute; top: 0; transform: translateX(-50%); }
+.dp-axis span:first-child { transform: none; }
+.dp-axis span:last-child { transform: translateX(-100%); }
+.dp-row { padding-block: 0.3125rem; border-bottom: 1px solid rgba(237, 233, 225, 0.1); transition: transform 0.5s var(--ease-out); }
+.dp-row[hidden] { display: none; }
+.dp-row .name { font-weight: 700; font-size: 0.875rem; line-height: 1.2; }
+.dp-row.avg-row { border-bottom-color: rgba(237, 233, 225, 0.4); padding-block: 0.5rem; }
+.dp-row.avg-row .name { font-family: var(--font-display); font-weight: 900; font-size: 1rem; }
+.dp-track {
+  position: relative;
+  height: 1.375rem;
+  background: linear-gradient(to right, rgba(237, 233, 225, 0.14) 1px, transparent 1px) 0 0 / 33.333% 100%;
+  box-shadow: inset -1px 0 rgba(237, 233, 225, 0.14);
+}
+.dp-line {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  background: linear-gradient(to right, var(--violet), var(--mint));
+  transform-origin: left center;
+  transition: transform 0.7s var(--ease-out);
+}
+.dp-line.down { background: linear-gradient(to left, var(--violet), var(--mint)); transform-origin: right center; }
+.dp-dot { position: absolute; top: 50%; width: 0.75rem; height: 0.75rem; margin: -0.375rem 0 0 -0.375rem; border-radius: 50%; }
+.dp-dot.then { background: var(--violet); }
+.dp-dot.now { background: var(--mint); box-shadow: 0 0 0 2px var(--black); transition: left 0.7s var(--ease-out); }
+.dp-v { position: absolute; top: 50%; transform: translateY(-50%); font-size: 0.75rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; transition: opacity 0.3s ease 0.4s; }
+.dp-v.lo { margin-right: 0.625rem; }
+.dp-v.hi { margin-left: 0.625rem; }
+.dp-v.then { color: var(--violet); }
+.dp-v.now { color: var(--white); }
+.dp-row.avg-row .dp-v { font-size: 0.875rem; }
+/* before the slide is first seen: every line folded into its 2016/2018 dot */
+.dp:not(.drawn) .dp-line { transform: scaleX(0); }
+.dp:not(.drawn) .dp-v { opacity: 0; transition: none; }
+.dp-num { text-align: right; font-variant-numeric: tabular-nums; }
+.dp-num .now-v { display: none; }
+.dp-num .chg { font-weight: 700; font-size: 0.875rem; color: rgba(237, 233, 225, 0.85); }
+.dp-num .chg.up { color: var(--mint); }
+.dp-num .chg.down { color: var(--violet); }
+@media (max-width: 599px) {
+  .dp-head, .dp-row { grid-template-columns: 6.75rem 1fr 2.75rem; gap: 0 0.75rem; }
+  .dp-head .dp-keys { grid-column: 1 / -1; margin-bottom: 0.5rem; }
+  .dp-head .dp-axis { grid-column: 2; }
+  .dp-head .dp-axis span:nth-child(2), .dp-head .dp-axis span:nth-child(3) { display: none; }
+  .dp-head .num { display: none; }
+  .dp-v { display: none; }
+  .dp-num { display: grid; line-height: 1.15; }
+  .dp-num .now-v { display: block; font-weight: 700; font-size: 0.875rem; color: var(--white); }
+  .dp-num .chg { font-size: 0.75rem; }
+}
+
+/* demo 3: the streamgraph, drawn in the script; streams that rose are
+   mint, streams that fell violet, deeper for bigger changes */
+.sg-keys { margin-top: 1.25rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; font-size: 0.8125rem; font-weight: 700; color: rgba(237, 233, 225, 0.85); }
+.sg-key { display: inline-flex; align-items: center; gap: 0.5rem; }
+.sg-key::before { content: ""; width: 0.875rem; height: 0.875rem; }
+.sg-key.up::before { background: var(--mint); }
+.sg-key.down::before { background: var(--violet); }
+.sg-hint { font-weight: 500; color: rgba(237, 233, 225, 0.7); }
+.sg-wrap { position: relative; margin-top: 1rem; }
+.sg-svg { width: 100%; height: auto; max-width: none; overflow: visible; touch-action: manipulation; }
+.sg-svg .st { stroke: var(--black); stroke-width: 0.75; cursor: pointer; transition: opacity 0.25s ease; }
+.sg-svg[data-focus] .st { opacity: 0.4; }
+.sg-svg[data-focus] .st.on { opacity: 1; fill-opacity: 1; }
+.sg-svg text { font-family: var(--font-body); font-size: 11px; fill: rgba(237, 233, 225, 0.8); }
+.sg-svg .grid { stroke: rgba(237, 233, 225, 0.14); }
+.sg-svg .ax { font-weight: 700; letter-spacing: 0.04em; fill: rgba(237, 233, 225, 0.7); }
+.sg-svg .lab { transition: opacity 0.25s ease; }
+.sg-svg .lead { stroke: rgba(237, 233, 225, 0.35); }
+.sg-svg[data-focus] .lab, .sg-svg[data-focus] .lead { opacity: 0.3; }
+.sg-svg .lab.on { opacity: 1; fill: var(--white); font-weight: 700; }
+.sg-svg .pt { font-size: 12px; font-weight: 800; fill: var(--white); paint-order: stroke; stroke: var(--black); stroke-width: 3px; stroke-linejoin: round; }
+.sg-svg .scale { stroke: rgba(237, 233, 225, 0.7); stroke-width: 1.5; }
 
 /* ============================================================
    7. PROCESS — how a report comes together
@@ -1376,6 +1493,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .js .strip .pg { opacity: 1; transform: none; transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .pg a, .case-cover a, .overlay, .mail-toast, .bar, .avg, .sk-link, .sk-label { transition: none; }
+  .deck .demo.enter { animation: none; }
+  .dp-row, .dp-line, .dp-dot.now, .dp-v, .sg-svg .st, .sg-svg .lab { transition: none; }
   .nav-links a.page-link .arr, .nav-links a.chip, .nav-links a.chip::before { transition: none; }
 }
 </style>
@@ -1561,7 +1680,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <a href="img/afro-p15.jpg" data-group="afro" data-caption="p. 15 · Figures 9 to 11: who has considered emigrating">
             <img src="img/afro-p15-800.jpg" alt="Page 15: purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 15</span>Who is thinking of leaving</figcaption>
+          <figcaption><span class="folio">p. 15</span>Who is thinking of leaving <a href="#demo-dots" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
           <a href="img/afro-p17.jpg" data-group="afro" data-caption="p. 17 · Figure 15: Africans lead the way in looking to uproot">
@@ -1773,9 +1892,11 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </section>
 
 <!-- ============================================================
-     6. DASHBOARDS — outwards and inwards. The demo runs on Table 2
-     of Beyond borders (page 28), transcribed in the script; every
-     column average matches the printed 38-country average.
+     6. DASHBOARDS — outwards and inwards, then three live demos in
+     a carousel, each transcribed in its script: Table 2 of Beyond
+     borders (page 28), its Figure 10 (page 15) as a dot plot, and
+     Figure A.1 of African insights 2024 (page 41) as a streamgraph.
+     Each script says how its numbers were checked against the print.
      ============================================================ -->
 <section class="dash" id="dashboards" aria-labelledby="dash-heading">
   <div class="wrap">
@@ -1806,7 +1927,20 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
     </div>
 
-    <div class="demo reveal" data-mode="outwards" id="demo">
+    <div class="deck reveal" id="deck">
+      <div class="deck-bar">
+        <div class="deck-tabs" role="tablist" aria-label="Live demos">
+          <button type="button" role="tab" id="tab-powers" aria-controls="demo" aria-selected="true"><span class="no">01</span>Major powers</button>
+          <button type="button" role="tab" id="tab-dots" aria-controls="demo-dots" aria-selected="false" tabindex="-1"><span class="no">02</span>Leaving home</button>
+          <button type="button" role="tab" id="tab-stream" aria-controls="demo-stream" aria-selected="false" tabindex="-1"><span class="no">03</span>Democracy</button>
+        </div>
+        <div class="strip-nav deck-nav">
+          <button type="button" data-step="-1" aria-label="Previous dashboard"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
+          <button type="button" data-step="1" aria-label="Next dashboard"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+    <div class="demo" data-mode="outwards" id="demo" role="tabpanel" aria-labelledby="tab-powers">
       <div class="demo-top">
         <div>
           <span class="kicker">Live demo · one table, two dashboards</span>
@@ -1842,6 +1976,84 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
 
       <p class="demo-src">Source: Afrobarometer Round 10 (2024/2025), in <em>Beyond borders</em> (African insights 2026), Table 2. Former colonial power: 37 countries (Liberia has none). Outwards turns the table into a sentence a press release can use; inwards adds the rank and the gap a programme team needs.</p>
+    </div>
+
+    <div class="demo dp" id="demo-dots" role="tabpanel" aria-labelledby="tab-dots" hidden>
+      <div class="demo-top">
+        <div>
+          <span class="kicker">Live demo · a dot plot</span>
+          <h3>Who is thinking of leaving</h3>
+          <p class="demo-def">% who say they have considered emigrating “a lot”, in 2016/2018 and in 2024/2025, in the 31 countries surveyed both times. Figure 10 of <em>Beyond borders</em>, page 15, rebuilt as a dashboard.</p>
+        </div>
+        <div class="demo-controls">
+          <label class="field">
+            <span class="field-label">Region</span>
+            <select id="dp-region">
+              <option value="">All 31 countries</option>
+              <option value="West">West Africa</option>
+              <option value="Central">Central Africa</option>
+              <option value="East">East Africa</option>
+              <option value="Southern">Southern Africa</option>
+              <option value="North">North Africa</option>
+            </select>
+          </label>
+          <div class="field">
+            <span class="field-label" id="dp-sort-label">Sort by</span>
+            <div class="seg" role="group" aria-labelledby="dp-sort-label">
+              <button type="button" data-sort="now" aria-pressed="true">2024/2025</button>
+              <button type="button" data-sort="chg" aria-pressed="false">Change</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="demo-story" aria-live="polite"></p>
+
+      <div class="dp-plot">
+        <div class="dp-head" aria-hidden="true">
+          <span class="dp-keys"><span class="dp-key then">2016/2018</span><span class="dp-key now">2024/2025</span></span>
+          <span class="dp-axis"><span style="left:0">0%</span><span style="left:33.333%">20%</span><span style="left:66.667%">40%</span><span style="left:100%">60%</span></span>
+          <span class="num">Change</span>
+        </div>
+        <div class="dp-body" role="list"></div>
+      </div>
+
+      <p class="demo-src">Source: Afrobarometer Rounds 7 (2016/2018) and 10 (2024/2025), in <em>Beyond borders</em> (African insights 2026), Figure 10; regions as in its Figure 9. Change is in percentage points. * Gabon and South Africa: the two printed dots overlap under one label, so the 2016/2018 value is read off the chart.</p>
+    </div>
+
+    <div class="demo sg" id="demo-stream" role="tabpanel" aria-labelledby="tab-stream" hidden>
+      <div class="demo-top">
+        <div>
+          <span class="kicker">Live demo · a streamgraph</span>
+          <h3>Thirty countries, five rounds of democracy</h3>
+          <p class="demo-def">Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of <em>African insights 2024</em>, page 41, rebuilt as a dashboard.</p>
+        </div>
+        <div class="demo-controls">
+          <div class="field">
+            <span class="field-label" id="sg-measure-label">Measure</span>
+            <div class="seg" role="group" aria-labelledby="sg-measure-label">
+              <button type="button" data-measure="dem" aria-pressed="true">Prefer democracy</button>
+              <button type="button" data-measure="sat" aria-pressed="false">Satisfied</button>
+            </div>
+          </div>
+          <label class="field">
+            <span class="field-label">Country</span>
+            <select id="sg-country"><option value="">All 30 countries</option></select>
+          </label>
+        </div>
+      </div>
+
+      <p class="demo-story" aria-live="polite"></p>
+
+      <div class="sg-keys" aria-hidden="true">
+        <span class="sg-key up">Rose since 2011/2013</span>
+        <span class="sg-key down">Fell</span>
+        <span class="sg-hint">Hover or tap a stream to follow one country</span>
+      </div>
+      <div class="sg-wrap"><svg class="sg-svg" role="img" aria-label="Streamgraph of 30 countries over five survey rounds"></svg></div>
+
+      <p class="demo-src">Source: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figure A.1 (page 41): % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the dashboard starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.</p>
+    </div>
     </div>
   </div>
 </section>
@@ -2554,6 +2766,571 @@ document.querySelectorAll('.overlay').forEach(function (d) {
     });
   });
   render();
+})();
+
+/* Dashboard demo 2: Figure 10 of Beyond borders (page 15), % who have
+   considered emigrating "a lot", 2016/2018 and 2024/2025, in the print's
+   order (by 2024/2025). Regions as in the report's Figure 9. The labels
+   are transcribed from the PDF's text; Gabon's and South Africa's two
+   dots overlap under one label, so their 2016/2018 values (est) are
+   read off the dot positions. The column means round to the printed
+   31-country averages, 18 and 25. */
+(function () {
+  var MAX = 60;
+  var ROWS = [
+    // country, region, 2016/2018, 2024/2025
+    ['The Gambia', 'West', 29, 53],
+    ['Liberia', 'West', 29, 51],
+    ['Ghana', 'West', 20, 44],
+    ['Cabo Verde', 'West', 37, 40],
+    ['Sierra Leone', 'West', 34, 38],
+    ['Lesotho', 'Southern', 20, 37],
+    ['Zimbabwe', 'Southern', 22, 34],
+    ['Nigeria', 'West', 11, 33],
+    ['São Tomé and Príncipe', 'West', 35, 31],
+    ['Senegal', 'West', 24, 29],
+    ['Guinea', 'West', 15, 28],
+    ['Cameroon', 'Central', 14, 27],
+    ['Tunisia', 'North', 23, 26],
+    ['Malawi', 'Southern', 28, 25],
+    ['Uganda', 'East', 11, 24],
+    ['Benin', 'West', 20, 23],
+    ['Togo', 'West', 30, 23],
+    ['Mozambique', 'Southern', 10, 21],
+    ['Gabon', 'Central', 21, 20, 'est'],
+    ['Botswana', 'Southern', 15, 19],
+    ['Kenya', 'East', 13, 19],
+    ['Eswatini', 'Southern', 14, 18],
+    ['Côte d’Ivoire', 'West', 10, 18],
+    ['Mauritius', 'East', 7, 17],
+    ['Zambia', 'Southern', 12, 17],
+    ['Morocco', 'North', 13, 16],
+    ['Mali', 'West', 11, 15],
+    ['Namibia', 'Southern', 8, 12],
+    ['South Africa', 'Southern', 11, 11, 'est'],
+    ['Madagascar', 'East', 3, 6],
+    ['Tanzania', 'East', 6, 5]
+  ];
+  var AVG = ['31-country average', '', 18, 25];
+  var REGION = { West: 'West Africa', Central: 'Central Africa', East: 'East Africa', Southern: 'Southern Africa', North: 'North Africa' };
+
+  var panel = document.getElementById('demo-dots');
+  var body = panel.querySelector('.dp-body');
+  var region = document.getElementById('dp-region');
+  var story = panel.querySelector('.demo-story');
+  var sortButtons = panel.querySelectorAll('[data-sort]');
+  var sortBy = 'now';
+
+  function pct(v) { return v / MAX * 100 + '%'; }
+  function signed(d) { return (d > 0 ? '+' : d < 0 ? '−' : '±') + Math.abs(d); }
+  function place(name) { return name === 'The Gambia' ? 'the Gambia' : name; }
+  function list(names) {
+    return names.length < 2 ? names.join('') : names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1];
+  }
+
+  function makeRow(r, isAvg) {
+    var then = r[2], now = r[3], est = r[4] === 'est', d = now - then;
+    var row = document.createElement('div');
+    row.className = 'dp-row' + (isAvg ? ' avg-row' : '');
+    row.setAttribute('role', 'listitem');
+    row.innerHTML = '<span class="name"></span><span class="dp-track"><span class="dp-line"></span>' +
+      '<span class="dp-dot then"></span><span class="dp-dot now"></span><span class="dp-v then"></span><span class="dp-v now"></span></span>' +
+      '<span class="dp-num"><span class="now-v"></span><span class="chg"></span></span>';
+    row.querySelector('.name').textContent = r[0];
+    var lo = Math.min(then, now), hi = Math.max(then, now);
+    var line = row.querySelector('.dp-line');
+    line.style.left = pct(lo);
+    line.style.width = pct(hi - lo);
+    line.classList.toggle('down', d < 0);
+    row.querySelector('.dp-dot.then').style.left = pct(then);
+    var nowDot = row.querySelector('.dp-dot.now');
+    nowDot.style.left = pct(then);          // moves out to 2024/2025 when the slide is first seen
+    var vThen = row.querySelector('.dp-v.then'), vNow = row.querySelector('.dp-v.now');
+    vThen.textContent = then;
+    vNow.textContent = now;
+    // the lower value sits left of its dot, the higher right of its own
+    [[vThen, then, d > 0], [vNow, now, d <= 0]].forEach(function (a) {
+      if (a[2]) { a[0].classList.add('lo'); a[0].style.right = (100 - a[1] / MAX * 100) + '%'; }
+      else { a[0].classList.add('hi'); a[0].style.left = pct(a[1]); }
+    });
+    if (est || d === 0) vThen.hidden = true;  // one label, as in print
+    row.querySelector('.now-v').textContent = now;
+    var chg = row.querySelector('.chg');
+    chg.textContent = signed(d) + (est ? '*' : '');
+    if (!est) chg.classList.add(d > 0 ? 'up' : d < 0 ? 'down' : 'flat');
+    row.setAttribute('aria-label', r[0] + ': ' + (est ? 'about ' : '') + then + '% in 2016/2018, ' + now + '% in 2024/2025' +
+      (est ? ', about the same' : d ? ', ' + (d > 0 ? 'up ' : 'down ') + Math.abs(d) + ' points' : ', no change'));
+    body.appendChild(row);
+    return { r: r, el: row, now: now, d: d, est: est, nowDot: nowDot };
+  }
+  var avgRow = makeRow(AVG, true);
+  var rows = ROWS.map(function (r) { return makeRow(r); });
+  var all = [avgRow].concat(rows);
+
+  // FLIP: rows slide from where they were to where the new order puts them
+  function arrange() {
+    var reg = region.value;
+    var before = rows.map(function (o) { return o.el.hidden ? null : o.el.getBoundingClientRect().top; });
+    var order = rows.slice().sort(function (a, b) {
+      return sortBy === 'chg' ? (b.d - a.d) || (b.now - a.now) : b.now - a.now;
+    });
+    order.forEach(function (o) {
+      o.el.hidden = !!reg && o.r[1] !== reg;
+      body.appendChild(o.el);
+    });
+    if (reduceMotion || !panel.classList.contains('drawn')) return;
+    rows.forEach(function (o, i) {
+      if (before[i] == null || o.el.hidden) return;
+      var dy = before[i] - o.el.getBoundingClientRect().top;
+      if (!dy) return;
+      o.el.style.transition = 'none';
+      o.el.style.transform = 'translateY(' + dy + 'px)';
+    });
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        rows.forEach(function (o) { o.el.style.transition = ''; o.el.style.transform = ''; });
+      });
+    });
+  }
+
+  function tell() {
+    var reg = region.value;
+    var set = rows.filter(function (o) { return !reg || o.r[1] === reg; });
+    var known = set.filter(function (o) { return !o.est; });
+    var up = known.filter(function (o) { return o.d > 0; });
+    var top = Math.max.apply(null, known.map(function (o) { return o.d; }));
+    var best = known.filter(function (o) { return o.d === top; });
+    var names = list(best.map(function (o) { return place(o.r[0]); }));
+    var lead = document.createElement('strong');
+    var pts = document.createElement('strong');
+    pts.textContent = top + ' points';
+    var tail = best.length > 1 ? ' each.' : ' (' + best[0].r[2] + '% to ' + best[0].now + '%).';
+    story.textContent = '';
+    if (!reg) {
+      lead.textContent = AVG[3] + '%';
+      story.append('Across ' + set.length + ' countries, ', lead, ' have considered emigrating “a lot”, up from ' + AVG[2] +
+        '% in 2016/2018. The share rose in ' + up.length + ' of them; ' + names + ' rose most, by ', pts, tail);
+      return;
+    }
+    lead.textContent = up.length === set.length ? (set.length === 2 ? 'both countries' : 'all ' + set.length + ' countries')
+      : up.length + ' of ' + set.length + ' countries';
+    story.append('In ' + REGION[reg] + ', the share rose in ', lead);
+    if (!up.length) story.append('.');
+    else if (up.length === 1) story.append(': in ' + names + ', by ', pts, tail);
+    else if (best.length === up.length) story.append(', by ', pts, ' each.');
+    else story.append('; ' + names + ' rose most, by ', pts, tail);
+  }
+
+  region.addEventListener('change', function () { arrange(); tell(); });
+  sortButtons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      sortBy = b.dataset.sort;
+      sortButtons.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      arrange();
+    });
+  });
+  // first look: each line runs out from its 2016/2018 dot to 2024/2025
+  panel.addEventListener('demo:show', function () {
+    if (panel.classList.contains('drawn')) return;
+    void panel.offsetWidth;
+    panel.classList.add('drawn');
+    all.forEach(function (o) { o.nowDot.style.left = pct(o.now); });
+  });
+  arrange();
+  tell();
+})();
+
+/* Dashboard demo 3: Figure A.1 of African insights 2024 (page 41), rounds
+   5 to 9 (2011/2013 to 2021/2023), the rounds in which all 30 countries
+   were surveyed. Two measures: % who prefer democracy to any other kind
+   of government, and % fairly or very satisfied with the way democracy
+   works. Values are the figure's labels; each country's first and last
+   round match Figures 4 and 7 of the same report but three, which
+   differ there by 1 to 4 points (Mauritius, Mozambique, Morocco), and
+   the round means match the report's own averages (73, 69, 69, 69, 66
+   and 50, 45, 45, 43, 39). Streams stack on a wiggle baseline, in order
+   of change (steepest falls at the bottom), at one scale for both
+   measures; mint rose, violet fell. */
+(function () {
+  var ROUNDS = ['2011/2013', '2014/2015', '2016/2018', '2019/2021', '2021/2023'];
+  var SHORT = ['2011/13', '2014/15', '2016/18', '2019/21', '2021/23'];
+  var DATA = [
+    // country, prefer democracy, satisfied with democracy
+    ['Benin', [76, 78, 72, 81, 79], [60, 40, 51, 51, 44]],
+    ['Botswana', [82, 83, 80, 71, 75], [70, 68, 58, 58, 30]],
+    ['Burkina Faso', [72, 81, 63, 70, 55], [50, 44, 59, 55, 33]],
+    ['Cabo Verde', [81, 81, 70, 79, 84], [45, 26, 22, 23, 27]],
+    ['Cameroon', [64, 67, 62, 57, 55], [30, 37, 29, 32, 29]],
+    ['Côte d’Ivoire', [83, 80, 77, 72, 70], [30, 36, 40, 34, 34]],
+    ['Eswatini', [46, 45, 43, 49, 55], [36, 28, 28, 16, 11]],
+    ['Ghana', [82, 69, 81, 77, 76], [74, 56, 78, 66, 51]],
+    ['Guinea', [77, 82, 76, 77, 67], [39, 41, 34, 28, 20]],
+    ['Kenya', [73, 65, 67, 75, 78], [47, 48, 56, 59, 47]],
+    ['Lesotho', [55, 50, 52, 52, 49], [50, 32, 42, 21, 26]],
+    ['Liberia', [81, 68, 70, 83, 74], [59, 43, 38, 39, 45]],
+    ['Malawi', [76, 71, 62, 52, 58], [53, 49, 37, 35, 40]],
+    ['Mali', [62, 75, 67, 62, 39], [31, 50, 37, 22, 25]],
+    ['Mauritius', [84, 82, 77, 75, 70], [72, 66, 51, 51, 32]],
+    ['Morocco', [63, 64, 69, 80, 66], [44, 49, 39, 69, 53]],
+    ['Mozambique', [59, 45, 57, 49, 48], [35, 22, 44, 42, 42]],
+    ['Namibia', [64, 74, 66, 56, 55], [62, 72, 65, 51, 50]],
+    ['Niger', [66, 71, 69, 64, 61], [65, 66, 36, 42, 53]],
+    ['Nigeria', [69, 66, 69, 75, 70], [32, 29, 42, 37, 21]],
+    ['Senegal', [88, 85, 82, 88, 84], [68, 64, 59, 48, 48]],
+    ['Sierra Leone', [76, 59, 84, 85, 84], [61, 29, 66, 56, 56]],
+    ['South Africa', [72, 64, 54, 40, 43], [60, 48, 42, 31, 25]],
+    ['Sudan', [51, 44, 62, 50, 55], [38, 33, 30, 31, 29]],
+    ['Tanzania', [84, 57, 78, 77, 79], [75, 60, 75, 84, 80]],
+    ['Togo', [77, 73, 75, 73, 68], [21, 26, 19, 31, 33]],
+    ['Tunisia', [71, 66, 46, 58, 53], [40, 58, 46, 54, 38]],
+    ['Uganda', [79, 64, 81, 70, 81], [52, 50, 46, 48, 44]],
+    ['Zambia', [90, 74, 81, 84, 87], [68, 59, 49, 37, 71]],
+    ['Zimbabwe', [79, 73, 75, 78, 75], [31, 34, 38, 41, 46]]
+  ];
+  var MEASURES = {
+    dem: { col: 1, verb: 'now prefer democracy', noun: 'preference for democracy' },
+    sat: { col: 2, verb: 'are now satisfied with their democracy', noun: 'satisfaction with democracy' }
+  };
+  var N = DATA.length, M = ROUNDS.length;
+  var MINT = '#9FF29A', VIOLET = '#7B7BF0', CREAM = '#EDE9E1';
+  var NS = 'http://www.w3.org/2000/svg';
+
+  var panel = document.getElementById('demo-stream');
+  var svg = panel.querySelector('.sg-svg');
+  var wrap = panel.querySelector('.sg-wrap');
+  var select = document.getElementById('sg-country');
+  var story = panel.querySelector('.demo-story');
+  var mButtons = panel.querySelectorAll('[data-measure]');
+  var measure = 'dem';
+  var focus = null;     // index into DATA
+  var sticky = false;
+
+  DATA.forEach(function (d, i) {
+    var o = document.createElement('option');
+    o.value = i;
+    o.textContent = d[0];
+    select.appendChild(o);
+  });
+
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function mean(a) { return a.reduce(function (s, v) { return s + v; }, 0) / a.length; }
+
+  // d3's stackOffsetWiggle and stackOffsetNone, on [y0, y1] pairs per point
+  function stack(key) {
+    var col = MEASURES[key].col;
+    var vals = DATA.map(function (d) { return d[col]; });
+    var chg = vals.map(function (v) { return v[M - 1] - v[0]; });
+    var order = DATA.map(function (d, i) { return i; }).sort(function (a, b) {
+      return (chg[a] - chg[b]) || (vals[a][M - 1] - vals[b][M - 1]);
+    });
+    var s = vals.map(function (v) { return v.map(function (x) { return [0, x]; }); });
+    var s0 = s[order[0]], y = 0, j;
+    for (j = 1; j < M; ++j) {
+      var s1 = 0, s2 = 0;
+      for (var i = 0; i < N; ++i) {
+        var si = s[order[i]], sij0 = si[j][1], sij1 = si[j - 1][1], s3 = (sij0 - sij1) / 2;
+        for (var k = 0; k < i; ++k) { var sk = s[order[k]]; s3 += sk[j][1] - sk[j - 1][1]; }
+        s1 += sij0; s2 += s3 * sij0;
+      }
+      s0[j - 1][1] += s0[j - 1][0] = y;
+      if (s1) y -= s2 / s1;
+    }
+    s0[j - 1][1] += s0[j - 1][0] = y;
+    for (var a = 1; a < N; ++a) {
+      var lower = s[order[a - 1]], upper = s[order[a]];
+      for (j = 0; j < M; ++j) upper[j][1] += upper[j][0] = lower[j][1];
+    }
+    var lo = Infinity, hi = -Infinity;
+    s.forEach(function (p) { p.forEach(function (q) { lo = Math.min(lo, q[0]); hi = Math.max(hi, q[1]); }); });
+    return { s: s, order: order, chg: chg, vals: vals, lo: lo, hi: hi };
+  }
+  var STACKS = { dem: stack('dem'), sat: stack('sat') };
+  var EXTENT = Math.max(STACKS.dem.hi - STACKS.dem.lo, STACKS.sat.hi - STACKS.sat.lo);
+
+  function colour(d) {
+    var c = d > 0 ? MINT : d < 0 ? VIOLET : CREAM;
+    return { fill: c, op: d === 0 ? 0.3 : 0.3 + 0.7 * Math.min(Math.abs(d) / 20, 1) };
+  }
+
+  // layout, rebuilt on resize; streams and labels are made once per draw
+  var G = null;          // geometry
+  var shown = null;      // pixel edges on screen now: [{t: [], b: []}]
+  var paths = [], labs = [], leads = [], pts = null, anim = 0, moving = false;
+
+  function geometry() {
+    var W = Math.round(wrap.clientWidth);
+    var narrow = W < 640;
+    var H = narrow ? 380 : 470;
+    var L = narrow ? 32 : 46, R = narrow ? 24 : 132;
+    var top = 22, bottom = H - 30;
+    var xs = ROUNDS.map(function (r, j) { return L + j * (W - L - R) / (M - 1); });
+    return { W: W, H: H, narrow: narrow, xs: xs, top: top, bottom: bottom, k: (bottom - top) / EXTENT };
+  }
+  function target(key) {
+    var st = STACKS[key], g = G;
+    var pad = ((g.bottom - g.top) - (st.hi - st.lo) * g.k) / 2;
+    function py(v) { return g.top + pad + (st.hi - v) * g.k; }
+    return st.s.map(function (p) {
+      return { t: p.map(function (q) { return py(q[1]); }), b: p.map(function (q) { return py(q[0]); }) };
+    });
+  }
+  function collapsed(to) {
+    var mid = (G.top + G.bottom) / 2;
+    return to.map(function (e) {
+      return { t: e.t.map(function (y, j) { return mid + ((y + e.b[j]) / 2 - mid) * 0.15; }), b: e.t.map(function (y, j) { return mid + ((y + e.b[j]) / 2 - mid) * 0.15; }) };
+    });
+  }
+  function bump(xs, ys, move) {
+    var d = move ? 'M' + xs[0] + ' ' + ys[0] : 'L' + xs[0] + ' ' + ys[0];
+    for (var j = 1; j < xs.length; j++) {
+      var xm = (xs[j - 1] + xs[j]) / 2;
+      d += 'C' + xm + ' ' + ys[j - 1] + ' ' + xm + ' ' + ys[j] + ' ' + xs[j] + ' ' + ys[j];
+    }
+    return d;
+  }
+  function render(E) {
+    var xs = G.xs, rx = xs.slice().reverse();
+    E.forEach(function (e, i) {
+      paths[i].setAttribute('d', bump(xs, e.t, true) + bump(rx, e.b.slice().reverse(), false) + 'Z');
+    });
+    if (!G.narrow) placeLabels(E);
+    shown = E;
+  }
+  // right-hand names, nudged apart so none overlap, with a short leader when moved
+  function placeLabels(E) {
+    var last = M - 1, x = G.xs[last];
+    var items = E.map(function (e, i) { return { i: i, want: (e.t[last] + e.b[last]) / 2 }; })
+      .sort(function (a, b) { return a.want - b.want; });
+    var gap = 11.5;
+    items.forEach(function (it, n) { it.y = n ? Math.max(it.want, items[n - 1].y + gap) : Math.max(it.want, G.top); });
+    for (var n = items.length - 1; n >= 0; n--) {
+      var cap = n === items.length - 1 ? G.bottom : items[n + 1].y - gap;
+      items[n].y = Math.min(items[n].y, cap);
+    }
+    items.forEach(function (it) {
+      labs[it.i].setAttribute('x', x + 14);
+      labs[it.i].setAttribute('y', it.y + 4);
+      leads[it.i].setAttribute('d', 'M' + (x + 2) + ' ' + it.want + 'L' + (x + 11) + ' ' + it.y);
+    });
+  }
+  function tween(from, to, ms) {
+    cancelAnimationFrame(anim);
+    if (reduceMotion || !from) { moving = false; render(to); showPoints(); return; }
+    var t0 = performance.now();
+    moving = true;
+    (function frame(now) {
+      var u = Math.min((now - t0) / ms, 1), e = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+      render(to.map(function (s, i) {
+        return {
+          t: s.t.map(function (y, j) { return from[i].t[j] + (y - from[i].t[j]) * e; }),
+          b: s.b.map(function (y, j) { return from[i].b[j] + (y - from[i].b[j]) * e; })
+        };
+      }));
+      if (u < 1) { anim = requestAnimationFrame(frame); return; }
+      moving = false;
+      showPoints();
+    })(t0);
+  }
+
+  function draw() {
+    if (!wrap.clientWidth) return;     // the slide is hidden; drawn when it shows
+    var first = !G;
+    G = geometry();
+    cancelAnimationFrame(anim);
+    moving = false;
+    svg.setAttribute('viewBox', '0 0 ' + G.W + ' ' + G.H);
+    svg.setAttribute('width', G.W);
+    svg.setAttribute('height', G.H);
+    svg.textContent = '';
+    G.xs.forEach(function (x, j) {
+      el('line', { class: 'grid', x1: x, x2: x, y1: G.top - 8, y2: G.bottom + 4 }, svg);
+      // on a phone every round is centred on its line, or the ends crowd their neighbours
+      var t = el('text', { class: 'ax', x: x, y: G.H - 8, 'text-anchor': G.narrow || (j > 0 && j < M - 1) ? 'middle' : j ? 'end' : 'start' }, svg);
+      t.textContent = G.narrow ? SHORT[j] : ROUNDS[j];
+    });
+    // scale key: how thick 50% is
+    var sx = 12, sh = 50 * G.k;
+    el('path', { class: 'scale', d: 'M' + (sx - 4) + ' ' + G.bottom + 'h8M' + sx + ' ' + G.bottom + 'v' + (-sh) + 'M' + (sx - 4) + ' ' + (G.bottom - sh) + 'h8', fill: 'none' }, svg);
+    var st = el('text', { x: sx - 6, y: G.bottom - sh - 8 }, svg);
+    st.textContent = '50%';
+    var g = el('g', {}, svg);
+    paths = DATA.map(function (d, i) { return el('path', { class: 'st', 'data-i': i }, g); });
+    labs = []; leads = [];
+    if (!G.narrow) {
+      DATA.forEach(function (d, i) {
+        leads[i] = el('path', { class: 'lead', fill: 'none' }, svg);
+        labs[i] = el('text', { class: 'lab' }, svg);
+        labs[i].textContent = d[0];
+      });
+    }
+    pts = el('g', { 'aria-hidden': 'true' }, svg);
+    paint();
+    var to = target(measure);
+    if (first) tween(collapsed(to), to, 1100);
+    else { render(to); showPoints(); }
+  }
+
+  function paint() {
+    var st = STACKS[measure];
+    paths.forEach(function (p, i) {
+      var c = colour(st.chg[i]);
+      p.setAttribute('fill', c.fill);
+      p.setAttribute('fill-opacity', c.op);
+    });
+  }
+  // the focused country: its stream lit, its five values on its back
+  function showPoints() {
+    if (!pts) return;
+    pts.textContent = '';
+    if (focus == null || !shown || moving) return;
+    var v = STACKS[measure].vals[focus];
+    G.xs.forEach(function (x, j) {
+      var t = el('text', { class: 'pt', x: x, y: shown[focus].t[j] - 6, 'text-anchor': j === 0 ? 'start' : j === M - 1 ? 'end' : 'middle' }, pts);
+      t.textContent = v[j] + '%';
+    });
+  }
+  function apply() {
+    if (focus == null) svg.removeAttribute('data-focus');
+    else svg.setAttribute('data-focus', focus);
+    paths.forEach(function (p, i) { p.classList.toggle('on', i === focus); });
+    labs.forEach(function (l, i) { l.classList.toggle('on', i === focus); });
+    select.value = focus == null ? '' : focus;
+    showPoints();
+    tell();
+  }
+
+  function tell() {
+    var m = MEASURES[measure], st = STACKS[measure];
+    story.textContent = '';
+    var s = document.createElement('strong');
+    if (focus == null) {
+      var a0 = Math.round(mean(st.vals.map(function (v) { return v[0]; })));
+      var a1 = Math.round(mean(st.vals.map(function (v) { return v[M - 1]; })));
+      var fell = st.chg.filter(function (d) { return d < 0; }).length;
+      var rose = st.chg.filter(function (d) { return d > 0; }).length;
+      s.textContent = a1 + '%';
+      story.append('Across the 30 countries, ', s, ' ' + m.verb + ', down from ' + a0 + '% in 2011/2013. It fell in ' + fell + ' countries and rose in ' + rose + '.');
+      return;
+    }
+    var v = st.vals[focus], d = st.chg[focus], name = DATA[focus][0];
+    var byChange = st.chg.slice().sort(function (a, b) { return a - b; });
+    var byLevel = st.vals.map(function (x) { return x[M - 1]; }).sort(function (a, b) { return a - b; });
+    var note = '';
+    if (d === byChange[0]) note = ': the steepest fall of the 30';
+    else if (d === byChange[N - 1]) note = ': the biggest rise of the 30';
+    else if (v[M - 1] === byLevel[N - 1]) note = ', the highest level of the 30';
+    else if (v[M - 1] === byLevel[0]) note = ', the lowest level of the 30';
+    s.textContent = v[M - 1] + '%';
+    story.append('In ' + name + ', ', s, ' ' + m.verb + ', ' +
+      (d ? (d > 0 ? 'up ' : 'down ') + Math.abs(d) + ' points since 2011/2013' : 'as in 2011/2013') + note + '.');
+  }
+
+  function indexFrom(e) {
+    var p = e.target.closest && e.target.closest('.st');
+    return p ? +p.dataset.i : null;
+  }
+  svg.addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse' || sticky) return;
+    var i = indexFrom(e);
+    if (i !== focus) { focus = i; apply(); }
+  });
+  svg.addEventListener('pointerleave', function (e) {
+    if (e.pointerType !== 'mouse' || sticky) return;
+    focus = null;
+    apply();
+  });
+  // taps (and clicks) pin a country; tapping it again, or outside, lets go
+  svg.addEventListener('click', function (e) {
+    var i = indexFrom(e);
+    if (i == null || (sticky && i === focus)) { sticky = false; focus = e.pointerType === 'mouse' ? i : null; }
+    else { sticky = true; focus = i; }
+    apply();
+  });
+  document.addEventListener('click', function (e) {
+    // the panel's own controls keep the pinned country
+    if (sticky && !svg.contains(e.target) && !panel.querySelector('.demo-controls').contains(e.target)) { sticky = false; focus = null; apply(); }
+  });
+  select.addEventListener('change', function () {
+    focus = select.value === '' ? null : +select.value;
+    sticky = focus != null;
+    apply();
+  });
+  mButtons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.dataset.measure === measure) return;
+      measure = b.dataset.measure;
+      mButtons.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      svg.setAttribute('aria-label', 'Streamgraph: ' + MEASURES[measure].noun + ' in 30 countries over five survey rounds');
+      if (pts) pts.textContent = '';
+      if (G) { paint(); tween(shown, target(measure), 750); }
+      apply();
+    });
+  });
+
+  tell();
+  // drawn when the slide first shows, redrawn when its width changes
+  var lastW = 0;
+  function resize() {
+    var w = wrap.clientWidth;
+    if (!w || Math.abs(w - lastW) < 1) return;
+    lastW = w;
+    draw();
+    apply();
+  }
+  panel.addEventListener('demo:show', resize);
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe(wrap);
+  else window.addEventListener('resize', resize);
+})();
+
+/* Demos carousel: three dashboards behind tabs. Arrows step through,
+   arrow keys move along the tabs, and a link to #demo-dots or
+   #demo-stream opens its slide. */
+(function () {
+  var deck = document.getElementById('deck');
+  var tabs = Array.prototype.slice.call(deck.querySelectorAll('[role="tab"]'));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+  var cur = 0;
+  function show(i, focusTab) {
+    i = (i + tabs.length) % tabs.length;
+    if (focusTab) tabs[i].focus();
+    if (i === cur) return;
+    tabs.forEach(function (t, j) {
+      t.setAttribute('aria-selected', j === i ? 'true' : 'false');
+      t.tabIndex = j === i ? 0 : -1;
+      panels[j].hidden = j !== i;
+      panels[j].classList.remove('enter');
+    });
+    void panels[i].offsetWidth;
+    panels[i].classList.add('enter');
+    cur = i;
+    panels[i].dispatchEvent(new CustomEvent('demo:show'));
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(i); });
+    t.addEventListener('keydown', function (e) {
+      var to = { ArrowRight: cur + 1, ArrowLeft: cur - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (to == null) return;
+      e.preventDefault();
+      show(to, true);
+    });
+  });
+  deck.querySelectorAll('[data-step]').forEach(function (b) {
+    b.addEventListener('click', function () { show(cur + Number(b.dataset.step)); });
+  });
+  function fromHash() {
+    var j = panels.findIndex(function (p) { return '#' + p.id === location.hash; });
+    if (j < 0) return;
+    show(j);
+    deck.classList.add('in');
+    deck.scrollIntoView({ block: 'start', behavior: reduceMotion ? 'auto' : 'smooth' });
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
 })();
 
 /* Email links: Chrome with no mail app set up drops a mailto: click
