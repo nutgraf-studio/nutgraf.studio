@@ -318,7 +318,7 @@ h1, h2, h3 {
 .nav-links a:hover,
 .nav-links a:focus-visible { border-bottom-color: var(--black); }
 
-/* Workshops / Exhibitions are pages of their own: an accent arrow
+/* Workshops / Exhibitions / Reports are pages of their own: an accent arrow
    follows the label and nudges up and out on hover */
 .nav-links a.page-link .arr {
   display: inline-block;
@@ -403,10 +403,19 @@ h1, h2, h3 {
   .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
 }
 
-/* Tablet: in-page anchors step aside so the cross-page links fit */
-@media (min-width: 600px) and (max-width: 819px) {
+/* Tablet and small laptop: in-page anchors step aside so the
+   cross-page links fit */
+@media (min-width: 600px) and (max-width: 959px) {
   .nav-links li:has(> a[href^="#"]:not(.chip)) { display: none; }
 }
+/* Narrow tablet: phone-size labels and a tighter gap, so three page
+   links fit beside the logo */
+@media (min-width: 600px) and (max-width: 699px) {
+  .nav-links { gap: 0.75rem; }
+  .nav-links a { font-size: 0.875rem; }
+}
+/* a page link never breaks its arrow onto a line of its own */
+.nav-links a.page-link { white-space: nowrap; }
 
 /* Over the hero film: white logo, cream links, mint chip.
    Back to the dark set once the nav turns cream on scroll. */
@@ -1154,6 +1163,7 @@ h1, h2, h3 {
         <li><a href="#partners">Partners</a></li>
         <li><a class="page-link" href="/workshops/">Workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="page-link" href="/exhibitions/">Exhibitions<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
+        <li><a class="page-link" href="/reports/">Reports<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <!-- Work nav link disabled for v1 launch — re-enable with the section below -->
         <!-- <li><a href="#work">Work</a></li> -->
         <li><a class="chip" href="#contact">Contact us</a></li>
