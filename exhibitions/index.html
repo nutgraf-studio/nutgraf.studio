@@ -937,6 +937,53 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   font-style: italic;
   font-weight: 600;
   font-size: clamp(3.5rem, 6vw, 5rem);
+/* closing reel: the posters on a loop, as wide as the mosaic, one gap
+   below its last row. Black and white like the photos, colour on
+   hover. It plays only while in view (see "Reel" in the script) and
+   wipes in like the tiles. */
+.reel {
+  position: relative;
+  margin-top: 0.5rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--ink-2);
+}
+@media (min-width: 760px) { .reel { margin-top: 0.75rem; } }
+.reel video { display: block; width: 100%; height: 100%; object-fit: cover; filter: var(--photo-filter); transition: filter 0.6s ease; }
+.reel:hover video, .reel:focus-within video { filter: none; }
+.js .reel video { clip-path: inset(100% 0 0 0); transform: scale(1.18); transition: clip-path 1.1s var(--ease-io), filter 0.6s ease; }
+.js .reel.in video { clip-path: inset(0 0 0 0); transform: none; transition: clip-path 1.1s var(--ease-io), transform 1.6s var(--ease-out), filter 0.6s ease; }
+
+/* pause control (WCAG 2.2.2), dark so it reads on the white posters */
+.reel-toggle {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(10, 10, 10, 0.75);
+  color: var(--cream);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, opacity 0.4s ease 0.9s;
+}
+.reel-toggle:hover { color: var(--mint); }
+.reel-toggle svg { width: 0.75rem; height: 0.75rem; fill: currentColor; }
+.reel-toggle .i-play { display: none; }
+.reel-toggle[aria-pressed="true"] .i-play { display: block; }
+.reel-toggle[aria-pressed="true"] .i-pause { display: none; }
+/* phones: the reel is short, so the icon alone (aria-label names it) */
+@media (max-width: 759px) {
+  .reel-toggle { right: 0.5rem; bottom: 0.5rem; padding: 0.5rem; }
+  .reel-toggle-text { display: none; }
+}
+.js .reel-toggle { opacity: 0; }
+.js .reel.in .reel-toggle { opacity: 1; }
+
   line-height: 1;
   color: var(--violet);
   margin-bottom: 1rem;
@@ -1154,6 +1201,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <path class="shard" style="--ux:-.91;--uy:.42;--s:-1" d="M92.08,212.77c1.14-3.42,2.31-6.95,3.49-10.33.28-4.52-1.3-8.68-4.36-11.46l-50.74-38.2c-.08.08-.16.16-.24.24-.25.24-.51.41-.76.55-.23,3.3.12,8.04.32,10.89,1.89,26,12.94,51.69,30.31,70.47l.13.14c4.79,5.18,6.52,6.14,7.13,6.25,2.38.38,4.13-.24,5.97-4.5,3.27-7.57,6.06-15.95,8.75-24.06Z"/>
           <path class="shard" style="--ux:.84;--uy:-.54;--s:-1" d="M267.96,160.35c.29.15.67.25,1.26.17.86-.32,3.06-2.18,3.52-3.08.12-21.23-5.52-42.14-16.34-60.49-10.87-18.45-26.5-33.5-45.2-43.54-2.55-1.37-6.39-3.43-9.16-4.41-.46-.16-1.69-.59-2.58-.62.06.55.29,1.37.59,1.83l67.9,110.14Z"/>
           <path class="shard" style="--ux:.12;--uy:.99;--s:-1" d="M180.28,257.93c-4.94-3.23-10.21-3.23-14.83.01l-15.77,13.16c.17.13.35.26.49.37.29.21.57.42.83.63.17.14.31.29.43.43,1.39.1,3.7.21,4.23.21h.26c8.6,0,18.27-1.12,26.56-3.09l.5-.12c1.96-.46,5.6-1.31,6.23-2.64.25-.54-.06-1.4-.37-2.03-.69-1.09-6.07-5.32-8.56-6.94Z"/>
+  .js .reel video, .reel-toggle { clip-path: none; transform: none; transition: none; }
         </g>
         <path fill="#fff" d="M382.35,102.78h26.43v30.18h5.41c1.67-21.23,17.69-32.89,38.09-32.89,23.73,0,38.09,14.78,38.09,41.22v72.44h-26.23v-67.44c0-16.65-9.78-25.6-23.52-25.6-19.36,0-31.85,17.48-31.85,48.08v44.96h-26.43v-110.95ZM511.62,175.22v-72.44h26.44v67.44c0,16.65,9.57,25.6,23.31,25.6,19.57,0,32.06-17.49,32.06-48.08v-44.96h26.23v110.95h-26.23v-30.18h-5.62c-1.66,21.23-17.69,32.89-38.09,32.89-23.73,0-38.09-14.57-38.09-41.21ZM661.71,170.85v-47.04h-29.97v-21.02h31.02v-31.64l25.19-13.53v45.17h43.92v21.02h-59.74v6.25h3.54c8.32.21,12.28,5.41,12.28,12.91v25.6c0,15.82,7.7,24.15,22.48,24.15h21.44v21.02h-28.1c-27.06,0-42.05-14.99-42.05-42.88ZM738.1,241.83l41.63-33.51,4.37-3.33c-28.31-2.08-46.63-23.1-46.63-50.37,0-29.98,23.52-51.83,58.08-51.83h60.16v21.02h-38.92v5.41c19.98,1.25,28.52,16.24,28.52,31.43s-7.91,25.6-17.9,34.35l-29.77,26.23c-9.37,8.32-16.24,11.03-29.14,11.03h-3.75v6.24h87.22v21.02h-113.86v-17.69ZM822.4,154.61c0-17.28-12.91-30.6-29.97-30.6s-30.18,12.91-30.18,30.6,12.7,30.81,30.18,30.81c18.94,0,29.97-14.57,29.97-30.81ZM870.91,102.78h26.44v38.3h5.41c1.87-27.27,17.69-39.34,42.46-39.34h13.95v23.1h-15.4c-31.85,0-46.42,18.94-46.42,53.29v35.59h-26.44v-110.95ZM967.49,179.17c0-15.4,7.91-26.64,15.61-33.51,16.24-14.57,20.4-15.4,36.43-15.4h14.78v-6.45h-65.36v-21.02h108.45v110.95h-26.44v-30.6h-5.41c-2.71,21.86-18.94,33.31-39.97,33.31-23.11,0-38.09-16.86-38.09-37.26ZM1050.96,148.57v-25.19l-38.09,26.23c-12.7,8.74-17.28,16.03-17.28,25.6,0,12.91,9.37,20.81,22.9,20.81,19.36,0,32.47-16.44,32.47-47.46ZM1160.46,51.37h38.92v21.02h-33.1c-13.53,0-20.61,7.08-20.61,20.19v10.2h53.7v21.02h-69.52v6.25h3.54c8.33.21,12.28,5.41,12.28,12.91v70.77h-26.23v-89.92h-29.97v-21.02h29.97v-10.62c0-25.81,14.57-40.8,41.01-40.8Z"/>
       </svg>
@@ -1340,7 +1388,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
      CSS. Each tile's shape is set by --c (columns out of 12) and
      --r (rows) on desktop, --mc / --mr on phones; every row pair
      adds up to 12 columns, so dense flow never reorders the tiles
-     and the lightbox follows the page.
+     and the lightbox follows the page. Under the mosaic, the poster
+     reel (media/intre-noi-reel-*.mp4) loops at full width, in black
+     and white until hovered.
      ============================================================ -->
 <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
   <div class="wrap">
@@ -1467,6 +1517,18 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <p>Panels, maps and installations built for a hall, not a screen: legible from three metres, rewarding at thirty centimetres.</p>
       </li>
       <li class="reveal">
+
+    <figure class="reel" aria-label="The Între noi posters, one after another">
+      <video muted loop playsinline preload="none" poster="media/intre-noi-reel-poster.jpg" aria-hidden="true" tabindex="-1">
+        <source src="media/intre-noi-reel-720.mp4" type="video/mp4" media="(max-width: 900px)">
+        <source src="media/intre-noi-reel-1080.mp4" type="video/mp4">
+      </video>
+      <button class="reel-toggle" type="button" aria-pressed="false" aria-label="Pause the poster reel">
+        <svg class="i-pause" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 0h3.5v12H1zM7.5 0H11v12H7.5z"/></svg>
+        <svg class="i-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 0l11 6-11 6z"/></svg>
+        <span class="reel-toggle-text">Pause</span>
+      </button>
+    </figure>
         <h3>Opening</h3>
         <p>Print-ready files, installation support, and a film and social kit, so the exhibition keeps travelling after the doors close.</p>
       </li>
@@ -1776,7 +1838,7 @@ var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 /* Scroll-reveal for blocks and gallery tiles (tiles stagger per row) */
 (function () {
-  var els = document.querySelectorAll('.reveal, .tile');
+  var els = document.querySelectorAll('.reveal, .tile, .reel');
   if (reduceMotion || !('IntersectionObserver' in window)) {
     els.forEach(function (el) { el.classList.add('in'); });
     return;
@@ -1818,12 +1880,53 @@ document.querySelectorAll('.overlay').forEach(function (d) {
   var d = document.getElementById('film-dialog');
   var player = d.querySelector('video');
   document.querySelectorAll('[data-film]').forEach(function (b) {
+/* Reel: the poster film under the mosaic loops while near the screen
+   and waits elsewhere or behind a dialog; it only loads once it comes
+   close. Reduced motion never starts it, and a paused reel stays
+   paused until the button plays it again. */
+(function () {
+  var reel = document.querySelector('.reel');
+  if (!reel) return;
+  var video = reel.querySelector('video');
+  var toggle = reel.querySelector('.reel-toggle');
+  var label = toggle.querySelector('.reel-toggle-text');
+  var userPaused = reduceMotion;
+  var inView = false;
+
+  function sync() {
+    toggle.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+    toggle.setAttribute('aria-label', userPaused ? 'Play the poster reel' : 'Pause the poster reel');
+    label.textContent = userPaused ? 'Play' : 'Pause';
+  }
+  function apply() {
+    if (userPaused || !inView || document.documentElement.classList.contains('modal-open')) {
+      video.pause();
+    } else {
+      var p = video.play();
+      // a phone in Low Power Mode refuses: offer Play, which a tap can start
+      if (p && p.catch) p.catch(function (e) {
+        if (e && e.name === 'NotAllowedError') { userPaused = true; sync(); }
+      });
+    }
+  }
+  toggle.addEventListener('click', function () { userPaused = !userPaused; sync(); apply(); });
+  sync();
+
+  new IntersectionObserver(function (entries) {
+    inView = entries[0].isIntersecting;
+    apply();
+  }, { rootMargin: '200px 0px' }).observe(reel);
+
+  window.reelVideo = { apply: apply };
+})();
+
     b.addEventListener('click', function () {
       openOverlay(d);
       var p = player.play();
       if (p && p.catch) p.catch(function () {});
       if (window.gtag) gtag('event', 'film_open', { film: 'intre-noi' });
     });
+  if (window.reelVideo) window.reelVideo.apply();
   });
   d.addEventListener('close', function () { player.pause(); });
 })();
@@ -1836,6 +1939,7 @@ document.querySelectorAll('.overlay').forEach(function (d) {
   var count = d.querySelector('.lb-count');
   var links = Array.prototype.slice.call(document.querySelectorAll('.tile a'));
   var idx = 0;
+    if (window.reelVideo) window.reelVideo.apply();
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function show(i) {
     idx = (i + links.length) % links.length;
