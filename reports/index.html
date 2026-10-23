@@ -1698,7 +1698,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <a href="img/afro-p28.jpg" data-group="afro" data-caption="p. 28 · Table 2: how Africans rate the major powers">
             <img src="img/afro-p28-800.jpg" alt="Page 28: a blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 28</span>Rating the major powers <a href="#dashboards" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
+          <figcaption><span class="folio">p. 28</span>Rating the major powers <a href="#demo" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
           <a href="img/afro-p32.jpg" data-group="afro" data-caption="p. 32 · The battle is not ours: the Russia–Ukraine war">
@@ -1893,9 +1893,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
 <!-- ============================================================
      6. DASHBOARDS — outwards and inwards, then three live demos in
-     a carousel, each transcribed in its script: Table 2 of Beyond
-     borders (page 28), its Figure 10 (page 15) as a dot plot, and
-     Figure A.1 of African insights 2024 (page 41) as a streamgraph.
+     a carousel, each transcribed in its script: Figure A.1 of African
+     insights 2024 (page 41) as a streamgraph, Figure 10 of Beyond
+     borders (page 15) as a dot plot, and its Table 2 (page 28).
      Each script says how its numbers were checked against the print.
      ============================================================ -->
 <section class="dash" id="dashboards" aria-labelledby="dash-heading">
@@ -1930,9 +1930,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <div class="deck reveal" id="deck">
       <div class="deck-bar">
         <div class="deck-tabs" role="tablist" aria-label="Live demos">
-          <button type="button" role="tab" id="tab-powers" aria-controls="demo" aria-selected="true"><span class="no">01</span>Major powers</button>
+          <button type="button" role="tab" id="tab-stream" aria-controls="demo-stream" aria-selected="true"><span class="no">01</span>Democracy</button>
           <button type="button" role="tab" id="tab-dots" aria-controls="demo-dots" aria-selected="false" tabindex="-1"><span class="no">02</span>Leaving home</button>
-          <button type="button" role="tab" id="tab-stream" aria-controls="demo-stream" aria-selected="false" tabindex="-1"><span class="no">03</span>Democracy</button>
+          <button type="button" role="tab" id="tab-powers" aria-controls="demo" aria-selected="false" tabindex="-1"><span class="no">03</span>Major powers</button>
         </div>
         <div class="strip-nav deck-nav">
           <button type="button" data-step="-1" aria-label="Previous dashboard"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
@@ -1940,42 +1940,38 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         </div>
       </div>
 
-    <div class="demo" data-mode="outwards" id="demo" role="tabpanel" aria-labelledby="tab-powers">
+    <div class="demo sg" id="demo-stream" role="tabpanel" aria-labelledby="tab-stream">
       <div class="demo-top">
         <div>
-          <span class="kicker">Live demo · one table, two dashboards</span>
-          <h3>How Africans rate the major powers</h3>
-          <p class="demo-def">% of citizens who say each power’s influence on their country is somewhat or very positive. Table 2 of <em>Beyond borders</em>, page 28, rebuilt as a dashboard.</p>
+          <span class="kicker">Live demo · a streamgraph</span>
+          <h3>Thirty countries, five rounds of democracy</h3>
+          <p class="demo-def">Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of <em>African insights 2024</em>, page 41, rebuilt as a dashboard.</p>
         </div>
         <div class="demo-controls">
-          <label class="field">
-            <span class="field-label">Country</span>
-            <select id="demo-country"></select>
-          </label>
           <div class="field">
-            <span class="field-label" id="demo-view-label">View</span>
-            <div class="seg" role="group" aria-labelledby="demo-view-label">
-              <button type="button" data-mode="outwards" aria-pressed="true"><svg viewBox="0 0 22 12" aria-hidden="true"><path d="M1 6h18M15 2l4 4-4 4"/></svg>Outwards</button>
-              <button type="button" data-mode="inwards" aria-pressed="false"><svg viewBox="0 0 22 12" aria-hidden="true"><path d="M21 6H3M7 2L3 6l4 4"/></svg>Inwards</button>
+            <span class="field-label" id="sg-measure-label">Measure</span>
+            <div class="seg" role="group" aria-labelledby="sg-measure-label">
+              <button type="button" data-measure="dem" aria-pressed="true">Prefer democracy</button>
+              <button type="button" data-measure="sat" aria-pressed="false">Satisfied</button>
             </div>
           </div>
+          <label class="field">
+            <span class="field-label">Country</span>
+            <select id="sg-country"><option value="">All 30 countries</option></select>
+          </label>
         </div>
       </div>
 
       <p class="demo-story" aria-live="polite"></p>
 
-      <div class="demo-rows">
-        <div class="demo-legend" aria-hidden="true">
-          <span>Power</span>
-          <span class="avg-key">38-country average</span>
-          <span class="num">%</span>
-          <span class="num only-in">Rank</span>
-          <span class="num only-in">vs average</span>
-        </div>
-        <div class="demo-body"></div>
+      <div class="sg-keys" aria-hidden="true">
+        <span class="sg-key up">Rose since 2011/2013</span>
+        <span class="sg-key down">Fell</span>
+        <span class="sg-hint">Hover or tap a stream to follow one country</span>
       </div>
+      <div class="sg-wrap"><svg class="sg-svg" role="img" aria-label="Streamgraph of 30 countries over five survey rounds"></svg></div>
 
-      <p class="demo-src">Source: Afrobarometer Round 10 (2024/2025), in <em>Beyond borders</em> (African insights 2026), Table 2. Former colonial power: 37 countries (Liberia has none). Outwards turns the table into a sentence a press release can use; inwards adds the rank and the gap a programme team needs.</p>
+      <p class="demo-src">Source: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figure A.1 (page 41): % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the dashboard starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.</p>
     </div>
 
     <div class="demo dp" id="demo-dots" role="tabpanel" aria-labelledby="tab-dots" hidden>
@@ -2021,38 +2017,42 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <p class="demo-src">Source: Afrobarometer Rounds 7 (2016/2018) and 10 (2024/2025), in <em>Beyond borders</em> (African insights 2026), Figure 10; regions as in its Figure 9. Change is in percentage points. * Gabon and South Africa: the two printed dots overlap under one label, so the 2016/2018 value is read off the chart.</p>
     </div>
 
-    <div class="demo sg" id="demo-stream" role="tabpanel" aria-labelledby="tab-stream" hidden>
+    <div class="demo" data-mode="outwards" id="demo" role="tabpanel" aria-labelledby="tab-powers" hidden>
       <div class="demo-top">
         <div>
-          <span class="kicker">Live demo · a streamgraph</span>
-          <h3>Thirty countries, five rounds of democracy</h3>
-          <p class="demo-def">Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of <em>African insights 2024</em>, page 41, rebuilt as a dashboard.</p>
+          <span class="kicker">Live demo · one table, two dashboards</span>
+          <h3>How Africans rate the major powers</h3>
+          <p class="demo-def">% of citizens who say each power’s influence on their country is somewhat or very positive. Table 2 of <em>Beyond borders</em>, page 28, rebuilt as a dashboard.</p>
         </div>
         <div class="demo-controls">
-          <div class="field">
-            <span class="field-label" id="sg-measure-label">Measure</span>
-            <div class="seg" role="group" aria-labelledby="sg-measure-label">
-              <button type="button" data-measure="dem" aria-pressed="true">Prefer democracy</button>
-              <button type="button" data-measure="sat" aria-pressed="false">Satisfied</button>
-            </div>
-          </div>
           <label class="field">
             <span class="field-label">Country</span>
-            <select id="sg-country"><option value="">All 30 countries</option></select>
+            <select id="demo-country"></select>
           </label>
+          <div class="field">
+            <span class="field-label" id="demo-view-label">View</span>
+            <div class="seg" role="group" aria-labelledby="demo-view-label">
+              <button type="button" data-mode="outwards" aria-pressed="true"><svg viewBox="0 0 22 12" aria-hidden="true"><path d="M1 6h18M15 2l4 4-4 4"/></svg>Outwards</button>
+              <button type="button" data-mode="inwards" aria-pressed="false"><svg viewBox="0 0 22 12" aria-hidden="true"><path d="M21 6H3M7 2L3 6l4 4"/></svg>Inwards</button>
+            </div>
+          </div>
         </div>
       </div>
 
       <p class="demo-story" aria-live="polite"></p>
 
-      <div class="sg-keys" aria-hidden="true">
-        <span class="sg-key up">Rose since 2011/2013</span>
-        <span class="sg-key down">Fell</span>
-        <span class="sg-hint">Hover or tap a stream to follow one country</span>
+      <div class="demo-rows">
+        <div class="demo-legend" aria-hidden="true">
+          <span>Power</span>
+          <span class="avg-key">38-country average</span>
+          <span class="num">%</span>
+          <span class="num only-in">Rank</span>
+          <span class="num only-in">vs average</span>
+        </div>
+        <div class="demo-body"></div>
       </div>
-      <div class="sg-wrap"><svg class="sg-svg" role="img" aria-label="Streamgraph of 30 countries over five survey rounds"></svg></div>
 
-      <p class="demo-src">Source: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figure A.1 (page 41): % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the dashboard starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.</p>
+      <p class="demo-src">Source: Afrobarometer Round 10 (2024/2025), in <em>Beyond borders</em> (African insights 2026), Table 2. Former colonial power: 37 countries (Liberia has none). Outwards turns the table into a sentence a press release can use; inwards adds the rank and the gap a programme team needs.</p>
     </div>
     </div>
   </div>
@@ -3273,14 +3273,25 @@ document.querySelectorAll('.overlay').forEach(function (d) {
   });
 
   tell();
-  // drawn when the slide first shows, redrawn when its width changes
+  // first drawn when the chart scrolls into view, so the streams grow in
+  // where they can be seen; redrawn when its width changes
   var lastW = 0;
+  var seen = reduceMotion || !('IntersectionObserver' in window);
   function resize() {
     var w = wrap.clientWidth;
-    if (!w || Math.abs(w - lastW) < 1) return;
+    if (!seen || !w || Math.abs(w - lastW) < 1) return;
     lastW = w;
     draw();
     apply();
+  }
+  if (!seen) {
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      io.disconnect();
+      seen = true;
+      resize();
+    }, { threshold: 0.25 });
+    io.observe(wrap);
   }
   panel.addEventListener('demo:show', resize);
   if ('ResizeObserver' in window) new ResizeObserver(resize).observe(wrap);
@@ -3288,8 +3299,8 @@ document.querySelectorAll('.overlay').forEach(function (d) {
 })();
 
 /* Demos carousel: three dashboards behind tabs. Arrows step through,
-   arrow keys move along the tabs, and a link to #demo-dots or
-   #demo-stream opens its slide. */
+   arrow keys move along the tabs, and a link to a slide's id
+   (#demo-stream, #demo-dots, #demo) opens it. */
 (function () {
   var deck = document.getElementById('deck');
   var tabs = Array.prototype.slice.call(deck.querySelectorAll('[role="tab"]'));
