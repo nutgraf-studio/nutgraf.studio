@@ -264,7 +264,7 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .nav-links a:hover,
 .nav-links a:focus-visible { border-bottom-color: var(--mint); }
 
-/* Workshops / Exhibitions are pages of their own: an accent arrow
+/* Workshops / Exhibitions / Reports are pages of their own: an accent arrow
    follows the label and nudges up and out on hover */
 .nav-links a.page-link .arr {
   display: inline-block;
@@ -329,10 +329,22 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   .nav-links a.icon-link svg { width: 1.35rem; height: 1.35rem; }
 }
 
-/* Tablet: in-page anchors step aside so the cross-page links fit */
-@media (min-width: 600px) and (max-width: 819px) {
+/* Tablet and small laptop: in-page anchors step aside so the
+   cross-page links fit */
+@media (min-width: 600px) and (max-width: 1023px) {
   .nav-links li:has(> a[href^="#"]:not(.chip)) { display: none; }
 }
+/* ...and Studio too, where it's tightest: the logo already leads home */
+@media (min-width: 600px) and (max-width: 759px) {
+  .nav-links li:has(> a[href="/"]) { display: none; }
+}
+/* Narrow tablet: tighter, as on phones, so the page links fit */
+@media (min-width: 600px) and (max-width: 699px) {
+  .nav-links { gap: 0.875rem; }
+  .nav-links a { font-size: 0.875rem; }
+}
+/* a page link never breaks its arrow onto a line of its own */
+.nav-links a.page-link { white-space: nowrap; }
 
 /* nav waits for the iris to open */
 .js .nav { opacity: 0; transform: translateY(-0.75rem); }
@@ -1210,6 +1222,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <ul class="nav-links">
         <li><a href="/">Studio</a></li>
         <li><a class="page-link" href="/workshops/">Workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
+        <li><a class="page-link" href="/reports/">Reports<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a href="#intre-noi">Între noi</a></li>
         <li><a href="#process">Process</a></li>
         <li><a class="chip" href="#contact">Plan an exhibition</a></li>
@@ -1578,6 +1591,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <div class="footer-meta">
       <a href="/">Studio</a>
       <a href="/workshops/">Workshops</a>
+      <a href="/reports/">Reports</a>
       <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
       <a href="#top">Back to top ↑</a>
     </div>
