@@ -9,7 +9,7 @@ This is a plain-text version of https://nutgraf.studio/reports/ for language mod
 1. **Data report design.** Flagship, annual and research reports laid out around their data: editorial and graphic design, one grid, one type system and one chart grammar from cover to annex.
 2. **Data visualisation.** Every chart drawn for its finding, whether a bar chart, a dot plot, a heatmap, a Sankey diagram or a map, for print and for screen.
 3. **Infographics.** KPI spreads, one-page country scorecards and social cards: infographics that carry a number on their own.
-4. **Sustainability and ESG reports.** CSRD and ESRS disclosures, emissions inventories and people metrics a non-specialist can read, without losing a decimal.
+4. **Corporate reports.** Annual, sustainability, ESG and impact reports: KPIs, emissions, people metrics and CSRD disclosures that boards, investors and the public can read, without losing a decimal.
 5. **Interactive dashboards.** PDF reports rebuilt on their datasets, with filters, rankings and live charts, for your audiences and for your own decisions.
 6. **Data-driven storytelling.** The finding first, the evidence after: report narratives, headlines and charts the press can quote and funders can use.
 
