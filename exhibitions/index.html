@@ -361,9 +361,14 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
    ============================================================ */
 .hero {
   position: relative;
-  height: 100vh;
-  height: 100svh;
-  min-height: 34rem;
+  /* a floor, not a fixed height: on a short window the copy pushes the
+     hero taller instead of riding up under the logo */
+  min-height: 100vh;
+  min-height: max(34rem, 100svh);
+  display: grid;
+  align-items: end;
+  /* the same clearance under the nav as the workshops hero */
+  padding-top: 6rem;
   overflow: hidden;
   background: var(--black);
   isolation: isolate;
@@ -475,8 +480,13 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 
 /* copy */
 .hero-content {
-  position: absolute;
-  inset: auto 0 0 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  /* home and workshops' container, as in the nav, so the kicker
+     lines up under the logo */
+  max-width: 72rem;
+  padding-inline: 1.5rem;
   padding-bottom: clamp(4.5rem, 10vh, 7rem);
   display: grid;
   gap: 2rem;
