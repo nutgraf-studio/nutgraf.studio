@@ -60,8 +60,8 @@ setTimeout(function () {
 <meta name="twitter:image" content="https://nutgraf.studio/reports/og-image.jpg?v=2">
 <meta name="twitter:image:alt" content="Bring us the data, leave with the report: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
 
-<!-- Structured data, one graph: the page, the service it sells (with
-     the "What we make" list) and the two reports shown as case studies.
+<!-- Structured data, one graph: the page, the service it sells and the
+     two reports shown as case studies.
      The FAQ markup below is written from the same list as the visible
      FAQ, by the script that added it; keep the two in step. -->
 <script type="application/ld+json">
@@ -149,67 +149,7 @@ setTimeout(function () {
         "@id": "https://nutgraf.studio/#organization"
       },
       "areaServed": "Worldwide",
-      "url": "https://nutgraf.studio/reports/",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "What we make",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Data report design",
-              "description": "Flagship, annual and research reports laid out around their data: editorial and graphic design, one grid, one type system and one chart grammar from cover to annex.",
-              "url": "https://nutgraf.studio/reports/#flagship"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Data visualisation",
-              "description": "Every chart drawn for its finding, whether a bar chart, a dot plot, a heatmap, a Sankey diagram or a map, for print and for screen.",
-              "url": "https://nutgraf.studio/reports/#page-49"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Infographics",
-              "description": "KPI spreads, one-page country scorecards and social cards: infographics that carry a number on their own.",
-              "url": "https://nutgraf.studio/reports/#beyond-borders"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Corporate reports",
-              "description": "Annual, sustainability, ESG and impact reports: KPIs, emissions, people metrics and CSRD disclosures that boards, investors and the public can read, without losing a decimal.",
-              "url": "https://nutgraf.studio/reports/#retele-electrice"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Interactive dashboards",
-              "description": "PDF reports rebuilt on their datasets, with filters, rankings and live charts, for your audiences and for your own decisions.",
-              "url": "https://nutgraf.studio/reports/#dashboards"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Data-driven storytelling",
-              "description": "The finding first, the evidence after: report narratives, headlines and charts the press can quote and funders can use.",
-              "url": "https://nutgraf.studio/reports/#dashboards"
-            }
-          }
-        ]
-      }
+      "url": "https://nutgraf.studio/reports/"
     },
     {
       "@type": "Report",
@@ -1955,10 +1895,12 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </section>
 
 <!-- ============================================================
-     3b. CONTENTS — what we make. The same list feeds the Service
-     markup (hasOfferCatalog) in the head.
+     3b. CONTENTS — what we make. Hidden since 2026-10-24 at the
+     user's request; to bring it back, drop `hidden` and restore the
+     Service's hasOfferCatalog in the head (commit 89ba387 has it), so
+     the markup never describes text the page doesn't show.
      ============================================================ -->
-<section class="toc" id="services" aria-labelledby="toc-heading">
+<section class="toc" id="services" aria-labelledby="toc-heading" hidden>
   <div class="wrap">
     <div class="reveal">
       <span class="kicker">Contents</span>

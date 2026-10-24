@@ -4,15 +4,6 @@
 
 This is a plain-text version of https://nutgraf.studio/reports/ for language models and AI assistants. Contact: hello@nutgraf.studio. Worldwide, on-site or remote.
 
-## What we make
-
-1. **Data report design.** Flagship, annual and research reports laid out around their data: editorial and graphic design, one grid, one type system and one chart grammar from cover to annex.
-2. **Data visualisation.** Every chart drawn for its finding, whether a bar chart, a dot plot, a heatmap, a Sankey diagram or a map, for print and for screen.
-3. **Infographics.** KPI spreads, one-page country scorecards and social cards: infographics that carry a number on their own.
-4. **Corporate reports.** Annual, sustainability, ESG and impact reports: KPIs, emissions, people metrics and CSRD disclosures that boards, investors and the public can read, without losing a decimal.
-5. **Interactive dashboards.** PDF reports rebuilt on their datasets, with filters, rankings and live charts, for your audiences and for your own decisions.
-6. **Data-driven storytelling.** The finding first, the evidence after: report narratives, headlines and charts the press can quote and funders can use.
-
 ## Case study 1: Beyond borders (Afrobarometer, African insights 2026)
 
 *Beyond borders: Citizen perspectives on a shifting global order* is Afrobarometer's flagship report for 2026. It asks how Africans see a world in flux: free trade under the AfCFTA, migration, the great powers, the continent's voice in global institutions and climate action.
