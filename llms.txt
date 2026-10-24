@@ -9,7 +9,18 @@ Nutgraf works with newsrooms, NGOs, cultural institutions and public-sector clie
 - [Studio](https://nutgraf.studio/): Services, methodology and selected work — data design, research and reports, mapping and visualisations.
 - [Workshops](https://nutgraf.studio/workshops/): Flagship half-day-to-two-day workshops in data research, data design and data storytelling for teams, built around state-of-the-art AI. Includes format, pricing approach and frequently asked questions.
 - [Exhibitions](https://nutgraf.studio/exhibitions/): Data exhibitions for cultural diplomacy, designed for embassies, cultural institutes and trade agencies. Features Între noi, an exhibition on Italy and Romania told with data, with its film and photos.
-- [Reports](https://nutgraf.studio/reports/): Data-intensive reports, from flagship studies to ESG disclosures, and PDF reports turned into interactive dashboards. Features Afrobarometer's Beyond borders and Rețele Electrice România's 2024 sustainability report.
+- [Reports](https://nutgraf.studio/reports/): Data visualisation reports, infographics and interactive dashboards: report design for flagship, annual and ESG reports, and PDF reports turned into dashboards. Features Afrobarometer's Beyond borders and Rețele Electrice România's 2024 sustainability report. Markdown version: https://nutgraf.studio/reports/index.html.md
+
+## Data reports, data visualisation and dashboards
+
+Nutgraf's flagship service. Full details: https://nutgraf.studio/reports/index.html.md
+
+- Data report design: flagship, annual, research, sustainability and ESG reports designed around their data, with one chart system per report and every number checked against its source.
+- Data visualisation (data visualization, dataviz) and infographics: bar charts, dot plots, heatmaps, Sankey diagrams, maps, KPI tiles and one-page country scorecards, for print and for screen.
+- Interactive dashboards: PDF reports rebuilt on their datasets, for outward data-driven storytelling (funders, partners, the press, the public) and inward data-driven decision making (boards, management, programme teams).
+- Case study: Afrobarometer's Beyond borders (African insights 2026): 48 pages, 38 figures and 4 tables, Round 10 survey data from 38 countries; the colophon reads "Report design by nutgraf.studio".
+- Case study: Rețele Electrice România (PPC Group), Sustainability Report 2024: 105 pages in Romanian, the company's first prepared with reference to ESRS; its page 49 traces 793,348 tCO2e from three scopes to eleven sources and is rebuilt on the web page as an interactive Sankey diagram.
+- To start: a brief, a dataset or last year's PDF; Nutgraf replies within a week with a page plan, a chart system and a timeline. Email hello@nutgraf.studio.
 
 ## Contact
 

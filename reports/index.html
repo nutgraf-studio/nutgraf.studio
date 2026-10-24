@@ -25,11 +25,13 @@ setTimeout(function () {
 }, 4000);
 </script>
 
-<title>Data Reports and Dashboards — Nutgraf</title>
-<meta name="description" content="Nutgraf designs data-intensive reports, from flagship studies to ESG disclosures, and turns PDF reports into interactive dashboards. See Afrobarometer’s Beyond borders and Rețele Electrice’s 2024 sustainability report.">
+<title>Data Visualisation Reports, Infographics & Dashboards — Nutgraf</title>
+<meta name="description" content="Data report design studio: data visualisation, infographics and charts for flagship, annual and ESG reports, and PDF reports turned into interactive dashboards.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Nutgraf.studio">
 <link rel="canonical" href="https://nutgraf.studio/reports/">
+<!-- the same page as plain Markdown, for AI assistants (listed in /llms.txt) -->
+<link rel="alternate" type="text/markdown" href="https://nutgraf.studio/reports/index.html.md" title="Data visualisation reports, infographics and dashboards (Markdown)">
 <meta name="theme-color" content="#EDE9E1">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -42,8 +44,8 @@ setTimeout(function () {
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nutgraf.studio">
-<meta property="og:title" content="Data Reports and Dashboards — Nutgraf">
-<meta property="og:description" content="Data-intensive reports with state-of-the-art data design and bespoke craft, and PDF reports turned into interactive dashboards.">
+<meta property="og:title" content="Data Visualisation Reports, Infographics & Dashboards — Nutgraf">
+<meta property="og:description" content="Data visualisation, infographics and report design for flagship, annual and ESG reports, plus PDF reports turned into interactive dashboards and data-driven stories.">
 <meta property="og:url" content="https://nutgraf.studio/reports/">
 <meta property="og:image" content="https://nutgraf.studio/reports/og-image.jpg?v=2">
 <meta property="og:image:width" content="1200">
@@ -53,45 +55,289 @@ setTimeout(function () {
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Data Reports and Dashboards — Nutgraf">
-<meta name="twitter:description" content="Data-intensive reports with state-of-the-art data design and bespoke craft, and PDF reports turned into interactive dashboards.">
+<meta name="twitter:title" content="Data Visualisation Reports, Infographics & Dashboards — Nutgraf">
+<meta name="twitter:description" content="Data visualisation, infographics and report design for flagship, annual and ESG reports, plus PDF reports turned into interactive dashboards and data-driven stories.">
 <meta name="twitter:image" content="https://nutgraf.studio/reports/og-image.jpg?v=2">
 <meta name="twitter:image:alt" content="Bring us the data, leave with the report: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
 
-<!-- WebPage entity, tied to the site-wide Organization defined on the
-     home page; the two showcased reports are listed as mentions. -->
+<!-- Structured data, one graph: the page, the service it sells (with
+     the "What we make" list) and the two reports shown as case studies.
+     The FAQ markup below is written from the same list as the visible
+     FAQ, by the script that added it; keep the two in step. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://nutgraf.studio/reports/#webpage",
-  "url": "https://nutgraf.studio/reports/",
-  "name": "Data Reports and Dashboards — Nutgraf",
-  "description": "Nutgraf designs data-intensive reports, from flagship studies to ESG disclosures, and turns PDF reports into interactive dashboards connected to their datasets.",
-  "inLanguage": "en-GB",
-  "isPartOf": { "@type": "WebSite", "@id": "https://nutgraf.studio/#website", "name": "Nutgraf.studio", "url": "https://nutgraf.studio/" },
-  "about": { "@type": "Organization", "@id": "https://nutgraf.studio/#organization", "name": "Nutgraf.studio", "url": "https://nutgraf.studio/" },
-  "primaryImageOfPage": "https://nutgraf.studio/reports/og-image.jpg",
-  "mentions": [
+  "@graph": [
     {
-      "@type": "Report",
-      "name": "Beyond borders: Citizen perspectives on a shifting global order (African insights 2026)",
-      "publisher": { "@type": "Organization", "name": "Afrobarometer", "url": "https://www.afrobarometer.org/" },
-      "inLanguage": "en",
-      "contributor": { "@type": "Organization", "@id": "https://nutgraf.studio/#organization", "name": "Nutgraf.studio" }
+      "@type": "WebPage",
+      "@id": "https://nutgraf.studio/reports/#webpage",
+      "url": "https://nutgraf.studio/reports/",
+      "name": "Data Visualisation Reports, Infographics & Dashboards — Nutgraf",
+      "description": "Data report design studio: data visualisation, infographics and charts for flagship, annual and ESG reports, and PDF reports turned into interactive dashboards.",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://nutgraf.studio/#website",
+        "name": "Nutgraf.studio",
+        "url": "https://nutgraf.studio/"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Data visualization"
+        },
+        {
+          "@type": "Thing",
+          "name": "Report design"
+        },
+        {
+          "@type": "Thing",
+          "name": "Infographics"
+        },
+        {
+          "@type": "Thing",
+          "name": "Dashboards"
+        },
+        {
+          "@type": "Thing",
+          "name": "Data-driven storytelling"
+        },
+        {
+          "@type": "Thing",
+          "name": "Sustainability reporting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Information design"
+        }
+      ],
+      "keywords": "data visualisation, data visualization, dataviz, data report design, report design, infographics, infographic design, interactive dashboards, PDF to dashboard, data-driven storytelling, data storytelling, ESG report design, sustainability report design, annual report design, information design, graphic design for reports",
+      "mainEntity": {
+        "@id": "https://nutgraf.studio/reports/#service"
+      },
+      "mentions": [
+        {
+          "@id": "https://nutgraf.studio/reports/#beyond-borders"
+        },
+        {
+          "@id": "https://nutgraf.studio/reports/#retele-electrice"
+        }
+      ],
+      "primaryImageOfPage": "https://nutgraf.studio/reports/og-image.jpg",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".hero-sub",
+          ".statement",
+          ".faq-item dt",
+          ".faq-item dd"
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://nutgraf.studio/reports/#service",
+      "name": "Data report design and data visualisation",
+      "alternateName": [
+        "Data visualization report design",
+        "Dataviz report design"
+      ],
+      "serviceType": "Report design, data visualisation, infographics and interactive dashboards",
+      "description": "Nutgraf designs data-heavy reports, from flagship and annual reports to sustainability and ESG disclosures, with one chart system per report, and turns PDF reports into interactive dashboards connected to their datasets.",
+      "provider": {
+        "@id": "https://nutgraf.studio/#organization"
+      },
+      "areaServed": "Worldwide",
+      "url": "https://nutgraf.studio/reports/",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "What we make",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Data report design",
+              "description": "Flagship, annual and research reports laid out around their data: editorial and graphic design, one grid, one type system and one chart grammar from cover to annex.",
+              "url": "https://nutgraf.studio/reports/#flagship"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Data visualisation",
+              "description": "Every chart drawn for its finding, whether a bar chart, a dot plot, a heatmap, a Sankey diagram or a map, for print and for screen.",
+              "url": "https://nutgraf.studio/reports/#page-49"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Infographics",
+              "description": "KPI spreads, one-page country scorecards and social cards: infographics that carry a number on their own.",
+              "url": "https://nutgraf.studio/reports/#beyond-borders"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sustainability and ESG reports",
+              "description": "CSRD and ESRS disclosures, emissions inventories and people metrics a non-specialist can read, without losing a decimal.",
+              "url": "https://nutgraf.studio/reports/#retele-electrice"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Interactive dashboards",
+              "description": "PDF reports rebuilt on their datasets, with filters, rankings and live charts, for your audiences and for your own decisions.",
+              "url": "https://nutgraf.studio/reports/#dashboards"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Data-driven storytelling",
+              "description": "The finding first, the evidence after: report narratives, headlines and charts the press can quote and funders can use.",
+              "url": "https://nutgraf.studio/reports/#dashboards"
+            }
+          }
+        ]
+      }
     },
     {
       "@type": "Report",
+      "@id": "https://nutgraf.studio/reports/#beyond-borders",
+      "name": "Beyond borders: Citizen perspectives on a shifting global order",
+      "alternativeHeadline": "African insights 2026",
+      "url": "https://www.afrobarometer.org/publication/african-insights-2026-beyond-borders-citizen-perspectives-on-a-shifting-global-order/",
+      "datePublished": "2026",
+      "inLanguage": "en",
+      "genre": "Flagship report",
+      "about": [
+        "Trade",
+        "Migration",
+        "International relations",
+        "Climate change",
+        "Public opinion in Africa"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Afrobarometer",
+        "url": "https://www.afrobarometer.org/"
+      },
+      "contributor": {
+        "@id": "https://nutgraf.studio/#organization"
+      },
+      "image": "https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-cover-600.jpg"
+    },
+    {
+      "@type": "Report",
+      "@id": "https://nutgraf.studio/reports/#retele-electrice",
       "name": "Raport de Sustenabilitate 2024",
-      "publisher": { "@type": "Organization", "name": "Rețele Electrice România (PPC Group)" },
+      "alternativeHeadline": "Sustainability Report 2024",
       "inLanguage": "ro",
-      "contributor": { "@type": "Organization", "@id": "https://nutgraf.studio/#organization", "name": "Nutgraf.studio" }
+      "genre": "Sustainability report",
+      "about": [
+        "Sustainability reporting",
+        "ESRS",
+        "Greenhouse gas emissions",
+        "Electricity distribution"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Rețele Electrice România",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "PPC Group"
+        }
+      },
+      "contributor": {
+        "@id": "https://nutgraf.studio/#organization"
+      },
+      "image": "https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-cover-600.jpg"
     }
-  ],
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": ["h1", ".hero-sub", ".statement"]
-  }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://nutgraf.studio/reports/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does a data report design studio do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We turn research, survey and ESG data into reports people read. We audit the data, build one chart system for the whole report, design every page, chart and infographic, and check every number against its source before it goes to print. Recent work: Afrobarometer’s 2026 flagship report and Rețele Electrice România’s 2024 sustainability report."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you turn a PDF report into an interactive dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, page 49 of the Rețele Electrice report is rebuilt as an interactive Sankey diagram, and two figures and a table from Afrobarometer reports become live dashboards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you design infographics and data visualisations (dataviz) for reports?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like Beyond borders, still reads as one piece."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you design sustainability and ESG reports?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We designed Rețele Electrice România’s 2024 sustainability report, the company’s first prepared with reference to ESRS, the EU’s sustainability reporting standards: 105 pages of emissions, energy, workforce and EU Taxonomy data, turned into KPI tiles, flows and rings a non-specialist can read."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is data-driven storytelling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Leading with the finding and letting the data carry it: a clear headline, the chart that proves it and the context that explains it. Inside a report it sets the order of the pages; outside it, it turns the same figures into stories for funders, partners, the press and the public."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do you need from us to start a report?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A brief, a dataset or last year’s PDF is enough. We’ll come back within a week with a page plan, a chart system and a timeline. Write to hello@nutgraf.studio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who have you designed reports for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Afrobarometer, the pan-African research network, and Rețele Electrice România, part of PPC Group. The studio’s partners also include the BBC, the Financial Times, Médecins Sans Frontières, the UiPath Foundation, the Istituto Italiano di Cultura and the Italian Trade Agency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do you work, and in which languages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Worldwide, on-site or remote. The reports on this page were published in English and in Romanian."
+      }
+    }
+  ]
 }
 </script>
 
@@ -112,7 +358,7 @@ setTimeout(function () {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-<link rel="preload" as="image" href="img/ppc-p49-800.jpg">
+<link rel="preload" as="image" href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg">
 
 <style>
 /* ============================================================
@@ -121,9 +367,11 @@ setTimeout(function () {
    marks, registration target, colour bar) and a ruler for "made
    to measure". Black is the screen: where a page comes alive.
    Sections:
-   NAV / HERO (proof stack + ruler) / STATEMENT / FLAGSHIP REPORTS
+   NAV / HERO (proof stack + ruler) / STATEMENT / CONTENTS (what we
+   make) / FLAGSHIP REPORTS
    (two cases + page strips) / PAGE 49 (printed vs live Sankey) /
-   DASHBOARDS (outwards vs inwards, three demos) / PROCESS / CTA / FOOTER /
+   DASHBOARDS (outwards vs inwards, three demos) / PROCESS / FAQ / CTA /
+   FOOTER /
    LIGHTBOX
    Contrast: black on cream and cream on black pass AA at any size;
    violet on cream (2.9:1) is used only for decoration, never text.
@@ -703,6 +951,65 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .values p { font-size: 0.9375rem; max-width: 30rem; color: rgba(237, 233, 225, 0.85); }
 
 /* ============================================================
+   3b. CONTENTS — what we make, set like a report's contents page:
+   number, title, dotted leader, and where on this page to see it
+   ============================================================ */
+.toc {
+  background: var(--cream);
+  padding-block: clamp(5rem, 11vw, 8rem);
+}
+.toc h2 { font-size: clamp(2.5rem, 6vw, 5rem); max-width: 14ch; }
+.toc-lead { margin-top: 1.25rem; max-width: 36rem; font-weight: 500; }
+.toc-list {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  list-style: none;
+  display: grid;
+  gap: 0 3rem;
+  counter-reset: toc;
+}
+@media (min-width: 900px) { .toc-list { grid-template-columns: 1fr 1fr; } }
+.toc-list li {
+  counter-increment: toc;
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 0 0.75rem;
+  border-top: 1px solid rgba(10, 10, 10, 0.3);
+  padding: 1.25rem 0 1.5rem;
+}
+.toc-list li::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 1.1;
+  color: var(--violet);
+}
+.toc-line { display: flex; align-items: baseline; gap: 0.625rem; }
+.toc-line h3 { font-size: clamp(1.375rem, 2.2vw, 1.75rem); line-height: 1.1; }
+.toc-line .leader {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 2px dotted rgba(10, 10, 10, 0.45);
+}
+.toc-line a {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.toc-line a:hover, .toc-line a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.toc-list p { margin-top: 0.5rem; font-size: 0.9375rem; max-width: 32rem; }
+@media (max-width: 599px) {
+  /* phones: no room for a leader, so the link drops under the title */
+  .toc-line { flex-wrap: wrap; row-gap: 0.375rem; }
+  .toc-line .leader { display: none; }
+  .toc-line a { flex-basis: 100%; }
+}
+
+/* ============================================================
    4. FLAGSHIP REPORTS — two cases, each with a page strip
    ============================================================ */
 .flagship {
@@ -760,6 +1067,9 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .case-sub em { font-style: italic; }
 .case-body { margin-top: 1.75rem; max-width: 38rem; }
 .case-body p + p { margin-top: 1rem; }
+.read-more { margin-top: 1rem; font-size: 0.9375rem; font-weight: 700; }
+.read-more a { text-underline-offset: 3px; }
+.read-more a:hover { color: var(--violet); }
 .credit {
   display: inline-block;
   margin-top: 1.25rem;
@@ -1347,6 +1657,32 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 .chips li:hover { background: var(--black); color: var(--mint); }
 
 /* ============================================================
+   7b. FAQ — every answer in the open, for readers and for search
+   (the FAQPage JSON-LD in the head is written from the same list)
+   ============================================================ */
+.faq {
+  background: var(--black);
+  color: var(--cream);
+  padding-block: clamp(5rem, 11vw, 8rem);
+}
+.faq .kicker { color: var(--mint); }
+.faq h2 { color: var(--white); font-size: clamp(2.25rem, 5.2vw, 4.25rem); max-width: 16ch; }
+.faq-list { margin-top: clamp(3rem, 6vw, 4.5rem); display: grid; gap: 2rem; }
+@media (min-width: 800px) { .faq-list { grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; } }
+.faq-item { border-top: 2px solid var(--cream); padding-top: 1rem; }
+.faq-item dt {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.375rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 0.625rem;
+}
+.faq-item dd { font-size: 0.9375rem; max-width: 36rem; color: rgba(237, 233, 225, 0.85); }
+.faq-item dd a { color: var(--mint); }
+
+/* ============================================================
    8. CTA
    ============================================================ */
 .cta {
@@ -1553,7 +1889,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="hero" aria-labelledby="hero-heading">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="kicker">Data reports · Flagship publications</span>
+      <span class="kicker">Report design · Data visualisation · Dashboards</span>
       <h1 id="hero-heading">
         <span class="hero-line"><span>Bring us</span></span>
         <span class="hero-line"><span>the data.</span></span>
@@ -1570,14 +1906,14 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <div class="stack" aria-hidden="true">
       <div class="stack-inner">
         <div class="sheet sheet-a">
-          <img src="img/afro-p28-800.jpg" alt="" width="800" height="1131" decoding="async">
+          <img src="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg" alt="" width="800" height="1131" decoding="async">
           <span class="callout callout-l"><b>38 × 6</b>countries × powers</span>
         </div>
         <div class="sheet sheet-b">
-          <img src="img/ppc-p10-800.jpg" alt="" width="800" height="1132" decoding="async">
+          <img src="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg" alt="" width="800" height="1132" decoding="async">
         </div>
         <div class="sheet sheet-c">
-          <img src="img/ppc-p49-800.jpg" alt="" width="800" height="1132" decoding="async" fetchpriority="high">
+          <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="" width="800" height="1132" decoding="async" fetchpriority="high">
           <span class="crop"></span>
           <span class="callout callout-r"><b>793,348</b>tCO₂e · 11 flows</span>
         </div>
@@ -1598,7 +1934,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
      ============================================================ -->
 <section class="pitch" id="intro" aria-labelledby="intro-kicker">
   <div class="wrap">
-    <span class="kicker" id="intro-kicker">Our flagship service</span>
+    <span class="kicker" id="intro-kicker">Data report design, our flagship service</span>
     <p class="statement">A flagship report carries a year of research, thousands of numbers and an organisation’s name. <em>We make every one of those numbers count:</em> checked against its source, given the form its finding needs, set on a page people want to read.</p>
 
     <ul class="values">
@@ -1619,6 +1955,58 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 </section>
 
 <!-- ============================================================
+     3b. CONTENTS — what we make. The same list feeds the Service
+     markup (hasOfferCatalog) in the head.
+     ============================================================ -->
+<section class="toc" id="services" aria-labelledby="toc-heading">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Contents</span>
+      <h2 id="toc-heading">What we <em>make.</em></h2>
+      <p class="toc-lead">Everything a data-heavy report needs, from the first chart to the last page, and what comes after it.</p>
+    </div>
+    <ol class="toc-list">
+      <li class="reveal">
+        <div>
+          <div class="toc-line"><h3>Data report design</h3><span class="leader" aria-hidden="true"></span><a href="#flagship">Case studies</a></div>
+          <p>Flagship, annual and research reports laid out around their data: editorial and graphic design, one grid, one type system and one chart grammar from cover to annex.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <div class="toc-line"><h3>Data visualisation</h3><span class="leader" aria-hidden="true"></span><a href="#page-49">Page 49</a></div>
+          <p>Every chart drawn for its finding, whether a bar chart, a dot plot, a heatmap, a Sankey diagram or a map, for print and for screen.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <div class="toc-line"><h3>Infographics</h3><span class="leader" aria-hidden="true"></span><a href="#beyond-borders">Examples</a></div>
+          <p>KPI spreads, one-page country scorecards and social cards: infographics that carry a number on their own.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <div class="toc-line"><h3>Sustainability and ESG reports</h3><span class="leader" aria-hidden="true"></span><a href="#retele-electrice">Case study</a></div>
+          <p>CSRD and ESRS disclosures, emissions inventories and people metrics a non-specialist can read, without losing a decimal.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <div class="toc-line"><h3>Interactive dashboards</h3><span class="leader" aria-hidden="true"></span><a href="#dashboards">Live demos</a></div>
+          <p>PDF reports rebuilt on their datasets, with filters, rankings and live charts, for your audiences and for your own decisions.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div>
+          <div class="toc-line"><h3>Data-driven storytelling</h3><span class="leader" aria-hidden="true"></span><a href="#dashboards">Outwards</a></div>
+          <p>The finding first, the evidence after: report narratives, headlines and charts the press can quote and funders can use.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================
      4. FLAGSHIP REPORTS
      Page images are rendered from the client PDFs (PyMuPDF, then
      Pillow): img/<report>-pNN.jpg (1400px wide, lightbox) and
@@ -1627,7 +2015,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
      ============================================================ -->
 <section class="flagship" id="flagship" aria-labelledby="flagship-heading">
   <div class="wrap flagship-head reveal">
-    <span class="kicker">Case studies</span>
+    <span class="kicker">Case studies · report design and data visualisation</span>
     <h2 id="flagship-heading">Our <em>flagship reports.</em></h2>
     <p>One pan-African survey, one corporate sustainability report. Both dense with data, both designed from the first page to the last.</p>
   </div>
@@ -1643,19 +2031,20 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <div class="case-body">
           <p>Afrobarometer’s flagship report for 2026 asks how Africans see a world in flux: free trade under the AfCFTA, migration, the great powers, the continent’s voice in global institutions and climate action. Survey data from 38 countries, carried by 38 figures and 4 tables in a single chart system, from a 38-country heatmap to one-page country scorecards.</p>
           <p class="credit">Colophon, p. 2: <q>Report design by nutgraf.studio</q></p>
+          <p class="read-more"><a href="https://www.afrobarometer.org/publication/african-insights-2026-beyond-borders-citizen-perspectives-on-a-shifting-global-order/" target="_blank" rel="noopener">Read the report on afrobarometer.org ↗</a></p>
         </div>
         <dl class="facts">
           <div><dt>Pages</dt><dd><strong>48</strong>in English</dd></div>
           <div><dt>Figures</dt><dd><strong>38</strong>plus 4 tables</dd></div>
           <div><dt>Countries</dt><dd><strong>38</strong>Round 10 survey, 2024/2025</dd></div>
           <div><dt>Data</dt><dd>Face-to-face interviews, nationally representative samples</dd></div>
-          <div><dt>Our role</dt><dd>Report design: editorial and chart design</dd></div>
+          <div><dt>Our role</dt><dd>Report design: editorial design, data visualisation and infographics</dd></div>
           <div><dt>Client</dt><dd>Afrobarometer, pan-African research network</dd></div>
         </dl>
       </div>
       <figure class="case-cover reveal">
-        <a href="img/afro-cover-600.jpg" data-group="afro" data-caption="Cover · Beyond borders, African insights 2026">
-          <img src="img/afro-cover-600.jpg" alt="Cover of Beyond borders, African insights 2026: orange and red tiles framing photos of a border crossing, a crowded street and a man holding up an ID card." width="600" height="849" loading="lazy" decoding="async">
+        <a href="img/afrobarometer-beyond-borders-cover-600.jpg" data-group="afro" data-caption="Cover · Beyond borders, African insights 2026">
+          <img src="img/afrobarometer-beyond-borders-cover-600.jpg" alt="Cover of Beyond borders, African insights 2026: orange and red tiles framing photos of a border crossing, a crowded street and a man holding up an ID card." width="600" height="849" loading="lazy" decoding="async">
         </a>
         <figcaption>The cover</figcaption>
       </figure>
@@ -1671,50 +2060,50 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <ul class="strip-track" aria-label="Pages from Beyond borders">
         <li class="pg"><figure>
-          <a href="img/afro-p08.jpg" data-group="afro" data-caption="p. 8 · Figures 2 and 3: free trade or protection, and preferred trading partners">
-            <img src="img/afro-p08-800.jpg" alt="Page 8: two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg" data-group="afro" data-caption="p. 8 · Figures 2 and 3: free trade or protection, and preferred trading partners">
+            <img src="img/afrobarometer-beyond-borders-p08-trade-bar-charts-800.jpg" alt="Page 8: two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 8</span>Free trade or protection?</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afro-p15.jpg" data-group="afro" data-caption="p. 15 · Figures 9 to 11: who has considered emigrating">
-            <img src="img/afro-p15-800.jpg" alt="Page 15: purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg" data-group="afro" data-caption="p. 15 · Figures 9 to 11: who has considered emigrating">
+            <img src="img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg" alt="Page 15: purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 15</span>Who is thinking of leaving <a href="#demo-dots" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afro-p17.jpg" data-group="afro" data-caption="p. 17 · Figure 15: Africans lead the way in looking to uproot">
-            <img src="img/afro-p17-800.jpg" alt="Page 17: a cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg" data-group="afro" data-caption="p. 17 · Figure 15: Africans lead the way in looking to uproot">
+            <img src="img/afrobarometer-beyond-borders-p17-regional-bar-chart-800.jpg" alt="Page 17: a cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 17</span>Africa against two other regions</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afro-p20.jpg" data-group="afro" data-caption="p. 20 · Table 1: welcoming foreign residents?">
-            <img src="img/afro-p20-800.jpg" alt="Page 20: a green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p20-heatmap-table.jpg" data-group="afro" data-caption="p. 20 · Table 1: welcoming foreign residents?">
+            <img src="img/afrobarometer-beyond-borders-p20-heatmap-table-800.jpg" alt="Page 20: a green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 20</span>A 38-country heatmap</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afro-p28.jpg" data-group="afro" data-caption="p. 28 · Table 2: how Africans rate the major powers">
-            <img src="img/afro-p28-800.jpg" alt="Page 28: a blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg" data-group="afro" data-caption="p. 28 · Table 2: how Africans rate the major powers">
+            <img src="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg" alt="Page 28: a blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 28</span>Rating the major powers <a href="#demo" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afro-p32.jpg" data-group="afro" data-caption="p. 32 · The battle is not ours: the Russia–Ukraine war">
-            <img src="img/afro-p32-800.jpg" alt="Page 32: a cream feature panel on the Russia–Ukraine war with a diverging bar chart by country." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg" data-group="afro" data-caption="p. 32 · The battle is not ours: the Russia–Ukraine war">
+            <img src="img/afrobarometer-beyond-borders-p32-diverging-bar-chart-800.jpg" alt="Page 32: a cream feature panel on the Russia–Ukraine war with a diverging bar chart by country." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 32</span>The Russia–Ukraine war</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afro-p39.jpg" data-group="afro" data-caption="p. 39 · Figures 37 and 38: responsibility for climate change, and support for climate action">
-            <img src="img/afro-p39-800.jpg" alt="Page 39: a dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p39-climate-dot-plot.jpg" data-group="afro" data-caption="p. 39 · Figures 37 and 38: responsibility for climate change, and support for climate action">
+            <img src="img/afrobarometer-beyond-borders-p39-climate-dot-plot-800.jpg" alt="Page 39: a dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 39</span>Who should act on climate</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afro-p45.jpg" data-group="afro" data-caption="p. 45 · Country scorecards: Ghana">
-            <img src="img/afro-p45-800.jpg" alt="Page 45: the country scorecard for Ghana, with bars, a pie and donut charts on trade, migration and great powers." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic.jpg" data-group="afro" data-caption="p. 45 · Country scorecards: Ghana">
+            <img src="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic-800.jpg" alt="Page 45: a one-page country scorecard infographic for Ghana, with bars, a pie and donut charts on trade, migration and great powers." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 45</span>One country on one page</figcaption>
         </figure></li>
@@ -1737,13 +2126,13 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <div><dt>Pages</dt><dd><strong>105</strong>in Romanian</dd></div>
           <div><dt>On one page</dt><dd><strong>793,348</strong>tCO₂e, traced from 3 scopes to 11 sources</dd></div>
           <div><dt>Framework</dt><dd>ESRS, the reporting standards of the EU’s CSRD</dd></div>
-          <div><dt>Our role</dt><dd>Editorial design and data visualisation</dd></div>
+          <div><dt>Our role</dt><dd>Editorial design, data visualisation and KPI infographics</dd></div>
           <div><dt>Client</dt><dd>Rețele Electrice România, PPC Group</dd></div>
         </dl>
       </div>
       <figure class="case-cover reveal">
-        <a href="img/ppc-cover-600.jpg" data-group="ppc" data-caption="Cover · Raport de Sustenabilitate 2024, Rețele Electrice România">
-          <img src="img/ppc-cover-600.jpg" alt="Cover of the Rețele Electrice 2024 sustainability report: a large 2024 over a forested mountain valley." width="600" height="849" loading="lazy" decoding="async">
+        <a href="img/retele-electrice-sustainability-report-2024-cover-600.jpg" data-group="ppc" data-caption="Cover · Raport de Sustenabilitate 2024, Rețele Electrice România">
+          <img src="img/retele-electrice-sustainability-report-2024-cover-600.jpg" alt="Cover of the Rețele Electrice 2024 sustainability report: a large 2024 over a forested mountain valley." width="600" height="849" loading="lazy" decoding="async">
         </a>
         <figcaption>The cover</figcaption>
       </figure>
@@ -1759,51 +2148,51 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <ul class="strip-track" aria-label="Pages from the Rețele Electrice sustainability report">
         <li class="pg"><figure>
-          <a href="img/ppc-p49.jpg" data-group="ppc" data-caption="p. 49 · Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024">
-            <img src="img/ppc-p49-800.jpg" alt="Page 49: a Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="ppc" data-caption="p. 49 · Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="Page 49: a Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <a class="pg-live" href="#page-49">Live below ↓</a>
           <figcaption><span class="folio">p. 49</span>Emissions, scope by scope</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/ppc-p10.jpg" data-group="ppc" data-caption="p. 10 · Financial and technical performance, 2024">
-            <img src="img/ppc-p10-800.jpg" alt="Page 10: orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic.jpg" data-group="ppc" data-caption="p. 10 · Financial and technical performance, 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg" alt="Page 10: an infographic spread of orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 10</span>The year in KPI tiles</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/ppc-p12.jpg" data-group="ppc" data-caption="p. 12 · Energy use, workforce, health and safety indicators">
-            <img src="img/ppc-p12-800.jpg" alt="Page 12: green and blue KPI tiles for energy consumption, workforce and safety indicators." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg" data-group="ppc" data-caption="p. 12 · Energy use, workforce, health and safety indicators">
+            <img src="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles-800.jpg" alt="Page 12: green and blue KPI tiles for energy consumption, workforce and safety indicators." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 12</span>People and energy at a glance</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/ppc-p46.jpg" data-group="ppc" data-caption="p. 46 · Energy consumption, 2024">
-            <img src="img/ppc-p46-800.jpg" alt="Page 46: a grid of large green, ochre and orange tiles for energy consumption by source in 2024." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg" data-group="ppc" data-caption="p. 46 · Energy consumption, 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p46-energy-infographic-800.jpg" alt="Page 46: a grid of large green, ochre and orange tiles for energy consumption by source in 2024." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 46</span>Energy, by source</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/ppc-p50.jpg" data-group="ppc" data-caption="p. 50 · Emissions intensity per million euros of turnover">
-            <img src="img/ppc-p50-800.jpg" alt="Page 50: proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg" data-group="ppc" data-caption="p. 50 · Emissions intensity per million euros of turnover">
+            <img src="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart-800.jpg" alt="Page 50: proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 50</span>Emissions intensity</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/ppc-p59.jpg" data-group="ppc" data-caption="p. 59 · Alignment with the EU Taxonomy">
-            <img src="img/ppc-p59-800.jpg" alt="Page 59: three orange ring charts showing the share of activities aligned with the EU Taxonomy." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg" data-group="ppc" data-caption="p. 59 · Alignment with the EU Taxonomy">
+            <img src="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts-800.jpg" alt="Page 59: three orange ring charts showing the share of activities aligned with the EU Taxonomy." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 59</span>EU Taxonomy alignment</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/ppc-p69.jpg" data-group="ppc" data-caption="p. 69 · Workforce diversity by gender and age, 2023 and 2024">
-            <img src="img/ppc-p69-800.jpg" alt="Page 69: yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg" data-group="ppc" data-caption="p. 69 · Workforce diversity by gender and age, 2023 and 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts-800.jpg" alt="Page 69: yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 69</span>Workforce diversity</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/ppc-p71.jpg" data-group="ppc" data-caption="p. 71 · Work–life balance and pay metrics">
-            <img src="img/ppc-p71-800.jpg" alt="Page 71: orange ring charts for family-related leave and blue tiles for pay indicators." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg" data-group="ppc" data-caption="p. 71 · Work–life balance and pay metrics">
+            <img src="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts-800.jpg" alt="Page 71: orange ring charts for family-related leave and blue tiles for pay indicators." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <figcaption><span class="folio">p. 71</span>Work–life balance and pay</figcaption>
         </figure></li>
@@ -1821,7 +2210,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="live" id="page-49" aria-labelledby="live-heading">
   <div class="wrap">
     <div class="reveal">
-      <span class="kicker">From page to screen</span>
+      <span class="kicker">From page to screen · an interactive Sankey diagram</span>
       <h2 id="live-heading">Page 49, <em>off the page.</em></h2>
       <p class="live-lead">On paper, page 49 of the Rețele Electrice report traces 793,348 tonnes of CO₂ equivalent from three scopes to eleven sources. On screen, rebuilt from the same numbers, it answers questions. Point at any flow to follow it.</p>
     </div>
@@ -1829,8 +2218,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <div class="live-grid">
       <figure class="printed reveal">
         <div class="printed-frame">
-          <a href="img/ppc-p49.jpg" data-group="p49" data-caption="Printed · p. 49 · Raport de Sustenabilitate 2024, Rețele Electrice România">
-            <img src="img/ppc-p49-800.jpg" alt="Page 49 as printed: Romanian text above a Sankey diagram of gross Scope 1, 2 and 3 emissions, totalling 793.348 tCO2e." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="p49" data-caption="Printed · p. 49 · Raport de Sustenabilitate 2024, Rețele Electrice România">
+            <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="Page 49 as printed: Romanian text above a Sankey diagram of gross Scope 1, 2 and 3 emissions, totalling 793.348 tCO2e." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <span class="crop"></span>
         </div>
@@ -1901,9 +2290,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="dash" id="dashboards" aria-labelledby="dash-heading">
   <div class="wrap">
     <div class="reveal">
-      <span class="kicker">Reports into dashboards</span>
+      <span class="kicker">Interactive dashboards · data-driven storytelling</span>
       <h2 id="dash-heading">PDF in. <em>Dashboard out.</em></h2>
-      <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
+      <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into interactive dashboards, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
     </div>
 
     <div class="ways">
@@ -2064,7 +2453,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="process" id="process" aria-labelledby="process-heading">
   <div class="wrap">
     <div class="reveal">
-      <span class="kicker">How it works</span>
+      <span class="kicker">How we design a data report</span>
       <h2 id="process-heading">From raw data to <em>final proof.</em></h2>
     </div>
     <ol class="steps">
@@ -2095,8 +2484,57 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <li>Survey research</li>
         <li>Policy briefs</li>
         <li>Impact reports</li>
+        <li>Infographics</li>
+        <li>Interactive dashboards</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7b. FAQ — answers in the open; the FAQPage JSON-LD in the head
+     carries the same questions and answers.
+     ============================================================ -->
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Questions</span>
+      <h2 id="faq-heading">Report design, <em>answered.</em></h2>
+    </div>
+    <dl class="faq-list reveal">
+      <div class="faq-item">
+        <dt>What does a data report design studio do?</dt>
+        <dd>We turn research, survey and ESG data into reports people read. We audit the data, build one chart system for the whole report, design every page, chart and infographic, and check every number against its source before it goes to print. Recent work: Afrobarometer’s 2026 flagship report and Rețele Electrice România’s 2024 sustainability report.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Can you turn a PDF report into an interactive dashboard?</dt>
+        <dd>Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, page 49 of the Rețele Electrice report is rebuilt as an interactive Sankey diagram, and two figures and a table from Afrobarometer reports become live dashboards.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Do you design infographics and data visualisations (dataviz) for reports?</dt>
+        <dd>Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like <em>Beyond borders</em>, still reads as one piece.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Do you design sustainability and ESG reports?</dt>
+        <dd>Yes. We designed Rețele Electrice România’s 2024 sustainability report, the company’s first prepared with reference to ESRS, the EU’s sustainability reporting standards: 105 pages of emissions, energy, workforce and EU Taxonomy data, turned into KPI tiles, flows and rings a non-specialist can read.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>What is data-driven storytelling?</dt>
+        <dd>Leading with the finding and letting the data carry it: a clear headline, the chart that proves it and the context that explains it. Inside a report it sets the order of the pages; outside it, it turns the same figures into stories for funders, partners, the press and the public.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>What do you need from us to start a report?</dt>
+        <dd>A brief, a dataset or last year’s PDF is enough. We’ll come back within a week with a page plan, a chart system and a timeline. Write to <a href="mailto:hello@nutgraf.studio?subject=Report%20enquiry">hello@nutgraf.studio</a>.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Who have you designed reports for?</dt>
+        <dd>Afrobarometer, the pan-African research network, and Rețele Electrice România, part of PPC Group. The studio’s partners also include the BBC, the Financial Times, Médecins Sans Frontières, the UiPath Foundation, the Istituto Italiano di Cultura and the Italian Trade Agency.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Where do you work, and in which languages?</dt>
+        <dd>Worldwide, on-site or remote. The reports on this page were published in English and in Romanian.</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
