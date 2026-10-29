@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exhibitions — CTA background options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Inter", -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  padding: 3rem 1.5rem 5rem;
+}
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.sub { text-align: center; opacity: 0.7; margin: 0 auto 3rem; font-size: 0.95rem; max-width: 46rem; line-height: 1.5; }
+.sub code, .foot code { font-size: 0.85em; background: rgba(10,10,10,0.07); padding: 0.05rem 0.35rem; border-radius: 0.3rem; }
+
+/* ============================================================
+   Overview — the real "Two countries, one story" section at
+   1280 wide, on its own and scaled down, once per option.
+   Click one to see it full size, in the page, below.
+   ============================================================ */
+.overview {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 760px) {
+  .overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.opt {
+  background: var(--white);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(10,10,10,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.opt h2 { font-family: "Fraunces", Georgia, serif; font-size: 1.15rem; line-height: 1.25; }
+.opt h2 span, .seg button span {
+  display: inline-block;
+  background: var(--violet);
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  margin-right: 0.4rem;
+  vertical-align: 2px;
+}
+.opt p { font-size: 0.875rem; line-height: 1.5; opacity: 0.75; }
+
+.thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1280 / 820;
+  padding: 0;
+  border: 1px solid rgba(10,10,10,0.15);
+  border-radius: 0.375rem;
+  overflow: hidden;
+  background: var(--violet);
+  cursor: zoom-in;
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+  transition: outline-color 0.2s ease;
+}
+.thumb:hover, .thumb:focus-visible { outline-color: rgba(10,10,10,0.25); }
+.thumb.active { outline-color: var(--violet); }
+.thumb iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 820px;
+  border: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Viewer — the whole page, scrolled to the section; switching
+   reloads it, so the animation starts from its first frame.
+   ============================================================ */
+.viewer { max-width: 90rem; margin: 4rem auto 0; scroll-margin-top: 0.5rem; }
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  background: var(--cream);
+}
+.bar h2 { font-family: "Fraunces", Georgia, serif; font-size: 1.25rem; }
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.125rem;
+  background: var(--white);
+  border-radius: 999px;
+  padding: 0.25rem;
+  box-shadow: 0 1px 3px rgba(10,10,10,0.08);
+}
+.seg button {
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 0;
+  background: transparent;
+  color: var(--black);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.seg button span { margin-right: 0.3rem; }
+.seg button[aria-pressed="true"] { background: var(--black); color: var(--mint); }
+.seg button[aria-pressed="true"] span { background: var(--mint); color: var(--black); }
+.stage { display: flex; justify-content: center; }
+.stage iframe {
+  width: 100%;
+  height: min(60rem, calc(100svh - 6rem));
+  border: 1px solid rgba(10,10,10,0.15);
+  border-radius: 0.75rem;
+  background: var(--violet);
+}
+.stage.phone iframe { width: 390px; height: min(844px, calc(100svh - 6rem)); }
+.alone { font-size: 0.8125rem; font-weight: 600; color: var(--black); }
+
+/* ?solo=N: one option, the section alone, filling the window */
+body.solo { padding: 0; }
+.solo > :not(.viewer), .solo .bar { display: none; }
+.solo .viewer { margin: 0; max-width: none; }
+.solo .stage iframe { height: 100svh; border: 0; border-radius: 0; }
+.foot { max-width: 46rem; margin: 2rem auto 0; text-align: center; font-size: 0.85rem; opacity: 0.65; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<h1>Exhibitions — “Two countries, one story” backgrounds</h1>
+<p class="sub">Option 3, Contours, went into the page on 29 October 2026. Three of the four Workshops hero takes, moved behind the closing call to action of <code>/exhibitions/</code>, which sits on the same violet. Plot is left out: its lines run across the middle of the section, straight through the centred headline. Each take stays faint behind the white headline and black copy, pauses when the section scrolls away, and shows one still frame to visitors who ask for reduced motion. The frames show the section on its own; click one to open it full size, in the page, below.</p>
+
+<div class="overview">
+  <article class="opt" data-opt="1">
+    <h2><span>1</span>Sort (as on Workshops)</h2>
+    <button class="thumb" type="button" data-opt="1" aria-label="Open option 1 full size"><iframe title="Option 1: sort" tabindex="-1"></iframe></button>
+    <p>The Workshops hero, unchanged: loose data points drift across the violet, then file into a two-humped chart along the foot of the section, light up mint, and let go again. A 15-second loop; the chart stays below the buttons.</p>
+  </article>
+
+  <article class="opt" data-opt="2">
+    <h2><span>2</span>Ripple</h2>
+    <button class="thumb" type="button" data-opt="2" aria-label="Open option 2 full size"><iframe title="Option 2: ripple" tabindex="-1"></iframe></button>
+    <p>A dot grid, with slow rings pulsing out from behind the headline. The dots swell and turn mint as a ring passes, like news spreading out from one story.</p>
+  </article>
+
+  <article class="opt" data-opt="3">
+    <h2><span>3</span>Contours (live)</h2>
+    <button class="thumb" type="button" data-opt="3" aria-label="Open option 3 full size"><iframe title="Option 3: contours" tabindex="-1"></iframe></button>
+    <p>Contour lines of a slowly shifting surface, like a map, with one level in mint. The calmest of the three: the lines never stop, but barely move.</p>
+  </article>
+
+  <article class="opt" data-opt="0">
+    <h2>Before</h2>
+    <button class="thumb" type="button" data-opt="0" aria-label="Open the section as it is now, full size"><iframe title="Before: flat violet" tabindex="-1"></iframe></button>
+    <p>The section as it was before: flat violet.</p>
+  </article>
+</div>
+
+<section class="viewer" id="viewer" aria-label="Full-size preview">
+  <div class="bar">
+    <h2>Full size</h2>
+    <div class="seg" role="group" aria-label="Option">
+      <button type="button" data-opt="0" aria-pressed="false">Before</button>
+      <button type="button" data-opt="1" aria-pressed="false"><span>1</span>Sort</button>
+      <button type="button" data-opt="2" aria-pressed="false"><span>2</span>Ripple</button>
+      <button type="button" data-opt="3" aria-pressed="true"><span>3</span>Contours (live)</button>
+    </div>
+    <div class="seg" role="group" aria-label="Width">
+      <button type="button" data-width="desktop" aria-pressed="true">Desktop</button>
+      <button type="button" data-width="phone" aria-pressed="false">Phone</button>
+    </div>
+    <a class="alone" href="?solo=3" target="_blank">Open alone ↗</a>
+  </div>
+  <div class="stage"><iframe id="view" title="Exhibitions page, full size"></iframe></div>
+</section>
+
+<p class="foot">Contours lives in <code>exhibitions/index.html</code> (the CTA background CSS and the "CTA background" script). The other frames fetch the page, hide its canvas and slip their own in behind the section's content. The <code>&lt;template&gt;</code> blocks at the end of this file hold the shared runner (the canvas, sizing, pausing and the reduced-motion still) and one short scene per option, adapted from <code>workshop-hero-options.html</code>.</p>
+
+<!-- ============================================================
+     Shared by every option: the canvas layer behind the section's
+     content, and the runner that sizes it, plays the scene only
+     while the section is on screen and the tab is in front, and
+     draws one still frame under prefers-reduced-motion.
+     ============================================================ -->
+<template id="opt-base"><style>
+.cta-bg:not(.opt-bg) { display: none; }
+.cta { position: relative; overflow: hidden; isolation: isolate; }
+.cta > .wrap { position: relative; z-index: 1; }
+.cta-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.cta-bg canvas { display: block; width: 100%; height: 100%; }
+</style><script>
+/* Section background: one canvas behind the CTA's content. make(W, H,
+   at) builds a scene for the section's size and returns { draw(ctx, t),
+   still, fps }; at(el) gives an element's box inside the section,
+   ignoring the reveal's transform. The scene runs only while the
+   section is on screen and the tab is in front; under reduced motion
+   it paints the frame at `still` once. */
+window.ctaBg = function (make) {
+  var host = document.querySelector('.cta');
+  if (!host) return;
+  var box = document.createElement('div');
+  box.className = 'cta-bg opt-bg';
+  box.setAttribute('aria-hidden', 'true');
+  var cv = document.createElement('canvas');
+  box.appendChild(cv);
+  host.insertBefore(box, host.firstChild);
+  var ctx = cv.getContext('2d');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var scene = null, W = 0, H = 0, t = 0, painted = -1, last = 0, raf = 0, inView = true;
+
+  function at(el) {
+    var x = 0, y = 0, w = el.offsetWidth, h = el.offsetHeight;
+    for (; el && el !== host; el = el.offsetParent) { x += el.offsetLeft; y += el.offsetTop; }
+    return { x: x, y: y, w: w, h: h, cx: x + w / 2, cy: y + h / 2, bottom: y + h };
+  }
+  function size() {
+    var w = box.clientWidth, h = box.clientHeight;
+    if (scene && w === W && Math.abs(h - H) < 2) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = w; H = h;
+    cv.width = Math.round(W * dpr);
+    cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    scene = make(W, H, function (sel) { return at(host.querySelector(sel)); });
+    paint();
+  }
+  function paint() {
+    ctx.clearRect(0, 0, W, H);
+    scene.draw(ctx, still ? scene.still || 0 : t);
+    ctx.globalAlpha = 1;
+    painted = t;
+  }
+  function running() { return !still && inView && !document.hidden; }
+  function tick(now) {
+    t += Math.min((now - last) / 1000, 0.1);
+    last = now;
+    if (!scene.fps || t - painted >= 1 / scene.fps) paint();
+    raf = running() ? requestAnimationFrame(tick) : 0;
+  }
+  function start() {
+    if (raf || !running()) return;
+    last = performance.now();
+    raf = requestAnimationFrame(tick);
+  }
+  size();
+  new ResizeObserver(size).observe(box);
+  new IntersectionObserver(function (e) { inView = e[0].isIntersecting; start(); }).observe(host);
+  document.addEventListener('visibilitychange', start);
+  start();
+};
+/* a small seeded random, so each scene lays out the same way every time */
+window.ctaBg.rng = function (seed) {
+  return function () {
+    seed = seed + 0x6D2B79F5 | 0;
+    var r = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    r = r + Math.imul(r ^ r >>> 7, 61 | r) ^ r;
+    return ((r ^ r >>> 14) >>> 0) / 4294967296;
+  };
+};
+</script></template>
+
+<!-- 1 · Sort: dots wander, then file into a chart along the foot of
+     the section, left to right, turn mint, hold, and let go. As on
+     Workshops, except that the chart is kept below the buttons. -->
+<template id="opt-1"><script>
+ctaBg(function (W, H, at) {
+  var rnd = ctaBg.rng(11);
+  var g = W < 600 ? 8 : 11;
+  var ncol = Math.floor(W * 0.86 / g);
+  var base = H - g * 2.5;
+  // the tallest column: 15% of the section, and never up into the buttons
+  var room = base - at('.cta-actions').bottom - 24;
+  var m = Math.max(4, Math.floor(Math.min(H * 0.15, W < 600 ? 72 : 140, room) / g));
+  var x0 = (W - (ncol - 1) * g) / 2;
+  function f(u) {
+    return 0.55 * Math.exp(-Math.pow((u - 0.3) / 0.11, 2)) + Math.exp(-Math.pow((u - 0.66) / 0.15, 2)) + 0.06;
+  }
+  var peak = 0, k, l;
+  for (k = 0; k < ncol; k++) peak = Math.max(peak, f(k / (ncol - 1)));
+  var dots = [];
+  for (k = 0; k < ncol; k++) {
+    var h = Math.round(m * f(k / (ncol - 1)) / peak);
+    for (l = 0; l < h; l++) dots.push({ tx: x0 + k * g, ty: base - l * g, col: k / ncol });
+  }
+  dots.forEach(function (d) {
+    d.bx = rnd() * W; d.by = rnd() * H;
+    d.ax = 20 + rnd() * 50; d.ay = 20 + rnd() * 50;
+    d.wx = 0.15 + rnd() * 0.25; d.wy = 0.15 + rnd() * 0.25;
+    d.px = rnd() * 6.2832; d.py = rnd() * 6.2832;
+  });
+  var CYCLE = 15;
+  function ease(u) {
+    u = Math.min(Math.max(u, 0), 1);
+    return u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+  }
+  return {
+    still: 10,
+    draw: function (c, t) {
+      var p = t % CYCLE;
+      dots.forEach(function (d) {
+        var wx = d.bx + d.ax * Math.sin(t * d.wx + d.px);
+        var wy = d.by + d.ay * Math.sin(t * d.wy + d.py);
+        // gather from 6 s, column by column; hold; let go from 12 s
+        var s = p < 12 ? ease((p - 6 - d.col * 0.8) / 1.8) : 1 - ease((p - 12 - d.col * 0.6) / 1.8);
+        var x = wx + (d.tx - wx) * s, y = wy + (d.ty - wy) * s;
+        c.globalAlpha = 0.32 + 0.4 * s;
+        c.fillStyle = 'rgb(' + Math.round(255 - 96 * s) + ',' + Math.round(255 - 13 * s) + ',' + Math.round(255 - 101 * s) + ')';
+        c.beginPath();
+        c.arc(x, y, 2 + 0.5 * s, 0, 6.2832);
+        c.fill();
+      });
+    }
+  };
+});
+</script></template>
+
+<!-- 2 · Ripple: a dot grid; three rings run out from behind the
+     headline, a third of a period apart, and the dots they cross
+     swell and go mint -->
+<template id="opt-2"><script>
+ctaBg(function (W, H, at) {
+  var S = W < 600 ? 22 : 28;
+  var cols = Math.floor(W / S) + 2, rows = Math.floor(H / S) + 2;
+  var ox = (W - (cols - 1) * S) / 2, oy = (H - (rows - 1) * S) / 2;
+  var cx = W / 2, cy = at('#cta-heading').cy;
+  var R = Math.max(Math.hypot(cx, cy), Math.hypot(cx, H - cy));
+  var PERIOD = 9, BAND = 60, RINGS = 3;
+  return {
+    still: 2.6,
+    draw: function (c, t) {
+      for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
+          var x = ox + i * S, y = oy + j * S;
+          var d = Math.hypot(x - cx, y - cy), k = 0;
+          for (var n = 0; n < RINGS; n++) {
+            var u = (t / PERIOD + n / RINGS) % 1, r = u * (R + BAND);
+            var e = Math.exp(-Math.pow((d - r) / BAND * 1.6, 2)) * (1 - 0.6 * u);
+            if (e > k) k = e;
+          }
+          c.globalAlpha = 0.26 + 0.55 * k;
+          c.fillStyle = k > 0.5 ? '#9FF29A' : '#FFFFFF';
+          c.beginPath();
+          c.arc(x, y, 1.3 + 1.9 * k, 0, 6.2832);
+          c.fill();
+        }
+      }
+    }
+  };
+});
+</script></template>
+
+<!-- 3 · Contours: marching squares over two octaves of 3D Perlin noise,
+     the third axis being time; nine levels, the middle one in mint.
+     Redrawn 24 times a second. -->
+<template id="opt-3"><script>
+ctaBg(function (W, H) {
+  var rnd = ctaBg.rng(5), P = [], i;
+  for (i = 0; i < 256; i++) P[i] = i;
+  for (i = 255; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)), tmp = P[i]; P[i] = P[j]; P[j] = tmp; }
+  for (i = 0; i < 256; i++) P[256 + i] = P[i];
+  function fade(x) { return x * x * x * (x * (x * 6 - 15) + 10); }
+  function mix(t, a, b) { return a + t * (b - a); }
+  function grad(h, x, y, z) {
+    h &= 15;
+    var u = h < 8 ? x : y, v = h < 4 ? y : h === 12 || h === 14 ? x : z;
+    return ((h & 1) ? -u : u) + ((h & 2) ? -v : v);
+  }
+  function noise(x, y, z) {
+    var X = Math.floor(x) & 255, Y = Math.floor(y) & 255, Z = Math.floor(z) & 255;
+    x -= Math.floor(x); y -= Math.floor(y); z -= Math.floor(z);
+    var u = fade(x), v = fade(y), w = fade(z);
+    var A = P[X] + Y, AA = P[A] + Z, AB = P[A + 1] + Z, B = P[X + 1] + Y, BA = P[B] + Z, BB = P[B + 1] + Z;
+    return mix(w, mix(v, mix(u, grad(P[AA], x, y, z), grad(P[BA], x - 1, y, z)),
+                         mix(u, grad(P[AB], x, y - 1, z), grad(P[BB], x - 1, y - 1, z))),
+                  mix(v, mix(u, grad(P[AA + 1], x, y, z - 1), grad(P[BA + 1], x - 1, y, z - 1)),
+                         mix(u, grad(P[AB + 1], x, y - 1, z - 1), grad(P[BB + 1], x - 1, y - 1, z - 1))));
+  }
+  var g = W < 600 ? 10 : 12;
+  var nx = Math.ceil(W / g) + 1, ny = Math.ceil(H / g) + 1;
+  var val = new Float32Array(nx * ny);
+  var LEVELS = [];
+  for (i = -4; i <= 4; i++) LEVELS.push(i * 0.1);
+  // which cell edges each corner pattern crosses: 0 top, 1 right, 2 bottom, 3 left
+  var CASES = [null, [3, 2], [2, 1], [3, 1], [0, 1], [0, 1, 2, 3], [0, 2], [3, 0],
+               [3, 0], [0, 2], [0, 3, 1, 2], [0, 1], [3, 1], [2, 1], [3, 2], null];
+  return {
+    still: 0,
+    fps: 24,
+    draw: function (c, t) {
+      var z = t * 0.05, a, b, cc, d, x, y, L;
+      for (var jj = 0; jj < ny; jj++) {
+        for (var ii = 0; ii < nx; ii++) {
+          val[jj * nx + ii] = noise(ii * g / 380, jj * g / 380, z) + 0.2 * noise(ii * g / 150 + 40, jj * g / 150, z * 1.6);
+        }
+      }
+      function edge(e) {
+        if (e === 0) return [x + g * (L - a) / (b - a), y];
+        if (e === 1) return [x + g, y + g * (L - b) / (cc - b)];
+        if (e === 2) return [x + g * (L - d) / (cc - d), y + g];
+        return [x, y + g * (L - a) / (d - a)];
+      }
+      LEVELS.forEach(function (lev, n) {
+        L = lev;
+        var accent = n === 4;
+        c.strokeStyle = accent ? 'rgba(159,242,154,0.55)' : 'rgba(255,255,255,0.17)';
+        c.lineWidth = accent ? 1.6 : 1.1;
+        c.beginPath();
+        for (var j = 0; j < ny - 1; j++) {
+          for (var i = 0; i < nx - 1; i++) {
+            a = val[j * nx + i]; b = val[j * nx + i + 1]; cc = val[(j + 1) * nx + i + 1]; d = val[(j + 1) * nx + i];
+            var segs = CASES[(a > L ? 8 : 0) | (b > L ? 4 : 0) | (cc > L ? 2 : 0) | (d > L ? 1 : 0)];
+            if (!segs) continue;
+            x = i * g; y = j * g;
+            for (var s = 0; s < segs.length; s += 2) {
+              var p0 = edge(segs[s]), p1 = edge(segs[s + 1]);
+              c.moveTo(p0[0], p0[1]);
+              c.lineTo(p1[0], p1[1]);
+            }
+          }
+        }
+        c.stroke();
+      });
+    }
+  };
+});
+</script></template>
+
+<script>
+(function () {
+  var pageUrl = new URL('exhibitions/', location.href).href;
+  /* the page's GA4 snippet comes out, so previews don't count as visits */
+  var GA = /<script async src="https:\/\/www\.googletagmanager\.com[\s\S]*?<\/script>\s*<script>[\s\S]*?<\/script>/;
+  /* the intro (loader ring, iris) is skipped: the page opens finished,
+     the way it does when you arrive on an anchor link */
+  var OPEN = 'document.documentElement.classList.remove("intro"); document.documentElement.classList.add("porthole", "open", "ready");';
+  /* the overview, and ?solo: the section alone, without the page's own
+     scripts (so no hero film loads); the overview draws at 1x, since
+     the frame is shown at half size */
+  var ALONE = 'html { scroll-behavior: auto; } body { background: #0A0A0A; } .cta { border-top: 0; }';
+  var SOLO = '.cta { min-height: 100svh; display: grid; align-content: center; }';
+  var THUMB_JS = 'Object.defineProperty(window, "devicePixelRatio", { get: function () { return 1; } });';
+  /* ?solo=N&at=S, for still captures: a clock that steps 1/60 s a frame
+     and stops S seconds in, so a headless browser lands on that moment */
+  var at = parseFloat(new URLSearchParams(location.search).get('at'));
+  var CLOCK = isFinite(at) ? '(function () { var f = 0, s = ' + at * 1000 + '; performance.now = function () { return f; };' +
+    ' window.requestAnimationFrame = function (cb) { return setTimeout(function () { if (f < s) f += 1000 / 60; cb(f); }, 0); }; })();' : '';
+
+  function part(id, tag) {
+    var n = document.getElementById(id).content.querySelector(tag);
+    return n ? n.textContent : '';
+  }
+  /* the section alone: everything else in the body, and every script,
+     comes out */
+  function alone(html) {
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    doc.querySelectorAll('script').forEach(function (s) { s.remove(); });
+    Array.prototype.slice.call(doc.body.children).forEach(function (n) { if (n.tagName !== 'MAIN') n.remove(); });
+    Array.prototype.slice.call(doc.querySelector('main').children).forEach(function (n) { if (!n.classList.contains('cta')) n.remove(); });
+    return '<!DOCTYPE html>' + doc.documentElement.outerHTML;
+  }
+  /* option 3 is the page as served; "before" hides its canvas; options
+     1 and 2 hide it and add their own. In the overview and ?solo the
+     page's scripts are gone, so option 3 brings its scene back too. */
+  function inject(html, opt, mode) {
+    var own = opt === '1' || opt === '2' || (opt === '3' && mode !== 'page');
+    if (mode !== 'page') html = alone(html);
+    var style = (opt === '0' ? '.cta-bg { display: none; }' : own ? part('opt-base', 'style') : '') + (mode === 'page' ? 'html { scroll-behavior: auto; }' : ALONE) + (mode === 'solo' ? SOLO : '');
+    var pre = (mode === 'thumb' ? THUMB_JS : CLOCK) + (mode === 'page' ? OPEN : '');   /* in the head, so the page's own scripts get it too */
+    html = html.replace('</head>', (pre ? '<script>' + pre + '<\/script>' : '') + '<style id="cta-opt">' + style + '</style></head>');
+    if (!own) return html;
+    return html.replace(/<\/body>(?![\s\S]*<\/body>)/,
+      '<script>' + part('opt-base', 'script') + part('opt-' + opt, 'script') + '<\/script></body>');
+  }
+
+  var view = document.getElementById('view');
+  var stage = view.parentNode;
+  var solo = new URLSearchParams(location.search).get('solo');
+  var current = /^[0-3]$/.test(solo) ? solo : '3';
+  var page = null;
+  if (solo) document.body.classList.add('solo');
+
+  fetch(pageUrl, { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (html) {
+    page = html.replace(GA, '').replace('<head>', '<head><base href="' + pageUrl + '">');
+    if (!solo) document.querySelectorAll('.thumb').forEach(function (box) {
+      var f = box.querySelector('iframe');
+      f.srcdoc = inject(page, box.dataset.opt, 'thumb');
+      fit(box, f);
+      box.addEventListener('click', function () {
+        show(box.dataset.opt);
+        document.getElementById('viewer').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    view.addEventListener('load', function () {
+      if (solo) return;
+      var d = view.contentDocument, w = view.contentWindow;
+      /* open on the section, just under the fixed menu bar; again once
+         the fonts have settled the layout above it */
+      function toCta() {
+        var cta = d.getElementById('contact'), nav = d.querySelector('.nav');
+        if (cta) w.scrollTo(0, cta.getBoundingClientRect().top + w.scrollY - (nav ? nav.offsetHeight : 0));
+      }
+      toCta();
+      d.fonts.ready.then(toCta);
+      /* in-page anchors would resolve against <base> and leave the
+         preview, so they scroll inside it instead */
+      d.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+        e.preventDefault();
+        var t = d.getElementById(a.getAttribute('href').slice(1));
+        (t || d.documentElement).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    show(current);
+  });
+
+  /* a 1280-wide section scaled to the card; the frame takes the
+     section's own height */
+  function fit(box, f) {
+    function measure() {
+      var d = f.contentDocument, h = d && d.querySelector('.cta') ? d.querySelector('.cta').offsetHeight : 0;
+      if (h) { f.style.height = h + 'px'; box.style.aspectRatio = '1280 / ' + h; }
+      f.style.transform = 'scale(' + box.clientWidth / 1280 + ')';
+    }
+    measure();
+    f.addEventListener('load', function () { measure(); f.contentDocument.fonts.ready.then(measure); });
+    new ResizeObserver(measure).observe(box);
+  }
+
+  function show(opt) {
+    current = opt;
+    if (page) view.srcdoc = inject(page, opt, solo ? 'solo' : 'page');
+    document.querySelectorAll('.seg [data-opt]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.opt === opt ? 'true' : 'false');
+    });
+    document.querySelectorAll('.thumb').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.opt === opt);
+    });
+    document.querySelector('.alone').href = '?solo=' + opt;
+  }
+
+  document.querySelectorAll('.seg [data-opt]').forEach(function (b) {
+    b.addEventListener('click', function () { show(b.dataset.opt); });
+  });
+  document.querySelectorAll('.seg [data-width]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var phone = b.dataset.width === 'phone';
+      stage.classList.toggle('phone', phone);
+      document.querySelectorAll('.seg [data-width]').forEach(function (o) {
+        o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
