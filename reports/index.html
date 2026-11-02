@@ -594,9 +594,6 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
   stroke-width: 2;
   stroke-linecap: round;
 }
-/* the short line reaches across on hover */
-.menu-toggle .short { transform-box: fill-box; transform-origin: 100% 50%; transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
-@media (hover: hover) { .menu-toggle:hover .short { transform: scaleX(1.5); } }
 
 .menu-backdrop {
   position: fixed;
@@ -2051,7 +2048,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         </li>
         <li class="menu-item">
           <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-drawer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18"/><path class="short" d="M9 16h12"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
           </button>
         </li>
       </ul>
