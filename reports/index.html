@@ -2442,7 +2442,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
      Page images are rendered from the client PDFs (PyMuPDF, then
      Pillow): img/<report>-pNN.jpg (1400px wide, lightbox) and
      img/<report>-pNN-800.jpg (booklet, hero). NN is the folio printed
-     on the page (Beyond borders' PDF runs two pages ahead of it).
+     on the page (Beyond borders' PDF runs two pages ahead of it); its
+     inside cover and contents carry no folio, so their names drop the pNN.
      ============================================================ -->
 <section class="flagship" id="flagship" aria-labelledby="flagship-heading">
   <div class="wrap flagship-head reveal">
@@ -2489,9 +2490,19 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
               <p class="bk-cap"><b>Beyond borders</b> <span>The cover</span></p>
             </li>
             <li data-report="Beyond borders">
-              <img src="img/afrobarometer-beyond-borders-p08-trade-bar-charts-800.jpg" srcset="img/afrobarometer-beyond-borders-p08-trade-bar-charts-800.jpg 800w, img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg 1400w" sizes="240px" alt="Two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners." width="800" height="1131" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg" data-group="afro-book" data-caption="Beyond borders · Figures 2 and 3: free trade or protection, and preferred trading partners" data-alt="Two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Beyond borders</b> <span>Free trade or protection?</span></p>
+              <img src="img/afrobarometer-beyond-borders-inside-cover-about-afrobarometer-800.jpg" srcset="img/afrobarometer-beyond-borders-inside-cover-about-afrobarometer-800.jpg 800w, img/afrobarometer-beyond-borders-inside-cover-about-afrobarometer.jpg 1400w" sizes="240px" alt="The inside cover on deep blue: who Afrobarometer is, its vision and mission, its funders, the photo credits and the colophon, with a QR code to the report." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-inside-cover-about-afrobarometer.jpg" data-group="afro-book" data-caption="Beyond borders · Inside cover: about Afrobarometer, and the colophon" data-alt="The inside cover on deep blue: who Afrobarometer is, its vision and mission, its funders, the photo credits and the colophon, with a QR code to the report."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>Inside cover and colophon</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-contents-800.jpg" srcset="img/afrobarometer-beyond-borders-contents-800.jpg 800w, img/afrobarometer-beyond-borders-contents.jpg 1400w" sizes="240px" alt="The contents page: orange chapter headings, from Moving goods and People on the move to Global powers and climate action, with their sections listed beneath." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-contents.jpg" data-group="afro-book" data-caption="Beyond borders · Contents" data-alt="The contents page: orange chapter headings, from Moving goods and People on the move to Global powers and climate action, with their sections listed beneath."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>The contents</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p02-foreword-800.jpg" srcset="img/afrobarometer-beyond-borders-p02-foreword-800.jpg 800w, img/afrobarometer-beyond-borders-p02-foreword.jpg 1400w" sizes="240px" alt="The foreword by Afrobarometer board chair Amina Oyagbola, with her portrait, a pull quote in orange and her signature." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p02-foreword.jpg" data-group="afro-book" data-caption="Beyond borders · Foreword: Africa has never existed in isolation" data-alt="The foreword by Afrobarometer board chair Amina Oyagbola, with her portrait, a pull quote in orange and her signature."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>The foreword</span></p>
             </li>
             <li data-report="Beyond borders">
               <img src="img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg" srcset="img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg 800w, img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg 1400w" sizes="240px" alt="Purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
@@ -2499,24 +2510,14 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
               <p class="bk-cap"><b>Beyond borders</b> <span>Who is thinking of leaving</span></p>
             </li>
             <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts-800.jpg" srcset="img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts-800.jpg 800w, img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts.jpg 1400w" sizes="240px" alt="A pie chart and a column chart of where potential emigrants would go, beside long stacked bars of preferred destinations in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts.jpg" data-group="afro-book" data-caption="Beyond borders · Figures 12 to 14: where potential emigrants would go" data-alt="A pie chart and a column chart of where potential emigrants would go, beside long stacked bars of preferred destinations in 38 countries, grouped by region."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>Where they would go</span></p>
+            </li>
+            <li data-report="Beyond borders">
               <img src="img/afrobarometer-beyond-borders-p17-regional-bar-chart-800.jpg" srcset="img/afrobarometer-beyond-borders-p17-regional-bar-chart-800.jpg 800w, img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg 1400w" sizes="240px" alt="A cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa." width="800" height="1131" loading="lazy" decoding="async">
               <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg" data-group="afro-book" data-caption="Beyond borders · Figure 15: Africans lead the way in looking to uproot" data-alt="A cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
               <p class="bk-cap"><b>Beyond borders</b> <span>Africa against two other regions</span></p>
-            </li>
-            <li data-report="Beyond borders">
-              <img src="img/afrobarometer-beyond-borders-p20-heatmap-table-800.jpg" srcset="img/afrobarometer-beyond-borders-p20-heatmap-table-800.jpg 800w, img/afrobarometer-beyond-borders-p20-heatmap-table.jpg 1400w" sizes="240px" alt="A green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p20-heatmap-table.jpg" data-group="afro-book" data-caption="Beyond borders · Table 1: welcoming foreign residents?" data-alt="A green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Beyond borders</b> <span>A 38-country heatmap</span></p>
-            </li>
-            <li data-report="Beyond borders">
-              <img src="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg" srcset="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg 800w, img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg 1400w" sizes="240px" alt="A blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg" data-group="afro-book" data-caption="Beyond borders · Table 2: how Africans rate the major powers" data-alt="A blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Beyond borders</b> <span>Rating the major powers</span></p>
-            </li>
-            <li data-report="Beyond borders">
-              <img src="img/afrobarometer-beyond-borders-p32-diverging-bar-chart-800.jpg" srcset="img/afrobarometer-beyond-borders-p32-diverging-bar-chart-800.jpg 800w, img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg 1400w" sizes="240px" alt="A cream feature panel on the Russia–Ukraine war with a diverging bar chart by country." width="800" height="1131" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg" data-group="afro-book" data-caption="Beyond borders · The battle is not ours: the Russia–Ukraine war" data-alt="A cream feature panel on the Russia–Ukraine war with a diverging bar chart by country."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Beyond borders</b> <span>The Russia–Ukraine war</span></p>
             </li>
             <li data-report="Beyond borders">
               <img src="img/afrobarometer-beyond-borders-p39-climate-dot-plot-800.jpg" srcset="img/afrobarometer-beyond-borders-p39-climate-dot-plot-800.jpg 800w, img/afrobarometer-beyond-borders-p39-climate-dot-plot.jpg 1400w" sizes="240px" alt="A dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action." width="800" height="1131" loading="lazy" decoding="async">
@@ -2556,10 +2557,22 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <ul class="strip-track" aria-label="Pages from Beyond borders">
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg" data-group="afro" data-caption="Figures 2 and 3: free trade or protection, and preferred trading partners">
-            <img src="img/afrobarometer-beyond-borders-p08-trade-bar-charts-800.jpg" alt="Two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-inside-cover-about-afrobarometer.jpg" data-group="afro" data-caption="Inside cover: about Afrobarometer, and the colophon">
+            <img src="img/afrobarometer-beyond-borders-inside-cover-about-afrobarometer-800.jpg" alt="The inside cover on deep blue: who Afrobarometer is, its vision and mission, its funders, the photo credits and the colophon, with a QR code to the report." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption>Free trade or protection?</figcaption>
+          <figcaption>Inside cover and colophon</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afrobarometer-beyond-borders-contents.jpg" data-group="afro" data-caption="Contents">
+            <img src="img/afrobarometer-beyond-borders-contents-800.jpg" alt="The contents page: orange chapter headings, from Moving goods and People on the move to Global powers and climate action, with their sections listed beneath." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption>The contents</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/afrobarometer-beyond-borders-p02-foreword.jpg" data-group="afro" data-caption="Foreword: Africa has never existed in isolation">
+            <img src="img/afrobarometer-beyond-borders-p02-foreword-800.jpg" alt="The foreword by Afrobarometer board chair Amina Oyagbola, with her portrait, a pull quote in orange and her signature." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption>The foreword</figcaption>
         </figure></li>
         <li class="pg"><figure>
           <a href="img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg" data-group="afro" data-caption="Figures 9 to 11: who has considered emigrating">
@@ -2568,28 +2581,16 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <figcaption>Who is thinking of leaving <a href="#demo-dots" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
+          <a href="img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts.jpg" data-group="afro" data-caption="Figures 12 to 14: where potential emigrants would go">
+            <img src="img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts-800.jpg" alt="A pie chart and a column chart of where potential emigrants would go, beside long stacked bars of preferred destinations in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption>Where they would go</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
           <a href="img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg" data-group="afro" data-caption="Figure 15: Africans lead the way in looking to uproot">
             <img src="img/afrobarometer-beyond-borders-p17-regional-bar-chart-800.jpg" alt="A cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa." width="800" height="1131" loading="lazy" decoding="async">
           </a>
           <figcaption>Africa against two other regions</figcaption>
-        </figure></li>
-        <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p20-heatmap-table.jpg" data-group="afro" data-caption="Table 1: welcoming foreign residents?">
-            <img src="img/afrobarometer-beyond-borders-p20-heatmap-table-800.jpg" alt="A green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
-          </a>
-          <figcaption>A 38-country heatmap</figcaption>
-        </figure></li>
-        <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg" data-group="afro" data-caption="Table 2: how Africans rate the major powers">
-            <img src="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg" alt="A blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
-          </a>
-          <figcaption>Rating the major powers <a href="#demo" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
-        </figure></li>
-        <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg" data-group="afro" data-caption="The battle is not ours: the Russia–Ukraine war">
-            <img src="img/afrobarometer-beyond-borders-p32-diverging-bar-chart-800.jpg" alt="A cream feature panel on the Russia–Ukraine war with a diverging bar chart by country." width="800" height="1131" loading="lazy" decoding="async">
-          </a>
-          <figcaption>The Russia–Ukraine war</figcaption>
         </figure></li>
         <li class="pg"><figure>
           <a href="img/afrobarometer-beyond-borders-p39-climate-dot-plot.jpg" data-group="afro" data-caption="Figures 37 and 38: responsibility for climate change, and support for climate action">
@@ -2637,9 +2638,19 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
               <p class="bk-cap"><b>Rețele Electrice</b> <span>The cover</span></p>
             </li>
             <li data-report="Rețele Electrice">
-              <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg 1400w" sizes="240px" alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024" data-alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Rețele Electrice</b> <span>Emissions, scope by scope</span></p>
+              <img src="img/retele-electrice-sustainability-report-2024-p06-chapter-opener-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p06-chapter-opener-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p06-chapter-opener.jpg 1400w" sizes="240px" alt="A chapter opener: “Despre raportul de sustenabilitate” (About the sustainability report) in thin white type and a large faded 1 over a misty autumn mountain valley." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p06-chapter-opener.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Chapter 1: about the sustainability report" data-alt="A chapter opener: “Despre raportul de sustenabilitate” (About the sustainability report) in thin white type and a large faded 1 over a misty autumn mountain valley."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>A chapter opens</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p08-company-profile-map-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p08-company-profile-map-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p08-company-profile-map.jpg 1400w" sizes="240px" alt="The company profile, with a map of Romania’s counties picking out the three distribution regions, Banat, Dobrogea and Muntenia, in blue and green." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p08-company-profile-map.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Company profile: a grid of about 135,000 km in three regions" data-alt="The company profile, with a map of Romania’s counties picking out the three distribution regions, Banat, Dobrogea and Muntenia, in blue and green."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Three regions on one map</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p09-vision-and-values-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p09-vision-and-values-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p09-vision-and-values.jpg 1400w" sizes="240px" alt="Vision and values set in white over a full-page photo of power lines against a blue sky." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p09-vision-and-values.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Vision and values" data-alt="Vision and values set in white over a full-page photo of power lines against a blue sky."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Vision and values</span></p>
             </li>
             <li data-report="Rețele Electrice">
               <img src="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p10-kpi-infographic.jpg 1400w" sizes="240px" alt="An infographic spread of orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles." width="800" height="1132" loading="lazy" decoding="async">
@@ -2647,34 +2658,24 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
               <p class="bk-cap"><b>Rețele Electrice</b> <span>The year in KPI tiles</span></p>
             </li>
             <li data-report="Rețele Electrice">
-              <img src="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg 1400w" sizes="240px" alt="Green and blue KPI tiles for energy consumption, workforce and safety indicators." width="800" height="1132" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Energy use, workforce, health and safety indicators" data-alt="Green and blue KPI tiles for energy consumption, workforce and safety indicators."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Rețele Electrice</b> <span>People and energy at a glance</span></p>
+              <img src="img/retele-electrice-sustainability-report-2024-p48-carbon-footprint-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p48-carbon-footprint-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p48-carbon-footprint.jpg 1400w" sizes="240px" alt="The carbon footprint section: a photo of cupped hands holding soil and a seedling, a pale panel introducing Scope 1, 2 and 3 emissions, then two columns on how greenhouse gas emissions are calculated." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p48-carbon-footprint.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Carbon footprint and emissions reduction" data-alt="The carbon footprint section: a photo of cupped hands holding soil and a seedling, a pale panel introducing Scope 1, 2 and 3 emissions, then two columns on how greenhouse gas emissions are calculated."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Measuring the footprint</span></p>
             </li>
             <li data-report="Rețele Electrice">
-              <img src="img/retele-electrice-sustainability-report-2024-p46-energy-infographic-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p46-energy-infographic-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg 1400w" sizes="240px" alt="A grid of large green, ochre and orange tiles for energy consumption by source in 2024." width="800" height="1132" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Energy consumption, 2024" data-alt="A grid of large green, ochre and orange tiles for energy consumption by source in 2024."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Rețele Electrice</b> <span>Energy, by source</span></p>
+              <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg 1400w" sizes="240px" alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024" data-alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Emissions, scope by scope</span></p>
             </li>
             <li data-report="Rețele Electrice">
-              <img src="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg 1400w" sizes="240px" alt="Proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover." width="800" height="1132" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Emissions intensity per million euros of turnover" data-alt="Proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Rețele Electrice</b> <span>Emissions intensity</span></p>
+              <img src="img/retele-electrice-sustainability-report-2024-p60-chapter-opener-people-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p60-chapter-opener-people-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p60-chapter-opener-people.jpg 1400w" sizes="240px" alt="A chapter opener: “Oamenii noștri” (Our people) over a photo of three Rețele Electrice workers in white hard hats and work jackets in front of a substation, with a large faded 6." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p60-chapter-opener-people.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Chapter 6: our people" data-alt="A chapter opener: “Oamenii noștri” (Our people) over a photo of three Rețele Electrice workers in white hard hats and work jackets in front of a substation, with a large faded 6."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Our people</span></p>
             </li>
             <li data-report="Rețele Electrice">
-              <img src="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg 1400w" sizes="240px" alt="Three orange ring charts showing the share of activities aligned with the EU Taxonomy." width="800" height="1132" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Alignment with the EU Taxonomy" data-alt="Three orange ring charts showing the share of activities aligned with the EU Taxonomy."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Rețele Electrice</b> <span>EU Taxonomy alignment</span></p>
-            </li>
-            <li data-report="Rețele Electrice">
-              <img src="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg 1400w" sizes="240px" alt="Yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024." width="800" height="1132" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Workforce diversity by gender and age, 2023 and 2024" data-alt="Yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Rețele Electrice</b> <span>Workforce diversity</span></p>
-            </li>
-            <li data-report="Rețele Electrice">
-              <img src="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg 1400w" sizes="240px" alt="Orange ring charts for family-related leave and blue tiles for pay indicators." width="800" height="1132" loading="lazy" decoding="async">
-              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Work–life balance and pay metrics" data-alt="Orange ring charts for family-related leave and blue tiles for pay indicators."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
-              <p class="bk-cap"><b>Rețele Electrice</b> <span>Work–life balance and pay</span></p>
+              <img src="img/retele-electrice-sustainability-report-2024-p61-employees-kpi-tiles-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p61-employees-kpi-tiles-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p61-employees-kpi-tiles.jpg 1400w" sizes="240px" alt="Our employees: a photo of a worker in a Rețele Electrice jacket holding a grid plan, then six blue KPI tiles: 2,771 employees, top management 62% men and 38% women, a 1.75% gender pay gap, €357.4M in contracts with local and EU suppliers, 10 communities reached and €228,419 invested in them." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p61-employees-kpi-tiles.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Our employees, in six KPI tiles" data-alt="Our employees: a photo of a worker in a Rețele Electrice jacket holding a grid plan, then six blue KPI tiles: 2,771 employees, top management 62% men and 38% women, a 1.75% gender pay gap, €357.4M in contracts with local and EU suppliers, 10 communities reached and €228,419 invested in them."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>People in six tiles</span></p>
             </li>
           </ol>
           <template class="bk-back-tpl">
@@ -2704,11 +2705,22 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <ul class="strip-track" aria-label="Pages from the Rețele Electrice sustainability report">
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="ppc" data-caption="Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024">
-            <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p06-chapter-opener.jpg" data-group="ppc" data-caption="Chapter 1: about the sustainability report">
+            <img src="img/retele-electrice-sustainability-report-2024-p06-chapter-opener-800.jpg" alt="A chapter opener: “Despre raportul de sustenabilitate” (About the sustainability report) in thin white type and a large faded 1 over a misty autumn mountain valley." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <a class="pg-live" href="#page-49">Live below ↓</a>
-          <figcaption>Emissions, scope by scope</figcaption>
+          <figcaption>A chapter opens</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/retele-electrice-sustainability-report-2024-p08-company-profile-map.jpg" data-group="ppc" data-caption="Company profile: a grid of about 135,000 km in three regions">
+            <img src="img/retele-electrice-sustainability-report-2024-p08-company-profile-map-800.jpg" alt="The company profile, with a map of Romania’s counties picking out the three distribution regions, Banat, Dobrogea and Muntenia, in blue and green." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption>Three regions on one map</figcaption>
+        </figure></li>
+        <li class="pg"><figure>
+          <a href="img/retele-electrice-sustainability-report-2024-p09-vision-and-values.jpg" data-group="ppc" data-caption="Vision and values">
+            <img src="img/retele-electrice-sustainability-report-2024-p09-vision-and-values-800.jpg" alt="Vision and values set in white over a full-page photo of power lines against a blue sky." width="800" height="1131" loading="lazy" decoding="async">
+          </a>
+          <figcaption>Vision and values</figcaption>
         </figure></li>
         <li class="pg"><figure>
           <a href="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic.jpg" data-group="ppc" data-caption="Financial and technical performance, 2024">
@@ -2717,40 +2729,29 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <figcaption>The year in KPI tiles</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg" data-group="ppc" data-caption="Energy use, workforce, health and safety indicators">
-            <img src="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles-800.jpg" alt="Green and blue KPI tiles for energy consumption, workforce and safety indicators." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p48-carbon-footprint.jpg" data-group="ppc" data-caption="Carbon footprint and emissions reduction">
+            <img src="img/retele-electrice-sustainability-report-2024-p48-carbon-footprint-800.jpg" alt="The carbon footprint section: a photo of cupped hands holding soil and a seedling, a pale panel introducing Scope 1, 2 and 3 emissions, then two columns on how greenhouse gas emissions are calculated." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption>People and energy at a glance</figcaption>
+          <figcaption>Measuring the footprint</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg" data-group="ppc" data-caption="Energy consumption, 2024">
-            <img src="img/retele-electrice-sustainability-report-2024-p46-energy-infographic-800.jpg" alt="A grid of large green, ochre and orange tiles for energy consumption by source in 2024." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="ppc" data-caption="Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
           </a>
-          <figcaption>Energy, by source</figcaption>
+          <a class="pg-live" href="#page-49">Live below ↓</a>
+          <figcaption>Emissions, scope by scope</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg" data-group="ppc" data-caption="Emissions intensity per million euros of turnover">
-            <img src="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart-800.jpg" alt="Proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p60-chapter-opener-people.jpg" data-group="ppc" data-caption="Chapter 6: our people">
+            <img src="img/retele-electrice-sustainability-report-2024-p60-chapter-opener-people-800.jpg" alt="A chapter opener: “Oamenii noștri” (Our people) over a photo of three Rețele Electrice workers in white hard hats and work jackets in front of a substation, with a large faded 6." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption>Emissions intensity</figcaption>
+          <figcaption>Our people</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg" data-group="ppc" data-caption="Alignment with the EU Taxonomy">
-            <img src="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts-800.jpg" alt="Three orange ring charts showing the share of activities aligned with the EU Taxonomy." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p61-employees-kpi-tiles.jpg" data-group="ppc" data-caption="Our employees, in six KPI tiles">
+            <img src="img/retele-electrice-sustainability-report-2024-p61-employees-kpi-tiles-800.jpg" alt="Our employees: a photo of a worker in a Rețele Electrice jacket holding a grid plan, then six blue KPI tiles: 2,771 employees, top management 62% men and 38% women, a 1.75% gender pay gap, €357.4M in contracts with local and EU suppliers, 10 communities reached and €228,419 invested in them." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption>EU Taxonomy alignment</figcaption>
-        </figure></li>
-        <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg" data-group="ppc" data-caption="Workforce diversity by gender and age, 2023 and 2024">
-            <img src="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts-800.jpg" alt="Yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024." width="800" height="1132" loading="lazy" decoding="async">
-          </a>
-          <figcaption>Workforce diversity</figcaption>
-        </figure></li>
-        <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg" data-group="ppc" data-caption="Work–life balance and pay metrics">
-            <img src="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts-800.jpg" alt="Orange ring charts for family-related leave and blue tiles for pay indicators." width="800" height="1132" loading="lazy" decoding="async">
-          </a>
-          <figcaption>Work–life balance and pay</figcaption>
+          <figcaption>People in six tiles</figcaption>
         </figure></li>
       </ul>
     </div>

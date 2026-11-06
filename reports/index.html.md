@@ -14,7 +14,7 @@ This is a plain-text version of https://nutgraf.studio/reports/ for language mod
 - Data: Afrobarometer Round 10 survey, 38 countries, 2024/2025; face-to-face interviews, nationally representative samples
 - Nutgraf's role: report design (editorial design, data visualisation and infographics). The report's colophon reads "Report design by nutgraf.studio".
 - The report: https://www.afrobarometer.org/publication/african-insights-2026-beyond-borders-citizen-perspectives-on-a-shifting-global-order/
-- On the web page, eight of its pages are bound into a booklet visitors can leaf through: free trade or protection (stacked bar charts), who is thinking of leaving (a dot plot), Africa against two other regions, a 38-country heatmap, rating the major powers (a shaded table), the Russia–Ukraine war (a diverging bar chart), who should act on climate, and a one-page country scorecard
+- On the web page, eight of its pages are bound into a booklet visitors can leaf through: the inside cover with the colophon, the contents, the foreword, who is thinking of leaving (a dot plot), where they would go (a pie, a column chart and stacked bars), Africa against two other regions, who should act on climate (a dot plot), and a one-page country scorecard
 
 ## Case study 2: Rețele Electrice România, Sustainability Report 2024 (PPC Group)
 
@@ -25,7 +25,7 @@ This is a plain-text version of https://nutgraf.studio/reports/ for language mod
 - Framework: ESRS, the reporting standards of the EU's CSRD
 - Nutgraf's role: editorial design, data visualisation and KPI infographics: KPI tiles, flows and rings
 - Featured chart: a Sankey diagram tracing 793,348 tCO₂e of gross emissions from three scopes to eleven sources
-- On the web page, eight of its pages are bound into a booklet visitors can leaf through: the emissions Sankey, the year in KPI tiles, people and energy at a glance, energy by source, emissions intensity (proportional circles), EU Taxonomy alignment (ring charts), workforce diversity (column charts), and work–life balance and pay
+- On the web page, eight of its pages are bound into a booklet visitors can leaf through: a chapter opener, the company profile with a map of its three regions, vision and values, the year in KPI tiles, the carbon footprint, the emissions Sankey, the opener of the chapter on its people, and its employees in six KPI tiles
 
 ### The Sankey as data: gross Scope 1, 2 and 3 emissions, 2024 (tCO₂e)
 

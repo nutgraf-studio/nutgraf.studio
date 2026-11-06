@@ -21,26 +21,27 @@
   </url>
   <url>
     <loc>https://nutgraf.studio/reports/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-cover-600.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-inside-cover-about-afrobarometer.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-contents.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p02-foreword.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p20-heatmap-table.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p39-climate-dot-plot.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/afrobarometer-beyond-borders-p45-country-scorecard-infographic.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-cover-600.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p06-chapter-opener.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p08-company-profile-map.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p09-vision-and-values.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p10-kpi-infographic.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p48-carbon-footprint.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg</image:loc></image:image>
-    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p60-chapter-opener-people.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p61-employees-kpi-tiles.jpg</image:loc></image:image>
   </url>
 </urlset>
