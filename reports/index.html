@@ -50,7 +50,7 @@ setTimeout(function () {
 <meta property="og:image" content="https://nutgraf.studio/reports/og-image.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Bring us the data, leave with the report: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
+<meta property="og:image:alt" content="Bring us the data, leave with the report: the emissions Sankey Nutgraf designed for the Rețele Electrice sustainability report.">
 <meta property="og:locale" content="en_GB">
 
 <!-- Twitter Card -->
@@ -58,7 +58,7 @@ setTimeout(function () {
 <meta name="twitter:title" content="Data Visualisation Reports, Infographics & Dashboards — Nutgraf">
 <meta name="twitter:description" content="Data visualisation, infographics and report design for flagship, annual and ESG reports, plus PDF reports turned into interactive dashboards and data-driven stories.">
 <meta name="twitter:image" content="https://nutgraf.studio/reports/og-image.jpg?v=2">
-<meta name="twitter:image:alt" content="Bring us the data, leave with the report: page 49 of the Rețele Electrice sustainability report, an emissions Sankey designed by Nutgraf.">
+<meta name="twitter:image:alt" content="Bring us the data, leave with the report: the emissions Sankey Nutgraf designed for the Rețele Electrice sustainability report.">
 
 <!-- Structured data, one graph: the page, the service it sells and the
      two reports shown as case studies.
@@ -226,7 +226,7 @@ setTimeout(function () {
       "name": "Can you turn a PDF report into an interactive dashboard?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, page 49 of the Rețele Electrice report is rebuilt as an interactive Sankey diagram, and two figures and a table from Afrobarometer reports become live dashboards."
+        "text": "Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live dashboards."
       }
     },
     {
@@ -309,7 +309,7 @@ setTimeout(function () {
    Sections:
    NAV / HERO (proof stack + ruler) / STATEMENT / CONTENTS (what we
    make) / FLAGSHIP REPORTS
-   (two cases + page strips) / PAGE 49 (printed vs live Sankey) /
+   (two cases + booklet) / PAGE 49 (printed vs live Sankey) /
    DASHBOARDS (outwards vs inwards, three demos) / PROCESS / FAQ / CTA /
    FOOTER /
    LIGHTBOX
@@ -1197,8 +1197,29 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   border-top: 2px solid var(--black);
 }
 .case-grid { display: grid; gap: 2.5rem; }
+/* phones: number, title, text, booklet, one under the other. From 960px
+   the number sits beside the title and the booklet runs full width
+   under the text; from 1100px the booklet takes a wide column beside
+   the text, wide enough for spreads of ~300px pages. */
 @media (min-width: 960px) {
-  .case-grid { grid-template-columns: 7rem 1fr 15rem; gap: 3rem; align-items: start; }
+  .case-grid {
+    grid-template-columns: 7rem minmax(0, 1fr);
+    grid-template-areas: "no head" ". text" "book book";
+    gap: 2rem 3rem;
+    align-items: start;
+  }
+  .case-no { grid-area: no; }
+  .case-head { grid-area: head; }
+  .case-text { grid-area: text; }
+  .case-booklet { grid-area: book; }
+}
+@media (min-width: 1100px) {
+  .case-grid {
+    grid-template-columns: 7rem minmax(0, 1fr) minmax(0, 38rem);
+    grid-template-areas: "no head head" "text text book";
+    row-gap: 2.5rem;
+  }
+  .case-text .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .case-no {
   font-family: var(--font-display);
@@ -1237,7 +1258,7 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   max-width: 30ch;
 }
 .case-sub em { font-style: italic; }
-.case-body { margin-top: 1.75rem; max-width: 38rem; }
+.case-body { max-width: 38rem; }
 .case-body p + p { margin-top: 1rem; }
 .read-more { margin-top: 1rem; font-size: 0.9375rem; font-weight: 700; }
 .read-more a { text-underline-offset: 3px; }
@@ -1300,16 +1321,7 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   text-transform: uppercase;
 }
 
-/* ---------- Page strip: the report, page by page ---------- */
-.strip { margin-top: clamp(3rem, 6vw, 4rem); }
-.strip-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.25rem;
-}
-.strip-bar .kicker { margin: 0; }
+/* ---------- Round arrow buttons (page strips, dashboards) ---------- */
 .strip-nav { display: flex; gap: 0.5rem; }
 .strip-nav button {
   width: 2.75rem;
@@ -1323,6 +1335,17 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 .strip-nav button:hover, .strip-nav button:focus-visible { background: var(--black); color: var(--mint); }
 .strip-nav button:disabled { opacity: 0.3; pointer-events: none; }
 .strip-nav svg { width: 1rem; height: 1rem; stroke: currentColor; stroke-width: 2; fill: none; }
+
+/* ---------- Page strip: the report, page by page ---------- */
+.strip { margin-top: clamp(3rem, 6vw, 4rem); }
+.strip-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+.strip-bar .kicker { margin: 0; }
 .strip-track {
   display: flex;
   gap: clamp(1rem, 2vw, 1.75rem);
@@ -1347,14 +1370,6 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 .pg a[data-group]:hover, .pg a[data-group]:focus-visible { transform: translate(-3px, -6px); box-shadow: 8px 10px 0 var(--violet); }
 .pg img { width: 100%; height: 100%; object-fit: cover; }
 .pg figcaption { margin-top: 0.875rem; font-size: 0.8125rem; line-height: 1.35; padding-right: 0.5rem; }
-.pg .folio {
-  display: block;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 900;
-  font-size: 1.125rem;
-  margin-bottom: 0.125rem;
-}
 /* the page that comes alive further down */
 .pg-live {
   position: absolute;
@@ -1376,6 +1391,176 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 /* strip pages slide in as the strip arrives */
 .js .strip .pg { opacity: 0; transform: translateX(3rem); transition: opacity 0.7s ease, transform 0.9s var(--ease-out); }
 .js .strip.in .pg { opacity: 1; transform: none; }
+
+/* ---------- The booklets: the cover and eight pages of each report ----------
+   The script builds each from its list: spreads whose leaves turn on the
+   spine from 640px of width, one page at a time below. Each leaf sits a
+   pixel above the one under it (--z), so the 3D stack never z-fights.
+   Without the script the list shows as a grid of pages. */
+/* the booklet: as wide as its column, up to two ~320px pages */
+.case-booklet { width: 100%; max-width: 40rem; justify-self: center; }
+.case-booklet .bk-stage { padding-block: 0.25rem 1.5rem; }
+/* closed, the booklet lies on the desk at the cover's old angle */
+.booklet.is-closed .bk-book { rotate: 2.5deg; }
+
+.bk-src { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 2rem 1.5rem; }
+.bk-src li { position: relative; }
+.bk-src img { width: 100%; height: auto; background: var(--white); box-shadow: var(--paper-shadow); }
+.bk-cap { margin-top: 0.75rem; font-size: 0.8125rem; line-height: 1.35; }
+.bk-cap b { display: block; font-family: var(--font-display); font-style: italic; font-weight: 900; font-size: 1rem; }
+.bk-zoom {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--black);
+  color: var(--mint);
+  box-shadow: 2px 2px 0 var(--mint);
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.bk-zoom svg { width: 1.125rem; height: 1.125rem; stroke: currentColor; stroke-width: 1.75; fill: none; stroke-linecap: round; }
+.bk-zoom:hover, .bk-zoom:focus-visible { background: var(--mint); color: var(--black); box-shadow: 2px 2px 0 var(--black); }
+
+.booklet.is-book .bk-src { display: none; }
+.bk-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-block: 1rem 2.25rem;
+  perspective: 2600px;
+  perspective-origin: 50% 35%;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.bk-stage.single { overflow: hidden; }
+.bk-stage:focus { outline: none; }
+.bk-stage:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+.bk-book {
+  position: relative;
+  width: calc(var(--pw) * var(--cols));
+  height: var(--ph);
+  transform-style: preserve-3d;
+  transition: transform 0.9s var(--ease-out), rotate 0.5s var(--ease-out);
+}
+.bk-book.at-front { transform: translateX(calc(var(--pw) * -0.5)); }
+.bk-book.at-back { transform: translateX(calc(var(--pw) * 0.5)); }
+.bk-leaf {
+  --r: 0deg;
+  position: absolute;
+  top: 0;
+  left: calc(var(--pw) * (var(--cols) - 1));
+  width: var(--pw);
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transform: translateZ(var(--z, 0px)) rotateY(var(--r));
+  transition: transform 0.95s cubic-bezier(0.6, 0.04, 0.3, 1);
+  cursor: pointer;
+}
+.bk-leaf.turned { --r: -180deg; }
+@media (hover: hover) {
+  .bk-leaf.next-up:hover { --r: -9deg; transition-duration: 0.45s; }
+  .bk-leaf.prev-up:hover { --r: -171deg; transition-duration: 0.45s; }
+}
+.bk-leaf.peek { --r: -28deg; transition-duration: 0.7s; }
+.bk-book.instant, .bk-book.instant .bk-leaf { transition: none; }
+.bk-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--white);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  container-type: inline-size;
+}
+/* one shadow on the table: the faces in view and the leaf in the air,
+   not every leaf of the stack */
+.bk-face[aria-hidden="false"], .bk-leaf.moving .bk-face { box-shadow: 0 26px 34px -24px rgba(10, 10, 10, 0.5); }
+.bk-face.back { transform: rotateY(180deg); }
+.bk-face img { display: block; pointer-events: none; -webkit-user-drag: none; }
+.bk-face.is-page > img { width: 100%; height: 100%; object-fit: cover; }
+.bk-cover > *, .bk-backc > * { flex: none; }
+.bk-face.is-paper { background: #F7F5F0; }
+/* the fold: a soft shade along each page's spine */
+.bk-face::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to right, rgba(10, 10, 10, 0.22), rgba(10, 10, 10, 0.06) 3%, transparent 9%); }
+.bk-face.back::after { background: linear-gradient(to left, rgba(10, 10, 10, 0.22), rgba(10, 10, 10, 0.06) 3%, transparent 9%); }
+.bk-stage.single .bk-face::after { background: linear-gradient(to right, rgba(10, 10, 10, 0.12), transparent 4%); }
+/* a phone: a page turned away is gone once it has turned */
+.bk-stage.single .bk-leaf.turned:not(.moving) { visibility: hidden; }
+/* a turning leaf darkens as it passes upright */
+.bk-face::before { content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: rgba(10, 10, 10, 0.3); opacity: 0; }
+.bk-leaf.moving .bk-face::before { animation: bk-shade 0.95s ease-in-out; }
+@keyframes bk-shade { 50% { opacity: 1; } }
+.bk-face .bk-zoom { top: 0.75rem; right: 0.75rem; }
+.bk-face.back .bk-zoom { right: auto; left: 0.75rem; }
+@media (hover: hover) {
+  .bk-face .bk-zoom { opacity: 0; }
+  .bk-face:hover .bk-zoom, .bk-face .bk-zoom:focus-visible { opacity: 1; }
+}
+
+/* the covers, in the studio's own colours */
+.bk-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 9cqw 9cqw 8cqw;
+  background: var(--black);
+  color: var(--cream);
+}
+.bk-c-kicker { font-size: max(0.625rem, 2.6cqw); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mint); }
+.bk-c-art { width: 42cqw; margin: 10cqw 0 0 -1cqw; }
+.bk-c-title { margin-top: auto; font-family: var(--font-display); font-weight: 900; font-size: var(--ts, 11cqw); line-height: 0.95; letter-spacing: -0.03em; color: var(--white); }
+.bk-c-title em { font-style: italic; color: var(--mint); }
+.bk-c-list { list-style: none; margin-top: 6cqw; display: grid; gap: 2.4cqw; font-size: max(0.625rem, 2.8cqw); line-height: 1.3; color: rgba(237, 233, 225, 0.75); }
+.bk-c-list b { display: block; color: var(--cream); font-size: max(0.75rem, 3.4cqw); }
+.bk-c-bar { display: flex; margin-top: 7cqw; }
+.bk-c-bar i { width: 4.5cqw; height: 2.4cqw; }
+.bk-c-logo { width: 34cqw; height: auto; margin-top: 6cqw; }
+.bk-backc {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10cqw 9cqw;
+  background: var(--mint);
+  color: var(--black);
+}
+.bk-b-logo { width: 46cqw; height: auto; margin-bottom: auto; }
+.bk-b-line { font-family: var(--font-display); font-weight: 900; font-size: 7.5cqw; line-height: 1; letter-spacing: -0.02em; max-width: 12ch; }
+.bk-b-mail { margin-top: 5cqw; font-size: max(0.75rem, 3.2cqw); font-weight: 700; }
+
+/* under the book: back, the dots, on; then what's open */
+.bk-bar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.375rem 0.5rem; }
+.booklet:not(.is-book) .bk-bar { display: none; }
+.bk-dots { display: flex; justify-content: center; flex-wrap: wrap; }
+.bk-dots { flex-wrap: nowrap; }
+.bk-dots button { width: 0.9375rem; height: 1.75rem; display: grid; place-items: center; }
+.bk-dots button::before { content: ""; width: 7px; height: 7px; border-radius: 4px; border: 1.5px solid var(--black); transition: width 0.3s var(--ease-out), background-color 0.2s ease; }
+.bk-dots button[aria-current="true"]::before { width: 14px; background: var(--black); }
+.bk-dots button[aria-current="true"] { width: 1.25rem; }
+.bk-dots button:hover::before { background: var(--mint); }
+.bk-status { grid-column: 1 / -1; text-align: center; font-size: 0.8125rem; line-height: 1.35; min-height: 2.7em; }
+.bk-status b { font-family: var(--font-display); font-style: italic; font-weight: 900; }
+.bk-turn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--black);
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.bk-turn:hover, .bk-turn:focus-visible { background: var(--black); color: var(--mint); }
+.bk-turn:disabled { opacity: 0.3; pointer-events: none; }
+.bk-turn svg { width: 0.875rem; height: 0.875rem; stroke: currentColor; stroke-width: 2; fill: none; }
 
 /* ============================================================
    5. PAGE 49 — the printed page beside its live rebuild
@@ -1450,6 +1635,14 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 /* readout: the total by default, the hovered flow otherwise.
    Wide screens: in the empty corner under Scope 3, like the print. */
 .sk-readout { margin-top: 1rem; min-height: 7.5rem; }
+/* phones and tablets: the readout sits above the chart, so the numbers
+   for a tapped flow are on screen with it, not under a 470px chart */
+@media (max-width: 759px) {
+  .sk-wrap { display: flex; flex-direction: column; }
+  /* tall enough for a three-line source name, filled from the bottom, so
+     the chart never moves under the finger that tapped it */
+  .sk-readout { order: -1; margin: 0 0 1rem; min-height: 10.25rem; display: flex; flex-direction: column; justify-content: flex-end; }
+}
 @media (min-width: 760px) {
   .sk-readout {
     position: absolute;
@@ -1617,7 +1810,22 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 .demo-story strong { font-weight: 900; color: var(--mint); }
 .demo[data-mode="inwards"] .demo-story { display: none; }
 
-.demo-rows { margin-top: 2rem; display: grid; gap: 0.25rem; }
+/* demo 3: a strip plot. One row per power; every one of the 38
+   countries is a cream dot (dots stack where values are close), the
+   38-country average is a tick and the chosen country is the big dot.
+   Outwards: the power the sentence names has its name in mint.
+   Inwards: the rank and the gap show. */
+.sw-keys { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.75rem; font-weight: 700; color: rgba(237, 233, 225, 0.8); }
+.sw-key { display: inline-flex; align-items: center; gap: 0.5rem; }
+.sw-key::before { content: ""; flex: none; }
+.sw-key.all::before { width: 7px; height: 7px; border-radius: 50%; background: rgba(237, 233, 225, 0.5); }
+.sw-key.mean::before { width: 2px; height: 0.875rem; background: var(--cream); }
+.sw-key.me::before { width: 12px; height: 12px; border-radius: 50%; background: var(--mint); }
+.sw-hint { font-weight: 500; color: rgba(237, 233, 225, 0.6); }
+@media (hover: none) { .sw-hint .mouse { display: none; } }
+@media (hover: hover) { .sw-hint .touch { display: none; } }
+
+.demo-rows { position: relative; margin-top: 1rem; display: grid; gap: 0.25rem; }
 .demo-legend, .demo-row {
   display: grid;
   grid-template-columns: minmax(6.5rem, 10rem) 1fr 3rem;
@@ -1627,33 +1835,74 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 .demo[data-mode="inwards"] .demo-legend,
 .demo[data-mode="inwards"] .demo-row { grid-template-columns: minmax(6.5rem, 10rem) 1fr 3rem 5.5rem 4.5rem; }
 .demo-legend { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(237, 233, 225, 0.7); padding-bottom: 0.5rem; border-bottom: 1px solid rgba(237, 233, 225, 0.2); }
-.demo-legend .avg-key { display: inline-flex; align-items: center; gap: 0.5rem; }
-.demo-legend .avg-key::before { content: ""; width: 2px; height: 0.875rem; background: var(--cream); }
 .demo-legend .num { text-align: right; }
-.demo-row { padding-block: 0.5rem; border-bottom: 1px solid rgba(237, 233, 225, 0.12); }
+.sw-axis { display: block; position: relative; height: 1rem; letter-spacing: 0.04em; }
+.sw-axis span { position: absolute; top: 0; transform: translateX(-50%); }
+.sw-axis span:first-child { transform: none; }
+.sw-axis span:last-child { transform: translateX(-100%); }
+.demo-row { padding-block: 0.375rem; border-bottom: 1px solid rgba(237, 233, 225, 0.12); }
 .demo-row .name { font-weight: 700; font-size: 0.9375rem; line-height: 1.2; }
-.track { position: relative; height: 1.5rem; }
-.track::before { content: ""; position: absolute; inset: 50% 0 auto; height: 1px; background: rgba(237, 233, 225, 0.15); }
-.bar {
-  position: absolute;
-  left: 0;
-  top: 0.125rem;
-  bottom: 0.125rem;
-  width: 0;
-  background: rgba(237, 233, 225, 0.32);
-  border-radius: 0 4px 4px 0;
-  transition: width 0.6s var(--ease-out), background-color 0.3s ease;
+.track {
+  position: relative;
+  height: 3.5rem;
+  background: linear-gradient(to right, rgba(237, 233, 225, 0.1) 1px, transparent 1px) 0 0 / 25% 100%;
+  box-shadow: inset -1px 0 rgba(237, 233, 225, 0.1);
 }
-.demo-row.hi .bar, .demo[data-mode="inwards"] .bar { background: var(--mint); }
+.track::before { content: ""; position: absolute; inset: 50% 0 auto; height: 1px; background: rgba(237, 233, 225, 0.18); }
+.sw-dot {
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: rgba(237, 233, 225, 0.42);
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+}
+.sw-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; }
+.sw-dot.peer { background: var(--white); box-shadow: 0 0 0 2px var(--black), 0 0 0 3.5px var(--white); z-index: 2; }
+.sw-dot.me { opacity: 0; }
 .avg {
   position: absolute;
-  top: -0.25rem;
-  bottom: -0.25rem;
+  top: 0.375rem;
+  bottom: 0.375rem;
   width: 2px;
   margin-left: -1px;
   background: var(--cream);
+  pointer-events: none;
+}
+.sw-me {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 3;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 3px var(--black);
+  pointer-events: none;
   transition: left 0.6s var(--ease-out);
 }
+/* outwards: the power the sentence names takes the mint in its name too */
+.demo:not([data-mode="inwards"]) .demo-row.hi .name { color: var(--mint); }
+.sw-tip {
+  position: absolute;
+  z-index: 5;
+  padding: 0.3125rem 0.5rem;
+  background: var(--cream);
+  color: var(--black);
+  font-size: 0.8125rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 10px));
+  box-shadow: 3px 3px 0 var(--violet);
+}
+.sw-tip b { font-weight: 700; }
+.sw-tip .v { font-weight: 700; font-variant-numeric: tabular-nums; margin-left: 0.375rem; }
 .demo-row .val { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
 .demo-row .rank, .demo-row .gap { text-align: right; font-size: 0.875rem; font-variant-numeric: tabular-nums; color: rgba(237, 233, 225, 0.85); }
 .demo-row .gap.up { color: var(--mint); }
@@ -1661,22 +1910,23 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 .demo:not([data-mode="inwards"]) .gap,
 .demo:not([data-mode="inwards"]) .only-in { display: none; }
 @media (max-width: 599px) {
-  /* a phone: narrower name column so the bars keep their length; the
-     "%" header goes (the values say it) and the average key takes its room */
-  .demo-legend, .demo-row,
-  .demo[data-mode="inwards"] .demo-legend { grid-template-columns: 6.75rem 1fr 2.5rem; gap: 0.25rem 0.75rem; }
-  .demo-legend .num { display: none; }
-  .demo-legend .avg-key { grid-column: 2 / -1; }
-  /* inwards: rank and gap drop under the bar */
-  .demo[data-mode="inwards"] .demo-row {
-    grid-template-columns: 6.75rem 1fr 2.5rem;
-    grid-template-areas: "n t v" "n r g";
+  /* a phone: the strip takes the full width under its power's name and
+     value; the legend keeps only the axis, over the strip */
+  .demo-legend, .demo[data-mode="inwards"] .demo-legend { display: block; }
+  .demo-legend > :not(.sw-axis) { display: none; }
+  .demo-row, .demo[data-mode="inwards"] .demo-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "n v" "t t";
+    gap: 0.25rem 0.75rem;
+    padding-block: 0.625rem 0.375rem;
   }
-  .demo[data-mode="inwards"] .demo-row .name { grid-area: n; }
-  .demo[data-mode="inwards"] .demo-row .track { grid-area: t; }
-  .demo[data-mode="inwards"] .demo-row .val { grid-area: v; }
-  .demo[data-mode="inwards"] .demo-row .rank { grid-area: r; text-align: left; }
-  .demo[data-mode="inwards"] .demo-row .gap { grid-area: g; }
+  .demo[data-mode="inwards"] .demo-row { grid-template-areas: "n v" "t t" "r g"; }
+  .demo-row .name { grid-area: n; }
+  .demo-row .track { grid-area: t; height: 3.25rem; }
+  .demo-row .val { grid-area: v; }
+  .demo-row .rank { grid-area: r; text-align: left; }
+  .demo-row .gap { grid-area: g; }
+  .sw-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; }
 }
 .demo-src { margin-top: 1.5rem; font-size: 0.75rem; color: rgba(237, 233, 225, 0.7); max-width: 52rem; }
 
@@ -1999,8 +2249,10 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .screen-bar .live-dot::before { animation: none; }
   .js .statement .w { color: inherit; transition: none; }
   .js .strip .pg { opacity: 1; transform: none; transition: none; }
+  .bk-book, .bk-leaf { transition: none; }
+  .bk-leaf.moving .bk-face::before { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .btn, .pg a, .case-cover a, .overlay, .mail-toast, .bar, .avg, .sk-link, .sk-label { transition: none; }
+  .btn, .bk-zoom, .pg a, .bk-turn, .overlay, .mail-toast, .sw-me, .sw-dot, .sk-link, .sk-label { transition: none; }
   .deck .demo.enter { animation: none; }
   .dp-row, .dp-line, .dp-dot.now, .dp-v, .sg-svg .st, .sg-svg .lab { transition: none; }
   .nav-links a.page-link .arr, .nav-links a.chip, .nav-links a.chip::before { transition: none; }
@@ -2153,7 +2405,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </li>
       <li class="reveal">
         <div>
-          <div class="toc-line"><h3>Data visualisation</h3><span class="leader" aria-hidden="true"></span><a href="#page-49">Page 49</a></div>
+          <div class="toc-line"><h3>Data visualisation</h3><span class="leader" aria-hidden="true"></span><a href="#page-49">Live Sankey</a></div>
           <p>Every chart drawn for its finding, whether a bar chart, a dot plot, a heatmap, a Sankey diagram or a map, for print and for screen.</p>
         </div>
       </li>
@@ -2189,7 +2441,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
      4. FLAGSHIP REPORTS
      Page images are rendered from the client PDFs (PyMuPDF, then
      Pillow): img/<report>-pNN.jpg (1400px wide, lightbox) and
-     img/<report>-pNN-800.jpg (strip, hero). NN is the folio printed
+     img/<report>-pNN-800.jpg (booklet, hero). NN is the folio printed
      on the page (Beyond borders' PDF runs two pages ahead of it).
      ============================================================ -->
 <section class="flagship" id="flagship" aria-labelledby="flagship-heading">
@@ -2203,13 +2455,15 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   <article class="case" id="beyond-borders" aria-labelledby="afro-title">
     <div class="wrap case-grid">
       <span class="case-no reveal" aria-hidden="true">01</span>
-      <div class="reveal">
+      <div class="case-head reveal">
         <p class="case-client"><img src="../logos/afrobarometer.svg" alt="Afrobarometer" width="152" height="64"></p>
         <h3 id="afro-title">Beyond borders</h3>
         <p class="case-sub"><em>African insights 2026.</em> Citizen perspectives on a shifting global order.</p>
+      </div>
+      <div class="case-text reveal">
         <div class="case-body">
           <p>Afrobarometer’s flagship report for 2026 asks how Africans see a world in flux: free trade under the AfCFTA, migration, the great powers, the continent’s voice in global institutions and climate action. Survey data from 38 countries, carried by 38 figures and 4 tables in a single chart system, from a 38-country heatmap to one-page country scorecards.</p>
-          <p class="credit">Colophon, p. 2: <q>Report design by nutgraf.studio</q></p>
+          <p class="credit">From the colophon: <q>Report design by nutgraf.studio</q></p>
           <p class="read-more"><a href="https://www.afrobarometer.org/publication/african-insights-2026-beyond-borders-citizen-perspectives-on-a-shifting-global-order/" target="_blank" rel="noopener">Read the report on afrobarometer.org ↗</a></p>
         </div>
         <dl class="facts">
@@ -2221,12 +2475,75 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <div><dt>Client</dt><dd>Afrobarometer, pan-African research network</dd></div>
         </dl>
       </div>
-      <figure class="case-cover reveal">
-        <a href="img/afrobarometer-beyond-borders-cover-600.jpg" data-group="afro" data-caption="Cover · Beyond borders, African insights 2026">
-          <img src="img/afrobarometer-beyond-borders-cover-600.jpg" alt="Cover of Beyond borders, African insights 2026: orange and red tiles framing photos of a border crossing, a crowded street and a man holding up an ID card." width="600" height="849" loading="lazy" decoding="async">
-        </a>
-        <figcaption>The cover</figcaption>
-      </figure>
+      <!-- The booklet, in the cover's place: the real cover, then eight
+           pages. The script turns the list into a book you leaf through
+           (one page at a time in this column). To change a page, swap its
+           <li>: img/<report>-pNN-800.jpg for the page, the 1400px
+           img/<report>-pNN.jpg for the magnifier. -->
+      <div class="case-booklet reveal">
+        <div class="booklet" data-booklet data-title="Beyond borders">
+          <ol class="bk-src" aria-label="Beyond borders: the cover and eight pages">
+            <li data-cover data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-cover-600.jpg" alt="Cover of Beyond borders, African insights 2026: orange and red tiles framing photos of a border crossing, a crowded street and a man holding up an ID card." width="600" height="849" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-cover-600.jpg" data-group="afro-book" data-caption="Cover · Beyond borders, African insights 2026" data-alt="Cover of Beyond borders, African insights 2026: orange and red tiles framing photos of a border crossing, a crowded street and a man holding up an ID card."><span class="visually-hidden">Open the cover at reading size</span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>The cover</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p08-trade-bar-charts-800.jpg" srcset="img/afrobarometer-beyond-borders-p08-trade-bar-charts-800.jpg 800w, img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg 1400w" sizes="240px" alt="Two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg" data-group="afro-book" data-caption="Beyond borders · Figures 2 and 3: free trade or protection, and preferred trading partners" data-alt="Two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>Free trade or protection?</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg" srcset="img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg 800w, img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg 1400w" sizes="240px" alt="Purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg" data-group="afro-book" data-caption="Beyond borders · Figures 9 to 11: who has considered emigrating" data-alt="Purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>Who is thinking of leaving</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p17-regional-bar-chart-800.jpg" srcset="img/afrobarometer-beyond-borders-p17-regional-bar-chart-800.jpg 800w, img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg 1400w" sizes="240px" alt="A cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg" data-group="afro-book" data-caption="Beyond borders · Figure 15: Africans lead the way in looking to uproot" data-alt="A cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>Africa against two other regions</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p20-heatmap-table-800.jpg" srcset="img/afrobarometer-beyond-borders-p20-heatmap-table-800.jpg 800w, img/afrobarometer-beyond-borders-p20-heatmap-table.jpg 1400w" sizes="240px" alt="A green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p20-heatmap-table.jpg" data-group="afro-book" data-caption="Beyond borders · Table 1: welcoming foreign residents?" data-alt="A green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>A 38-country heatmap</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg" srcset="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg 800w, img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg 1400w" sizes="240px" alt="A blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg" data-group="afro-book" data-caption="Beyond borders · Table 2: how Africans rate the major powers" data-alt="A blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>Rating the major powers</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p32-diverging-bar-chart-800.jpg" srcset="img/afrobarometer-beyond-borders-p32-diverging-bar-chart-800.jpg 800w, img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg 1400w" sizes="240px" alt="A cream feature panel on the Russia–Ukraine war with a diverging bar chart by country." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg" data-group="afro-book" data-caption="Beyond borders · The battle is not ours: the Russia–Ukraine war" data-alt="A cream feature panel on the Russia–Ukraine war with a diverging bar chart by country."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>The Russia–Ukraine war</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p39-climate-dot-plot-800.jpg" srcset="img/afrobarometer-beyond-borders-p39-climate-dot-plot-800.jpg 800w, img/afrobarometer-beyond-borders-p39-climate-dot-plot.jpg 1400w" sizes="240px" alt="A dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p39-climate-dot-plot.jpg" data-group="afro-book" data-caption="Beyond borders · Figures 37 and 38: responsibility for climate change, and support for climate action" data-alt="A dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>Who should act on climate</span></p>
+            </li>
+            <li data-report="Beyond borders">
+              <img src="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic-800.jpg" srcset="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic-800.jpg 800w, img/afrobarometer-beyond-borders-p45-country-scorecard-infographic.jpg 1400w" sizes="240px" alt="A one-page country scorecard infographic for Ghana, with bars, a pie and donut charts on trade, migration and great powers." width="800" height="1131" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic.jpg" data-group="afro-book" data-caption="Beyond borders · Country scorecards: Ghana" data-alt="A one-page country scorecard infographic for Ghana, with bars, a pie and donut charts on trade, migration and great powers."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Beyond borders</b> <span>One country on one page</span></p>
+            </li>
+          </ol>
+          <template class="bk-back-tpl">
+            <div class="bk-backc">
+              <img class="bk-b-logo" src="../logos/nutgraf-logo.svg" alt="Nutgraf.studio" width="1199" height="312">
+              <p class="bk-b-line">We make your data impossible to ignore.</p>
+              <p class="bk-b-mail">hello@nutgraf.studio</p>
+            </div>
+          </template>
+          <div class="bk-bar">
+            <button class="bk-turn" type="button" data-turn="-1" aria-label="Turn back"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
+            <div class="bk-dots"></div>
+            <button class="bk-turn" type="button" data-turn="1" aria-label="Turn the page"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
+            <p class="bk-status" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="strip" data-strip>
@@ -2239,52 +2556,52 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <ul class="strip-track" aria-label="Pages from Beyond borders">
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg" data-group="afro" data-caption="p. 8 · Figures 2 and 3: free trade or protection, and preferred trading partners">
-            <img src="img/afrobarometer-beyond-borders-p08-trade-bar-charts-800.jpg" alt="Page 8: two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p08-trade-bar-charts.jpg" data-group="afro" data-caption="Figures 2 and 3: free trade or protection, and preferred trading partners">
+            <img src="img/afrobarometer-beyond-borders-p08-trade-bar-charts-800.jpg" alt="Two long stacked bar charts ranking 38 countries on free trade versus protection and on preferred trading partners." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 8</span>Free trade or protection?</figcaption>
+          <figcaption>Free trade or protection?</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg" data-group="afro" data-caption="p. 15 · Figures 9 to 11: who has considered emigrating">
-            <img src="img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg" alt="Page 15: purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg" data-group="afro" data-caption="Figures 9 to 11: who has considered emigrating">
+            <img src="img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg" alt="Purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 15</span>Who is thinking of leaving <a href="#demo-dots" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
+          <figcaption>Who is thinking of leaving <a href="#demo-dots" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg" data-group="afro" data-caption="p. 17 · Figure 15: Africans lead the way in looking to uproot">
-            <img src="img/afrobarometer-beyond-borders-p17-regional-bar-chart-800.jpg" alt="Page 17: a cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p17-regional-bar-chart.jpg" data-group="afro" data-caption="Figure 15: Africans lead the way in looking to uproot">
+            <img src="img/afrobarometer-beyond-borders-p17-regional-bar-chart-800.jpg" alt="A cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 17</span>Africa against two other regions</figcaption>
+          <figcaption>Africa against two other regions</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p20-heatmap-table.jpg" data-group="afro" data-caption="p. 20 · Table 1: welcoming foreign residents?">
-            <img src="img/afrobarometer-beyond-borders-p20-heatmap-table-800.jpg" alt="Page 20: a green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p20-heatmap-table.jpg" data-group="afro" data-caption="Table 1: welcoming foreign residents?">
+            <img src="img/afrobarometer-beyond-borders-p20-heatmap-table-800.jpg" alt="A green heatmap table of attitudes towards immigrants and refugees in 38 countries, grouped by region." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 20</span>A 38-country heatmap</figcaption>
+          <figcaption>A 38-country heatmap</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg" data-group="afro" data-caption="p. 28 · Table 2: how Africans rate the major powers">
-            <img src="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg" alt="Page 28: a blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p28-shaded-data-table.jpg" data-group="afro" data-caption="Table 2: how Africans rate the major powers">
+            <img src="img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg" alt="A blue-shaded table of positive views of China, the United States, the EU, former colonial powers, India and Russia in 38 countries." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 28</span>Rating the major powers <a href="#demo" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
+          <figcaption>Rating the major powers <a href="#demo" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg" data-group="afro" data-caption="p. 32 · The battle is not ours: the Russia–Ukraine war">
-            <img src="img/afrobarometer-beyond-borders-p32-diverging-bar-chart-800.jpg" alt="Page 32: a cream feature panel on the Russia–Ukraine war with a diverging bar chart by country." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p32-diverging-bar-chart.jpg" data-group="afro" data-caption="The battle is not ours: the Russia–Ukraine war">
+            <img src="img/afrobarometer-beyond-borders-p32-diverging-bar-chart-800.jpg" alt="A cream feature panel on the Russia–Ukraine war with a diverging bar chart by country." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 32</span>The Russia–Ukraine war</figcaption>
+          <figcaption>The Russia–Ukraine war</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p39-climate-dot-plot.jpg" data-group="afro" data-caption="p. 39 · Figures 37 and 38: responsibility for climate change, and support for climate action">
-            <img src="img/afrobarometer-beyond-borders-p39-climate-dot-plot-800.jpg" alt="Page 39: a dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p39-climate-dot-plot.jpg" data-group="afro" data-caption="Figures 37 and 38: responsibility for climate change, and support for climate action">
+            <img src="img/afrobarometer-beyond-borders-p39-climate-dot-plot-800.jpg" alt="A dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 39</span>Who should act on climate</figcaption>
+          <figcaption>Who should act on climate</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic.jpg" data-group="afro" data-caption="p. 45 · Country scorecards: Ghana">
-            <img src="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic-800.jpg" alt="Page 45: a one-page country scorecard infographic for Ghana, with bars, a pie and donut charts on trade, migration and great powers." width="800" height="1131" loading="lazy" decoding="async">
+          <a href="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic.jpg" data-group="afro" data-caption="Country scorecards: Ghana">
+            <img src="img/afrobarometer-beyond-borders-p45-country-scorecard-infographic-800.jpg" alt="A one-page country scorecard infographic for Ghana, with bars, a pie and donut charts on trade, migration and great powers." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 45</span>One country on one page</figcaption>
+          <figcaption>One country on one page</figcaption>
         </figure></li>
       </ul>
     </div>
@@ -2294,27 +2611,87 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   <article class="case" id="retele-electrice" aria-labelledby="ppc-title">
     <div class="wrap case-grid">
       <span class="case-no reveal" aria-hidden="true">02</span>
-      <div class="reveal">
+      <div class="case-head reveal">
         <p class="case-client"><img class="logo-ppc" src="../logos/ppc-group.svg" alt="PPC Group" width="100" height="42"> Rețele Electrice România</p>
         <h3 id="ppc-title"><span lang="ro">Raport de Sustenabilitate</span> 2024</h3>
         <p class="case-sub"><em>Sustainability Report 2024.</em> The first Rețele Electrice report prepared with reference to ESRS.</p>
+      </div>
+      <div class="case-text reveal">
         <div class="case-body">
           <p>PPC Group’s electricity distributor in Romania, covering Banat, Dobrogea and Muntenia, reports on materiality, governance, climate, its people and the modernisation of its grid, under the EU’s new sustainability reporting standards. We turned 105 pages of ESG disclosure into KPI tiles, flows and rings a non-specialist can read, without losing a decimal.</p>
         </div>
         <dl class="facts">
           <div><dt>Pages</dt><dd><strong>105</strong>in Romanian</dd></div>
-          <div><dt>On one page</dt><dd><strong>793,348</strong>tCO₂e, traced from 3 scopes to 11 sources</dd></div>
+          <div><dt>In one chart</dt><dd><strong>793,348</strong>tCO₂e, traced from 3 scopes to 11 sources</dd></div>
           <div><dt>Framework</dt><dd>ESRS, the reporting standards of the EU’s CSRD</dd></div>
           <div><dt>Our role</dt><dd>Editorial design, data visualisation and KPI infographics</dd></div>
           <div><dt>Client</dt><dd>Rețele Electrice România, PPC Group</dd></div>
         </dl>
       </div>
-      <figure class="case-cover reveal">
-        <a href="img/retele-electrice-sustainability-report-2024-cover-600.jpg" data-group="ppc" data-caption="Cover · Raport de Sustenabilitate 2024, Rețele Electrice România">
-          <img src="img/retele-electrice-sustainability-report-2024-cover-600.jpg" alt="Cover of the Rețele Electrice 2024 sustainability report: a large 2024 over a forested mountain valley." width="600" height="849" loading="lazy" decoding="async">
-        </a>
-        <figcaption>The cover</figcaption>
-      </figure>
+      <div class="case-booklet reveal">
+        <div class="booklet" data-booklet data-title="the Rețele Electrice report">
+          <ol class="bk-src" aria-label="The Rețele Electrice sustainability report: the cover and eight pages">
+            <li data-cover data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-cover-600.jpg" alt="Cover of the Rețele Electrice 2024 sustainability report: a large 2024 over a forested mountain valley." width="600" height="849" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-cover-600.jpg" data-group="ppc-book" data-caption="Cover · Raport de Sustenabilitate 2024, Rețele Electrice România" data-alt="Cover of the Rețele Electrice 2024 sustainability report: a large 2024 over a forested mountain valley."><span class="visually-hidden">Open the cover at reading size</span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>The cover</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg 1400w" sizes="240px" alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024" data-alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Emissions, scope by scope</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p10-kpi-infographic.jpg 1400w" sizes="240px" alt="An infographic spread of orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Financial and technical performance, 2024" data-alt="An infographic spread of orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>The year in KPI tiles</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg 1400w" sizes="240px" alt="Green and blue KPI tiles for energy consumption, workforce and safety indicators." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Energy use, workforce, health and safety indicators" data-alt="Green and blue KPI tiles for energy consumption, workforce and safety indicators."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>People and energy at a glance</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p46-energy-infographic-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p46-energy-infographic-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg 1400w" sizes="240px" alt="A grid of large green, ochre and orange tiles for energy consumption by source in 2024." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Energy consumption, 2024" data-alt="A grid of large green, ochre and orange tiles for energy consumption by source in 2024."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Energy, by source</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg 1400w" sizes="240px" alt="Proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Emissions intensity per million euros of turnover" data-alt="Proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Emissions intensity</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg 1400w" sizes="240px" alt="Three orange ring charts showing the share of activities aligned with the EU Taxonomy." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Alignment with the EU Taxonomy" data-alt="Three orange ring charts showing the share of activities aligned with the EU Taxonomy."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>EU Taxonomy alignment</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg 1400w" sizes="240px" alt="Yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Workforce diversity by gender and age, 2023 and 2024" data-alt="Yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Workforce diversity</span></p>
+            </li>
+            <li data-report="Rețele Electrice">
+              <img src="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts-800.jpg" srcset="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts-800.jpg 800w, img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg 1400w" sizes="240px" alt="Orange ring charts for family-related leave and blue tiles for pay indicators." width="800" height="1132" loading="lazy" decoding="async">
+              <a class="bk-zoom" href="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg" data-group="ppc-book" data-caption="Rețele Electrice · Work–life balance and pay metrics" data-alt="Orange ring charts for family-related leave and blue tiles for pay indicators."><span class="visually-hidden">Open at reading size: </span><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.75" cy="6.75" r="4.75"/><path d="M10.25 10.25 14.5 14.5M6.75 4.5v4.5M4.5 6.75h4.5"/></svg></a>
+              <p class="bk-cap"><b>Rețele Electrice</b> <span>Work–life balance and pay</span></p>
+            </li>
+          </ol>
+          <template class="bk-back-tpl">
+            <div class="bk-backc">
+              <img class="bk-b-logo" src="../logos/nutgraf-logo.svg" alt="Nutgraf.studio" width="1199" height="312">
+              <p class="bk-b-line">We make your data impossible to ignore.</p>
+              <p class="bk-b-mail">hello@nutgraf.studio</p>
+            </div>
+          </template>
+          <div class="bk-bar">
+            <button class="bk-turn" type="button" data-turn="-1" aria-label="Turn back"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
+            <div class="bk-dots"></div>
+            <button class="bk-turn" type="button" data-turn="1" aria-label="Turn the page"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
+            <p class="bk-status" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="strip" data-strip>
@@ -2327,53 +2704,53 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <ul class="strip-track" aria-label="Pages from the Rețele Electrice sustainability report">
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="ppc" data-caption="p. 49 · Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024">
-            <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="Page 49: a Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="ppc" data-caption="Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <a class="pg-live" href="#page-49">Live below ↓</a>
-          <figcaption><span class="folio">p. 49</span>Emissions, scope by scope</figcaption>
+          <figcaption>Emissions, scope by scope</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic.jpg" data-group="ppc" data-caption="p. 10 · Financial and technical performance, 2024">
-            <img src="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg" alt="Page 10: an infographic spread of orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic.jpg" data-group="ppc" data-caption="Financial and technical performance, 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg" alt="An infographic spread of orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles." width="800" height="1132" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 10</span>The year in KPI tiles</figcaption>
+          <figcaption>The year in KPI tiles</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg" data-group="ppc" data-caption="p. 12 · Energy use, workforce, health and safety indicators">
-            <img src="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles-800.jpg" alt="Page 12: green and blue KPI tiles for energy consumption, workforce and safety indicators." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles.jpg" data-group="ppc" data-caption="Energy use, workforce, health and safety indicators">
+            <img src="img/retele-electrice-sustainability-report-2024-p12-kpi-tiles-800.jpg" alt="Green and blue KPI tiles for energy consumption, workforce and safety indicators." width="800" height="1132" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 12</span>People and energy at a glance</figcaption>
+          <figcaption>People and energy at a glance</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg" data-group="ppc" data-caption="p. 46 · Energy consumption, 2024">
-            <img src="img/retele-electrice-sustainability-report-2024-p46-energy-infographic-800.jpg" alt="Page 46: a grid of large green, ochre and orange tiles for energy consumption by source in 2024." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p46-energy-infographic.jpg" data-group="ppc" data-caption="Energy consumption, 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p46-energy-infographic-800.jpg" alt="A grid of large green, ochre and orange tiles for energy consumption by source in 2024." width="800" height="1132" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 46</span>Energy, by source</figcaption>
+          <figcaption>Energy, by source</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg" data-group="ppc" data-caption="p. 50 · Emissions intensity per million euros of turnover">
-            <img src="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart-800.jpg" alt="Page 50: proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart.jpg" data-group="ppc" data-caption="Emissions intensity per million euros of turnover">
+            <img src="img/retele-electrice-sustainability-report-2024-p50-emissions-bubble-chart-800.jpg" alt="Proportional circles comparing emissions intensity for Scopes 1, 2 and 3 per million euros of turnover." width="800" height="1132" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 50</span>Emissions intensity</figcaption>
+          <figcaption>Emissions intensity</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg" data-group="ppc" data-caption="p. 59 · Alignment with the EU Taxonomy">
-            <img src="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts-800.jpg" alt="Page 59: three orange ring charts showing the share of activities aligned with the EU Taxonomy." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts.jpg" data-group="ppc" data-caption="Alignment with the EU Taxonomy">
+            <img src="img/retele-electrice-sustainability-report-2024-p59-eu-taxonomy-ring-charts-800.jpg" alt="Three orange ring charts showing the share of activities aligned with the EU Taxonomy." width="800" height="1132" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 59</span>EU Taxonomy alignment</figcaption>
+          <figcaption>EU Taxonomy alignment</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg" data-group="ppc" data-caption="p. 69 · Workforce diversity by gender and age, 2023 and 2024">
-            <img src="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts-800.jpg" alt="Page 69: yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts.jpg" data-group="ppc" data-caption="Workforce diversity by gender and age, 2023 and 2024">
+            <img src="img/retele-electrice-sustainability-report-2024-p69-workforce-column-charts-800.jpg" alt="Yellow and blue column charts of the workforce by gender, age and type of contract, 2023 against 2024." width="800" height="1132" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 69</span>Workforce diversity</figcaption>
+          <figcaption>Workforce diversity</figcaption>
         </figure></li>
         <li class="pg"><figure>
-          <a href="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg" data-group="ppc" data-caption="p. 71 · Work–life balance and pay metrics">
-            <img src="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts-800.jpg" alt="Page 71: orange ring charts for family-related leave and blue tiles for pay indicators." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts.jpg" data-group="ppc" data-caption="Work–life balance and pay metrics">
+            <img src="img/retele-electrice-sustainability-report-2024-p71-pay-ring-charts-800.jpg" alt="Orange ring charts for family-related leave and blue tiles for pay indicators." width="800" height="1132" loading="lazy" decoding="async">
           </a>
-          <figcaption><span class="folio">p. 71</span>Work–life balance and pay</figcaption>
+          <figcaption>Work–life balance and pay</figcaption>
         </figure></li>
       </ul>
     </div>
@@ -2389,26 +2766,26 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="live" id="page-49" aria-labelledby="live-heading">
   <div class="wrap">
     <div class="reveal">
-      <span class="kicker">From page to screen · an interactive Sankey diagram</span>
-      <h2 id="live-heading">Page 49, <em>off the page.</em></h2>
-      <p class="live-lead">On paper, page 49 of the Rețele Electrice report traces 793,348 tonnes of CO₂ equivalent from three scopes to eleven sources. On screen, rebuilt from the same numbers, it answers questions. Point at any flow to follow it.</p>
+      <span class="kicker">From print to screen</span>
+      <h2 id="live-heading">The Sankey, <em>off the page.</em></h2>
+      <p class="live-lead">On paper, the Rețele Electrice report traces 793,348 tonnes of CO₂ equivalent from three scopes to eleven sources in one Sankey diagram. On screen, rebuilt from the same numbers, it answers questions. Point at any flow to follow it.</p>
     </div>
 
     <div class="live-grid">
       <figure class="printed reveal">
         <div class="printed-frame">
-          <a href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="p49" data-caption="Printed · p. 49 · Raport de Sustenabilitate 2024, Rețele Electrice România">
-            <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="Page 49 as printed: Romanian text above a Sankey diagram of gross Scope 1, 2 and 3 emissions, totalling 793.348 tCO2e." width="800" height="1132" loading="lazy" decoding="async">
+          <a href="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram.jpg" data-group="p49" data-caption="Printed · Raport de Sustenabilitate 2024, Rețele Electrice România">
+            <img src="img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg" alt="The page as printed: Romanian text above a Sankey diagram of gross Scope 1, 2 and 3 emissions, totalling 793.348 tCO2e." width="800" height="1132" loading="lazy" decoding="async">
           </a>
           <span class="crop"></span>
         </div>
-        <figcaption>Printed · p. 49</figcaption>
+        <figcaption>Printed</figcaption>
       </figure>
 
       <div class="screen reveal">
         <div class="screen-bar">
           <span class="live-dot">Live</span>
-          <span>Rebuilt from page 49’s data</span>
+          <span>Rebuilt from the printed data</span>
         </div>
         <h3 class="sk-title" id="sk-title">Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024 (tCO₂e)</h3>
         <p class="sk-hint" id="sk-hint">Point at, tap or tab to a scope or a source to follow its flow.</p>
@@ -2427,7 +2804,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <summary>See the data as a table</summary>
           <div class="table-scroll">
             <table id="sk-data">
-              <caption>Gross emissions by scope and source, tCO₂e. Rețele Electrice România, page 49.</caption>
+              <caption>Gross emissions by scope and source, tCO₂e. Rețele Electrice România, Sustainability Report 2024.</caption>
               <thead>
                 <tr><th scope="col">Scope and source</th><th scope="col">2024</th><th scope="col">2023</th><th scope="col">Share of 2024</th></tr>
               </thead>
@@ -2463,7 +2840,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
      6. DASHBOARDS — outwards and inwards, then three live demos in
      a carousel, each transcribed in its script: Figure A.1 of African
      insights 2024 (page 41) as a streamgraph, Figure 10 of Beyond
-     borders (page 15) as a dot plot, and its Table 2 (page 28).
+     borders (page 15) as a dot plot, and its Table 2 (page 28) as a
+     strip plot.
      Each script says how its numbers were checked against the print.
      ============================================================ -->
 <section class="dash" id="dashboards" aria-labelledby="dash-heading">
@@ -2511,9 +2889,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <div class="demo sg" id="demo-stream" role="tabpanel" aria-labelledby="tab-stream">
       <div class="demo-top">
         <div>
-          <span class="kicker">Live demo · a streamgraph</span>
           <h3>Thirty countries, five rounds of democracy</h3>
-          <p class="demo-def">Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of <em>African insights 2024</em>, page 41, rebuilt as a dashboard.</p>
+          <p class="demo-def">Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of <em>African insights 2024</em>, rebuilt as a dashboard.</p>
         </div>
         <div class="demo-controls">
           <div class="field">
@@ -2539,15 +2916,14 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <div class="sg-wrap"><svg class="sg-svg" role="img" aria-label="Streamgraph of 30 countries over five survey rounds"></svg></div>
 
-      <p class="demo-src">Source: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figure A.1 (page 41): % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the dashboard starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.</p>
+      <p class="demo-src">Source: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figure A.1: % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the dashboard starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.</p>
     </div>
 
     <div class="demo dp" id="demo-dots" role="tabpanel" aria-labelledby="tab-dots" hidden>
       <div class="demo-top">
         <div>
-          <span class="kicker">Live demo · a dot plot</span>
           <h3>Who is thinking of leaving</h3>
-          <p class="demo-def">% who say they have considered emigrating “a lot”, in 2016/2018 and in 2024/2025, in the 31 countries surveyed both times. Figure 10 of <em>Beyond borders</em>, page 15, rebuilt as a dashboard.</p>
+          <p class="demo-def">% who say they have considered emigrating “a lot”, in 2016/2018 and in 2024/2025, in the 31 countries surveyed both times. Figure 10 of <em>Beyond borders</em>, rebuilt as a dashboard.</p>
         </div>
         <div class="demo-controls">
           <label class="field">
@@ -2588,9 +2964,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <div class="demo" data-mode="outwards" id="demo" role="tabpanel" aria-labelledby="tab-powers" hidden>
       <div class="demo-top">
         <div>
-          <span class="kicker">Live demo · one table, two dashboards</span>
           <h3>How Africans rate the major powers</h3>
-          <p class="demo-def">% of citizens who say each power’s influence on their country is somewhat or very positive. Table 2 of <em>Beyond borders</em>, page 28, rebuilt as a dashboard.</p>
+          <p class="demo-def">% of citizens who say each power’s influence on their country is somewhat or very positive. Table 2 of <em>Beyond borders</em>, rebuilt as a dashboard.</p>
         </div>
         <div class="demo-controls">
           <label class="field">
@@ -2609,15 +2984,22 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
       <p class="demo-story" aria-live="polite"></p>
 
+      <div class="sw-keys" aria-hidden="true">
+        <span class="sw-key me"></span>
+        <span class="sw-key mean">38-country average</span>
+        <span class="sw-key all">The other countries</span>
+        <span class="sw-hint"><span class="mouse">Hover a dot to see the country, click to switch to it</span><span class="touch">Tap a dot to switch to that country</span></span>
+      </div>
       <div class="demo-rows">
         <div class="demo-legend" aria-hidden="true">
           <span>Power</span>
-          <span class="avg-key">38-country average</span>
+          <span class="sw-axis"><span style="left:0">0%</span><span style="left:25%">25%</span><span style="left:50%">50%</span><span style="left:75%">75%</span><span style="left:100%">100%</span></span>
           <span class="num">%</span>
           <span class="num only-in">Rank</span>
           <span class="num only-in">vs average</span>
         </div>
-        <div class="demo-body"></div>
+        <div class="demo-body" role="list"></div>
+        <div class="sw-tip" hidden></div>
       </div>
 
       <p class="demo-src">Source: Afrobarometer Round 10 (2024/2025), in <em>Beyond borders</em> (African insights 2026), Table 2. Former colonial power: 37 countries (Liberia has none). Outwards turns the table into a sentence a press release can use; inwards adds the rank and the gap a programme team needs.</p>
@@ -2687,7 +3069,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <div class="faq-item">
         <dt>Can you turn a PDF report into an interactive dashboard?</dt>
-        <dd>Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, page 49 of the Rețele Electrice report is rebuilt as an interactive Sankey diagram, and two figures and a table from Afrobarometer reports become live dashboards.</dd>
+        <dd>Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live dashboards.</dd>
       </div>
       <div class="faq-item">
         <dt>Do you design infographics and data visualisations (dataviz) for reports?</dt>
@@ -2722,7 +3104,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
      ============================================================ -->
 <section class="cta" id="contact" aria-labelledby="cta-heading">
   <div class="wrap reveal">
-    <h2 id="cta-heading">Got a report full of numbers? <em>Let’s make it read.</em></h2>
+    <h2 id="cta-heading">Got a report full of numbers?</h2>
     <p>State-of-the-art data design, bespoke craft, every number checked. A brief, a dataset or last year’s PDF is all we need to start.</p>
     <div class="cta-actions">
       <a class="btn" href="mailto:hello@nutgraf.studio?subject=Report%20enquiry">Commission a report</a>
@@ -3080,6 +3462,240 @@ var fmt = function (n) { return n.toLocaleString('en-GB'); };
   });
 })();
 
+/* Booklets, one per report: the pages listed in .bk-src become a book. From 440px of
+   width it opens in spreads and each leaf turns on the spine; below,
+   one page at a time, turned away to the left. A click or tap on a
+   page turns it (on a phone, the left third goes back), so do a swipe,
+   the arrows, the dots and the arrow keys; the magnifier opens the page
+   in the lightbox. The cover lifts once when the book is first seen. */
+document.querySelectorAll('[data-booklet]').forEach(function (root) {
+  var RATIO = 1131 / 800;
+  var WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+  var src = root.querySelector('.bk-src');
+  // the report's own cover leads the list; the rest are its pages
+  var coverLi = src.querySelector('li[data-cover]');
+  var coverPage = coverLi && { img: coverLi.querySelector('img'), zoom: coverLi.querySelector('.bk-zoom') };
+  var items = Array.prototype.map.call(src.querySelectorAll('li:not([data-cover])'), function (li) {
+    return {
+      img: li.querySelector('img'),
+      zoom: li.querySelector('.bk-zoom'),
+      report: li.dataset.report,
+      cap: li.querySelector('.bk-cap span').textContent
+    };
+  });
+  var title = root.dataset.title;
+  // one report per booklet: the captions don't repeat its name
+  var oneReport = items.every(function (it) { return it.report === items[0].report; });
+  var coverTpl = root.querySelector('.bk-cover-tpl');
+  var backTpl = root.querySelector('.bk-back-tpl');
+  var bar = root.querySelector('.bk-bar');
+  var dotsEl = root.querySelector('.bk-dots');
+  var status = root.querySelector('.bk-status');
+  var prevBtn = root.querySelector('[data-turn="-1"]');
+  var nextBtn = root.querySelector('[data-turn="1"]');
+
+  var stage = document.createElement('div');
+  stage.className = 'bk-stage';
+  stage.tabIndex = 0;
+  stage.setAttribute('role', 'group');
+  stage.setAttribute('aria-roledescription', 'booklet');
+  stage.setAttribute('aria-label', 'Booklet: ' + items.length + ' pages from ' + title + '. The arrow keys turn the pages.');
+  var book = document.createElement('div');
+  book.className = 'bk-book';
+  stage.appendChild(book);
+  root.insertBefore(stage, bar);
+  root.classList.add('is-book');
+
+  var mode = null, leaves = [], state = 0, last = 0, seen = false;
+
+  function div(cls) { var d = document.createElement('div'); d.className = cls; return d; }
+  function fill(face, f) {
+    if (f.cover && coverPage) { face.classList.add('is-page', 'is-cover'); face.append(coverPage.img, coverPage.zoom); }
+    else if (f.cover) { face.classList.add('is-cover'); face.appendChild(coverTpl.content.cloneNode(true)); }
+    else if (f.back) { face.classList.add('is-backcover'); face.appendChild(backTpl.content.cloneNode(true)); }
+    else if (f.item) { face.classList.add('is-page'); face.append(f.item.img, f.item.zoom); face.item = f.item; }
+    else face.classList.add('is-paper');
+  }
+  function leaf(a, b) {
+    var el = div('bk-leaf'), front = div('bk-face front'), back = div('bk-face back');
+    fill(front, a);
+    fill(back, b);
+    el.append(front, back);
+    return { el: el, front: front, back: back };
+  }
+
+  // spreads: [cover | p1] [p2 | p3] ... with a back cover to close the book;
+  // a phone: one leaf per page, plain paper on its back
+  function build(m, keep) {
+    mode = m;
+    book.textContent = '';
+    leaves = [];
+    var F = [{ cover: true }].concat(items.map(function (it) { return { item: it }; }));
+    if (m === 'spread') {
+      if (F.length % 2) F.push({ back: true }); else F.push({ paper: true }, { back: true });
+      for (var i = 0; i < F.length; i += 2) leaves.push(leaf(F[i], F[i + 1]));
+      last = leaves.length;
+    } else {
+      F.forEach(function (f) { leaves.push(leaf(f, { paper: true })); });
+      last = leaves.length - 1;
+    }
+    leaves.forEach(function (L) { book.appendChild(L.el); });
+    stage.classList.toggle('single', m !== 'spread');
+    dotsEl.textContent = '';
+    for (var s = 0; s <= last; s++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.dataset.s = s;
+      b.setAttribute('aria-label', label(s));
+      dotsEl.appendChild(b);
+    }
+    go(keep, true);
+  }
+
+  // what is open at state s, as [report, caption] pairs
+  function open(s) {
+    if (mode === 'spread') {
+      var out = [];
+      if (s > 0 && leaves[s - 1].back.item) out.push(leaves[s - 1].back.item);
+      if (s < leaves.length && leaves[s].front.item) out.push(leaves[s].front.item);
+      return out;
+    }
+    return leaves[s].front.item ? [leaves[s].front.item] : [];
+  }
+  function label(s) {
+    var o = open(s);
+    if (!o.length) return s === 0 ? 'The cover' : 'The back cover';
+    return o.map(function (it) { return oneReport ? it.cap : it.report + ': ' + it.cap; }).join(', and ');
+  }
+  function say(s) {
+    status.textContent = '';
+    var o = open(s);
+    if (!o.length) {
+      var n = String(WORDS[items.length] || items.length);
+      status.textContent = s === 0
+        ? 'Click the cover to leaf through ' + n + ' pages.'
+        : 'The back cover. Turn back, or start again from the dots.';
+      return;
+    }
+    if (oneReport) { status.textContent = o.map(function (it) { return it.cap; }).join(' · '); return; }
+    o.forEach(function (it, i) {
+      if (i && it.report === o[0].report) { status.append(' · ' + it.cap); return; }
+      if (i) status.append(' · ');
+      var b = document.createElement('b');
+      b.textContent = it.report;
+      status.append(b, ' ' + it.cap);
+    });
+  }
+
+  function go(s, instant) {
+    s = Math.max(0, Math.min(last, s));
+    var n = leaves.length;
+    if (instant) book.classList.add('instant');
+    leaves.forEach(function (L, i) {
+      var turned = i < s;
+      var was = L.el.classList.contains('turned');
+      L.el.classList.toggle('turned', turned);
+      L.el.style.setProperty('--z', (turned ? i + 1 : n - i) + 'px');
+      if (!instant && was !== turned && !reduceMotion) {
+        L.el.classList.remove('moving');
+        void L.el.offsetWidth;
+        L.el.classList.add('moving');
+        clearTimeout(L.t);
+        L.t = setTimeout(function () { L.el.classList.remove('moving'); }, 1000);
+      }
+      L.el.classList.toggle('next-up', i === s && s < last);
+      L.el.classList.toggle('prev-up', mode === 'spread' && i === s - 1);
+      // only the faces in view take part: no tabbing into hidden pages
+      var showFront = mode === 'spread' ? i === s : i === s;
+      var showBack = mode === 'spread' && i === s - 1;
+      [[L.front, showFront], [L.back, showBack]].forEach(function (p) {
+        p[0].inert = !p[1];
+        p[0].setAttribute('aria-hidden', p[1] ? 'false' : 'true');
+      });
+    });
+    book.classList.toggle('at-front', mode === 'spread' && s === 0);
+    book.classList.toggle('at-back', mode === 'spread' && s === last);
+    root.classList.toggle('is-closed', s === 0);
+    if (instant) requestAnimationFrame(function () { requestAnimationFrame(function () { book.classList.remove('instant'); }); });
+    state = s;
+    say(s);
+    prevBtn.disabled = s === 0;
+    nextBtn.disabled = s === last;
+    Array.prototype.forEach.call(dotsEl.children, function (b) {
+      if (+b.dataset.s === s) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+    });
+  }
+
+  // size: two pages side by side, or one, never taller than ~3/4 of the screen
+  function size() {
+    var w = root.clientWidth;
+    if (!w) return;
+    var m = w >= 440 ? 'spread' : 'single';
+    var cols = m === 'spread' ? 2 : 1;
+    var maxH = Math.min(window.innerHeight * 0.76, 780);
+    var pw = Math.floor(Math.min(w / cols - (cols === 1 ? 12 : 0), maxH / RATIO));
+    root.style.setProperty('--pw', pw + 'px');
+    root.style.setProperty('--ph', Math.round(pw * RATIO) + 'px');
+    root.style.setProperty('--cols', cols);
+    items.forEach(function (it) { it.img.sizes = pw + 'px'; });
+    if (m !== mode) {
+      // keep the same page open across the switch
+      var keep = mode === null ? 0 : m === 'single' ? Math.max(0, 2 * state - 1) : Math.ceil(state / 2);
+      build(m, keep);
+    }
+  }
+
+  prevBtn.addEventListener('click', function () { go(state - 1); });
+  nextBtn.addEventListener('click', function () { go(state + 1); });
+  dotsEl.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (b) go(+b.dataset.s);
+  });
+  stage.addEventListener('keydown', function (e) {
+    var to = { ArrowRight: state + 1, ArrowLeft: state - 1, Home: 0, End: last }[e.key];
+    if (to == null) return;
+    e.preventDefault();
+    go(to);
+  });
+  var down = null, swiped = false;
+  stage.addEventListener('pointerdown', function (e) { down = { x: e.clientX, y: e.clientY }; swiped = false; });
+  stage.addEventListener('pointerup', function (e) {
+    if (!down) return;
+    var dx = e.clientX - down.x, dy = e.clientY - down.y;
+    down = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) { swiped = true; go(state + (dx < 0 ? 1 : -1)); }
+  });
+  stage.addEventListener('click', function (e) {
+    if (swiped) { swiped = false; return; }
+    if (e.target.closest('.bk-zoom')) return;
+    var face = e.target.closest('.bk-face');
+    if (!face) return;
+    if (mode === 'spread') { go(state + (face.classList.contains('back') ? -1 : 1)); return; }
+    var r = face.getBoundingClientRect();
+    go(state + (e.clientX < r.left + r.width * 0.3 ? -1 : 1));
+  });
+
+  size();
+  if ('ResizeObserver' in window) new ResizeObserver(size).observe(root);
+  window.addEventListener('resize', size);
+
+  // a first sight of the book: the cover lifts and settles, to say it turns
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting || seen) return;
+      seen = true;
+      io.disconnect();
+      if (state !== 0) return;
+      setTimeout(function () {
+        var c = leaves[0].el;
+        c.classList.add('peek');
+        setTimeout(function () { c.classList.remove('peek'); }, 750);
+      }, 500);
+    }, { threshold: 0.45 });
+    io.observe(stage);
+  }
+});
+
 /* Dialog helpers: fade in/out, lock page scroll, close on backdrop */
 function openOverlay(d) {
   document.documentElement.classList.add('modal-open');
@@ -3110,7 +3726,8 @@ document.querySelectorAll('.overlay').forEach(function (d) {
     idx = (i + group.length) % group.length;
     var a = group[idx];
     img.src = a.getAttribute('href');
-    img.alt = a.querySelector('img').alt;
+    var im = a.querySelector('img');
+    img.alt = a.getAttribute('data-alt') || (im ? im.alt : '');
     cap.textContent = a.getAttribute('data-caption');
     count.textContent = group.length > 1 ? (idx + 1) + ' / ' + group.length : '';
   }
@@ -3133,11 +3750,15 @@ document.querySelectorAll('.overlay').forEach(function (d) {
   });
 })();
 
-/* Page 49, live: a Sankey drawn from the rows of #sk-data. Scopes on
-   the left (1, 2, 3, top to bottom); sources on the right in the
+/* The Sankey, live: drawn from the rows of #sk-data. Scopes on the
+   left (1, 2, 3, top to bottom). Wide: sources on the right in the
    printed order (Scope 3's, then 2's, then 1's), so the flows cross
-   as they do on paper. Bands are to scale; small sources get a label
-   slot of their own. Hover, tap or tab to a node or a flow to follow it. */
+   as they do on paper. Phone: the flows get under 100px of width, so
+   the sources follow the scopes' order and each scope sits level with
+   its sources, and nothing crosses. Bands are to scale; small sources
+   get a label slot of their own. Hover, tap or tab to a node or a flow
+   to follow it; a tap pins it until the same flow or the background
+   is tapped. */
 (function () {
   var table = document.getElementById('sk-data');
   var svg = document.querySelector('.sk');
@@ -3168,7 +3789,7 @@ document.querySelectorAll('.overlay').forEach(function (d) {
   });
   var total = scopes.reduce(function (a, s) { return a + s.v; }, 0);
   var right = [];
-  scopes.slice().reverse().forEach(function (s) { right = right.concat(s.kids); });
+  var rightNarrow = null;
 
   function share(v) {
     var p = v / total * 100;
@@ -3198,7 +3819,7 @@ document.querySelectorAll('.overlay').forEach(function (d) {
   }
 
   var focusKey = null;
-  var sticky = false;
+  var pinned = null;
 
   function draw() {
     var W = Math.round(wrap.clientWidth);
@@ -3214,6 +3835,14 @@ document.querySelectorAll('.overlay').forEach(function (d) {
     var xL = Lw;
     var xR = W - Rw - nodeW;
 
+    // the order of the right column; a change of order drops the selection
+    if (rightNarrow !== narrow) {
+      right = [];
+      (narrow ? scopes : scopes.slice().reverse()).forEach(function (s) { right = right.concat(s.kids); });
+      if (rightNarrow !== null) { focusKey = null; pinned = null; }
+      rightNarrow = narrow;
+    }
+
     // scale k so the right column fills H, small sources taking a label slot each
     var room = H - 2 * pad - gap * (right.length - 1);
     var k = room / total;
@@ -3228,11 +3857,20 @@ document.querySelectorAll('.overlay').forEach(function (d) {
       t.y = y;
       y += Math.max(t.v * k, slot) + gap;
     });
-    // scopes: same scale, top-aligned like the print, room for Scope 1's label
+    // scopes: same scale. Wide: top-aligned like the print, room for
+    // Scope 1's label. Phone: level with the middle of their sources.
     var ly = pad;
     var lgap = narrow ? 40 : 46;
+    var floor = -Infinity;
     scopes.forEach(function (s) {
       s.h = Math.max(s.v * k, 2);
+      if (narrow) {
+        var a = s.kids[0], b = s.kids[s.kids.length - 1];
+        var mid = (a.y + b.y + Math.max(b.h, slot)) / 2;
+        s.y = Math.min(Math.max(mid - s.h / 2, floor + 36, pad), H - pad - s.h);
+        floor = s.y + s.h;
+        return;
+      }
       s.y = ly;
       ly += s.h + lgap;
     });
@@ -3261,7 +3899,7 @@ document.querySelectorAll('.overlay').forEach(function (d) {
           var dd = 'M' + x0 + ' ' + ym0 + 'C' + xm + ' ' + ym0 + ' ' + xm + ' ' + ym1 + ' ' + x1 + ' ' + ym1;
           el('path', { class: 'sk-link', 'data-key': t.key, 'data-scope': s.id, d: dd, fill: 'none', stroke: s.color, 'stroke-width': 1 }, links);
           // a wider invisible copy, so a hairline is still easy to hit
-          el('path', { class: 'sk-hit', 'data-key': t.key, d: dd, fill: 'none', stroke: 'transparent', 'stroke-width': 12 }, svg);
+          el('path', { class: 'sk-hit', 'data-key': t.key, d: dd, fill: 'none', stroke: 'transparent', 'stroke-width': narrow ? 22 : 12 }, svg);
         }
         cy += h;
       });
@@ -3274,7 +3912,7 @@ document.querySelectorAll('.overlay').forEach(function (d) {
       el('rect', { class: 'sk-hit', x: 0, y: s.y - 6, width: xL + nodeW + 4, height: Math.max(s.h, 34) + 12 }, g);
       el('rect', { class: 'bar', x: xL, y: s.y, width: nodeW, height: s.h }, g);
       var lab = el('g', { class: 'sk-label', 'data-for': 's' + s.id }, g);
-      var ty = s.h > 60 ? s.y + s.h / 2 - 6 : s.y + 10;
+      var ty = narrow ? s.y + s.h / 2 - 4 : s.h > 60 ? s.y + s.h / 2 - 6 : s.y + 10;
       var t1 = el('text', { x: xL - 8, y: ty, 'text-anchor': 'end' }, lab);
       t1.textContent = s.name;
       label(lab, xL - 8, ty + 16, 'end', s.v);
@@ -3341,27 +3979,29 @@ document.querySelectorAll('.overlay').forEach(function (d) {
     return n ? n.dataset.key : null;
   }
   svg.addEventListener('pointermove', function (e) {
-    if (e.pointerType !== 'mouse' || sticky) return;
+    if (e.pointerType !== 'mouse' || pinned) return;
     var key = keyFrom(e);
     if (key !== focusKey) { focusKey = key; apply(); }
   });
   svg.addEventListener('pointerleave', function (e) {
-    if (e.pointerType !== 'mouse' || sticky) return;
+    if (e.pointerType !== 'mouse' || pinned) return;
     focusKey = null;
     apply();
   });
-  // taps (and clicks) pin a selection; tapping it again, or outside, clears it
+  // taps (and clicks) pin a selection; tapping it again, or outside, clears
+  // it. Compared with `pinned`, not `focusKey`: a tap focuses a node first,
+  // and focusin has already moved focusKey to it by the time the click lands.
   svg.addEventListener('click', function (e) {
     var key = keyFrom(e);
-    if (!key || (sticky && key === focusKey)) { sticky = false; focusKey = e.pointerType === 'mouse' ? key : null; }
-    else { sticky = true; focusKey = key; }
+    if (!key || key === pinned) { pinned = null; focusKey = e.pointerType === 'mouse' ? key : null; }
+    else { pinned = key; focusKey = key; }
     apply();
   });
   document.addEventListener('click', function (e) {
-    if (sticky && !svg.contains(e.target)) { sticky = false; focusKey = null; apply(); }
+    if (pinned && !svg.contains(e.target)) { pinned = null; focusKey = null; apply(); }
   });
   svg.addEventListener('focusin', function (e) { focusKey = keyFrom(e); apply(); });
-  svg.addEventListener('focusout', function () { if (!sticky) { focusKey = null; apply(); } });
+  svg.addEventListener('focusout', function () { if (!pinned) { focusKey = null; apply(); } });
 
   draw();
   var lastW = wrap.clientWidth;
@@ -3376,8 +4016,8 @@ document.querySelectorAll('.overlay').forEach(function (d) {
   }
 })();
 
-/* Dashboard demo: Table 2 of Beyond borders (page 28), % who say each
-   power's influence is somewhat or very positive. null = not asked
+/* Dashboard demo: Table 2 of Beyond borders, % who say each power's
+   influence is somewhat or very positive, drawn as a strip plot. null = not asked
    (Liberia has no former colonial power). The averages are the
    printed 38-country (37 for the former colonial power) averages;
    the column means of these rows round to the same numbers. */
@@ -3462,47 +4102,108 @@ document.querySelectorAll('.overlay').forEach(function (d) {
   }
   function place(name) { return name === 'The Gambia' ? 'the Gambia' : name; }
 
-  // one row per power, built once; render() only updates them
-  var rows = POWERS.map(function (p) {
+  var keyMe = demo.querySelector('.sw-key.me');
+  var tip = demo.querySelector('.sw-tip');
+  var wrapRows = demo.querySelector('.demo-rows');
+
+  // one row per power, built once: a dot for every country that was asked,
+  // the average tick and the big dot; render() only updates them
+  var rows = POWERS.map(function (p, j) {
     var row = document.createElement('div');
     row.className = 'demo-row';
-    row.innerHTML = '<span class="name"></span><span class="track"><span class="bar"></span><span class="avg"></span></span>' +
+    row.setAttribute('role', 'listitem');
+    row.innerHTML = '<span class="name"></span><span class="track" aria-hidden="true"></span>' +
       '<span class="val"></span><span class="rank"></span><span class="gap"></span>';
     row.querySelector('.name').textContent = p.name;
+    var track = row.querySelector('.track');
+    var dots = ROWS.map(function (r, i) {
+      if (r[j + 1] == null) return null;
+      var d = document.createElement('span');
+      d.className = 'sw-dot';
+      d.dataset.i = i;
+      d.dataset.j = j;
+      d.style.left = r[j + 1] + '%';
+      track.appendChild(d);
+      return d;
+    });
+    var avg = document.createElement('span');
+    avg.className = 'avg';
+    avg.style.left = AVG[j] + '%';
+    track.appendChild(avg);
+    var me = document.createElement('span');
+    me.className = 'sw-me';
+    track.appendChild(me);
     body.appendChild(row);
-    return row;
+    return { el: row, track: track, dots: dots, me: me };
   });
 
+  // stack dots that would touch: walk each row left to right and put every
+  // dot on the first level (middle, then above, then below...) with room;
+  // when every level is full it overlaps on the roomiest one
+  function swarm() {
+    rows.forEach(function (R, j) {
+      var w = R.track.clientWidth;
+      if (!w) return;
+      var d = R.dots.find(Boolean).offsetWidth || 7;
+      var step = d + 1.5;
+      var maxLv = Math.max(0, Math.floor((R.track.clientHeight / 2 - d / 2 - 2) / step));
+      var levels = [0];
+      for (var n = 1; n <= maxLv; n++) levels.push(-n, n);
+      var last = {};
+      R.dots.map(function (el, i) { return el && { el: el, x: ROWS[i][j + 1] / 100 * w }; })
+        .filter(Boolean)
+        .sort(function (a, b) { return a.x - b.x; })
+        .forEach(function (o) {
+          var lv = null;
+          for (var k = 0; k < levels.length; k++) {
+            var L = levels[k];
+            if (last[L] == null || o.x - last[L] >= step) { lv = L; break; }
+          }
+          if (lv == null) {
+            lv = levels.reduce(function (best, L) { return last[L] < last[best] ? L : best; }, 0);
+          }
+          last[lv] = o.x;
+          o.el.style.transform = lv ? 'translateY(' + (lv * step) + 'px)' : '';
+        });
+    });
+  }
+
   function render() {
-    var r = ROWS[+select.value];
+    var ci = +select.value;
+    var r = ROWS[ci];
     var best = -1, bestGap = -Infinity;
     POWERS.forEach(function (p, j) {
       var v = r[j + 1];
       if (v == null) return;
       if (v - AVG[j] > bestGap) { bestGap = v - AVG[j]; best = j; }
     });
+    keyMe.textContent = r[0];
 
     POWERS.forEach(function (p, j) {
-      var row = rows[j];
+      var R = rows[j];
       var v = r[j + 1];
-      row.classList.toggle('hi', j === best);
-      row.querySelector('.avg').style.left = AVG[j] + '%';
+      R.el.classList.toggle('hi', j === best);
+      R.dots.forEach(function (d, i) { if (d) d.classList.toggle('me', i === ci); });
       if (v == null) {
-        row.querySelector('.bar').style.width = '0';
-        row.querySelector('.val').textContent = 'n/a';
-        row.querySelector('.rank').textContent = 'not asked';
-        row.querySelector('.gap').textContent = '';
-        row.setAttribute('aria-label', p.name + ': not asked in ' + r[0]);
+        R.me.hidden = true;
+        R.el.querySelector('.val').textContent = 'n/a';
+        R.el.querySelector('.rank').textContent = 'not asked';
+        R.el.querySelector('.gap').textContent = '';
+        R.el.setAttribute('aria-label', p.name + ': not asked in ' + place(r[0]));
         return;
       }
       var rk = rankOf(j, v);
       var g = v - AVG[j];
-      row.querySelector('.bar').style.width = v + '%';
-      row.querySelector('.val').textContent = v;
-      row.querySelector('.rank').textContent = (rk.tie ? '=' : '') + ordinal(rk.rank) + ' of ' + rk.n;
-      var gapEl = row.querySelector('.gap');
+      R.me.hidden = false;
+      R.me.style.left = v + '%';
+      R.el.querySelector('.val').textContent = v;
+      var rankText = (rk.tie ? '=' : '') + ordinal(rk.rank) + ' of ' + rk.n;
+      R.el.querySelector('.rank').textContent = rankText;
+      var gapEl = R.el.querySelector('.gap');
       gapEl.textContent = (g > 0 ? '+' : g < 0 ? '−' : '±') + Math.abs(g);
       gapEl.classList.toggle('up', g > 0);
+      R.el.setAttribute('aria-label', p.name + ': ' + v + '% in ' + place(r[0]) + ', ' + rankText + ' countries, ' +
+        (g === 0 ? 'level with' : Math.abs(g) + ' points ' + (g > 0 ? 'above' : 'below')) + ' the average of ' + AVG[j] + '%');
     });
 
     // outwards: the table, said as a sentence
@@ -3524,6 +4225,46 @@ document.querySelectorAll('.overlay').forEach(function (d) {
     }
   }
 
+  // a dot names its country (mouse), lights that country on every row,
+  // and a click or tap switches the dashboard to it
+  var peerI = null;
+  function peer(i) {
+    if (i === peerI) return;
+    peerI = i;
+    rows.forEach(function (R) { R.dots.forEach(function (d, k) { if (d) d.classList.toggle('peer', k === i); }); });
+  }
+  function hideTip() { tip.hidden = true; peer(null); }
+  body.addEventListener('pointerover', function (e) {
+    var d = e.target.closest('.sw-dot');
+    if (!d || e.pointerType !== 'mouse') return;
+    var i = +d.dataset.i, j = +d.dataset.j;
+    peer(i);
+    tip.textContent = '';
+    var b = document.createElement('b');
+    b.textContent = ROWS[i][0];
+    var v = document.createElement('span');
+    v.className = 'v';
+    v.textContent = ROWS[i][j + 1] + '%';
+    tip.append(b, v);
+    var box = wrapRows.getBoundingClientRect(), dot = d.getBoundingClientRect();
+    tip.style.left = Math.min(Math.max(dot.left + dot.width / 2 - box.left, 60), box.width - 60) + 'px';
+    tip.style.top = (dot.top - box.top) + 'px';
+    tip.hidden = false;
+  });
+  body.addEventListener('pointerout', function (e) {
+    if (!e.target.closest('.sw-dot')) return;
+    var to = e.relatedTarget;
+    if (to && to.closest && to.closest('.sw-dot')) return;
+    hideTip();
+  });
+  body.addEventListener('click', function (e) {
+    var d = e.target.closest('.sw-dot');
+    if (!d || +d.dataset.i === +select.value) return;
+    select.value = d.dataset.i;
+    hideTip();
+    render();
+  });
+
   select.addEventListener('change', render);
   buttons.forEach(function (b) {
     b.addEventListener('click', function () {
@@ -3532,6 +4273,21 @@ document.querySelectorAll('.overlay').forEach(function (d) {
     });
   });
   render();
+  // the strips are laid out when they have a width: on load if this slide
+  // is showing, else when its tab opens, and again when the columns change
+  var widths = rows.map(function () { return 0; });
+  if ('ResizeObserver' in window) {
+    var ro = new ResizeObserver(function () {
+      var changed = rows.some(function (R, j) { return Math.abs(R.track.clientWidth - widths[j]) >= 1; });
+      if (!changed) return;
+      widths = rows.map(function (R) { return R.track.clientWidth; });
+      swarm();
+    });
+    rows.forEach(function (R) { ro.observe(R.track); });
+  } else {
+    swarm();
+    window.addEventListener('resize', swarm);
+  }
 })();
 
 /* Dashboard demo 2: Figure 10 of Beyond borders (page 15), % who have

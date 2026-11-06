@@ -19,7 +19,7 @@ Nutgraf's flagship service. Full details: https://nutgraf.studio/reports/index.h
 - Data visualisation (data visualization, dataviz) and infographics: bar charts, dot plots, heatmaps, Sankey diagrams, maps, KPI tiles and one-page country scorecards, for print and for screen.
 - Interactive dashboards: PDF reports rebuilt on their datasets, for outward data-driven storytelling (funders, partners, the press, the public) and inward data-driven decision making (boards, management, programme teams).
 - Case study: Afrobarometer's Beyond borders (African insights 2026): 48 pages, 38 figures and 4 tables, Round 10 survey data from 38 countries; the colophon reads "Report design by nutgraf.studio".
-- Case study: Rețele Electrice România (PPC Group), Sustainability Report 2024: 105 pages in Romanian, the company's first prepared with reference to ESRS; its page 49 traces 793,348 tCO2e from three scopes to eleven sources and is rebuilt on the web page as an interactive Sankey diagram.
+- Case study: Rețele Electrice România (PPC Group), Sustainability Report 2024: 105 pages in Romanian, the company's first prepared with reference to ESRS; its emissions Sankey traces 793,348 tCO2e from three scopes to eleven sources and is rebuilt on the web page as an interactive Sankey diagram.
 - To start: a brief, a dataset or last year's PDF; Nutgraf replies within a week with a page plan, a chart system and a timeline. Email hello@nutgraf.studio.
 
 ## Contact
