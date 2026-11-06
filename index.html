@@ -983,13 +983,13 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 }
 
 /* Scenes, in the look of our Instagram: isometric cubes on the mint,
-   white rings on the violet, the cracked nut on the black. Each scene
+   sticky notes on the violet, the cracked nut on the black. Each scene
    builds in when its card reveals (.in), then loops, only while the
    card is on screen (JS toggles .svc-live, see end of page). Every
    element rests on the finished frame, and the motion-only extras (the
    wires between loose cubes, the ring round the open nut) rest hidden,
    so reduced motion gets it: the chart on its plate with its trend,
-   the three rings on their mint centre, the nut whole. */
+   the notes filed in their three columns, the nut whole. */
 .rp-plate { fill: rgba(10, 10, 10, 0.06); stroke: var(--black); stroke-width: 1.5; stroke-linejoin: round; }
 .rp-ticks { fill: none; stroke: var(--black); stroke-width: 1.5; stroke-linecap: round; }
 .rp-net { fill: none; stroke: var(--white); stroke-width: 1.25; stroke-linecap: round; opacity: 0; }
@@ -1000,12 +1000,18 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 .rp-trend { fill: none; stroke: var(--black); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; stroke-dashoffset: 0; }
 .rp-dots { fill: var(--black); }
 
-.ws-fill { fill: var(--white); fill-opacity: 0; }
-.ws-line { fill: none; stroke: var(--white); stroke-width: 1.75; }
-.ws-core { fill: var(--mint); }
-.ws-orbit { fill: var(--mint); stroke: var(--black); stroke-width: 1.5; transform: rotate(var(--o)); }
-.ws-t { font-family: var(--font-body); font-size: 15px; font-weight: 600; fill: var(--white); }
-.ws-core-t { font-family: var(--font-display); font-size: 18px; font-weight: 900; fill: var(--black); }
+.ws-tape rect { fill: var(--white); stroke: var(--black); stroke-width: 1.5; }
+.ws-tape text { font-family: var(--font-body); font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; fill: var(--black); }
+.ws-base rect { fill: var(--black); }
+.ws-base text { font-family: var(--font-body); font-size: 11.5px; font-weight: 700; letter-spacing: 0.26em; fill: var(--mint); }
+.ws-sh { fill: var(--black); }
+.ws-pad { stroke: var(--black); stroke-width: 1.5; }
+.ws-pad.c { fill: var(--cream); }
+.ws-pad.w { fill: var(--white); }
+.ws-pad.m { fill: var(--mint); }
+.ws-glue { fill: rgba(10, 10, 10, 0.07); }
+.ws-ink { fill: none; stroke: var(--black); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ws-arrow, .ws-loop { fill: none; stroke: var(--white); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100 101; stroke-dashoffset: 0; }
 
 .ex-floor { fill: none; stroke: rgba(237, 233, 225, 0.13); stroke-width: 1; }
 .ex-shadow { fill: rgba(123, 123, 240, 0.4); }
@@ -1014,7 +1020,7 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 .ex-shard { fill: var(--mint); stroke: var(--black); stroke-width: 5; stroke-miterlimit: 10; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .rp-pop, .ws-ring, .ws-core, .ws-t, .ws-core-t, .ws-spark, .ex-in, .ex-shard, .ex-shadow {
+  .rp-pop, .ws-note, .ws-tape, .ws-base, .ws-spark, .ex-in, .ex-shard, .ex-shadow {
     transform-box: fill-box;
     transform-origin: center;
   }
@@ -1030,17 +1036,15 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   .service-card.in .rp-trend { animation: rp-trend 11s ease-in-out 1s infinite both; }
   .service-card.in .rp-dots { animation: rp-dots 11s ease-in-out 1s infinite both; }
 
-  /* Workshops, 12 s: the rings glide in and meet; research, design and
-     storytelling light up in turn, then the mint centre, your data,
-     swells. A dot runs round each ring; the sparkles twinkle. */
-  .service-card.in .ws-ring { animation: ws-in 1s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.2s + var(--i) * 0.15s) both; }
-  .service-card.in .ws-ring:nth-child(1) .ws-fill { animation: ws-lit-a 12s ease-in-out 1.6s infinite both; }
-  .service-card.in .ws-ring:nth-child(2) .ws-fill { animation: ws-lit-b 12s ease-in-out 1.6s infinite both; }
-  .service-card.in .ws-ring:nth-child(3) .ws-fill { animation: ws-lit-c 12s ease-in-out 1.6s infinite both; }
-  .service-card.in .ws-core { animation: svc-fade 0.6s ease-out 1s both, ws-core 12s ease-in-out 1.6s infinite; }
-  .service-card.in .ws-orbit { animation: svc-fade 0.6s ease-out 1.2s both, ws-orbit var(--t) linear 1.2s infinite; }
-  .service-card.in .ws-t { animation: ws-label 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.7s + var(--i) * 0.15s) both; }
-  .service-card.in .ws-core-t { animation: ws-label 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s both, ws-core 12s ease-in-out 1.6s infinite; }
+  /* Workshops, 12 s: the notes slap onto the wall one by one, hang there in a
+     mess, file into their columns, the arrows draw, the last note is
+     circled and the data strip pulses, hold, then the notes peel off */
+  .service-card.in .ws-tape { animation: ws-drop 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.15s + var(--i) * 0.12s) both; }
+  .service-card.in .ws-base { animation: svc-from-below 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both, ws-pulse 12s ease-in-out 0.6s infinite; }
+  .service-card.in .ws-note { animation: ws-note 12s linear calc(0.6s + var(--d)) infinite both; }
+  .service-card.in .ws-arrow { animation: ws-arrow 12s ease-in-out 0.6s infinite both; }
+  .service-card.in .ws-arrow.two { animation-delay: 1.3s; }
+  .service-card.in .ws-loop { animation: ws-loop 12s ease-in-out 0.6s infinite both; }
   .service-card.in .ws-spark { animation: ws-tw 3.4s ease-in-out calc(1s + var(--i) * 1.1s) infinite both; }
 
   /* Exhibitions, 12 s: the shards fly in and close into the nut under a
@@ -1089,30 +1093,28 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 }
 
 /* Workshops */
-@keyframes ws-in { from { transform: translate(var(--ox), var(--oy)); opacity: 0; } }
-@keyframes ws-label { from { transform: translateY(8px); opacity: 0; } }
-@keyframes ws-lit-a {
-  0%, 2%, 25%, 77%, 100% { fill-opacity: 0; }
-  5%, 22%  { fill-opacity: 0.2; }
-  80%, 96% { fill-opacity: 0.1; }
+@keyframes ws-drop { from { transform: translateY(-16px); opacity: 0; } }
+@keyframes ws-note {
+  0%        { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(1.4); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  4%        { opacity: 1; transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(1); }
+  27%       { opacity: 1; transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(1); animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+  38%       { opacity: 1; transform: none; }
+  86%       { opacity: 1; transform: none; animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0); }
+  92%, 100% { opacity: 0; transform: translateY(24px) rotate(calc(var(--r) * 0.5)); }
 }
-@keyframes ws-lit-b {
-  0%, 27%, 50%, 77%, 100% { fill-opacity: 0; }
-  30%, 47% { fill-opacity: 0.2; }
-  80%, 96% { fill-opacity: 0.1; }
+@keyframes ws-arrow {
+  0%, 42%   { opacity: 1; stroke-dashoffset: 100; }
+  48%, 86%  { opacity: 1; stroke-dashoffset: 0; }
+  90%, 100% { opacity: 0; stroke-dashoffset: 0; }
 }
-@keyframes ws-lit-c {
-  0%, 52%, 75%, 77%, 100% { fill-opacity: 0; }
-  55%, 72% { fill-opacity: 0.2; }
-  80%, 96% { fill-opacity: 0.1; }
+@keyframes ws-loop {
+  0%, 53%   { opacity: 1; stroke-dashoffset: 100; }
+  60%, 86%  { opacity: 1; stroke-dashoffset: 0; }
+  90%, 100% { opacity: 0; stroke-dashoffset: 0; }
 }
-@keyframes ws-core {
-  0%, 76%, 94%, 100% { transform: scale(1); }
-  83%, 88% { transform: scale(1.14); }
-}
-@keyframes ws-orbit {
-  from { transform: rotate(var(--o)); }
-  to   { transform: rotate(calc(var(--o) + 360deg)); }
+@keyframes ws-pulse {
+  0%, 60%, 74%, 100% { transform: none; }
+  65%, 69%           { transform: scale(1.05); }
 }
 @keyframes ws-tw {
   0%, 100% { transform: scale(0.35) rotate(0deg); opacity: 0.35; }
@@ -1753,36 +1755,37 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 
       <article class="service-card svc-workshops reveal">
         <div class="svc-stage" aria-hidden="true">
-          <!-- Scene: the three modules as a Venn diagram, white rings on the
-               violet as on our Instagram. Each ring lights in turn (research,
-               design, storytelling), then all three meet on the mint centre:
-               your data. A dot runs round each ring; sparkles for the AI. -->
+          <!-- Scene: a workshop wall. The team's sticky notes land all over
+               the violet, then file into three columns (research, design,
+               storytelling), each in its own colour, on a black strip that
+               says "Your data". Arrows join the columns and the last note is
+               circled: the story. Each note's --dx/--dy/--r is where it
+               hangs while the wall is still a mess. -->
           <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <clipPath id="ws-clip-a"><circle cx="280" cy="152" r="98"/></clipPath>
-              <clipPath id="ws-clip-b"><circle cx="232" cy="236" r="98"/></clipPath>
-            </defs>
-            <g class="ws-rings">
-              <g class="ws-ring" style="--i:0;--ox:0px;--oy:-60px"><circle class="ws-fill" cx="280" cy="152" r="98"/><circle class="ws-line" cx="280" cy="152" r="98"/></g>
-              <g class="ws-ring" style="--i:1;--ox:-52px;--oy:30px"><circle class="ws-fill" cx="232" cy="236" r="98"/><circle class="ws-line" cx="232" cy="236" r="98"/></g>
-              <g class="ws-ring" style="--i:2;--ox:52px;--oy:30px"><circle class="ws-fill" cx="328" cy="236" r="98"/><circle class="ws-line" cx="328" cy="236" r="98"/></g>
+            <g class="ws-tapes">
+              <g class="ws-tape" style="--i:0"><g transform="rotate(-2 120 40)"><rect x="58" y="27" width="124" height="26"/><text x="120" y="44.5" text-anchor="middle">RESEARCH</text></g></g>
+              <g class="ws-tape" style="--i:1"><g transform="rotate(1.5 280 40)"><rect x="218" y="27" width="124" height="26"/><text x="280" y="44.5" text-anchor="middle">DESIGN</text></g></g>
+              <g class="ws-tape" style="--i:2"><g transform="rotate(-1 440 40)"><rect x="378" y="27" width="124" height="26"/><text x="440" y="44.5" text-anchor="middle">STORYTELLING</text></g></g>
             </g>
-            <g class="ws-core"><g clip-path="url(#ws-clip-a)"><circle cx="328" cy="236" r="98" clip-path="url(#ws-clip-b)"/></g></g>
-            <g class="ws-orbits">
-              <g transform="translate(280 152)"><g class="ws-orbit" style="--t:9s;--o:0deg"><circle cy="-98" r="6"/></g></g>
-              <g transform="translate(232 236)"><g class="ws-orbit" style="--t:11s;--o:140deg"><circle cy="-98" r="6"/></g></g>
-              <g transform="translate(328 236)"><g class="ws-orbit" style="--t:10s;--o:250deg"><circle cy="-98" r="6"/></g></g>
+            <g class="ws-base"><rect x="56" y="324" width="448" height="30"/><text x="280" y="343.5" text-anchor="middle">YOUR DATA</text></g>
+            <path class="ws-arrow" pathLength="100" d="M160 200C184 174 214 172 238 190M226 192 239 191 235 178"/>
+            <path class="ws-arrow two" pathLength="100" d="M320 200C344 174 374 172 398 190M386 192 399 191 395 178"/>
+            <g class="ws-notes">
+              <g class="ws-note" style="--dx:-54px;--dy:-34px;--r:-14deg;--d:0.0s"><g transform="translate(88 74) rotate(-1.5 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad c" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><circle cx="27" cy="29" r="11"/><path d="M35 37 47 49" stroke-width="3"/></g></g></g>
+              <g class="ws-note" style="--dx:212px;--dy:96px;--r:9deg;--d:0.7s"><g transform="translate(88 156) rotate(1 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad c" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><rect x="13" y="17" width="38" height="34"/><path d="M13 28.5H51M13 40H51M25.7 17V51M38.3 17V51"/></g></g></g>
+              <g class="ws-note" style="--dx:108px;--dy:-110px;--r:-6deg;--d:0.3s"><g transform="translate(88 238) rotate(-0.5 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad c" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><path d="M24 25q0-9 8.5-9t8.5 8.5q0 6-8.5 9V40" stroke-width="3"/><circle cx="32.5" cy="48" r="1.6" fill="#0A0A0A" stroke="none"/></g></g></g>
+              <g class="ws-note" style="--dx:176px;--dy:-38px;--r:12deg;--d:0.1s"><g transform="translate(248 74) rotate(1.5 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad w" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><path d="M12 51H52"/><rect x="16" y="35" width="8" height="16" fill="#0A0A0A"/><rect x="28" y="26" width="8" height="25" fill="#0A0A0A"/><rect x="40" y="16" width="8" height="35" fill="#9FF29A"/></g></g></g>
+              <g class="ws-note" style="--dx:-190px;--dy:70px;--r:-10deg;--d:0.5s"><g transform="translate(248 156) rotate(-1 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad w" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><path d="M12 15V51H53"/><path d="M15 45 25 35 34 39 50 19" stroke-width="2.6"/><circle cx="50" cy="19" r="3" fill="#0A0A0A" stroke="none"/></g></g></g>
+              <g class="ws-note" style="--dx:82px;--dy:-122px;--r:6deg;--d:0.4s"><g transform="translate(248 238) rotate(0.5 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad w" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><g fill="#0A0A0A" stroke="none"><circle cx="18" cy="44" r="2.6"/><circle cx="25" cy="38" r="2.6"/><circle cx="31" cy="41" r="2.6"/><circle cx="36" cy="31" r="2.6"/><circle cx="42" cy="26" r="2.6"/><circle cx="47" cy="19" r="2.6"/></g><path d="M14 49 50 16" stroke-dasharray="2 4"/></g></g></g>
+              <g class="ws-note" style="--dx:-248px;--dy:188px;--r:-16deg;--d:0.6s"><g transform="translate(408 74) rotate(-1 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad m" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><path d="M13 19H51" stroke-width="5"/><path d="M13 31H47M13 39H43M13 47H35"/></g></g></g>
+              <g class="ws-note" style="--dx:58px;--dy:40px;--r:15deg;--d:0.8s"><g transform="translate(408 156) rotate(1.5 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad m" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><path d="M13 15H51V40H30L21 49V40H13Z"/><path d="M21 24H43M21 31H37"/></g></g></g>
+              <g class="ws-note" style="--dx:-156px;--dy:-220px;--r:-8deg;--d:0.2s"><g transform="translate(408 238) rotate(0 32 32)"><rect class="ws-sh" x="4" y="4" width="64" height="64"/><rect class="ws-pad m" width="64" height="64"/><rect class="ws-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="ws-ink"><path d="M16 48 47 17M31 17H47V33" stroke-width="3.2"/></g></g></g>
             </g>
-            <g class="ws-labels">
-              <text class="ws-t" style="--i:0" x="280" y="100" text-anchor="middle">Data<tspan x="280" dy="17">research</tspan></text>
-              <text class="ws-t" style="--i:1" x="202" y="284" text-anchor="middle">Data<tspan x="202" dy="17">design</tspan></text>
-              <text class="ws-t" style="--i:2" x="358" y="284" text-anchor="middle">Data<tspan x="358" dy="17">storytelling</tspan></text>
-              <text class="ws-core-t" x="280" y="203" text-anchor="middle">Your<tspan x="280" dy="18">data</tspan></text>
-            </g>
+            <path class="ws-loop" pathLength="100" d="M397 258C397 228 430 220 458 226C486 234 494 262 487 286C478 313 440 318 414 307C394 298 390 276 402 254"/>
             <g class="ws-sparks" fill="#FFFFFF">
-              <path class="ws-spark" style="--i:0" d="M454 92q2 12 14 14q-12 2-14 14q-2-12-14-14q12-2 14-14Z"/>
-              <path class="ws-spark" style="--i:1" d="M98 128q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/>
-              <path class="ws-spark" style="--i:2" d="M470 330q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/>
+              <g transform="translate(512 236)"><path class="ws-spark" style="--i:0" d="M0 -14q2 12 14 14q-12 2-14 14q-2-12-14-14q12-2 14-14Z"/></g>
+              <g transform="translate(36 120)"><path class="ws-spark" style="--i:1" d="M0 -10.5q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/></g>
+              <g transform="translate(522 96)"><path class="ws-spark" style="--i:2" d="M0 -10.5q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/></g>
             </g>
           </svg>
         </div>

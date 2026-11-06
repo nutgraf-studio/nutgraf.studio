@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home · Workshops scene options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --max-w: 72rem;
+  --pad: 1.5rem;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  padding: 3rem 0 5rem;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; }
+.wrap { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad); }
+
+/* ---------- options-page chrome ---------- */
+.page-head { max-width: 46rem; margin: 0 auto 3rem; padding-inline: var(--pad); text-align: center; }
+.page-head h1 { font-size: 2rem; margin-bottom: 0.6rem; }
+.sub { font-size: 0.95rem; line-height: 1.5; opacity: 0.75; }
+.sub code { font-size: 0.85em; background: rgba(10,10,10,0.07); padding: 0.05rem 0.35rem; border-radius: 0.3rem; }
+.opt { margin-bottom: 4rem; }
+.opt-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1.5rem; margin-bottom: 0.4rem; }
+.opt-head h2 { font-size: 1.5rem; display: flex; align-items: center; gap: 0.6rem; }
+.opt-head h2 span {
+  display: inline-grid; place-items: center; min-width: 2.4rem; height: 1.75rem; padding: 0 0.5rem;
+  background: var(--black); color: var(--mint); font-size: 0.95rem;
+}
+.opt-ctl { display: flex; align-items: center; gap: 0.75rem; }
+.opt-ctl input { width: 11rem; accent-color: var(--violet); }
+.replay {
+  font: 700 0.8125rem var(--font-body); letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.45rem 0.9rem; border: 2px solid var(--black); background: var(--white); cursor: pointer;
+}
+.replay:hover, .replay:focus-visible { background: var(--mint); }
+.opt-desc { max-width: 46rem; font-size: 0.95rem; line-height: 1.55; opacity: 0.8; margin-bottom: 1.25rem; }
+
+/* ---------- the card, as in index.html (Workshops is the even card) ---------- */
+.service-list { display: grid; gap: 1.5rem; }
+.service-card { display: grid; border: 2px solid var(--black); background: var(--white); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--black); }
+.svc-stage { position: relative; width: 100%; aspect-ratio: 7 / 5; max-height: 25rem; border-bottom: 2px solid var(--black); overflow: hidden; }
+.svc-stage svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.svc-workshops .svc-stage {
+  background-color: var(--violet);
+  background-image: radial-gradient(rgba(10, 10, 10, 0.22) 1.2px, transparent 1.7px);
+  background-size: 20px 20px;
+}
+.svc-body { display: flex; flex-direction: column; align-items: flex-start; padding: 1.75rem 1.5rem 2rem; }
+.svc-label { display: flex; align-items: center; gap: 0.625rem; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem; }
+.svc-num { display: inline-grid; place-items: center; min-width: 2.125rem; height: 1.625rem; background: var(--black); color: var(--mint); font-family: var(--font-display); font-size: 0.875rem; font-weight: 900; letter-spacing: 0; }
+.svc-body h3 { font-size: clamp(1.625rem, 3.2vw, 2.25rem); max-width: 16ch; margin-bottom: 0.875rem; }
+.svc-body > p { max-width: 34rem; }
+.svc-spec { width: 100%; margin: 1.5rem 0 1.75rem; border-top: 2px solid var(--black); }
+.svc-spec div { display: grid; gap: 0.125rem; padding-block: 0.625rem; border-bottom: 1px solid rgba(10, 10, 10, 0.18); }
+.svc-spec dt { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+.svc-spec dd { font-size: 0.9375rem; line-height: 1.5; }
+@media (min-width: 420px) {
+  .svc-spec div { grid-template-columns: 6.5rem 1fr; gap: 1rem; }
+  .svc-spec dt { padding-top: 0.2rem; }
+}
+.svc-link { display: inline-flex; align-items: center; font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--black); padding-bottom: 1px; }
+.svc-link:hover, .svc-link:focus-visible { background: var(--mint); }
+.svc-link .arr { width: 0.7em; height: 0.7em; margin-left: 0.4em; fill: none; stroke: var(--violet); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.svc-link:hover .arr, .svc-link:focus-visible .arr { transform: translate(2px, -2px); }
+@media (min-width: 960px) {
+  .service-card { grid-template-columns: 1fr 1.1fr; }
+  .svc-stage { order: 2; aspect-ratio: auto; max-height: none; min-height: 26rem; border-bottom: 0; border-left: 2px solid var(--black); }
+  .svc-body { justify-content: center; padding: 2.5rem 2.75rem; }
+}
+
+/* ================= Now: Venn rings (copied from index.html) ================= */
+.ws-fill { fill: var(--white); fill-opacity: 0; }
+.ws-line { fill: none; stroke: var(--white); stroke-width: 1.75; }
+.ws-core { fill: var(--mint); }
+.ws-orbit { fill: var(--mint); stroke: var(--black); stroke-width: 1.5; transform: rotate(var(--o)); }
+.ws-t { font-family: var(--font-body); font-size: 15px; font-weight: 600; fill: var(--white); }
+.ws-core-t { font-family: var(--font-display); font-size: 18px; font-weight: 900; fill: var(--black); }
+
+/* ================= A: Makeover ================= */
+/* Rest frame (reduced motion): the After sheet. The Before chart, the
+   marker's cross and the Before tab rest hidden. */
+.mk-sh { fill: var(--black); }
+.mk-sheet { fill: var(--white); stroke: var(--black); stroke-width: 2; }
+.mk-tape { fill: var(--cream); fill-opacity: 0.92; }
+.mk-tab rect { stroke: var(--black); stroke-width: 2; }
+.mk-tab text { font-family: var(--font-body); font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; fill: var(--black); }
+.mk-before, .mk-tab-b { opacity: 0; }
+.mk-old { font-family: var(--font-body); font-size: 12px; font-weight: 500; fill: rgba(10, 10, 10, 0.55); }
+.mk-side { fill: var(--black); }
+.mk-slice { stroke: var(--black); stroke-width: 1.5; stroke-linejoin: round; }
+.mk-sw { stroke: var(--black); stroke-width: 1.2; }
+.mk-x path { fill: none; stroke-linecap: round; stroke-dasharray: 100 101; stroke-dashoffset: 0; opacity: 0; }
+.mk-x .w { stroke: var(--white); stroke-width: 11; }
+.mk-x .b { stroke: var(--black); stroke-width: 5; }
+.mk-hl { fill: none; stroke: var(--mint); stroke-width: 11; stroke-linecap: round; stroke-dasharray: 100 101; stroke-dashoffset: 0; }
+.mk-head { font-family: var(--font-display); font-size: 24px; font-weight: 900; letter-spacing: -0.02em; fill: var(--black); }
+.mk-sub { font-family: var(--font-body); font-size: 11px; font-weight: 500; fill: rgba(10, 10, 10, 0.6); }
+.mk-lab { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: var(--black); }
+.mk-val { font-family: var(--font-body); font-size: 11.5px; font-weight: 500; fill: var(--black); }
+.mk-val.hi { font-weight: 700; }
+.mk-axis { stroke: var(--black); stroke-width: 1.5; }
+.mk-bar { fill: var(--cream); stroke: var(--black); stroke-width: 1.5; }
+.mk-bar.hi { fill: var(--mint); stroke-width: 2; }
+
+/* ================= B: Sticky wall ================= */
+/* Rest frame: the notes filed in their columns, arrows drawn, the last
+   note circled. */
+.sn-tape rect { fill: var(--white); stroke: var(--black); stroke-width: 1.5; }
+.sn-tape text { font-family: var(--font-body); font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; fill: var(--black); }
+.sn-base rect { fill: var(--black); }
+.sn-base text { font-family: var(--font-body); font-size: 11.5px; font-weight: 700; letter-spacing: 0.26em; fill: var(--mint); }
+.sn-sh { fill: var(--black); }
+.sn-pad { stroke: var(--black); stroke-width: 1.5; }
+.sn-pad.c { fill: var(--cream); }
+.sn-pad.w { fill: var(--white); }
+.sn-pad.m { fill: var(--mint); }
+.sn-glue { fill: rgba(10, 10, 10, 0.07); }
+.sn-ink { fill: none; stroke: var(--black); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.sn-arrow, .sn-loop { fill: none; stroke: var(--white); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100 101; stroke-dashoffset: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ws-ring, .ws-core, .ws-t, .ws-core-t, .ws-spark,
+  .mk-board, .mk-tab, .mk-before, .mk-bar, .mk-head, .mk-spark,
+  .sn-note, .sn-tape, .sn-base, .sn-spark {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .mk-tab { transform-origin: 50% 100%; }
+  .mk-bar { transform-origin: 0 50%; }
+
+  /* Now (index.html) */
+  .service-card.in .ws-ring { animation: ws-in 1s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.2s + var(--i) * 0.15s) both; }
+  .service-card.in .ws-ring:nth-child(1) .ws-fill { animation: ws-lit-a 12s ease-in-out 1.6s infinite both; }
+  .service-card.in .ws-ring:nth-child(2) .ws-fill { animation: ws-lit-b 12s ease-in-out 1.6s infinite both; }
+  .service-card.in .ws-ring:nth-child(3) .ws-fill { animation: ws-lit-c 12s ease-in-out 1.6s infinite both; }
+  .service-card.in .ws-core { animation: svc-fade 0.6s ease-out 1s both, ws-core 12s ease-in-out 1.6s infinite; }
+  .service-card.in .ws-orbit { animation: svc-fade 0.6s ease-out 1.2s both, ws-orbit var(--t) linear 1.2s infinite; }
+  .service-card.in .ws-t { animation: ws-label 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.7s + var(--i) * 0.15s) both; }
+  .service-card.in .ws-core-t { animation: ws-label 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s both, ws-core 12s ease-in-out 1.6s infinite; }
+  .service-card.in .ws-spark { animation: ws-tw 3.4s ease-in-out calc(1s + var(--i) * 1.1s) infinite both; }
+
+  /* A, 12 s: Before (0-3.5 s), the marker crosses the pie out, the tab
+     flips, the bars run out sorted, the headline lands and gets its
+     highlighter, hold, then the sheet resets to Before */
+  .service-card.in .mk-board { animation: svc-from-below 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both; }
+  .service-card.in .mk-before { animation: mk-before 12s cubic-bezier(0.65, 0, 0.35, 1) 0.6s infinite both; }
+  .service-card.in .mk-tab-b { animation: mk-tab-b 12s ease-in-out 0.6s infinite both; }
+  .service-card.in .mk-tab-a { animation: mk-tab-a 12s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s infinite both; }
+  .service-card.in .mk-x path { animation: mk-x 12s ease-in-out 0.6s infinite both; }
+  .service-card.in .mk-x .b { animation-delay: 0.65s; }
+  .service-card.in .mk-after { animation: mk-after 12s ease-in-out 0.6s infinite both; }
+  .service-card.in .mk-bar { animation: mk-bar 12s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.6s + var(--d)) infinite both; }
+  .service-card.in .mk-val { animation: mk-val 12s ease-in-out calc(0.6s + var(--d)) infinite both; }
+  .service-card.in .mk-head { animation: mk-head 12s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s infinite both; }
+  .service-card.in .mk-hl { animation: mk-hl 12s ease-in-out 0.6s infinite both; }
+  .service-card.in .mk-spark { animation: ws-tw 3.4s ease-in-out calc(1s + var(--i) * 1.1s) infinite both; }
+
+  /* B, 12 s: the notes slap onto the wall one by one, hang there in a
+     mess, file into their columns, the arrows draw, the last note is
+     circled and the data strip pulses, hold, then the notes peel off */
+  .service-card.in .sn-tape { animation: sn-drop 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.15s + var(--i) * 0.12s) both; }
+  .service-card.in .sn-base { animation: svc-from-below 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both, sn-pulse 12s ease-in-out 0.6s infinite; }
+  .service-card.in .sn-note { animation: sn-note 12s linear calc(0.6s + var(--d)) infinite both; }
+  .service-card.in .sn-arrow { animation: sn-arrow 12s ease-in-out 0.6s infinite both; }
+  .service-card.in .sn-arrow.two { animation-delay: 1.3s; }
+  .service-card.in .sn-loop { animation: sn-loop 12s ease-in-out 0.6s infinite both; }
+  .service-card.in .sn-spark { animation: ws-tw 3.4s ease-in-out calc(1s + var(--i) * 1.1s) infinite both; }
+
+  .service-card.in:not(.svc-live) svg * { animation-play-state: paused; }
+}
+
+@keyframes svc-from-below { from { transform: translateY(40px); opacity: 0; } }
+@keyframes svc-fade { from { opacity: 0; } }
+
+/* Now */
+@keyframes ws-in { from { transform: translate(var(--ox), var(--oy)); opacity: 0; } }
+@keyframes ws-label { from { transform: translateY(8px); opacity: 0; } }
+@keyframes ws-lit-a { 0%, 2%, 25%, 77%, 100% { fill-opacity: 0; } 5%, 22% { fill-opacity: 0.2; } 80%, 96% { fill-opacity: 0.1; } }
+@keyframes ws-lit-b { 0%, 27%, 50%, 77%, 100% { fill-opacity: 0; } 30%, 47% { fill-opacity: 0.2; } 80%, 96% { fill-opacity: 0.1; } }
+@keyframes ws-lit-c { 0%, 52%, 75%, 77%, 100% { fill-opacity: 0; } 55%, 72% { fill-opacity: 0.2; } 80%, 96% { fill-opacity: 0.1; } }
+@keyframes ws-core { 0%, 76%, 94%, 100% { transform: scale(1); } 83%, 88% { transform: scale(1.14); } }
+@keyframes ws-orbit { from { transform: rotate(var(--o)); } to { transform: rotate(calc(var(--o) + 360deg)); } }
+@keyframes ws-tw { 0%, 100% { transform: scale(0.35) rotate(0deg); opacity: 0.35; } 50% { transform: scale(1) rotate(45deg); opacity: 1; } }
+
+/* A */
+@keyframes mk-before {
+  0%, 29%   { opacity: 1; transform: none; }
+  35%, 93%  { opacity: 0; transform: scale(0.94); }
+  98%, 100% { opacity: 1; transform: none; }
+}
+@keyframes mk-tab-b {
+  0%, 34%   { opacity: 1; transform: none; }
+  37%, 95%  { opacity: 0; transform: scaleY(0); }
+  98%, 100% { opacity: 1; transform: none; }
+}
+@keyframes mk-tab-a {
+  0%, 36%   { transform: scaleY(0); }
+  40%, 91%  { transform: none; }
+  94%, 100% { transform: scaleY(0); }
+}
+@keyframes mk-x {
+  0%, 19%   { opacity: 1; stroke-dashoffset: 100; }
+  27%, 31%  { opacity: 1; stroke-dashoffset: 0; }
+  35%, 100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes mk-after {
+  0%, 37%   { opacity: 0; }
+  41%, 89%  { opacity: 1; }
+  93%, 100% { opacity: 0; }
+}
+@keyframes mk-bar {
+  0%, 39%   { transform: scaleX(0); }
+  46%, 89%  { transform: none; }
+  93%, 100% { transform: scaleX(0); }
+}
+@keyframes mk-val {
+  0%, 44%   { opacity: 0; }
+  48%, 89%  { opacity: 1; }
+  92%, 100% { opacity: 0; }
+}
+@keyframes mk-head {
+  0%, 49%   { opacity: 0; transform: translateY(10px); }
+  54%, 89%  { opacity: 1; transform: none; }
+  93%, 100% { opacity: 0; transform: none; }
+}
+@keyframes mk-hl {
+  0%, 54%   { opacity: 1; stroke-dashoffset: 100; }
+  60%, 89%  { opacity: 1; stroke-dashoffset: 0; }
+  93%, 100% { opacity: 0; stroke-dashoffset: 0; }
+}
+
+/* B */
+@keyframes sn-drop { from { transform: translateY(-16px); opacity: 0; } }
+@keyframes sn-note {
+  0%        { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(1.4); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  4%        { opacity: 1; transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(1); }
+  27%       { opacity: 1; transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(1); animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+  38%       { opacity: 1; transform: none; }
+  86%       { opacity: 1; transform: none; animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0); }
+  92%, 100% { opacity: 0; transform: translateY(24px) rotate(calc(var(--r) * 0.5)); }
+}
+@keyframes sn-arrow {
+  0%, 42%   { opacity: 1; stroke-dashoffset: 100; }
+  48%, 86%  { opacity: 1; stroke-dashoffset: 0; }
+  90%, 100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes sn-loop {
+  0%, 53%   { opacity: 1; stroke-dashoffset: 100; }
+  60%, 86%  { opacity: 1; stroke-dashoffset: 0; }
+  90%, 100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes sn-pulse {
+  0%, 60%, 74%, 100% { transform: none; }
+  65%, 69%           { transform: scale(1.05); }
+}
+
+</style>
+</head>
+<body>
+<header class="page-head">
+  <h1>Home · Workshops scene</h1>
+  <p class="sub">The “02 Workshops” card in What you get, three ways. Only the scene changes; the copy is the live card’s. Drag a slider to stop on any moment, Replay to run it again. Reduced motion shows each scene’s last frame. B, Sticky wall, was picked and is live on the home.</p>
+</header>
+<main class="wrap">
+  <section class="opt" id="opt-0">
+    <div class="opt-head">
+      <h2><span>Was</span>Venn rings</h2>
+      <div class="opt-ctl">
+        <input type="range" min="0" max="13" step="0.05" value="0" aria-label="Scrub Venn rings">
+        <button type="button" class="replay">Replay</button>
+      </div>
+    </div>
+    <p class="opt-desc">On the home until 6 November 2026: the three modules as rings that light in turn round a mint “Your data”.</p>
+    <div class="service-list">
+      <article class="service-card svc-workshops">
+        <div class="svc-stage" aria-hidden="true">
+          <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <clipPath id="ws-clip-a"><circle cx="280" cy="152" r="98"/></clipPath>
+              <clipPath id="ws-clip-b"><circle cx="232" cy="236" r="98"/></clipPath>
+            </defs>
+            <g class="ws-rings">
+              <g class="ws-ring" style="--i:0;--ox:0px;--oy:-60px"><circle class="ws-fill" cx="280" cy="152" r="98"/><circle class="ws-line" cx="280" cy="152" r="98"/></g>
+              <g class="ws-ring" style="--i:1;--ox:-52px;--oy:30px"><circle class="ws-fill" cx="232" cy="236" r="98"/><circle class="ws-line" cx="232" cy="236" r="98"/></g>
+              <g class="ws-ring" style="--i:2;--ox:52px;--oy:30px"><circle class="ws-fill" cx="328" cy="236" r="98"/><circle class="ws-line" cx="328" cy="236" r="98"/></g>
+            </g>
+            <g class="ws-core"><g clip-path="url(#ws-clip-a)"><circle cx="328" cy="236" r="98" clip-path="url(#ws-clip-b)"/></g></g>
+            <g class="ws-orbits">
+              <g transform="translate(280 152)"><g class="ws-orbit" style="--t:9s;--o:0deg"><circle cy="-98" r="6"/></g></g>
+              <g transform="translate(232 236)"><g class="ws-orbit" style="--t:11s;--o:140deg"><circle cy="-98" r="6"/></g></g>
+              <g transform="translate(328 236)"><g class="ws-orbit" style="--t:10s;--o:250deg"><circle cy="-98" r="6"/></g></g>
+            </g>
+            <g class="ws-labels">
+              <text class="ws-t" style="--i:0" x="280" y="100" text-anchor="middle">Data<tspan x="280" dy="17">research</tspan></text>
+              <text class="ws-t" style="--i:1" x="202" y="284" text-anchor="middle">Data<tspan x="202" dy="17">design</tspan></text>
+              <text class="ws-t" style="--i:2" x="358" y="284" text-anchor="middle">Data<tspan x="358" dy="17">storytelling</tspan></text>
+              <text class="ws-core-t" x="280" y="203" text-anchor="middle">Your<tspan x="280" dy="18">data</tspan></text>
+            </g>
+            <g class="ws-sparks" fill="#FFFFFF">
+              <path class="ws-spark" style="--i:0" d="M454 92q2 12 14 14q-12 2-14 14q-2-12-14-14q12-2 14-14Z"/>
+              <path class="ws-spark" style="--i:1" d="M98 128q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/>
+              <path class="ws-spark" style="--i:2" d="M470 330q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/>
+            </g>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <p class="svc-label"><span class="svc-num">02</span>Workshops</p>
+          <h3>Teach your team to speak data fluently.</h3>
+          <p>Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI, used well and used safely. Every workshop runs on your own data.</p>
+          <dl class="svc-spec">
+            <div><dt>Modules</dt><dd>Data research, data design, data storytelling</dd></div>
+            <div><dt>Format</dt><dd>Half a day to four days, at your office or remote, for six to twenty people</dd></div>
+            <div><dt>You get</dt><dd>Working methods, reusable templates and at least one real piece of work already improved</dd></div>
+          </dl>
+          <a class="svc-link" href="/workshops/">See the workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="opt" id="opt-1">
+    <div class="opt-head">
+      <h2><span>A</span>Makeover</h2>
+      <div class="opt-ctl">
+        <input type="range" min="0" max="13" step="0.05" value="0" aria-label="Scrub Makeover">
+        <button type="button" class="replay">Replay</button>
+      </div>
+    </div>
+    <p class="opt-desc">The work itself gets better. A cluttered 3D pie on a sheet pinned to the wall is crossed out, the tab flips from Before to After, and the same numbers come back as sorted bars with one point in mint under a headline. Says “at least one real piece of work already improved”. 12 s loop.</p>
+    <div class="service-list">
+      <article class="service-card svc-workshops">
+        <div class="svc-stage" aria-hidden="true">
+          <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <pattern id="mk-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="6" height="6" fill="#FFFFFF"/><path d="M0 0V6" stroke="#0A0A0A" stroke-width="2"/>
+              </pattern>
+            </defs>
+            <g class="mk-board">
+              <rect class="mk-sh" x="129" y="67" width="320" height="270"/>
+              <g class="mk-tab mk-tab-b"><rect x="136" y="35" width="84" height="23" fill="#EDE9E1"/><text x="178" y="51" text-anchor="middle">BEFORE</text></g>
+              <g class="mk-tab mk-tab-a"><rect x="136" y="35" width="84" height="23" fill="#9FF29A"/><text x="178" y="51" text-anchor="middle">AFTER</text></g>
+              <rect class="mk-sheet" x="120" y="58" width="320" height="270"/>
+              <rect class="mk-tape" x="384" y="44" width="58" height="18" transform="rotate(32 413 53)"/>
+              <rect class="mk-tape" x="96" y="304" width="58" height="18" transform="rotate(32 125 313)"/>
+            </g>
+            <g class="mk-before">
+              <text class="mk-old" x="144" y="92">Fig. 3: Overview of all the data</text>
+              <rect x="144" y="102" width="132" height="5" fill="#0A0A0A" fill-opacity="0.15"/>
+              <path class="mk-side" d="M142 194V210A80 48 0 0 0 302 210V194A80 48 0 0 1 142 194Z"/>
+              <path class="mk-slice" fill="var(--violet)" d="M222 194L222 146A80 48 0 0 1 289.5 219.7Z"/><path class="mk-slice" fill="var(--mint)" d="M225.4 200.7L292.9 226.4A80 48 0 0 1 195.9 245.3Z"/><path class="mk-slice" fill="var(--cream)" d="M222 194L192.6 238.6A80 48 0 0 1 143.4 203Z"/><path class="mk-slice" fill="var(--white)" d="M222 194L143.4 203A80 48 0 0 1 154.5 168.3Z"/><path class="mk-slice" fill="var(--black)" d="M222 194L154.5 168.3A80 48 0 0 1 187.9 150.6Z"/><path class="mk-slice" fill="url(#mk-hatch)" d="M222 194L187.9 150.6A80 48 0 0 1 222 146Z"/>
+              <rect class="mk-sw" x="336" y="146" width="12" height="12" fill="var(--violet)"/><rect x="356" y="149" width="52" height="6" fill="#0A0A0A" fill-opacity="0.22"/><rect class="mk-sw" x="336" y="168" width="12" height="12" fill="var(--mint)"/><rect x="356" y="171" width="40" height="6" fill="#0A0A0A" fill-opacity="0.22"/><rect class="mk-sw" x="336" y="190" width="12" height="12" fill="var(--cream)"/><rect x="356" y="193" width="58" height="6" fill="#0A0A0A" fill-opacity="0.22"/><rect class="mk-sw" x="336" y="212" width="12" height="12" fill="var(--white)"/><rect x="356" y="215" width="34" height="6" fill="#0A0A0A" fill-opacity="0.22"/><rect class="mk-sw" x="336" y="234" width="12" height="12" fill="var(--black)"/><rect x="356" y="237" width="46" height="6" fill="#0A0A0A" fill-opacity="0.22"/><rect class="mk-sw" x="336" y="256" width="12" height="12" fill="url(#mk-hatch)"/><rect x="356" y="259" width="38" height="6" fill="#0A0A0A" fill-opacity="0.22"/>
+            </g>
+            <g class="mk-x">
+              <path class="w" pathLength="100" d="M150 136Q226 190 300 262M302 138Q228 196 148 262"/>
+              <path class="b" pathLength="100" d="M150 136Q226 190 300 262M302 138Q228 196 148 262"/>
+            </g>
+            <path class="mk-hl" pathLength="100" d="M142 97H364"/>
+            <text class="mk-head" x="144" y="104">The north doubled.</text>
+            <text class="mk-sub mk-after" x="144" y="125">Share of new contracts by region, 2025</text>
+            <path class="mk-axis mk-after" d="M204 140V318"/>
+            <text class="mk-lab mk-after" x="144" y="161.5">North</text><rect class="mk-bar hi" style="--d:0.00s" x="204" y="146" width="196" height="22"/><text class="mk-val hi" style="--d:0.00s" x="407" y="161.5">41%</text><text class="mk-lab mk-after" x="144" y="195.5">East</text><rect class="mk-bar" style="--d:0.12s" x="204" y="180" width="105.2" height="22"/><text class="mk-val" style="--d:0.12s" x="316.2" y="195.5">22%</text><text class="mk-lab mk-after" x="144" y="229.5">West</text><rect class="mk-bar" style="--d:0.24s" x="204" y="214" width="81.3" height="22"/><text class="mk-val" style="--d:0.24s" x="292.3" y="229.5">17%</text><text class="mk-lab mk-after" x="144" y="263.5">South</text><rect class="mk-bar" style="--d:0.36s" x="204" y="248" width="57.4" height="22"/><text class="mk-val" style="--d:0.36s" x="268.4" y="263.5">12%</text><text class="mk-lab mk-after" x="144" y="297.5">Centre</text><rect class="mk-bar" style="--d:0.48s" x="204" y="282" width="38.2" height="22"/><text class="mk-val" style="--d:0.48s" x="249.2" y="297.5">8%</text>
+            <g class="mk-sparks" fill="#FFFFFF">
+              <g transform="translate(486 104)"><path class="mk-spark" style="--i:0" d="M0 -14q2 12 14 14q-12 2-14 14q-2-12-14-14q12-2 14-14Z"/></g>
+              <g transform="translate(70 252)"><path class="mk-spark" style="--i:1" d="M0 -10.5q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/></g>
+              <g transform="translate(492 300)"><path class="mk-spark" style="--i:2" d="M0 -10.5q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <p class="svc-label"><span class="svc-num">02</span>Workshops</p>
+          <h3>Teach your team to speak data fluently.</h3>
+          <p>Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI, used well and used safely. Every workshop runs on your own data.</p>
+          <dl class="svc-spec">
+            <div><dt>Modules</dt><dd>Data research, data design, data storytelling</dd></div>
+            <div><dt>Format</dt><dd>Half a day to four days, at your office or remote, for six to twenty people</dd></div>
+            <div><dt>You get</dt><dd>Working methods, reusable templates and at least one real piece of work already improved</dd></div>
+          </dl>
+          <a class="svc-link" href="/workshops/">See the workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="opt" id="opt-2">
+    <div class="opt-head">
+      <h2><span>B</span>Sticky wall</h2>
+      <div class="opt-ctl">
+        <input type="range" min="0" max="13" step="0.05" value="0" aria-label="Scrub Sticky wall">
+        <button type="button" class="replay">Replay</button>
+      </div>
+    </div>
+    <p class="opt-desc">The room at work, without drawing the room. The team’s notes land all over the wall, then file into three columns (research, design, storytelling), each in its own colour, on a black strip that says “Your data”. Arrows join the columns and the last note is circled: the story. 12 s loop. Picked, live on the home since 6 November 2026.</p>
+    <div class="service-list">
+      <article class="service-card svc-workshops">
+        <div class="svc-stage" aria-hidden="true">
+          <svg viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet">
+            <g class="sn-tapes"><g class="sn-tape" style="--i:0"><g transform="rotate(-2 120 40)"><rect x="58" y="27" width="124" height="26"/><text x="120" y="44.5" text-anchor="middle">RESEARCH</text></g></g><g class="sn-tape" style="--i:1"><g transform="rotate(1.5 280 40)"><rect x="218" y="27" width="124" height="26"/><text x="280" y="44.5" text-anchor="middle">DESIGN</text></g></g><g class="sn-tape" style="--i:2"><g transform="rotate(-1 440 40)"><rect x="378" y="27" width="124" height="26"/><text x="440" y="44.5" text-anchor="middle">STORYTELLING</text></g></g></g>
+            <g class="sn-base"><rect x="56" y="324" width="448" height="30"/><text x="280" y="343.5" text-anchor="middle">YOUR DATA</text></g>
+            <path class="sn-arrow" pathLength="100" d="M160 200C184 174 214 172 238 190M226 192 239 191 235 178"/>
+            <path class="sn-arrow two" pathLength="100" d="M320 200C344 174 374 172 398 190M386 192 399 191 395 178"/>
+            <g class="sn-notes"><g class="sn-note" style="--dx:-54px;--dy:-34px;--r:-14deg;--d:0.0s"><g transform="translate(88 74) rotate(-1.5 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad c" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><circle cx="27" cy="29" r="11"/><path d="M35 37 47 49" stroke-width="3"/></g></g></g><g class="sn-note" style="--dx:212px;--dy:96px;--r:9deg;--d:0.7s"><g transform="translate(88 156) rotate(1 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad c" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><rect x="13" y="17" width="38" height="34"/><path d="M13 28.5H51M13 40H51M25.7 17V51M38.3 17V51"/></g></g></g><g class="sn-note" style="--dx:108px;--dy:-110px;--r:-6deg;--d:0.3s"><g transform="translate(88 238) rotate(-0.5 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad c" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><path d="M24 25q0-9 8.5-9t8.5 8.5q0 6-8.5 9V40" stroke-width="3"/><circle cx="32.5" cy="48" r="1.6" fill="#0A0A0A" stroke="none"/></g></g></g><g class="sn-note" style="--dx:176px;--dy:-38px;--r:12deg;--d:0.1s"><g transform="translate(248 74) rotate(1.5 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad w" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><path d="M12 51H52"/><rect x="16" y="35" width="8" height="16" fill="#0A0A0A"/><rect x="28" y="26" width="8" height="25" fill="#0A0A0A"/><rect x="40" y="16" width="8" height="35" fill="#9FF29A"/></g></g></g><g class="sn-note" style="--dx:-190px;--dy:70px;--r:-10deg;--d:0.5s"><g transform="translate(248 156) rotate(-1 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad w" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><path d="M12 15V51H53"/><path d="M15 45 25 35 34 39 50 19" stroke-width="2.6"/><circle cx="50" cy="19" r="3" fill="#0A0A0A" stroke="none"/></g></g></g><g class="sn-note" style="--dx:82px;--dy:-122px;--r:6deg;--d:0.4s"><g transform="translate(248 238) rotate(0.5 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad w" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><g fill="#0A0A0A" stroke="none"><circle cx="18" cy="44" r="2.6"/><circle cx="25" cy="38" r="2.6"/><circle cx="31" cy="41" r="2.6"/><circle cx="36" cy="31" r="2.6"/><circle cx="42" cy="26" r="2.6"/><circle cx="47" cy="19" r="2.6"/></g><path d="M14 49 50 16" stroke-dasharray="2 4"/></g></g></g><g class="sn-note" style="--dx:-248px;--dy:188px;--r:-16deg;--d:0.6s"><g transform="translate(408 74) rotate(-1 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad m" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><path d="M13 19H51" stroke-width="5"/><path d="M13 31H47M13 39H43M13 47H35"/></g></g></g><g class="sn-note" style="--dx:58px;--dy:40px;--r:15deg;--d:0.8s"><g transform="translate(408 156) rotate(1.5 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad m" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><path d="M13 15H51V40H30L21 49V40H13Z"/><path d="M21 24H43M21 31H37"/></g></g></g><g class="sn-note" style="--dx:-156px;--dy:-220px;--r:-8deg;--d:0.2s"><g transform="translate(408 238) rotate(0 32 32)"><rect class="sn-sh" x="4" y="4" width="64" height="64"/><rect class="sn-pad m" width="64" height="64"/><rect class="sn-glue" x="0.75" y="0.75" width="62.5" height="9"/><g class="sn-ink"><path d="M16 48 47 17M31 17H47V33" stroke-width="3.2"/></g></g></g></g>
+            <path class="sn-loop" pathLength="100" d="M397 258C397 228 430 220 458 226C486 234 494 262 487 286C478 313 440 318 414 307C394 298 390 276 402 254"/>
+            <g class="sn-sparks" fill="#FFFFFF">
+              <g transform="translate(512 236)"><path class="sn-spark" style="--i:0" d="M0 -14q2 12 14 14q-12 2-14 14q-2-12-14-14q12-2 14-14Z"/></g>
+              <g transform="translate(36 120)"><path class="sn-spark" style="--i:1" d="M0 -10.5q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/></g>
+              <g transform="translate(522 96)"><path class="sn-spark" style="--i:2" d="M0 -10.5q1.5 9 10.5 10.5q-9 1.5-10.5 10.5q-1.5-9-10.5-10.5q9-1.5 10.5-10.5Z"/></g>
+            </g>
+          </svg>
+        </div>
+        <div class="svc-body">
+          <p class="svc-label"><span class="svc-num">02</span>Workshops</p>
+          <h3>Teach your team to speak data fluently.</h3>
+          <p>Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI, used well and used safely. Every workshop runs on your own data.</p>
+          <dl class="svc-spec">
+            <div><dt>Modules</dt><dd>Data research, data design, data storytelling</dd></div>
+            <div><dt>Format</dt><dd>Half a day to four days, at your office or remote, for six to twenty people</dd></div>
+            <div><dt>You get</dt><dd>Working methods, reusable templates and at least one real piece of work already improved</dd></div>
+          </dl>
+          <a class="svc-link" href="/workshops/">See the workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var solo = q.get('solo'), at = q.get('at');
+  var opts = document.querySelectorAll('.opt');
+  if (solo !== null) opts.forEach(function (o, i) { if (String(i) !== solo) o.remove(); });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function anims(card) { return card.querySelector('svg').getAnimations({ subtree: true }); }
+  function replay(card) {
+    card.classList.remove('in'); void card.offsetWidth; card.classList.add('in');
+  }
+  function seek(card, s) {
+    card.classList.add('in', 'svc-live');
+    anims(card).forEach(function (a) { a.pause(); a.currentTime = s * 1000; });
+  }
+  document.querySelectorAll('.opt').forEach(function (o) {
+    var card = o.querySelector('.service-card'), range = o.querySelector('input'), btn = o.querySelector('.replay');
+    range.addEventListener('input', function () { seek(card, +range.value); });
+    btn.addEventListener('click', function () { range.value = 0; replay(card); });
+  });
+
+  var cards = document.querySelectorAll('.service-card');
+  if (at !== null) {
+    cards.forEach(function (c) { c.classList.add('in', 'svc-live'); });
+    requestAnimationFrame(function () { cards.forEach(function (c) { seek(c, +at); }); });
+    return;
+  }
+  if (reduce) { cards.forEach(function (c) { c.classList.add('in'); }); return; }
+  /* as on the home: build in when the card first shows, loop only while on screen */
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) e.target.classList.add('in');
+      e.target.classList.toggle('svc-live', e.isIntersecting);
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(function (c) { io.observe(c); });
+})();
+</script>
+</body>
+</html>
