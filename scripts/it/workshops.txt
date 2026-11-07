@@ -11,7 +11,7 @@ Data Design Workshops — Nutgraf
 Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI used well and safely.
 = Workshop di punta di ricerca dati, data design e data storytelling, costruiti attorno all’AI più avanzata, usata bene e in sicurezza.
 Teach your team to speak data fluently: Nutgraf flagship workshops, over a visitor studying a data panel.
-= «Teach your team to speak data fluently»: i workshop di punta di Nutgraf, sopra un visitatore che studia un pannello di dati.
+= Il vostro team, fluente nella lingua dei dati: i workshop di punta di Nutgraf, sopra un visitatore che studia un pannello di dati.
 
 # ---- structured data (the FAQ answers match the visible ones below)
 Nutgraf data design workshops

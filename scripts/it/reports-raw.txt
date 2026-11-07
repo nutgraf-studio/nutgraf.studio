@@ -402,3 +402,13 @@ names.slice(0, -1).join(', ') + ' e ' + names[names.length - 1];
 'South Africa'
 ==
 'Sudafrica'
+
+@@ share card: the Italian one (scripts/it/og/make_og.py), for og:image and twitter:image
+content="https://nutgraf.studio/reports/og-image.jpg?v=2"
+==
+content="https://nutgraf.studio/it/reports/og-image.jpg?v=1"
+
+@@ structured data: the Italian page's image is the Italian share card
+"primaryImageOfPage": "https://nutgraf.studio/reports/og-image.jpg"
+==
+"primaryImageOfPage": "https://nutgraf.studio/it/reports/og-image.jpg"

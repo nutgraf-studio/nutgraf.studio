@@ -53,3 +53,13 @@ label.textContent = userPaused ? 'Riproduci' : 'Pausa';
 <a class="chip" href="#contact">Plan an exhibition</a>
 ==
 <a class="chip" href="#contact">Scriveteci<span class="chip-more"> per una mostra</span></a>
+
+@@ share card: the Italian one (scripts/it/og/make_og.py), for og:image and twitter:image
+content="https://nutgraf.studio/exhibitions/og-image.jpg?v=2"
+==
+content="https://nutgraf.studio/it/exhibitions/og-image.jpg?v=1"
+
+@@ structured data: the Italian page's image is the Italian share card
+"primaryImageOfPage": "https://nutgraf.studio/exhibitions/og-image.jpg"
+==
+"primaryImageOfPage": "https://nutgraf.studio/it/exhibitions/og-image.jpg"

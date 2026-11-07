@@ -53,3 +53,8 @@ mailto:hello@nutgraf.studio?subject=Prenotazione%20workshop
 ==
     { "@type": "ListItem", "position": 1, "name": "Nutgraf.studio", "item": "https://nutgraf.studio/it/" },
     { "@type": "ListItem", "position": 2, "name": "Workshop", "item": "https://nutgraf.studio/it/workshops/" }
+
+@@ share card: the Italian one (scripts/it/og/make_og.py), for og:image and twitter:image
+content="https://nutgraf.studio/workshops/og-image.jpg?v=2"
+==
+content="https://nutgraf.studio/it/workshops/og-image.jpg?v=1"

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!-- Share cards (og:image / twitter:image), 1200x630, for the four pages.
+     Rendered by scripts/it/og/make_og.py: cards.html?card=home&lang=it&still=<png>.
+     The three film cards are a still from the Între noi film seen through
+     the home hero's phosphor (scripts/it/og/make_og.py names the frames);
+     the reports card is the Reports hero's proof stack on the baseline grid.
+     lang=en redraws the English cards, to check the layout against them. -->
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;700&display=block" rel="stylesheet">
+<style>
+:root {
+  --mint: #9FF29A; --violet: #7B7BF0; --black: #0A0A0A; --cream: #EDE9E1; --white: #FFFFFF;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", Helvetica, Arial, sans-serif;
+  --paper-shadow: 0 1px 2px rgba(10,10,10,.08), 0 10px 24px -6px rgba(10,10,10,.22), 0 28px 50px -18px rgba(10,10,10,.28);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1200px; height: 630px; overflow: hidden; background: #040B06; }
+body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+.card { position: relative; width: 1200px; height: 630px; overflow: hidden; isolation: isolate; }
+
+/* ---------- film cards: the home hero's phosphor, frozen ---------- */
+.media { position: absolute; inset: 0; z-index: -1; isolation: isolate; overflow: hidden; }
+.media > * { position: absolute; inset: 0; width: 100%; height: 100%; }
+.media img { object-fit: cover; filter: grayscale(1) contrast(1.3) brightness(1.05) blur(0.4px); }
+.tint { background: #3DFF6E; mix-blend-mode: multiply; }
+.glow { background: radial-gradient(ellipse at 60% 45%, rgba(110,255,140,.22), rgba(0,0,0,0) 65%); mix-blend-mode: screen; }
+.hue {
+  mix-blend-mode: hue;
+  background:
+    radial-gradient(ellipse at 55% 50%, rgba(123,123,240,0) 50%, rgba(123,123,240,.9) 100%),
+    linear-gradient(110deg, rgba(123,123,240,0) 25%, rgba(123,123,240,1) 50%, rgba(123,123,240,0) 75%) var(--drift, 72%) 0 / 260% 100%;
+}
+.lines { background: repeating-linear-gradient(to bottom, rgba(18,10,60,.55) 0 1px, rgba(18,10,60,0) 1px 3px); }
+.vignette { background: radial-gradient(ellipse at 55% 50%, rgba(14,8,48,0) 45%, rgba(14,8,48,.88) 100%); }
+.media .grain {
+  opacity: .16; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 1  0 0 0 0 0.65  0 0 0 1.2 -0.25'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.scrim {
+  background:
+    linear-gradient(to bottom, rgba(4,11,6,.6) 0%, rgba(4,11,6,0) 22%),
+    linear-gradient(to right, rgba(4,11,6,.78) 0%, rgba(4,11,6,.45) 42%, rgba(4,11,6,0) 72%);
+}
+.film .logo { position: absolute; left: 80px; top: 72px; width: 154px; }
+.film .kicker {
+  position: absolute; left: 81px; top: 275px;
+  font: 700 17px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--mint);
+}
+.film h1 {
+  position: absolute; left: 80px; top: 310px;
+  font: 900 80px/80px var(--font-display); letter-spacing: -0.02em; color: var(--white);
+  font-variation-settings: "opsz" 144;   /* Fraunces' largest optical size, as on the English cards */
+  text-shadow: 0 2px 24px rgba(4,11,6,.45); white-space: nowrap;
+}
+.film .sub {
+  position: absolute; left: 81px; top: 494px;
+  font: 400 23px/32px var(--font-body); color: var(--cream);
+  text-shadow: 0 1px 12px rgba(4,11,6,.6); white-space: nowrap;
+}
+h1 em { font-style: italic; font-weight: 600; }
+
+/* hand-drawn underline, as on the pages */
+.fx { position: relative; white-space: nowrap; }
+.fx svg {
+  position: absolute; left: -0.04em; bottom: -0.14em; width: 106%; height: 0.3em; overflow: visible;
+}
+.fx path { fill: none; stroke: var(--u, var(--mint)); stroke-width: 9; stroke-linecap: round; }
+
+/* ---------- reports card: the proof ---------- */
+.proof {
+  background: repeating-linear-gradient(to bottom, transparent 0 23px, rgba(10,10,10,.045) 23px 24px), var(--cream);
+  color: var(--black);
+}
+.proof .kicker {
+  position: absolute; left: 72px; top: 63px; display: flex; align-items: center; gap: 12px;
+  font: 700 18.5px/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase;
+}
+.proof .kicker::before { content: ""; width: 14px; height: 14px; background: var(--violet); }
+.proof h1 {
+  position: absolute; left: 72px; top: 114px;
+  font: 900 87px/78px var(--font-display); letter-spacing: -0.03em; white-space: nowrap;
+  font-variation-settings: "opsz" 144;
+}
+.proof h1 > span { display: block; }
+.proof h1 em { padding-right: .06em; }
+.proof .url { position: absolute; left: 72px; top: 560px; font: 700 22px/1 var(--font-body); }
+.ruler { position: absolute; left: 0; right: 0; top: 608px; height: 28px; border-top: 1px solid rgba(10,10,10,.5); }
+.ruler svg { width: 100%; height: 100%; display: block; }
+.ruler path { stroke: rgba(10,10,10,.85); stroke-width: 1; fill: none; }
+
+.stack { position: absolute; left: 633px; top: 39px; width: 529px; height: 540px; perspective: 1600px; }
+.stack-inner { position: absolute; inset: 0; transform-style: preserve-3d; }
+.sheet {
+  position: absolute; width: 56%; aspect-ratio: 595 / 842; background: var(--white);
+  box-shadow: var(--paper-shadow); transform: translate(var(--dx, 0), var(--dy, 0)) translateZ(var(--z)) rotate(var(--r));
+}
+.sheet img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* the Reports hero's fan, nudged as on the English card: the back page clears the headline */
+.sheet-a { --r: -8deg;  --z: -60px; left: 1%;  top: 10%; --dx: 42px; --dy: 24px; }
+.sheet-b { --r: 6.5deg; --z: -30px; right: 0;  top: 2%;  --dx: -6px; --dy: -2px; }
+.sheet-c { --r: -1.5deg; --z: 20px; left: 23%; top: 15%; --dx: 6px;  --dy: 2px; }
+.crop {
+  position: absolute; inset: -16px; --m: rgba(10,10,10,.75);
+  background:
+    linear-gradient(var(--m), var(--m)) 0 16px / 10px 1px no-repeat,
+    linear-gradient(var(--m), var(--m)) 16px 0 / 1px 10px no-repeat,
+    linear-gradient(var(--m), var(--m)) 100% 16px / 10px 1px no-repeat,
+    linear-gradient(var(--m), var(--m)) calc(100% - 16px) 0 / 1px 10px no-repeat,
+    linear-gradient(var(--m), var(--m)) 0 calc(100% - 16px) / 10px 1px no-repeat,
+    linear-gradient(var(--m), var(--m)) 16px 100% / 1px 10px no-repeat,
+    linear-gradient(var(--m), var(--m)) 100% calc(100% - 16px) / 10px 1px no-repeat,
+    linear-gradient(var(--m), var(--m)) calc(100% - 16px) 100% / 1px 10px no-repeat;
+}
+.tag {
+  position: absolute; left: 968px; top: 330px; z-index: 2; padding: 9px 11px 11px;
+  background: var(--black); color: var(--mint);
+  font: 700 13px/1.3 var(--font-body); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+}
+.tag b { display: block; font: 900 26px/1.05 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--cream); }
+.tag sub { font-size: .7em; vertical-align: -.25em; line-height: 0; }
+</style>
+</head>
+<body>
+<div class="card" id="card"></div>
+<script>
+var UL = '<svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 26 C 70 10, 160 34, 294 16"/></svg>';
+function fx(word) { return '<span class="fx">' + word + UL + '</span>'; }
+
+// copy: the Italian follows the Italian pages (it/), the English the cards now live
+var COPY = {
+  home: {
+    en: { kicker: 'Data design studio',
+          h1: 'We make your data<br><em>' + fx('impossible') + '</em> to ignore.',
+          sub: 'Charts, reports and maps your audience<br>understands, remembers and acts on.' },
+    it: { kicker: 'Studio di data design',
+          h1: 'Rendiamo i vostri dati<br><em>' + fx('impossibili') + '</em> da ignorare.',
+          sub: 'Grafici, report e mappe che il vostro pubblico<br>capisce, ricorda e trasforma in azione.' }
+  },
+  workshops: {
+    en: { kicker: 'Flagship workshops',
+          h1: 'Teach your team to<br>speak data <em>' + fx('fluently.') + '</em>',
+          sub: 'Data research, data design and data storytelling,<br>built around state-of-the-art AI.' },
+    it: { kicker: 'Workshop di punta',
+          h1: 'Il vostro team, <em>' + fx('fluente') + '</em><br>nella lingua dei dati.',
+          sub: 'Ricerca dati, data design e data storytelling,<br>costruiti attorno all’AI più avanzata.' }
+  },
+  exhibitions: {
+    en: { kicker: 'Exhibitions · Cultural diplomacy',
+          h1: 'Diplomacy you can<br><em>walk ' + fx('through.') + '</em>',
+          sub: 'Data exhibitions for embassies, cultural institutes<br>and trade agencies.' },
+    it: { kicker: 'Mostre · Diplomazia culturale',
+          h1: 'Diplomazia da<br><em>percorrere ' + fx('a piedi.') + '</em>',
+          sub: 'Mostre di dati per ambasciate, istituti di cultura<br>e agenzie per il commercio estero.' }
+  },
+  reports: {
+    en: { kicker: 'Nutgraf · Data reports',
+          lines: ['Bring us', 'the data.', '<em>Leave with</em>', '<em>the ' + fx('report.') + '</em>'],
+          url: 'nutgraf.studio/reports', num: '793,348', unit: 'tCO<sub>2</sub>e · 11 flows' },
+    it: { kicker: 'Nutgraf · Report di dati',
+          lines: ['Portateci', 'i dati.', '<em>Ripartite</em>', '<em>con il ' + fx('report.') + '</em>'],
+          url: 'nutgraf.studio/it/reports', num: '793.348', unit: 'tCO<sub>2</sub>e · 11 flussi' }
+  }
+};
+
+var q = new URLSearchParams(location.search);
+var key = q.get('card') || 'home', lang = q.get('lang') || 'it', c = COPY[key][lang];
+var card = document.getElementById('card');
+var R = '../../../';   // site root, from scripts/it/og/
+document.documentElement.lang = lang;
+
+if (key === 'reports') {
+  card.className = 'card proof';
+  card.style.setProperty('--u', 'var(--violet)');
+  card.innerHTML =
+    '<span class="kicker">' + c.kicker + '</span>' +
+    '<h1>' + c.lines.map(function (l) { return '<span>' + l + '</span>'; }).join('') + '</h1>' +
+    '<span class="url">' + c.url + '</span>' +
+    '<div class="stack"><div class="stack-inner">' +
+      '<div class="sheet sheet-a"><img src="' + R + 'reports/img/afrobarometer-beyond-borders-p28-shaded-data-table-800.jpg"></div>' +
+      '<div class="sheet sheet-b"><img src="' + R + 'reports/img/retele-electrice-sustainability-report-2024-p10-kpi-infographic-800.jpg"></div>' +
+      '<div class="sheet sheet-c"><img src="' + R + 'reports/img/retele-electrice-sustainability-report-2024-p49-emissions-sankey-diagram-800.jpg"><span class="crop"></span></div>' +
+    '</div></div>' +
+    '<span class="tag"><b>' + c.num + '</b>' + c.unit + '</span>' +
+    '<div class="ruler"><svg></svg></div>';
+  // millimetre ticks, as on the Reports hero
+  var svg = card.querySelector('.ruler svg'), mm = 96 / 25.4, d = '';
+  svg.setAttribute('viewBox', '0 0 1200 27');   // 28px less the border
+  for (var i = 0; i * mm <= 1200; i++) {
+    var x = Math.round(i * mm) + 0.5, len = i % 10 === 0 ? 12 : i % 5 === 0 ? 8 : 4;
+    d += 'M' + x + ' 0V' + len;
+  }
+  svg.innerHTML = '<path d="' + d + '"/>';
+} else {
+  card.className = 'card film';
+  // home underlines in violet, as on the home page; the other two in mint
+  card.style.setProperty('--u', key === 'home' ? 'var(--violet)' : 'var(--mint)');
+  card.innerHTML =
+    '<div class="media"><img src="' + (q.get('still') || '') + '">' +
+    '<div class="tint"></div><div class="glow"></div><div class="hue"></div><div class="lines"></div>' +
+    '<div class="vignette"></div><div class="grain"></div><div class="scrim"></div></div>' +
+    '<img class="logo" src="' + R + 'logos/nutgraf-logo-white.svg" alt="">' +
+    '<span class="kicker">' + c.kicker + '</span>' +
+    '<h1>' + c.h1 + '</h1>' +
+    '<p class="sub">' + c.sub + '</p>';
+}
+// make_og.py waits for this before taking the screenshot
+document.fonts.ready.then(function () {
+  var imgs = [].slice.call(document.images);
+  return Promise.all(imgs.map(function (im) { return im.decode ? im.decode().catch(function () {}) : 0; }));
+}).then(function () { document.title = 'ready'; });
+</script>
+</body>
+</html>
