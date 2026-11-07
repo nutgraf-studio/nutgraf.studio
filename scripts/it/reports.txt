@@ -316,12 +316,14 @@ Country scorecards: Ghana
 = Schede paese: Ghana
 
 # ---- Rețele Electrice
-Raport de Sustenabilitate
-= Raport de Sustenabilitate
-Sustainability Report 2024.
-= Report di sostenibilità 2024.
-The first Rețele Electrice report prepared with reference to ESRS.
-= Il primo report di Rețele Electrice redatto con riferimento agli ESRS.
+The first report under the EU’s new rules
+= Il primo report con le nuove regole dell’UE
+Rețele Electrice’s Sustainability Report 2024 (
+= Il report di sostenibilità 2024 di Rețele Electrice (
+).
+= ).
+The first it prepared under ESRS, the EU’s new sustainability reporting standards.
+= Il primo redatto secondo gli ESRS, i nuovi standard europei di rendicontazione di sostenibilità.
 PPC Group’s electricity distributor in Romania, covering Banat, Dobrogea and Muntenia, reports on materiality, governance, climate, its people and the modernisation of its grid, under the EU’s new sustainability reporting standards. We turned 105 pages of ESG disclosure into KPI tiles, flows and rings a non-specialist can read, without losing a decimal.
 = Il distributore di energia elettrica di PPC Group in Romania, attivo in Banato, Dobrugia e Muntenia, rendiconta materialità, governance, clima, persone e ammodernamento della rete secondo i nuovi standard europei di rendicontazione di sostenibilità. Abbiamo trasformato 105 pagine di informativa ESG in riquadri KPI, flussi e anelli che anche chi non è del mestiere può leggere, senza perdere un decimale.
 in Romanian
@@ -344,8 +346,8 @@ The Rețele Electrice sustainability report: the cover and eight pages
 = Il report di sostenibilità di Rețele Electrice: la copertina e otto pagine
 Cover of the Rețele Electrice 2024 sustainability report: a large 2024 over a forested mountain valley.
 = Copertina del report di sostenibilità 2024 di Rețele Electrice: un grande 2024 sopra una valle di montagna coperta di boschi.
-Cover · Raport de Sustenabilitate 2024, Rețele Electrice România
-= Copertina · Raport de Sustenabilitate 2024, Rețele Electrice România
+Cover · Sustainability Report 2024, Rețele Electrice România
+= Copertina · Report di sostenibilità 2024, Rețele Electrice România
 Rețele Electrice
 = Rețele Electrice
 A chapter opener: “Despre raportul de sustenabilitate” (About the sustainability report) in thin white type and a large faded 1 over a misty autumn mountain valley.
@@ -422,8 +424,8 @@ From print to screen
 = Dalla carta allo schermo
 On paper, the Rețele Electrice report traces 793,348 tonnes of CO₂ equivalent from three scopes to eleven sources in one Sankey diagram. On screen, rebuilt from the same numbers, it answers questions. Point at any flow to follow it.
 = Sulla carta, il report di Rețele Electrice segue 793.348 tonnellate di CO₂ equivalente da tre scope a undici fonti in un solo diagramma di Sankey. Sullo schermo, ricostruito con gli stessi numeri, risponde alle domande. Puntate un flusso qualsiasi per seguirlo.
-Printed · Raport de Sustenabilitate 2024, Rețele Electrice România
-= Stampato · Raport de Sustenabilitate 2024, Rețele Electrice România
+Printed · Sustainability Report 2024, Rețele Electrice România
+= Stampato · Report di sostenibilità 2024, Rețele Electrice România
 The page as printed: Romanian text above a Sankey diagram of gross Scope 1, 2 and 3 emissions, totalling 793.348 tCO2e.
 = La pagina stampata: testo in rumeno sopra un diagramma di Sankey delle emissioni lorde Scope 1, 2 e 3, per un totale di 793.348 tCO2e.
 Printed

@@ -16,7 +16,7 @@ This is a plain-text version of https://nutgraf.studio/reports/ for language mod
 - The report: https://www.afrobarometer.org/publication/african-insights-2026-beyond-borders-citizen-perspectives-on-a-shifting-global-order/
 - On the web page, eight of its pages are bound into a booklet visitors can leaf through: the inside cover with the colophon, the contents, the foreword, who is thinking of leaving (a dot plot), where they would go (a pie, a column chart and stacked bars), Africa against two other regions, who should act on climate (a dot plot), and a one-page country scorecard
 
-## Case study 2: Rețele Electrice România, Sustainability Report 2024 (PPC Group)
+## Case study 2: The first report under the EU's new rules (Rețele Electrice România, PPC Group, Sustainability Report 2024)
 
 *Raport de Sustenabilitate 2024* is the first sustainability report Rețele Electrice România prepared with reference to ESRS, the EU's sustainability reporting standards. Rețele Electrice is PPC Group's electricity distributor in Romania, covering Banat, Dobrogea and Muntenia. The report covers materiality, governance, climate, people and the modernisation of the grid.
 
