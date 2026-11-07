@@ -1,0 +1,43 @@
+# Italian edition: markup and JavaScript shared by every page. Pairs here are
+# optional: a page that doesn't have the block is skipped. See scripts/build_it.py.
+
+@@ menu drawer: the four pages
+  var PAGES = [['Studio', '/'], ['Reports', '/reports/'], ['Workshops', '/workshops/'], ['Exhibitions', '/exhibitions/']];
+==
+  var PAGES = [['Studio', '/it/'], ['Report', '/it/reports/'], ['Workshop', '/it/workshops/'], ['Mostre', '/it/exhibitions/']];
+
+@@ menu drawer: close button
+aria-label="Close menu"
+==
+aria-label="Chiudi il menu"
+
+@@ menu drawer: section heading
+el('p', 'menu-label', 'On this page')
+==
+el('p', 'menu-label', 'In questa pagina')
+
+@@ menu drawer: pages heading
+el('p', 'menu-label', 'Pages')
+==
+el('p', 'menu-label', 'Pagine')
+
+@@ email links: the toast after a click
+say(address + ' copied to your clipboard')
+==
+say(address + ' copiato negli appunti')
+
+@@ email links: the toast when copying isn't allowed
+say('Write to us at ' + address)
+==
+say('Scriveteci a ' + address)
+
+@@ menu chip: Italian labels run longer, so up to small tablets the chip keeps its first word
+.nav-links a.page-link { white-space: nowrap; }
+==
+.nav-links a.page-link { white-space: nowrap; }
+/* Italian edition: the labels run longer, so up to small tablets the
+   menu chip keeps only its first word ("Scriveteci", "Prenotate") and
+   the logo keeps its size */
+@media (max-width: 767px) {
+  .nav-links .chip-more { display: none; }
+}

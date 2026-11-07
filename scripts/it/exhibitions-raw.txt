@@ -1,0 +1,55 @@
+# Italian edition: Exhibitions page markup that spans tags, scripts and URLs.
+# See scripts/build_it.py.
+
+@@ hero headline: three lines, the underline on the last
+        <span class="hero-line"><span>Diplomacy</span></span>
+        <span class="hero-line"><span>you can <em>walk</em></span></span>
+        <span class="hero-line"><span><em class="fx">through.<svg
+==
+        <span class="hero-line"><span>Diplomazia</span></span>
+        <span class="hero-line"><span>da <em>percorrere</em></span></span>
+        <span class="hero-line"><span><em class="fx">a piedi.<svg
+
+@@ case study tagline: the Italian title alone, no English gloss
+<p class="case-tag"><em lang="it">Italia e Romania, raccontate con i dati.</em> Italy and Romania, told with data.</p>
+==
+<p class="case-tag"><em>Italia e Romania, raccontate con i dati.</em></p>
+
+@@ contact button: the email subject
+href="mailto:hello@nutgraf.studio?subject=Exhibition%20enquiry"
+==
+href="mailto:hello@nutgraf.studio?subject=Richiesta%20per%20una%20mostra"
+
+@@ hero film: the pause button's label as it toggles
+toggle.setAttribute('aria-label', userPaused ? 'Play background video' : 'Pause background video');
+==
+toggle.setAttribute('aria-label', userPaused ? 'Riproduci il video di sfondo' : 'Metti in pausa il video di sfondo');
+
+@@ poster reel: the pause button's label as it toggles
+toggle.setAttribute('aria-label', userPaused ? 'Play the poster reel' : 'Pause the poster reel');
+==
+toggle.setAttribute('aria-label', userPaused ? 'Riproduci la sequenza dei manifesti' : 'Metti in pausa la sequenza dei manifesti');
+
+@@ both pause buttons: the visible label (twice in the script)
+label.textContent = userPaused ? 'Play' : 'Pause';
+==
+label.textContent = userPaused ? 'Riproduci' : 'Pausa';
+
+@@ structured data: this page's address
+  "@id": "https://nutgraf.studio/exhibitions/#webpage",
+  "url": "https://nutgraf.studio/exhibitions/",
+==
+  "@id": "https://nutgraf.studio/it/exhibitions/#webpage",
+  "url": "https://nutgraf.studio/it/exhibitions/",
+
+@@ breadcrumb: the Italian home and this page
+    { "@type": "ListItem", "position": 1, "name": "Nutgraf.studio", "item": "https://nutgraf.studio/" },
+    { "@type": "ListItem", "position": 2, "name": "Exhibitions", "item": "https://nutgraf.studio/exhibitions/" }
+==
+    { "@type": "ListItem", "position": 1, "name": "Nutgraf.studio", "item": "https://nutgraf.studio/it/" },
+    { "@type": "ListItem", "position": 2, "name": "Mostre", "item": "https://nutgraf.studio/it/exhibitions/" }
+
+@@ menu bar chip: "Scriveteci" on phones and tablets, as on the other pages; the full label from 768px
+<a class="chip" href="#contact">Plan an exhibition</a>
+==
+<a class="chip" href="#contact">Scriveteci<span class="chip-more"> per una mostra</span></a>

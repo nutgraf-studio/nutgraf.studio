@@ -30,6 +30,9 @@ setTimeout(function () {
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Nutgraf.studio">
 <link rel="canonical" href="https://nutgraf.studio/reports/">
+<link rel="alternate" hreflang="en" href="https://nutgraf.studio/reports/">
+<link rel="alternate" hreflang="it" href="https://nutgraf.studio/it/reports/">
+<link rel="alternate" hreflang="x-default" href="https://nutgraf.studio/reports/">
 <!-- the same page as plain Markdown, for AI assistants (listed in /llms.txt) -->
 <link rel="alternate" type="text/markdown" href="https://nutgraf.studio/reports/index.html.md" title="Data visualisation reports, infographics and dashboards (Markdown)">
 <meta name="theme-color" content="#EDE9E1">
@@ -559,6 +562,13 @@ h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
 }
 /* a page link never breaks its arrow onto a line of its own */
 .nav-links a.page-link { white-space: nowrap; }
+/* the same page in Italian (in English on the Italian pages); on
+   phones it lives in the menu drawer, and on narrow tablets, where
+   the bar is full, in the footer */
+.nav-links a.lang-switch { font-weight: 700; letter-spacing: 0.06em; }
+@media (min-width: 600px) and (max-width: 699px) {
+  .nav-links li:has(> a.lang-switch) { display: none; }
+}
 
 /* Menu drawer (phones). The menu button takes the Instagram icon's
    place in the bar and opens a black panel from the right with this
@@ -2291,6 +2301,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <li><a class="page-link" href="/workshops/">Workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="page-link" href="/exhibitions/">Exhibitions<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="chip" href="#contact">Commission<span class="chip-more"> a report</span></a></li>
+        <li><a class="lang-switch" href="/it/reports/" hreflang="it" lang="it" title="Italiano">IT</a></li>
         <li>
           <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -3127,6 +3138,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <a href="/workshops/">Workshops</a>
       <a href="/exhibitions/">Exhibitions</a>
       <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
+      <a class="lang-switch" href="/it/reports/" hreflang="it" lang="it">Italiano</a>
       <a href="#top">Back to top ↑</a>
     </div>
   </div>
@@ -3260,6 +3272,14 @@ var fmt = function (n) { return n.toLocaleString('en-GB'); };
     social.appendChild(ig);
   }
   social.appendChild(link('mailto:hello@nutgraf.studio', 'hello@nutgraf.studio'));
+  /* the same page in the other language */
+  var lang = bar.querySelector('a.lang-switch');
+  if (lang) {
+    var other = link(lang.getAttribute('href'), lang.title);
+    other.lang = lang.lang;
+    other.hreflang = lang.hreflang;
+    social.appendChild(other);
+  }
   foot.appendChild(social);
   drawer.appendChild(foot);
 

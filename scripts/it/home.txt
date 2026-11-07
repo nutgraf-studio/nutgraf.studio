@@ -1,0 +1,217 @@
+# Italian edition: the home page (index.html). See scripts/build_it.py.
+
+# ---- head
+Nutgraf — Data Design Studio | Design, Research &amp; Visualisation
+= Nutgraf — Studio di data design | Design, ricerca e visualizzazione dati
+Nutgraf is a data design studio. We turn your data into charts, reports and maps your audience understands, remembers and acts on. For corporates, NGOs, institutions and research teams.
+= Nutgraf è uno studio di data design. Trasformiamo i vostri dati in grafici, report e mappe che il vostro pubblico capisce, ricorda e trasforma in azione. Per aziende, ONG, istituzioni e gruppi di ricerca.
+Nutgraf — Data Design Studio
+= Nutgraf — Studio di data design
+We make your data impossible to ignore — charts, reports and maps your audience understands, remembers and acts on.
+= Rendiamo i vostri dati impossibili da ignorare: grafici, report e mappe che il vostro pubblico capisce, ricorda e trasforma in azione.
+We make your data impossible to ignore: Nutgraf, over visitors reading data panels at the Între noi exhibition.
+= Nutgraf, «We make your data impossible to ignore», sopra i visitatori che leggono i pannelli di dati della mostra Între noi.
+We make your data impossible to ignore — charts, reports and maps your audience acts on.
+= Rendiamo i vostri dati impossibili da ignorare: grafici, report e mappe che il vostro pubblico trasforma in azione.
+
+# ---- structured data
+Nutgraf is a data design studio. We turn client data into charts, graphics, reports, maps and interactive visualisations that audiences understand, remember and act on.
+= Nutgraf è uno studio di data design. Trasformiamo i dati dei clienti in grafici, infografiche, report, mappe e visualizzazioni interattive che il pubblico capisce, ricorda e trasforma in azione.
+We make your data impossible to ignore.
+= Rendiamo i vostri dati impossibili da ignorare.
+Data design
+= Data design
+Data journalism
+= Giornalismo dei dati
+Data visualisation
+= Visualizzazione dati
+Information design
+= Information design
+Mapping
+= Cartografia
+Research and reports
+= Ricerca e report
+Creative coding
+= Creative coding
+Data reports
+= Report di dati
+Flagship, annual and ESG reports designed from the client's data, every number checked against its source, and PDF reports turned into interactive dashboards.
+= Report di punta, annuali ed ESG progettati a partire dai dati del cliente, con ogni numero verificato sulla fonte, e report PDF trasformati in dashboard interattive.
+Data design workshops
+= Workshop di data design
+Workshops in data research, data design and data storytelling, built around state-of-the-art AI used well and safely. On-site or remote.
+= Workshop di ricerca dati, data design e data storytelling, costruiti attorno all’AI più avanzata, usata bene e in sicurezza. In presenza o da remoto.
+Data exhibitions
+= Mostre di dati
+Data exhibitions for embassies, cultural institutes, universities and festivals: panels, maps and installations that turn the story in the numbers into a show the public stops for.
+= Mostre di dati per ambasciate, istituti di cultura, università e festival: pannelli, mappe e installazioni che trasformano la storia dentro i numeri in una mostra davanti a cui il pubblico si ferma.
+Selected work by Nutgraf.studio
+= Lavori scelti di Nutgraf.studio
+Afrobarometer flagship report
+= Il report di punta di Afrobarometer
+Editorial and chart design for the 2025 African Insights flagship report on citizen engagement, produced in English and French.
+= Design editoriale e dei grafici per African Insights 2025, il report di punta sulla partecipazione civica, realizzato in inglese e in francese.
+Citizen engagement in Africa
+= Partecipazione civica in Africa
+PPC Group ESG report
+= Il report ESG di PPC Group
+Editorial design and data visualisation for PPC Group's ESG sustainability report, turning environmental and social metrics into a readable publication.
+= Design editoriale e visualizzazione dati per il report di sostenibilità ESG di PPC Group: indicatori ambientali e sociali trasformati in una pubblicazione leggibile.
+A data exhibition exploring trade and cultural ties between Italy and Romania, translating economic flows into a physical visual narrative.
+= Una mostra di dati sui legami commerciali e culturali tra Italia e Romania, che traduce i flussi economici in un racconto visivo da attraversare.
+
+# ---- hero
+We are a data design studio. We turn your numbers into charts, reports and maps your audience understands in seconds, remembers, and acts on.
+= Siamo uno studio di data design. Trasformiamo i vostri numeri in grafici, report e mappe che il vostro pubblico capisce in pochi secondi, ricorda e trasforma in azione.
+
+# ---- services
+What you get
+= Cosa ricevete
+Three services, one outcome: your&nbsp;data, seen, understood and acted on.
+= Tre servizi, un solo risultato: i vostri&nbsp;dati visti, capiti e trasformati in azione.
+Survey rounds, spreadsheets, ESG disclosures: we turn them into a flagship report your board, funders and press will read, with every number checked against its source.
+= Sondaggi, fogli di calcolo, dati ESG: ne facciamo un report di punta che board, finanziatori e stampa leggeranno davvero, con ogni numero verificato sulla fonte.
+Made for
+= Pensato per
+Flagship, annual and ESG reports, survey research, policy briefs
+= Report di punta, annuali ed ESG, ricerche da sondaggi, policy brief
+You get
+= Ricevete
+A chart system, a print-ready PDF, a digital edition and social cards for launch day
+= Un sistema di grafici, un PDF pronto per la stampa, un’edizione digitale e le card social per il giorno del lancio
+Plus
+= In più
+A dashboard, when you want the data to keep working
+= Una dashboard, se volete che i dati continuino a lavorare
+See the reports
+= Scoprite i report
+RESEARCH
+= RICERCA
+DESIGN
+= DESIGN
+STORYTELLING
+= STORYTELLING
+YOUR DATA
+= I VOSTRI DATI
+Teach your team to speak data fluently.
+= Insegniamo al vostro team a parlare la lingua dei dati.
+Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI, used well and used safely. Every workshop runs on your own data.
+= Workshop di punta di ricerca dati, data design e data storytelling, costruiti attorno all’AI più avanzata, usata bene e in sicurezza. Ogni workshop lavora sui vostri dati.
+Modules
+= Moduli
+Data research, data design, data storytelling
+= Ricerca dati, data design, data storytelling
+Format
+= Formato
+Half a day to four days, at your office or remote, for six to twenty people
+= Da mezza giornata a quattro giorni, nella vostra sede o da remoto, per gruppi da sei a venti persone
+Working methods, reusable templates and at least one real piece of work already improved
+= Metodi di lavoro, template riutilizzabili e almeno un lavoro vero già migliorato
+See the workshops
+= Scoprite i workshop
+Data exhibitions for embassies, cultural institutes, universities and festivals: we turn the story in your numbers into panels, maps and installations the public stops for.
+= Mostre di dati per ambasciate, istituti di cultura, università e festival: trasformiamo la storia dentro i vostri numeri in pannelli, mappe e installazioni davanti a cui il pubblico si ferma.
+Embassies, cultural institutes, universities, festivals, trade agencies and chambers of commerce
+= Ambasciate, istituti di cultura, università, festival, agenzie per il commercio estero e camere di commercio
+Sourced research, then panels, maps and installations legible from three metres
+= Una ricerca con le fonti, poi pannelli, mappe e installazioni leggibili da tre metri
+Print-ready files, installation support, and a film and social kit for after the opening
+= File pronti per la stampa, supporto all’allestimento, un film e un kit social per dopo l’inaugurazione
+See the exhibitions
+= Scoprite le mostre
+
+# ---- methodology
+How we work
+= Come lavoriamo
+Our process is a loop, not a line. Every piece of work is tested against its audience, and what we learn feeds the next pass.
+= Il nostro processo è un ciclo, non una linea retta. Ogni lavoro viene messo alla prova con il suo pubblico, e quello che impariamo alimenta il giro successivo.
+Circular process diagram: Research, Collection, Cleaning, Visualisation, Interpretation, Feedback — then back to Research. Curved dashed lines fan out from Feedback towards every other stage.
+= Diagramma circolare del processo: Ricerca, Raccolta, Pulizia, Visualizzazione, Interpretazione, Feedback, poi di nuovo Ricerca. Dal Feedback partono linee curve tratteggiate verso tutte le altre fasi.
+Research
+= Ricerca
+Collection
+= Raccolta
+Cleaning
+= Pulizia
+Visualisation
+= Visualizzazione
+Interpretation
+= Interpretazione
+Feedback
+= Feedback
+We frame the question before we touch the data.
+= Impostiamo la domanda prima di toccare i dati.
+We gather the evidence: field data, public records, scraped and reported sources.
+= Raccogliamo le prove: rilevazioni sul campo, registri pubblici, dati da scraping e fonti giornalistiche.
+We structure, check and verify until the data can carry weight.
+= Strutturiamo, controlliamo e verifichiamo finché i dati non reggono il peso delle conclusioni.
+We give the finding its clearest, most honest visual form.
+= Diamo a ogni risultato la forma visiva più chiara e più onesta.
+We work out what the numbers actually support, and what they don't.
+= Capiamo che cosa dicono davvero i numeri, e che cosa no.
+We test the work with its audience. What we learn starts the next loop.
+= Mettiamo alla prova il lavoro con il suo pubblico. Quello che impariamo fa partire il ciclo successivo.
+Back to Research
+= Si torna alla Ricerca
+back to Research
+= si torna alla Ricerca
+
+# ---- reach (the Sankey)
+Reach
+= Ambiti
+One process, many sectors
+= Un processo, tanti settori
+The same editorial process carries each of our disciplines into the sectors where our clients work.
+= Lo stesso processo editoriale porta ciascuna delle nostre discipline nei settori in cui lavorano i nostri clienti.
+Flow diagram: our disciplines — data design, data journalism, data visualisation, information design, mapping, research and creative coding — flow into the sectors we serve: media, NGOs, institutions, academy and corporate.
+= Diagramma di flusso: le nostre discipline (data design, giornalismo dei dati, visualizzazione dati, information design, cartografia, ricerca e creative coding) confluiscono nei settori per cui lavoriamo: media, ONG, istituzioni, università e aziende.
+DISCIPLINES
+= DISCIPLINE
+SECTORS
+= SETTORI
+Disciplines
+= Discipline
+Sectors
+= Settori
+Media
+= Media
+NGOs
+= ONG
+Institutions
+= Istituzioni
+Academy
+= Università
+Corporate
+= Aziende
+
+# ---- partners
+Who we work with
+= Con chi lavoriamo
+Corporates, foundations, institutions and research networks that trust us with their data.
+= Aziende, fondazioni, istituzioni e reti di ricerca che ci affidano i loro dati.
+Partner logos: PPC Group, UiPath Foundation, Istituto Italiano di Cultura, Italian Trade Agency, BBC, Financial Times, Médecins Sans Frontières, Afrobarometer
+= Loghi dei partner: PPC Group, UiPath Foundation, Istituto Italiano di Cultura, Agenzia ICE, BBC, Financial Times, Medici Senza Frontiere, Afrobarometer
+PPC Group
+= PPC Group
+UiPath Foundation
+= UiPath Foundation
+Istituto Italiano di Cultura
+= Istituto Italiano di Cultura
+Italian Trade Agency
+= Agenzia ICE
+BBC
+= BBC
+Financial Times
+= Financial Times
+Médecins Sans Frontières
+= Medici Senza Frontiere
+Afrobarometer
+= Afrobarometer
+
+# ---- contact
+If your numbers deserve more attention than they're getting, send them our way — we'll show you what your audience could be seeing.
+= Se i vostri numeri meritano più attenzione di quella che ricevono, mandateceli: vi mostreremo che cosa potrebbe vedere il vostro pubblico.
+Email the studio
+= Scrivete allo studio
+Follow us on Instagram
+= Seguiteci su Instagram

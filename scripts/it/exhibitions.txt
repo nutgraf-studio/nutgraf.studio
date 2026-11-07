@@ -1,0 +1,209 @@
+# Italian edition: the Exhibitions page (exhibitions/index.html). See scripts/build_it.py.
+
+# ---- head and structured data
+Data Exhibitions for Cultural Diplomacy — Nutgraf
+= Mostre di dati per la diplomazia culturale — Nutgraf
+Nutgraf designs data exhibitions for embassies, cultural institutes and trade agencies, turning the ties between two countries into a show the public stops for. See Între noi: Italy and Romania, told with data.
+= Nutgraf progetta mostre di dati per ambasciate, istituti di cultura e agenzie per il commercio estero, e trasforma i legami tra due paesi in un racconto che il pubblico si ferma a guardare. Scoprite Între noi: Italia e Romania, raccontate con i dati.
+Data exhibitions for embassies, cultural institutes and trade agencies. See Între noi: Italy and Romania, told with data.
+= Mostre di dati per ambasciate, istituti di cultura e agenzie per il commercio estero. Scoprite Între noi: Italia e Romania, raccontate con i dati.
+Diplomacy you can walk through: visitors among the data panels of the Între noi exhibition.
+= «Diplomacy you can walk through»: visitatori tra i pannelli di dati della mostra Între noi.
+Nutgraf designs data exhibitions for embassies, cultural institutes and trade agencies, turning the ties between two countries into a show the public stops for.
+= Nutgraf progetta mostre di dati per ambasciate, istituti di cultura e agenzie per il commercio estero, e trasforma i legami tra due paesi in un racconto che il pubblico si ferma a guardare.
+Între noi — Italia e Romania, raccontate con i dati
+= Între noi — Italia e Romania, raccontate con i dati
+A short film from Între noi, a data exhibition by Nutgraf on the ties between Italy and Romania.
+= Un breve film su Între noi, la mostra di dati di Nutgraf sui legami tra Italia e Romania.
+
+# ---- menu bar and hero
+Process
+= Processo
+Plan an exhibition
+= Ideiamo una mostra
+· opening the doors
+= · si aprono le porte
+Exhibitions · Cultural diplomacy
+= Mostre · Diplomazia culturale
+We design data exhibitions for embassies, cultural institutes and trade agencies, turning the ties between two countries into a show the public stops for.
+= Progettiamo mostre di dati per ambasciate, istituti di cultura e agenzie per il commercio estero, e trasformiamo i legami tra due paesi in un racconto che il pubblico si ferma a guardare.
+Watch the film
+= Guardate il film
+Pause background video
+= Metti in pausa il video di sfondo
+Pause
+= Pausa
+Scroll to the introduction
+= Vai all’introduzione
+
+# ---- intro
+Cultural diplomacy, in data
+= La diplomazia culturale, con i dati
+Between any two countries run millions of quiet connections:
+= Tra due paesi qualsiasi corrono milioni di legami silenziosi:
+goods and investment, students and workers, borrowed words and shared stories.
+= merci e investimenti, studenti e lavoratori, parole prese in prestito e storie condivise.
+We find them in the data, check every number, and turn them into action.
+= Li troviamo nei dati, verifichiamo ogni numero e li trasformiamo in azione.
+For visitors
+= Per i visitatori
+Panels anyone can read in a minute and want to stay with for ten. In both languages, for every age.
+= Pannelli che chiunque legge in un minuto e davanti a cui vuole restare per dieci. In entrambe le lingue, per tutte le età.
+For institutions
+= Per le istituzioni
+Evidence of a relationship worth investing in, presented with the authority that only well-sourced data carries.
+= La prova di una relazione su cui vale la pena investire, presentata con l’autorevolezza che solo dati con fonti solide sanno dare.
+For the press
+= Per la stampa
+A story with numbers, photographs and a film, ready to publish on opening day.
+= Una storia con numeri, fotografie e un film, pronta da pubblicare il giorno dell’inaugurazione.
+
+# ---- case study
+Case study
+= Case study
+Italia e Romania, raccontate con i dati.
+= Italia e Romania, raccontate con i dati.
+means “between us” in Romanian. The exhibition told the story of Italy and Romania through data: who trades with whom, who invests where, and how far each language and culture reaches into the other.
+= in romeno significa «tra noi». La mostra raccontava Italia e Romania attraverso i dati: chi commercia con chi, chi investe dove, e fin dove ciascuna lingua e cultura si spinge nell’altra.
+We researched the numbers, designed the panels and curated the show. The film follows visitors through the hall, in their own words.
+= Abbiamo cercato i numeri, disegnato i pannelli e curato la mostra. Il film segue i visitatori nella sala, con le loro parole.
+Countries
+= Paesi
+Italy · Romania
+= Italia · Romania
+Data exhibition and film
+= Mostra di dati e film
+With
+= Con
+Watch the Între noi film, 1 minute 6 seconds
+= Guardate il film di Între noi, 1 minuto e 6 secondi
+Watch the film · Între noi ·
+= Guardate il film · Între noi ·
+Între noi, the film
+= Între noi, il film
+
+# ---- gallery
+Inside the exhibition
+= Dentro la mostra
+On the walls,
+= Sulle pareti,
+and in the room.
+= e nella sala.
+The hall from above
+= La sala dall’alto
+Seen from the balcony, visitors read the opening wall across a marble floor.
+= Vista dalla balconata: i visitatori leggono la parete d’apertura, oltre il pavimento di marmo.
+At the title panel
+= Davanti al pannello del titolo
+A visitor in a blue cap reads the Între noi title panel beside a lift.
+= Un visitatore con un berretto blu legge il pannello del titolo di Între noi accanto a un ascensore.
+Pointing out the numbers
+= Il dito sui numeri
+A man points at a chart while three visitors listen.
+= Un uomo indica un grafico mentre tre visitatori ascoltano.
+Reading the method
+= Leggere il metodo
+A visitor in glasses reads the methodology and philosophy panels.
+= Un visitatore con gli occhiali legge i pannelli sulla metodologia e sulla filosofia della mostra.
+Two population pyramids
+= Due piramidi demografiche
+Close-up of a panel setting the population pyramids of Italy and Romania side by side, above a chart of births since 1960.
+= Dettaglio di un pannello che affianca le piramidi demografiche di Italia e Romania, sopra un grafico delle nascite dal 1960.
+Panels between the columns
+= Pannelli tra le colonne
+A line of hanging data panels crosses a pillared hall beside a round stairwell railing.
+= Una fila di pannelli di dati sospesi attraversa una sala a colonne, accanto alla ringhiera circolare di una tromba delle scale.
+Opening night
+= La sera dell’inaugurazione
+A crowd gathers among the panels on opening night.
+= La folla tra i pannelli la sera dell’inaugurazione.
+Women in tech, country by country
+= Donne nel tech, paese per paese
+Close-up of a slope chart of women among computing graduates and ICT workers: Romania 34.5, Italy 18.2.
+= Dettaglio di uno slope chart sulle donne tra i laureati in informatica e tra gli occupati nell’ICT: Romania 34,5, Italia 18,2.
+Three panels, head on
+= Tre pannelli, di fronte
+Three trade panels hang side by side in front of the spiral staircase.
+= Tre pannelli sul commercio, appesi uno accanto all’altro davanti alla scala a chiocciola.
+Births and mixed marriages
+= Nascite e matrimoni misti
+Close-up of a panel charting births in Italy and Romania since 1960, above a flow diagram of mixed marriages.
+= Dettaglio di un pannello con le nascite in Italia e in Romania dal 1960, sopra un diagramma di flusso dei matrimoni misti.
+Worth a photo
+= Da fotografare
+A visitor photographs the panel on the Romanian community in Italy.
+= Un visitatore fotografa il pannello sulla comunità romena in Italia.
+Under the staircase
+= Sotto lo scalone
+The exhibition seen beneath a curving marble staircase, panels strung between the columns.
+= La mostra vista da sotto uno scalone curvo di marmo, con i pannelli tesi tra le colonne.
+Putting up the poster
+= Si appende il manifesto
+A man fixes the Între noi poster to a blue display stand at the entrance.
+= Un uomo fissa il manifesto di Între noi a un espositore blu all’ingresso.
+Talking it over
+= Se ne parla
+Visitors talk in small groups by the methodology panel.
+= Visitatori a piccoli gruppi parlano accanto al pannello sulla metodologia.
+The opening wall
+= La parete d’apertura
+The first four Între noi panels along a white wall: partners, methodology, the philosophy of the show and the title panel.
+= I primi quattro pannelli di Între noi lungo una parete bianca: partner, metodologia, filosofia della mostra e pannello del titolo.
+The Între noi posters, one after another
+= I manifesti di Între noi, uno dopo l’altro
+Pause the poster reel
+= Metti in pausa la sequenza dei manifesti
+
+# ---- process
+How it works
+= Come funziona
+From a bilateral brief to
+= Da un brief bilaterale
+opening night.
+= alla sera dell’inaugurazione.
+Brief
+= Brief
+Which two countries, which story, which audience. We agree on the relationship you want the public to see, and the venue it has to fill.
+= Quali due paesi, quale storia, quale pubblico. Concordiamo con voi la relazione che volete far vedere al pubblico e lo spazio che la mostra deve riempire.
+We gather and verify the data: trade, investment, cultural exchanges, language, culture. Official statistics and archives, with every number sourced.
+= Raccogliamo e verifichiamo i dati: commercio, investimenti, scambi culturali, lingua, cultura. Statistiche ufficiali e archivi, con la fonte di ogni numero.
+Design
+= Design
+Panels, maps and installations built for a hall, not a screen: legible from three metres, rewarding at thirty centimetres.
+= Pannelli, mappe e installazioni pensati per una sala, non per uno schermo: leggibili da tre metri, interessanti da trenta centimetri.
+Opening
+= Inaugurazione
+Print-ready files, installation support, and a film and social kit, so the exhibition keeps travelling after the doors close.
+= File pronti per la stampa, supporto all’allestimento, un film e un kit social, perché la mostra continui a viaggiare anche dopo la chiusura.
+Embassies
+= Ambasciate
+Cultural institutes
+= Istituti di cultura
+Trade &amp; investment agencies
+= Agenzie per il commercio e gli investimenti
+Chambers of commerce
+= Camere di commercio
+Foreign ministries
+= Ministeri degli Esteri
+Festivals &amp; universities
+= Festival e università
+
+# ---- contact
+Two countries, one story.
+= Due paesi, una storia.
+Let’s turn it into action.
+= Trasformiamola in azione.
+Tell us which relationship you want to show, and where. We’ll come back with a concept, a data plan and a timeline within a week.
+= Diteci quale relazione volete mostrare, e dove. Entro una settimana vi rispondiamo con un concept, un piano dei dati e una timeline.
+
+# ---- film and photo dialogs
+Close the film
+= Chiudi il film
+Exhibition photos
+= Foto della mostra
+Close photo
+= Chiudi la foto
+Previous photo
+= Foto precedente
+Next photo
+= Foto successiva

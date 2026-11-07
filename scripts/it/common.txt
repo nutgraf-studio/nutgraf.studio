@@ -1,0 +1,50 @@
+# Italian edition: text shared by every page (menu bar, drawer, footer).
+# Format: the English exactly as in the HTML (whitespace collapsed), then the
+# Italian on a line starting with "= ". See scripts/build_it.py.
+#
+# Glossary (from our Italian proposals): we write to clients with "voi".
+# Kept in English: data design, information design, design, storytelling,
+# data storytelling, report, dashboard, workshop, Sankey, streamgraph, ESG,
+# KPI, feedback, brief, template, kit social, card social, AI, creative coding,
+# policy brief, board, team. Translated: mostre (exhibitions), pannelli,
+# infografiche, grafici (charts), mappe, impaginazione, file per la stampa,
+# giornalismo dei dati, visualizzazione dati, ricerca dati (data research).
+
+Skip to content
+= Vai al contenuto
+Main navigation
+= Navigazione principale
+Nutgraf.studio
+= Nutgraf.studio
+Studio
+= Studio
+Services
+= Servizi
+Methodology
+= Metodo
+Partners
+= Partner
+Reports
+= Report
+Workshops
+= Workshop
+Exhibitions
+= Mostre
+Contact us
+= Scriveteci
+Nutgraf on Instagram
+= Nutgraf su Instagram
+Menu
+= Menu
+Instagram
+= Instagram
+Back to top ↑
+= Torna su ↑
+FAQ
+= FAQ
+
+# names that stay as they are
+Între noi
+= Între noi
+Între Noi
+= Între Noi

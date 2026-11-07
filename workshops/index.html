@@ -18,6 +18,9 @@ gtag('config', 'G-Q8YD4TDRXT');
 <meta name="robots" content="index, follow">
 <meta name="author" content="Nutgraf.studio">
 <link rel="canonical" href="https://nutgraf.studio/workshops/">
+<link rel="alternate" hreflang="en" href="https://nutgraf.studio/workshops/">
+<link rel="alternate" hreflang="it" href="https://nutgraf.studio/it/workshops/">
+<link rel="alternate" hreflang="x-default" href="https://nutgraf.studio/workshops/">
 <meta name="theme-color" content="#7B7BF0">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -451,6 +454,13 @@ h1, h2, h3 {
 }
 /* a page link never breaks its arrow onto a line of its own */
 .nav-links a.page-link { white-space: nowrap; }
+/* the same page in Italian (in English on the Italian pages); on
+   phones it lives in the menu drawer, and on narrow tablets, where
+   the bar is full, in the footer */
+.nav-links a.lang-switch { font-weight: 700; letter-spacing: 0.06em; }
+@media (min-width: 600px) and (max-width: 699px) {
+  .nav-links li:has(> a.lang-switch) { display: none; }
+}
 
 /* Menu drawer (phones). The menu button takes the Instagram icon's
    place in the bar and opens a black panel from the right with this
@@ -1052,6 +1062,7 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
         <li><a class="page-link" href="/reports/">Reports<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="page-link" href="/exhibitions/">Exhibitions<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="chip" href="#book">Book a workshop</a></li>
+        <li><a class="lang-switch" href="/it/workshops/" hreflang="it" lang="it" title="Italiano">IT</a></li>
         <li>
           <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1263,6 +1274,7 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
       <a href="/reports/">Reports</a>
       <a href="/exhibitions/">Exhibitions</a>
       <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
+      <a class="lang-switch" href="/it/workshops/" hreflang="it" lang="it">Italiano</a>
       <a href="#top">Back to top ↑</a>
     </div>
   </div>
@@ -1587,6 +1599,14 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
     social.appendChild(ig);
   }
   social.appendChild(link('mailto:hello@nutgraf.studio', 'hello@nutgraf.studio'));
+  /* the same page in the other language */
+  var lang = bar.querySelector('a.lang-switch');
+  if (lang) {
+    var other = link(lang.getAttribute('href'), lang.title);
+    other.lang = lang.lang;
+    other.hreflang = lang.hreflang;
+    social.appendChild(other);
+  }
   foot.appendChild(social);
   drawer.appendChild(foot);
 

@@ -1,0 +1,47 @@
+# Italian edition: home page markup that spans tags, scripts and URLs.
+# See scripts/build_it.py.
+
+@@ hero headline: same four lines, the underline stays on "impossibili"
+<h1>We make<br>your&nbsp;data<br><em class="fx">impossible<svg
+==
+<h1>Rendiamo<br>i vostri&nbsp;dati<br><em class="fx">impossibili<svg
+
+@@ hero headline, last line
+</em><br>to ignore.</h1>
+==
+</em><br>da ignorare.</h1>
+
+@@ hero film: the loops live next to the English home
+v.src = 'media/intre-noi-loop-piero-' + size + '.mp4';
+==
+v.src = '/media/intre-noi-loop-piero-' + size + '.mp4';
+
+@@ reports card headline
+<h3>Bring us the data.<br>Leave with the report.</h3>
+==
+<h3>Portateci i dati.<br>Ripartite con il report.</h3>
+
+@@ exhibitions card headline
+<h3>Data you can<br>walk through.</h3>
+==
+<h3>Dati da<br>attraversare.</h3>
+
+@@ contact headline
+<h2>We're going to beautify your&nbsp;data. Let's talk.</h2>
+==
+<h2>Faremo belli i vostri&nbsp;dati. Parliamone.</h2>
+
+@@ structured data: the services point at the Italian pages
+"url": "https://nutgraf.studio/reports/",
+==
+"url": "https://nutgraf.studio/it/reports/",
+
+@@ structured data
+"url": "https://nutgraf.studio/workshops/",
+==
+"url": "https://nutgraf.studio/it/workshops/",
+
+@@ structured data
+"url": "https://nutgraf.studio/exhibitions/",
+==
+"url": "https://nutgraf.studio/it/exhibitions/",

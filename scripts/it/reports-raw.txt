@@ -1,0 +1,404 @@
+# Italian edition: Reports page markup that spans tags, scripts and URLs.
+# Order matters: pairs apply top to bottom. See scripts/build_it.py.
+
+@@ the Markdown copy exists in English only: say so
+type="text/markdown" href="https://nutgraf.studio/reports/index.html.md" title="Data visualisation reports, infographics and dashboards (Markdown)"
+==
+type="text/markdown" hreflang="en" href="https://nutgraf.studio/reports/index.html.md" title="Report di dati, infografiche e dashboard (Markdown, in inglese)"
+
+@@ structured data: this page's own entities live under /it/reports/
+"https://nutgraf.studio/reports/#
+==
+"https://nutgraf.studio/it/reports/#
+
+@@ structured data: page and service URL
+"url": "https://nutgraf.studio/reports/"
+==
+"url": "https://nutgraf.studio/it/reports/"
+
+@@ structured data: breadcrumb
+"item": "https://nutgraf.studio/" },
+==
+"item": "https://nutgraf.studio/it/" },
+
+@@ structured data: breadcrumb
+"item": "https://nutgraf.studio/reports/" }
+==
+"item": "https://nutgraf.studio/it/reports/" }
+
+@@ menu bar chip: on phones only the first word shows
+<a class="chip" href="#contact">Commission<span class="chip-more"> a report</span></a>
+==
+<a class="chip" href="#contact">Scriveteci<span class="chip-more"> per un report</span></a>
+
+@@ hero headline, line 1
+<span class="hero-line"><span>Bring us</span></span>
+==
+<span class="hero-line"><span>Portateci</span></span>
+
+@@ hero headline, line 2
+<span class="hero-line"><span>the data.</span></span>
+==
+<span class="hero-line"><span>i dati.</span></span>
+
+@@ hero headline, line 3
+<span class="hero-line"><span><em>Leave with</em></span></span>
+==
+<span class="hero-line"><span><em>Ripartite</em></span></span>
+
+@@ hero headline, line 4: the underline stays on "report."
+<span class="hero-line"><span><em>the <span class="fx">report.
+==
+<span class="hero-line"><span><em>con il <span class="fx">report.
+
+@@ contents heading
+<h2 id="toc-heading">What we <em>make.</em></h2>
+==
+<h2 id="toc-heading">Cosa <em>facciamo.</em></h2>
+
+@@ case studies heading
+<h2 id="flagship-heading">Our <em>flagship reports.</em></h2>
+==
+<h2 id="flagship-heading">I nostri <em>report di punta.</em></h2>
+
+@@ live Sankey heading
+<h2 id="live-heading">The Sankey, <em>off the page.</em></h2>
+==
+<h2 id="live-heading">Il Sankey, <em>fuori dalla pagina.</em></h2>
+
+@@ dashboards heading
+<h2 id="dash-heading">PDF in. <em>Dashboard out.</em></h2>
+==
+<h2 id="dash-heading">Entra un PDF. <em>Esce una dashboard.</em></h2>
+
+@@ process heading
+<h2 id="process-heading">From raw data to <em>final proof.</em></h2>
+==
+<h2 id="process-heading">Dai dati grezzi <em>all’ultima bozza.</em></h2>
+
+@@ FAQ heading
+<h2 id="faq-heading">Report design, <em>answered.</em></h2>
+==
+<h2 id="faq-heading">Report design: <em>le risposte.</em></h2>
+
+@@ email subjects
+?subject=Report%20enquiry
+==
+?subject=Richiesta%20per%20un%20report
+
+@@ email subjects
+?subject=Dashboard%20enquiry
+==
+?subject=Richiesta%20per%20una%20dashboard
+
+@@ numbers the Italian way, and the helpers the Italian sentences below need
+var fmt = function (n) { return n.toLocaleString('en-GB'); };
+==
+var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); };
+/* Italian edition: "in Ghana" but "nelle Comore" and "a Capo Verde", and
+   "il 66%" but "l’80%" (uno, otto, undici and the eighties start with a vowel) */
+var PLACE = { 'Comore': 'nelle Comore', 'Capo Verde': 'a Capo Verde', 'Mauritius': 'a Mauritius', 'Seychelles': 'alle Seychelles', 'São Tomé e Príncipe': 'a São Tomé e Príncipe' };
+function inPlace(name) { return PLACE[name] || 'in ' + name; }
+function InPlace(name) { var p = inPlace(name); return p.charAt(0).toUpperCase() + p.slice(1); }
+function vowelNum(n) { n = Math.abs(n); return n === 1 || n === 11 || String(n).charAt(0) === '8'; }
+function artIl(n) { return vowelNum(n) ? 'l’' : 'il '; }
+function artDal(n) { return vowelNum(n) ? 'dall’' : 'dal '; }
+function artAl(n) { return vowelNum(n) ? 'all’' : 'al '; }
+function artDel(n) { return vowelNum(n) ? 'dell’' : 'del '; }
+
+@@ booklet: page counts in words
+  var WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+==
+  var WORDS = ['nessuna', 'una', 'due', 'tre', 'quattro', 'cinque', 'sei', 'sette', 'otto', 'nove', 'dieci', 'undici', 'dodici'];
+
+@@ booklet: role
+  stage.setAttribute('aria-roledescription', 'booklet');
+==
+  stage.setAttribute('aria-roledescription', 'libretto');
+
+@@ booklet: label
+  stage.setAttribute('aria-label', 'Booklet: ' + items.length + ' pages from ' + title + '. The arrow keys turn the pages.');
+==
+  stage.setAttribute('aria-label', 'Libretto: ' + title + ', ' + items.length + ' pagine. Le frecce della tastiera girano le pagine.');
+
+@@ booklet: dots on the covers
+    if (!o.length) return s === 0 ? 'The cover' : 'The back cover';
+==
+    if (!o.length) return s === 0 ? 'La copertina' : 'La quarta di copertina';
+
+@@ booklet: two pages open
+.join(', and ');
+==
+.join(' e ');
+
+@@ booklet: status under the cover
+        ? 'Click the cover to leaf through ' + n + ' pages.'
+        : 'The back cover. Turn back, or start again from the dots.';
+==
+        ? 'Cliccate sulla copertina per sfogliare ' + n + ' pagine.'
+        : 'La quarta di copertina. Tornate indietro o ricominciate dai pallini.';
+
+@@ Sankey: tiny shares
+    if (p < 0.01) return 'less than 0.01%';
+    return (p >= 1 ? p.toFixed(1) : p.toFixed(2)) + '%';
+==
+    if (p < 0.01) return 'meno dello 0,01%';
+    return (p >= 1 ? p.toFixed(1) : p.toFixed(2)).replace('.', ',') + '%';
+
+@@ Sankey: change on 2023
+Math.abs(ch).toFixed(1) + '%)';
+==
+Math.abs(ch).toFixed(1).replace('.', ',') + '%)';
+
+@@ Sankey: node labels for screen readers
+' tonnes CO2e, '
+==
+' tonnellate di CO2e, '
+
+@@ Sankey: node labels for screen readers
+' of the total'
+==
+' del totale'
+
+@@ Sankey: readout
+' of the 2024 total'
+==
+' del totale 2024'
+
+@@ major powers: names, and "of" for the sentence
+    { name: 'China',                  of: 'China’s' },
+    { name: 'United States',          of: 'the United States’' },
+    { name: 'European Union',         of: 'the European Union’s' },
+    { name: 'Former colonial power',  of: 'their former colonial power’s' },
+    { name: 'India',                  of: 'India’s' },
+    { name: 'Russia',                 of: 'Russia’s' }
+==
+    { name: 'Cina',                   of: 'della Cina' },
+    { name: 'Stati Uniti',            of: 'degli Stati Uniti' },
+    { name: 'Unione Europea',         of: 'dell’Unione Europea' },
+    { name: 'Ex potenza coloniale',   of: 'dell’ex potenza coloniale' },
+    { name: 'India',                  of: 'dell’India' },
+    { name: 'Russia',                 of: 'della Russia' }
+
+@@ major powers: the country menu in Italian alphabetical order
+  ROWS.forEach(function (r, i) {
+    var o = document.createElement('option');
+    o.value = i;
+    o.textContent = r[0];
+    select.appendChild(o);
+  });
+==
+  ROWS.map(function (r, i) { return [r[0], i]; })
+    .sort(function (a, b) { return a[0].localeCompare(b[0], 'it'); })
+    .forEach(function (p) {
+      var o = document.createElement('option');
+      o.value = p[1];
+      o.textContent = p[0];
+      select.appendChild(o);
+    });
+
+@@ major powers: ranks as 3° su 38
+  function ordinal(n) {
+    var s = ['th', 'st', 'nd', 'rd'], v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  }
+==
+  function ordinal(n) { return n + '°'; }
+
+@@ both dashboards: "in Ghana", "nelle Comore" (before the countries are renamed)
+  function place(name) { return name === 'The Gambia' ? 'the Gambia' : name; }
+==
+  function place(name) { return inPlace(name); }
+
+@@ major powers: question not asked
+        R.el.querySelector('.val').textContent = 'n/a';
+        R.el.querySelector('.rank').textContent = 'not asked';
+        R.el.querySelector('.gap').textContent = '';
+        R.el.setAttribute('aria-label', p.name + ': not asked in ' + place(r[0]));
+==
+        R.el.querySelector('.val').textContent = 'n.d.';
+        R.el.querySelector('.rank').textContent = 'non rilevato';
+        R.el.querySelector('.gap').textContent = '';
+        R.el.setAttribute('aria-label', p.name + ': domanda non posta ' + place(r[0]));
+
+@@ major powers: rank
+      var rankText = (rk.tie ? '=' : '') + ordinal(rk.rank) + ' of ' + rk.n;
+==
+      var rankText = (rk.tie ? '=' : '') + ordinal(rk.rank) + ' su ' + rk.n;
+
+@@ major powers: row labels for screen readers
+      R.el.setAttribute('aria-label', p.name + ': ' + v + '% in ' + place(r[0]) + ', ' + rankText + ' countries, ' +
+        (g === 0 ? 'level with' : Math.abs(g) + ' points ' + (g > 0 ? 'above' : 'below')) + ' the average of ' + AVG[j] + '%');
+==
+      R.el.setAttribute('aria-label', p.name + ': ' + v + '% ' + place(r[0]) + ', ' + rankText + ' paesi, ' +
+        (g === 0 ? 'pari alla' : Math.abs(g) + (Math.abs(g) === 1 ? ' punto ' : ' punti ') + (g > 0 ? 'sopra la' : 'sotto la')) + ' media ' + artDel(AVG[j]) + AVG[j] + '%');
+
+@@ major powers: the sentence (outwards)
+      story.append('In ' + place(r[0]) + ', ');
+      var s = document.createElement('strong');
+      s.textContent = v + '%';
+      story.append(s, ' say ' + p.of + ' influence is positive: ' + bestGap + ' points above the ' + rk.n + '-country average' +
+        (rk.rank === 1 && !rk.tie ? ', the highest of all ' + rk.n + ' countries.' : '.'));
+==
+      story.append(InPlace(r[0]) + ' ' + artIl(v));
+      var s = document.createElement('strong');
+      s.textContent = v + '%';
+      story.append(s, ' giudica positiva l’influenza ' + p.of + ': ' + bestGap + (bestGap === 1 ? ' punto' : ' punti') + ' sopra la media dei ' + rk.n + ' paesi' +
+        (rk.rank === 1 && !rk.tie ? ', il valore più alto fra tutti i ' + rk.n + ' paesi.' : '.'));
+
+@@ major powers: the sentence when no power is above average
+      story.append('In ' + place(r[0]) + ', every major power scores at or below the average. ' + p.name + ' comes closest, at ');
+==
+      story.append(InPlace(r[0]) + ' tutte le grandi potenze sono alla media o sotto. Il valore più vicino è quello ' + p.of + ': ' + artIl(v));
+
+@@ leaving home: the average row and the regions
+  var AVG = ['31-country average', '', 18, 25];
+  var REGION = { West: 'West Africa', Central: 'Central Africa', East: 'East Africa', Southern: 'Southern Africa', North: 'North Africa' };
+==
+  var AVG = ['Media dei 31 paesi', '', 18, 25];
+  var REGION = { West: 'Africa occidentale', Central: 'Africa centrale', East: 'Africa orientale', Southern: 'Africa australe', North: 'Africa settentrionale' };
+
+@@ leaving home: lists of countries
+names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1];
+==
+names.slice(0, -1).join(', ') + ' e ' + names[names.length - 1];
+
+@@ leaving home: row labels for screen readers
+    row.setAttribute('aria-label', r[0] + ': ' + (est ? 'about ' : '') + then + '% in 2016/2018, ' + now + '% in 2024/2025' +
+      (est ? ', about the same' : d ? ', ' + (d > 0 ? 'up ' : 'down ') + Math.abs(d) + ' points' : ', no change'));
+==
+    row.setAttribute('aria-label', r[0] + ': ' + (est ? 'circa ' : '') + then + '% nel 2016/2018, ' + now + '% nel 2024/2025' +
+      (est ? ', più o meno lo stesso' : d ? ', ' + (d > 0 ? 'più ' : 'meno ') + Math.abs(d) + (Math.abs(d) === 1 ? ' punto' : ' punti') : ', invariato'));
+
+@@ leaving home: points and the tail of the sentence
+    pts.textContent = top + ' points';
+    var tail = best.length > 1 ? ' each.' : ' (' + best[0].r[2] + '% to ' + best[0].now + '%).';
+==
+    pts.textContent = top + (top === 1 ? ' punto' : ' punti');
+    var tail = best.length > 1 ? ' ciascuno.' : ' (' + artDal(best[0].r[2]) + best[0].r[2] + '% ' + artAl(best[0].now) + best[0].now + '%).';
+
+@@ leaving home: the sentence for all countries
+      story.append('Across ' + set.length + ' countries, ', lead, ' have considered emigrating “a lot”, up from ' + AVG[2] +
+        '% in 2016/2018. The share rose in ' + up.length + ' of them; ' + names + ' rose most, by ', pts, tail);
+==
+      story.append('Nei ' + set.length + ' paesi ' + artIl(AVG[3]), lead, ' ha pensato “molto” a emigrare, in crescita ' + artDal(AVG[2]) + AVG[2] +
+        '% del 2016/2018. La quota è salita in ' + up.length + ' paesi; l’aumento più forte è ' + names + ', di ', pts, tail);
+
+@@ leaving home: the sentence for one region
+    lead.textContent = up.length === set.length ? (set.length === 2 ? 'both countries' : 'all ' + set.length + ' countries')
+      : up.length + ' of ' + set.length + ' countries';
+    story.append('In ' + REGION[reg] + ', the share rose in ', lead);
+    if (!up.length) story.append('.');
+    else if (up.length === 1) story.append(': in ' + names + ', by ', pts, tail);
+    else if (best.length === up.length) story.append(', by ', pts, ' each.');
+    else story.append('; ' + names + ' rose most, by ', pts, tail);
+==
+    lead.textContent = up.length === set.length ? (set.length === 2 ? 'entrambi i paesi' : 'tutti i ' + set.length + ' paesi')
+      : up.length + (up.length === 1 ? ' paese su ' : ' paesi su ') + set.length;
+    story.append('In ' + REGION[reg] + ' la quota è salita in ', lead);
+    if (!up.length) story.append('.');
+    else if (up.length === 1) story.append(': ' + names + ', di ', pts, tail);
+    else if (best.length === up.length) story.append(', di ', pts, ' ciascuno.');
+    else story.append('; l’aumento più forte è ' + names + ', di ', pts, tail);
+
+@@ democracy: the country menu in Italian alphabetical order
+  DATA.forEach(function (d, i) {
+    var o = document.createElement('option');
+    o.value = i;
+    o.textContent = d[0];
+    select.appendChild(o);
+  });
+==
+  DATA.map(function (d, i) { return [d[0], i]; })
+    .sort(function (a, b) { return a[0].localeCompare(b[0], 'it'); })
+    .forEach(function (p) {
+      var o = document.createElement('option');
+      o.value = p[1];
+      o.textContent = p[0];
+      select.appendChild(o);
+    });
+
+@@ democracy: the two measures
+    dem: { col: 1, verb: 'now prefer democracy', noun: 'preference for democracy' },
+    sat: { col: 2, verb: 'are now satisfied with their democracy', noun: 'satisfaction with democracy' }
+==
+    dem: { col: 1, verb: 'oggi preferisce la democrazia', noun: 'preferenza per la democrazia' },
+    sat: { col: 2, verb: 'oggi è soddisfatto di come funziona la democrazia', noun: 'soddisfazione per la democrazia' }
+
+@@ democracy: the sentence for all countries
+      story.append('Across the 30 countries, ', s, ' ' + m.verb + ', down from ' + a0 + '% in 2011/2013. It fell in ' + fell + ' countries and rose in ' + rose + '.');
+==
+      story.append('Nei 30 paesi ' + artIl(a1), s, ' ' + m.verb + ', in calo ' + artDal(a0) + a0 + '% del 2011/2013. Il dato è sceso in ' + fell + ' paesi ed è salito in ' + rose + '.');
+
+@@ democracy: what stands out about one country
+    if (d === byChange[0]) note = ': the steepest fall of the 30';
+    else if (d === byChange[N - 1]) note = ': the biggest rise of the 30';
+    else if (v[M - 1] === byLevel[N - 1]) note = ', the highest level of the 30';
+    else if (v[M - 1] === byLevel[0]) note = ', the lowest level of the 30';
+==
+    if (d === byChange[0]) note = ': il calo più forte dei 30';
+    else if (d === byChange[N - 1]) note = ': l’aumento più forte dei 30';
+    else if (v[M - 1] === byLevel[N - 1]) note = ', il livello più alto dei 30';
+    else if (v[M - 1] === byLevel[0]) note = ', il livello più basso dei 30';
+
+@@ democracy: the sentence for one country
+    story.append('In ' + name + ', ', s, ' ' + m.verb + ', ' +
+      (d ? (d > 0 ? 'up ' : 'down ') + Math.abs(d) + ' points since 2011/2013' : 'as in 2011/2013') + note + '.');
+==
+    story.append(InPlace(name) + ' ' + artIl(v[M - 1]), s, ' ' + m.verb + ', ' +
+      (d ? (d > 0 ? 'più ' : 'meno ') + Math.abs(d) + (Math.abs(d) === 1 ? ' punto' : ' punti') + ' rispetto al 2011/2013' : 'come nel 2011/2013') + note + '.');
+
+@@ democracy: the chart's label for screen readers
+' in 30 countries over five survey rounds');
+==
+' in 30 paesi in cinque round dell’indagine');
+
+@@ country names (all three dashboards)
+'Cabo Verde'
+==
+'Capo Verde'
+
+@@
+'Cameroon'
+==
+'Camerun'
+
+@@
+'Chad'
+==
+'Ciad'
+
+@@
+'Comoros'
+==
+'Comore'
+
+@@
+'Côte d’Ivoire'
+==
+'Costa d’Avorio'
+
+@@
+'The Gambia'
+==
+'Gambia'
+
+@@
+'Morocco'
+==
+'Marocco'
+
+@@
+'Mozambique'
+==
+'Mozambico'
+
+@@
+'São Tomé and Príncipe'
+==
+'São Tomé e Príncipe'
+
+@@
+'South Africa'
+==
+'Sudafrica'

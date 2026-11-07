@@ -1,0 +1,144 @@
+# Italian edition: the Workshops page (workshops/index.html). See scripts/build_it.py.
+# Shared wording (Moduli, Formato, the hero sub-line) follows home.txt.
+
+# ---- head
+Data Design Workshops — Nutgraf | Research, Design &amp; Storytelling Training
+= Workshop di data design — Nutgraf | Formazione in ricerca, design e storytelling
+Nutgraf's flagship workshops teach teams data research, data design and data storytelling, built around state-of-the-art AI used well and safely. On-site or remote.
+= I workshop di punta di Nutgraf insegnano ai team ricerca dati, data design e data storytelling, costruiti attorno all’AI più avanzata, usata bene e in sicurezza. In presenza o da remoto.
+Data Design Workshops — Nutgraf
+= Workshop di data design — Nutgraf
+Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI used well and safely.
+= Workshop di punta di ricerca dati, data design e data storytelling, costruiti attorno all’AI più avanzata, usata bene e in sicurezza.
+Teach your team to speak data fluently: Nutgraf flagship workshops, over a visitor studying a data panel.
+= «Teach your team to speak data fluently»: i workshop di punta di Nutgraf, sopra un visitatore che studia un pannello di dati.
+
+# ---- structured data (the FAQ answers match the visible ones below)
+Nutgraf data design workshops
+= Workshop di data design di Nutgraf
+Data research
+= Ricerca dati
+Data storytelling
+= Data storytelling
+Finding, interrogating and verifying data with state-of-the-art AI: source hunting, bias and uncertainty checks, and verification workflows.
+= Trovare, interrogare e verificare i dati con l’AI più avanzata: ricerca delle fonti, controlli su distorsioni e incertezza, processi di verifica.
+Turning findings into charts, maps and graphics: choosing the right visual form, prototyping with AI, and designing for the glance.
+= Trasformare i risultati in grafici, mappe e infografiche: scegliere la forma visiva giusta, prototipare con l’AI e progettare per il colpo d’occhio.
+Structuring reports, decks and articles so the finding lands first: the nutgraf method, drafting with AI, and presenting to any room.
+= Strutturare report, presentazioni e articoli perché il risultato arrivi per primo: il metodo nutgraf, le bozze con l’AI e la presentazione davanti a qualsiasi pubblico.
+.faq-item dt
+= .faq-item dt
+.faq-item dd
+= .faq-item dd
+Pricing depends on scope, group size and format. Email hello@nutgraf.studio or use the \"Book a workshop\" button to tell us where your team struggles, and we'll send a tailored proposal within a week.
+= Il prezzo dipende da obiettivi, numero di partecipanti e formato. Scriveteci a hello@nutgraf.studio o usate il pulsante «Prenotate un workshop» per raccontarci dove il vostro team fa più fatica: entro una settimana vi mandiamo una proposta su misura.
+
+# ---- hero
+Flagship workshops
+= Workshop di punta
+Flagship workshops in data research, data design and data storytelling, built around state-of-the-art AI, used well and used safely.
+= Workshop di punta di ricerca dati, data design e data storytelling, costruiti attorno all’AI più avanzata, usata bene e in sicurezza.
+Book a workshop
+= Prenotate un workshop
+
+# ---- AI stance
+State-of-the-art AI runs through every module.
+= L’AI più avanzata attraversa ogni modulo.
+Frontier models now find, draft and prototype faster than any team can alone. We teach you to use that speed, and to keep what matters human: verification, judgement, and control over your own data.
+= I modelli di frontiera oggi trovano, scrivono e prototipano più in fretta di qualsiasi team da solo. Vi insegniamo a sfruttare quella velocità e a lasciare umano ciò che conta: la verifica, il giudizio e il controllo sui vostri dati.
+
+# ---- modules
+Workshop modules
+= Moduli del workshop
+Find it, question it, trust it.
+= Trovarli, metterli in dubbio, fidarsene.
+Finding the numbers
+= Trovare i numeri
+Use frontier AI to locate, extract and structure data from public sources, archives and your own documents in hours, not weeks.
+= Usare l’AI di frontiera per trovare, estrarre e strutturare dati da fonti pubbliche, archivi e documenti vostri in poche ore, non in settimane.
+Interrogating the data
+= Interrogare i dati
+Test for bias, gaps and uncertainty. Learn what your&nbsp;data can honestly claim, and where it stays silent.
+= Cercare distorsioni, lacune e incertezze. Capire che cosa possono affermare onestamente i vostri&nbsp;dati, e dove invece tacciono.
+Verifying every claim
+= Verificare ogni affermazione
+Build fact-checking workflows that treat every AI output as a claim to check, never a fact to paste.
+= Costruire processi di fact-checking che trattano ogni risposta dell’AI come un’affermazione da verificare, mai come un fatto da copiare e incollare.
+Give every finding its clearest form.
+= Dare a ogni risultato la forma più chiara.
+Choosing the right form
+= Scegliere la forma giusta
+Chart, map, diagram or table: match each finding to the visual form that carries it best, before touching any tool.
+= Grafico, mappa, diagramma o tabella: abbinare ogni risultato alla forma visiva che lo esprime meglio, prima di aprire qualsiasi strumento.
+Prototyping with AI
+= Prototipare con l’AI
+Sketch ten visual directions in the time one used to take, then apply human judgement to pick and refine the winner.
+= Abbozzare dieci direzioni visive nel tempo che prima ne richiedeva una, poi usare il giudizio umano per scegliere e rifinire la migliore.
+Designing for the glance
+= Progettare per il colpo d’occhio
+Hierarchy, colour and annotation that make the point land in seconds, on any screen and in print.
+= Gerarchia, colore e annotazioni che fanno arrivare il messaggio in pochi secondi, su qualsiasi schermo e su carta.
+Make it land, make it stick.
+= Farlo arrivare, farlo restare.
+Leading with the nutgraf
+= Aprire con il nutgraf
+Put the finding where nobody can miss it. Structure reports, decks and articles the way the best newsrooms do.
+= Mettere il risultato dove nessuno può perderlo. Strutturare report, presentazioni e articoli come fanno le migliori redazioni.
+Drafting with AI, editing like an editor
+= Scrivere con l’AI, rivedere da editor
+Use language models for first drafts, summaries and translations, while voice, facts and nuance stay under your control.
+= Usare i modelli linguistici per prime bozze, sintesi e traduzioni, mentre voce, fatti e sfumature restano sotto il vostro controllo.
+Presenting to the room
+= Presentare a chi ascolta
+Turn the analysis into briefings and talks calibrated to boards, funders, journalists or the public.
+= Trasformare l’analisi in briefing e interventi calibrati per board, finanziatori, giornalisti o il grande pubblico.
+
+# ---- format
+Length
+= Durata
+Half a day to four days
+= Da mezza giornata a quattro giorni
+Where
+= Dove
+Your office, or remote
+= Nella vostra sede o da remoto
+Group
+= Gruppo
+Six to twenty people
+= Da sei a venti persone
+Every workshop runs on your own data. Your team leaves with working methods, reusable templates, and at least one real piece of work already improved.
+= Ogni workshop lavora sui vostri dati. Il vostro team esce con metodi di lavoro, template riutilizzabili e almeno un lavoro vero già migliorato.
+
+# ---- FAQ (the same Italian feeds the FAQPage structured data)
+Frequently asked questions
+= Domande frequenti
+What is a Nutgraf data design workshop?
+= Che cos’è un workshop di data design di Nutgraf?
+A flagship, hands-on training session where your team learns to find, design and tell stories with your own data, using state-of-the-art AI as an accelerant. Workshops run on-site or remote, from half a day to four days.
+= Una formazione pratica, la nostra di punta, in cui il vostro team impara a trovare, progettare e raccontare storie con i propri dati, usando l’AI più avanzata come acceleratore. I workshop si tengono in presenza o da remoto e durano da mezza giornata a quattro giorni.
+Who are the workshops for?
+= A chi sono rivolti i workshop?
+Teams who work with data but aren't data specialists: communications, policy, research, NGO and public-sector teams that need to turn numbers into reports, charts and briefings colleagues actually read.
+= Ai team che lavorano con i dati senza esserne specialisti: comunicazione, policy, ricerca, ONG e pubblica amministrazione, che devono trasformare i numeri in report, grafici e briefing che i colleghi leggono davvero.
+Do participants need a data or design background?
+= Serve un’esperienza di dati o di design per partecipare?
+No prior data or design experience is required. The three modules — data research, data design and data storytelling — are built to take any team from raw numbers to a finished, presentable piece of work.
+= Non serve alcuna esperienza di dati o di design. I tre moduli (ricerca dati, data design e data storytelling) sono pensati per portare qualsiasi team dai numeri grezzi a un lavoro finito e presentabile.
+How is AI used in the training?
+= Come si usa l’AI durante la formazione?
+Every module teaches state-of-the-art AI tools for finding sources, prototyping visuals and drafting text, paired with human verification, judgement and fact-checking, so speed never comes at the cost of accuracy.
+= Ogni modulo insegna gli strumenti di AI più avanzati per trovare le fonti, prototipare le visualizzazioni e scrivere le bozze, sempre insieme alla verifica umana, al giudizio critico e al fact-checking: così la velocità non va mai a scapito dell’accuratezza.
+How long does a workshop take, and where does it run?
+= Quanto dura un workshop, e dove si tiene?
+Between half a day and four days, delivered at your office or remotely, for groups of six to twenty people.
+= Da mezza giornata a quattro giorni, nella vostra sede o da remoto, per gruppi da sei a venti persone.
+How much does a workshop cost, and how do we book one?
+= Quanto costa un workshop, e come si prenota?
+
+# ---- booking
+Tell us where your team struggles: the research, the visuals or the story. We will shape the modules around it and send a proposal within a week.
+= Raccontateci dove fa più fatica il vostro team: la ricerca, la parte visiva o la storia. Costruiremo i moduli su misura e vi manderemo una proposta entro una settimana.
+
+# kept as is
+hello@nutgraf.studio
+= hello@nutgraf.studio

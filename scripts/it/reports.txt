@@ -1,0 +1,716 @@
+# Italian edition: the Reports page (reports/index.html). See scripts/build_it.py.
+# Report titles (Beyond borders, African insights 2026, Raport de
+# Sustenabilitate) stay as published. Numbers inside sentences are written
+# the Italian way here; numbers alone in a cell are converted by the builder.
+
+# ---- head and structured data
+Data Visualisation Reports, Infographics & Dashboards — Nutgraf
+= Report di dati, infografiche e dashboard — Nutgraf
+Data report design studio: data visualisation, infographics and charts for flagship, annual and ESG reports, and PDF reports turned into interactive dashboards.
+= Studio di report design: visualizzazione dati, infografiche e grafici per report di punta, annuali ed ESG, e report PDF trasformati in dashboard interattive.
+Data visualisation, infographics and report design for flagship, annual and ESG reports, plus PDF reports turned into interactive dashboards and data-driven stories.
+= Visualizzazione dati, infografiche e report design per report di punta, annuali ed ESG, più report PDF trasformati in dashboard interattive e storie raccontate con i dati.
+Bring us the data, leave with the report: the emissions Sankey Nutgraf designed for the Rețele Electrice sustainability report.
+= «Bring us the data, leave with the report»: il Sankey delle emissioni che Nutgraf ha progettato per il report di sostenibilità di Rețele Electrice.
+Data visualization
+= Visualizzazione dati
+Report design
+= Report design
+Data-driven storytelling
+= Data storytelling
+Sustainability reporting
+= Rendicontazione di sostenibilità
+data visualisation, data visualization, dataviz, data report design, report design, infographics, infographic design, interactive dashboards, PDF to dashboard, data-driven storytelling, data storytelling, ESG report design, sustainability report design, annual report design, information design, graphic design for reports
+= visualizzazione dati, data visualization, dataviz, report design, design di report, infografiche, design di infografiche, dashboard interattive, da PDF a dashboard, data storytelling, design di report ESG, design di report di sostenibilità, design di report annuali, bilancio di sostenibilità, information design, progettazione grafica di report
+.faq-item dt
+= .faq-item dt
+.faq-item dd
+= .faq-item dd
+Data report design and data visualisation
+= Report design e visualizzazione dati
+Data visualization report design
+= Design di report con visualizzazione dati
+Dataviz report design
+= Design di report dataviz
+Report design, data visualisation, infographics and interactive dashboards
+= Report design, visualizzazione dati, infografiche e dashboard interattive
+Nutgraf designs data-heavy reports, from flagship and annual reports to sustainability and ESG disclosures, with one chart system per report, and turns PDF reports into interactive dashboards connected to their datasets.
+= Nutgraf progetta report densi di dati, dai report di punta e annuali alle rendicontazioni di sostenibilità ed ESG, con un sistema di grafici per ogni report, e trasforma i report PDF in dashboard interattive collegate ai loro dataset.
+Beyond borders: Citizen perspectives on a shifting global order
+= Beyond borders: Citizen perspectives on a shifting global order
+African insights 2026
+= African insights 2026
+Flagship report
+= Report di punta
+International relations
+= Relazioni internazionali
+Climate change
+= Cambiamento climatico
+Public opinion in Africa
+= Opinione pubblica in Africa
+Raport de Sustenabilitate 2024
+= Raport de Sustenabilitate 2024
+Sustainability Report 2024
+= Report di sostenibilità 2024
+Sustainability report
+= Report di sostenibilità
+Greenhouse gas emissions
+= Emissioni di gas serra
+Electricity distribution
+= Distribuzione di energia elettrica
+Rețele Electrice România
+= Rețele Electrice România
+
+# ---- FAQ: the same Italian in the structured data and on the page
+What does a data report design studio do?
+= Che cosa fa uno studio che progetta report di dati?
+We turn research, survey and ESG data into reports people read. We audit the data, build one chart system for the whole report, design every page, chart and infographic, and check every number against its source before it goes to print. Recent work: Afrobarometer’s 2026 flagship report and Rețele Electrice România’s 2024 sustainability report.
+= Trasformiamo dati di ricerca, sondaggi e dati ESG in report che le persone leggono. Analizziamo i dati, costruiamo un unico sistema di grafici per tutto il report, progettiamo ogni pagina, grafico e infografica, e verifichiamo ogni numero sulla fonte prima della stampa. Lavori recenti: il report di punta 2026 di Afrobarometer e il report di sostenibilità 2024 di Rețele Electrice România.
+Can you turn a PDF report into an interactive dashboard?
+= Potete trasformare un report PDF in una dashboard interattiva?
+Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live dashboards.
+= Sì. Colleghiamo i grafici di un report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare. In questa pagina il Sankey delle emissioni del report di Rețele Electrice è ricostruito come diagramma interattivo, e due figure e una tabella dei report di Afrobarometer diventano dashboard dal vivo.
+Do you design infographics and data visualisations (dataviz) for reports?
+= Progettate infografiche e visualizzazioni di dati (dataviz) per i report?
+Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like Beyond borders, still reads as one piece.
+= Sì: grafici, tabelle, riquadri KPI, diagrammi di Sankey, heatmap, dot plot e schede paese di una pagina. Ognuno è disegnato per il suo risultato e costruito su un unico sistema visivo, così un report di 38 figure, come Beyond borders, si legge comunque come un pezzo unico.
+Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like
+= Sì: grafici, tabelle, riquadri KPI, diagrammi di Sankey, heatmap, dot plot e schede paese di una pagina. Ognuno è disegnato per il suo risultato e costruito su un unico sistema visivo, così un report di 38 figure, come
+, still reads as one piece.
+= , si legge comunque come un pezzo unico.
+Do you design sustainability and ESG reports?
+= Progettate report di sostenibilità ed ESG?
+Yes. We designed Rețele Electrice România’s 2024 sustainability report, the company’s first prepared with reference to ESRS, the EU’s sustainability reporting standards: 105 pages of emissions, energy, workforce and EU Taxonomy data, turned into KPI tiles, flows and rings a non-specialist can read.
+= Sì. Abbiamo progettato il report di sostenibilità 2024 di Rețele Electrice România, il primo dell’azienda redatto con riferimento agli ESRS, gli standard europei di rendicontazione di sostenibilità: 105 pagine di dati su emissioni, energia, personale e Tassonomia UE, trasformate in riquadri KPI, flussi e anelli che anche chi non è del mestiere può leggere.
+What is data-driven storytelling?
+= Che cos’è il data storytelling?
+Leading with the finding and letting the data carry it: a clear headline, the chart that proves it and the context that explains it. Inside a report it sets the order of the pages; outside it, it turns the same figures into stories for funders, partners, the press and the public.
+= Partire dal risultato e lasciare che siano i dati a sostenerlo: un titolo chiaro, il grafico che lo dimostra e il contesto che lo spiega. Dentro un report decide l’ordine delle pagine; fuori, trasforma le stesse cifre in storie per finanziatori, partner, stampa e pubblico.
+What do you need from us to start a report?
+= Di cosa avete bisogno da noi per iniziare un report?
+A brief, a dataset or last year’s PDF is enough. We’ll come back within a week with a page plan, a chart system and a timeline. Write to hello@nutgraf.studio.
+= Bastano un brief, un dataset o il PDF dell’anno scorso. Entro una settimana torniamo da voi con un piano delle pagine, un sistema di grafici e un calendario. Scriveteci a hello@nutgraf.studio.
+A brief, a dataset or last year’s PDF is enough. We’ll come back within a week with a page plan, a chart system and a timeline. Write to
+= Bastano un brief, un dataset o il PDF dell’anno scorso. Entro una settimana torniamo da voi con un piano delle pagine, un sistema di grafici e un calendario. Scriveteci a
+Who have you designed reports for?
+= Per chi avete progettato report?
+Afrobarometer, the pan-African research network, and Rețele Electrice România, part of PPC Group. The studio’s partners also include the BBC, the Financial Times, Médecins Sans Frontières, the UiPath Foundation, the Istituto Italiano di Cultura and the Italian Trade Agency.
+= Per Afrobarometer, la rete di ricerca panafricana, e per Rețele Electrice România, parte di PPC Group. Tra i partner dello studio ci sono anche la BBC, il Financial Times, Medici Senza Frontiere, la UiPath Foundation, l’Istituto Italiano di Cultura e l’Agenzia ICE.
+Where do you work, and in which languages?
+= Dove lavorate, e in quali lingue?
+Worldwide, on-site or remote. The reports on this page were published in English and in Romanian.
+= In tutto il mondo, in presenza o da remoto. I report di questa pagina sono stati pubblicati in inglese e in rumeno.
+
+# ---- menu bar
+Dashboards
+= Dashboard
+
+# ---- hero
+Report design · Data visualisation · Dashboards
+= Report design · Visualizzazione dati · Dashboard
+Survey rounds, spreadsheets, ESG disclosures: we turn them into a flagship report your board, funders and press will read. Send us the brief and we’ll come back within a week with a page plan, a chart system and a timeline.
+= Sondaggi, fogli di calcolo, dati ESG: ne facciamo un report di punta che board, finanziatori e stampa leggeranno davvero. Mandateci il brief: entro una settimana torniamo da voi con un piano delle pagine, un sistema di grafici e un calendario.
+Commission a report
+= Commissionateci un report
+countries × powers
+= paesi × potenze
+tCO₂e · 11 flows
+= tCO₂e · 11 flussi
+Proof · Nutgraf.studio
+= Bozza · Nutgraf.studio
+
+# ---- statement
+Data report design, our flagship service
+= Report di dati, il nostro servizio di punta
+A flagship report carries a year of research, thousands of numbers and an organisation’s name.
+= Un report di punta porta con sé un anno di ricerca, migliaia di numeri e il nome di un’organizzazione.
+We make every one of those numbers count:
+= Facciamo contare ognuno di quei numeri:
+checked against its source, given the form its finding needs, set on a page people want to read.
+= verificato sulla fonte, con la forma che il suo risultato richiede, su una pagina che si ha voglia di leggere.
+Built for heavy data
+= Pensati per tanti dati
+Dozens of charts, one visual system. We design the system first, so the thirty-eighth figure reads as easily as the first.
+= Decine di grafici, un solo sistema visivo. Progettiamo prima il sistema, così la trentottesima figura si legge con la stessa facilità della prima.
+Bespoke, chart by chart
+= Su misura, grafico per grafico
+No templates. Flows become a Sankey, 38 countries become a heatmap, and sometimes the right chart is a single number.
+= Niente template. I flussi diventano un Sankey, 38 paesi diventano una heatmap, e a volte il grafico giusto è un numero solo.
+Checked before it’s drawn
+= Verificato prima di essere disegnato
+Every figure is traced back to its dataset before it reaches the page, and checked again on the proof.
+= Ogni figura viene ricondotta al suo dataset prima di arrivare sulla pagina, e ricontrollata in bozza.
+
+# ---- contents (hidden for now)
+Contents
+= Indice
+Everything a data-heavy report needs, from the first chart to the last page, and what comes after it.
+= Tutto ciò che serve a un report denso di dati, dal primo grafico all’ultima pagina, e quello che viene dopo.
+Data report design
+= Report di dati
+Case studies
+= Case study
+Flagship, annual and research reports laid out around their data: editorial and graphic design, one grid, one type system and one chart grammar from cover to annex.
+= Report di punta, annuali e di ricerca impaginati attorno ai loro dati: design editoriale e grafico, una sola griglia, un solo sistema tipografico e una sola grammatica dei grafici, dalla copertina agli allegati.
+Live Sankey
+= Sankey dal vivo
+Every chart drawn for its finding, whether a bar chart, a dot plot, a heatmap, a Sankey diagram or a map, for print and for screen.
+= Ogni grafico disegnato per il suo risultato, che sia un grafico a barre, un dot plot, una heatmap, un diagramma di Sankey o una mappa, per la stampa e per lo schermo.
+Infographics
+= Infografiche
+Examples
+= Esempi
+KPI spreads, one-page country scorecards and social cards: infographics that carry a number on their own.
+= Doppie pagine di KPI, schede paese di una pagina e card social: infografiche che reggono un numero da sole.
+Corporate reports
+= Report aziendali
+Case study
+= Case study
+Annual, sustainability, ESG and impact reports: KPIs, emissions, people metrics and CSRD disclosures that boards, investors and the public can read, without losing a decimal.
+= Report annuali, di sostenibilità, ESG e d’impatto: KPI, emissioni, indicatori sul personale e rendicontazione CSRD che board, investitori e pubblico possono leggere, senza perdere un decimale.
+Interactive dashboards
+= Dashboard interattive
+Live demos
+= Demo dal vivo
+PDF reports rebuilt on their datasets, with filters, rankings and live charts, for your audiences and for your own decisions.
+= Report PDF ricostruiti sui loro dataset, con filtri, classifiche e grafici dal vivo, per il vostro pubblico e per le vostre decisioni.
+Outwards
+= Verso l’esterno
+The finding first, the evidence after: report narratives, headlines and charts the press can quote and funders can use.
+= Prima il risultato, poi le prove: testi, titoli e grafici che la stampa può citare e i finanziatori possono usare.
+
+# ---- case studies
+Case studies · report design and data visualisation
+= Case study · report design e visualizzazione dati
+One pan-African survey, one corporate sustainability report. Both dense with data, both designed from the first page to the last.
+= Un’indagine panafricana e un report di sostenibilità aziendale. Entrambi densi di dati, entrambi progettati dalla prima all’ultima pagina.
+Beyond borders
+= Beyond borders
+African insights 2026.
+= African insights 2026.
+Citizen perspectives on a shifting global order.
+= Il punto di vista dei cittadini su un ordine globale che cambia.
+Afrobarometer’s flagship report for 2026 asks how Africans see a world in flux: free trade under the AfCFTA, migration, the great powers, the continent’s voice in global institutions and climate action. Survey data from 38 countries, carried by 38 figures and 4 tables in a single chart system, from a 38-country heatmap to one-page country scorecards.
+= Il report di punta 2026 di Afrobarometer chiede come gli africani vedono un mondo in trasformazione: il libero scambio dell’AfCFTA, le migrazioni, le grandi potenze, la voce del continente nelle istituzioni globali e l’azione per il clima. I dati di un’indagine in 38 paesi, raccontati da 38 figure e 4 tabelle in un unico sistema di grafici, da una heatmap di 38 paesi alle schede paese di una pagina.
+From the colophon:
+= Dal colophon:
+Report design by nutgraf.studio
+= Report design by nutgraf.studio
+Read the report on afrobarometer.org ↗
+= Leggete il report su afrobarometer.org ↗
+Pages
+= Pagine
+in English
+= in inglese
+Figures
+= Figure
+plus 4 tables
+= più 4 tabelle
+Countries
+= Paesi
+Round 10 survey, 2024/2025
+= Indagine del Round 10, 2024/2025
+Data
+= Dati
+Face-to-face interviews, nationally representative samples
+= Interviste faccia a faccia, campioni rappresentativi a livello nazionale
+Our role
+= Il nostro ruolo
+Report design: editorial design, data visualisation and infographics
+= Report design: design editoriale, visualizzazione dati e infografiche
+Client
+= Cliente
+Afrobarometer, pan-African research network
+= Afrobarometer, rete di ricerca panafricana
+
+# ---- Beyond borders booklet and carousel
+Beyond borders: the cover and eight pages
+= Beyond borders: la copertina e otto pagine
+Cover of Beyond borders, African insights 2026: orange and red tiles framing photos of a border crossing, a crowded street and a man holding up an ID card.
+= Copertina di Beyond borders, African insights 2026: tasselli arancioni e rossi incorniciano le foto di un valico di frontiera, di una strada affollata e di un uomo che mostra un documento d’identità.
+Cover · Beyond borders, African insights 2026
+= Copertina · Beyond borders, African insights 2026
+Open the cover at reading size
+= Aprite la copertina a dimensione di lettura
+The cover
+= La copertina
+The inside cover on deep blue: who Afrobarometer is, its vision and mission, its funders, the photo credits and the colophon, with a QR code to the report.
+= La seconda di copertina su fondo blu scuro: chi è Afrobarometer, la sua visione e la sua missione, i finanziatori, i crediti fotografici e il colophon, con un codice QR che porta al report.
+Beyond borders · Inside cover: about Afrobarometer, and the colophon
+= Beyond borders · Seconda di copertina: chi è Afrobarometer, e il colophon
+Open at reading size:
+= Aprite a dimensione di lettura:
+Inside cover and colophon
+= Seconda di copertina e colophon
+The contents page: orange chapter headings, from Moving goods and People on the move to Global powers and climate action, with their sections listed beneath.
+= La pagina dell’indice: i titoli dei capitoli in arancione, da Moving goods e People on the move fino a Global powers and climate action, con le sezioni elencate sotto.
+Beyond borders · Contents
+= Beyond borders · Indice
+The contents
+= L’indice
+The foreword by Afrobarometer board chair Amina Oyagbola, with her portrait, a pull quote in orange and her signature.
+= La prefazione della presidente del board di Afrobarometer, Amina Oyagbola, con il suo ritratto, una citazione in evidenza in arancione e la sua firma.
+Beyond borders · Foreword: Africa has never existed in isolation
+= Beyond borders · Prefazione: l’Africa non è mai esistita in isolamento
+The foreword
+= La prefazione
+Purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group.
+= Barre impilate viola sulle intenzioni di emigrare per paese, un dot plot che confronta due round dell’indagine e barre per gruppo demografico.
+Beyond borders · Figures 9 to 11: who has considered emigrating
+= Beyond borders · Figure da 9 a 11: chi ha pensato di emigrare
+Who is thinking of leaving
+= Chi pensa di partire
+A pie chart and a column chart of where potential emigrants would go, beside long stacked bars of preferred destinations in 38 countries, grouped by region.
+= Un grafico a torta e un istogramma su dove andrebbero i potenziali emigranti, accanto a lunghe barre impilate con le destinazioni preferite in 38 paesi, raggruppati per regione.
+Beyond borders · Figures 12 to 14: where potential emigrants would go
+= Beyond borders · Figure da 12 a 14: dove andrebbero i potenziali emigranti
+Where they would go
+= Dove andrebbero
+A cream panel with a bar chart comparing emigration intentions in Africa, Latin America and the Middle East and North Africa.
+= Un riquadro color crema con un grafico a barre che confronta le intenzioni di emigrare in Africa, in America Latina e in Medio Oriente e Nord Africa.
+Beyond borders · Figure 15: Africans lead the way in looking to uproot
+= Beyond borders · Figura 15: gli africani in testa tra chi pensa di partire
+Africa against two other regions
+= L’Africa a confronto con altre due regioni
+A dot plot of who should take responsibility for limiting climate change, by country, and stacked bars on support for climate action.
+= Un dot plot su chi dovrebbe assumersi la responsabilità di limitare il cambiamento climatico, paese per paese, e barre impilate sul sostegno all’azione per il clima.
+Beyond borders · Figures 37 and 38: responsibility for climate change, and support for climate action
+= Beyond borders · Figure 37 e 38: la responsabilità del cambiamento climatico e il sostegno all’azione per il clima
+Who should act on climate
+= Chi deve agire sul clima
+A one-page country scorecard infographic for Ghana, with bars, a pie and donut charts on trade, migration and great powers.
+= La scheda paese del Ghana in una pagina: un’infografica con barre, un grafico a torta e grafici ad anello su commercio, migrazioni e grandi potenze.
+Beyond borders · Country scorecards: Ghana
+= Beyond borders · Schede paese: Ghana
+One country on one page
+= Un paese in una pagina
+hello@nutgraf.studio
+= hello@nutgraf.studio
+Turn back
+= Torna indietro
+Turn the page
+= Gira pagina
+Inside · 8 of 48 pages
+= Dentro · 8 pagine su 48
+Previous pages
+= Pagine precedenti
+Next pages
+= Pagine successive
+Pages from Beyond borders
+= Pagine da Beyond borders
+Inside cover: about Afrobarometer, and the colophon
+= Seconda di copertina: chi è Afrobarometer, e il colophon
+Foreword: Africa has never existed in isolation
+= Prefazione: l’Africa non è mai esistita in isolamento
+Figures 9 to 11: who has considered emigrating
+= Figure da 9 a 11: chi ha pensato di emigrare
+(rebuilt as a dashboard below)
+= (ricostruita qui sotto come dashboard)
+Figures 12 to 14: where potential emigrants would go
+= Figure da 12 a 14: dove andrebbero i potenziali emigranti
+Figure 15: Africans lead the way in looking to uproot
+= Figura 15: gli africani in testa tra chi pensa di partire
+Figures 37 and 38: responsibility for climate change, and support for climate action
+= Figure 37 e 38: la responsabilità del cambiamento climatico e il sostegno all’azione per il clima
+Country scorecards: Ghana
+= Schede paese: Ghana
+
+# ---- Rețele Electrice
+Raport de Sustenabilitate
+= Raport de Sustenabilitate
+Sustainability Report 2024.
+= Report di sostenibilità 2024.
+The first Rețele Electrice report prepared with reference to ESRS.
+= Il primo report di Rețele Electrice redatto con riferimento agli ESRS.
+PPC Group’s electricity distributor in Romania, covering Banat, Dobrogea and Muntenia, reports on materiality, governance, climate, its people and the modernisation of its grid, under the EU’s new sustainability reporting standards. We turned 105 pages of ESG disclosure into KPI tiles, flows and rings a non-specialist can read, without losing a decimal.
+= Il distributore di energia elettrica di PPC Group in Romania, attivo in Banato, Dobrugia e Muntenia, rendiconta materialità, governance, clima, persone e ammodernamento della rete secondo i nuovi standard europei di rendicontazione di sostenibilità. Abbiamo trasformato 105 pagine di informativa ESG in riquadri KPI, flussi e anelli che anche chi non è del mestiere può leggere, senza perdere un decimale.
+in Romanian
+= in rumeno
+In one chart
+= In un grafico
+tCO₂e, traced from 3 scopes to 11 sources
+= tCO₂e, seguite dai 3 scope alle 11 fonti
+Framework
+= Framework
+ESRS, the reporting standards of the EU’s CSRD
+= ESRS, gli standard di rendicontazione della CSRD europea
+Editorial design, data visualisation and KPI infographics
+= Design editoriale, visualizzazione dati e infografiche dei KPI
+Rețele Electrice România, PPC Group
+= Rețele Electrice România, PPC Group
+the Rețele Electrice report
+= il report di Rețele Electrice
+The Rețele Electrice sustainability report: the cover and eight pages
+= Il report di sostenibilità di Rețele Electrice: la copertina e otto pagine
+Cover of the Rețele Electrice 2024 sustainability report: a large 2024 over a forested mountain valley.
+= Copertina del report di sostenibilità 2024 di Rețele Electrice: un grande 2024 sopra una valle di montagna coperta di boschi.
+Cover · Raport de Sustenabilitate 2024, Rețele Electrice România
+= Copertina · Raport de Sustenabilitate 2024, Rețele Electrice România
+Rețele Electrice
+= Rețele Electrice
+A chapter opener: “Despre raportul de sustenabilitate” (About the sustainability report) in thin white type and a large faded 1 over a misty autumn mountain valley.
+= Un’apertura di capitolo: “Despre raportul de sustenabilitate” (Sul report di sostenibilità) in un carattere bianco sottile e un grande 1 sbiadito sopra una valle di montagna autunnale nella nebbia.
+Rețele Electrice · Chapter 1: about the sustainability report
+= Rețele Electrice · Capitolo 1: il report di sostenibilità
+A chapter opens
+= Si apre un capitolo
+The company profile, with a map of Romania’s counties picking out the three distribution regions, Banat, Dobrogea and Muntenia, in blue and green.
+= Il profilo dell’azienda, con una mappa delle contee della Romania che mette in evidenza in blu e in verde le tre regioni di distribuzione: Banato, Dobrugia e Muntenia.
+Rețele Electrice · Company profile: a grid of about 135,000 km in three regions
+= Rețele Electrice · Profilo dell’azienda: una rete di circa 135.000 km in tre regioni
+Three regions on one map
+= Tre regioni su una mappa
+Vision and values set in white over a full-page photo of power lines against a blue sky.
+= Visione e valori in bianco su una foto a tutta pagina di linee elettriche contro il cielo azzurro.
+Rețele Electrice · Vision and values
+= Rețele Electrice · Visione e valori
+Vision and values
+= Visione e valori
+An infographic spread of orange and magenta KPI tiles for financial and technical performance, with small bar charts inside the tiles.
+= Una doppia pagina infografica di riquadri KPI arancioni e magenta sui risultati finanziari e tecnici, con piccoli grafici a barre dentro i riquadri.
+Rețele Electrice · Financial and technical performance, 2024
+= Rețele Electrice · Risultati finanziari e tecnici, 2024
+The year in KPI tiles
+= L’anno in riquadri KPI
+The carbon footprint section: a photo of cupped hands holding soil and a seedling, a pale panel introducing Scope 1, 2 and 3 emissions, then two columns on how greenhouse gas emissions are calculated.
+= La sezione sull’impronta di carbonio: la foto di due mani a coppa con terra e un germoglio, un riquadro chiaro che introduce le emissioni Scope 1, 2 e 3, poi due colonne su come si calcolano le emissioni di gas serra.
+Rețele Electrice · Carbon footprint and emissions reduction
+= Rețele Electrice · Impronta di carbonio e riduzione delle emissioni
+Measuring the footprint
+= Misurare l’impronta
+A Sankey diagram in green, orange and blue tracing 793,348 tonnes of CO₂ equivalent from three emission scopes to eleven sources.
+= Un diagramma di Sankey in verde, arancione e blu che segue 793.348 tonnellate di CO₂ equivalente da tre scope di emissione a undici fonti.
+Rețele Electrice · Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024
+= Rețele Electrice · Emissioni lorde Scope 1, 2 e 3 ed emissioni totali di gas serra, 2024
+Emissions, scope by scope
+= Le emissioni, scope per scope
+A chapter opener: “Oamenii noștri” (Our people) over a photo of three Rețele Electrice workers in white hard hats and work jackets in front of a substation, with a large faded 6.
+= Un’apertura di capitolo: “Oamenii noștri” (Le nostre persone) sopra la foto di tre lavoratori di Rețele Electrice con caschi bianchi e giacche da lavoro davanti a una sottostazione, con un grande 6 sbiadito.
+Rețele Electrice · Chapter 6: our people
+= Rețele Electrice · Capitolo 6: le nostre persone
+Our people
+= Le nostre persone
+Our employees: a photo of a worker in a Rețele Electrice jacket holding a grid plan, then six blue KPI tiles: 2,771 employees, top management 62% men and 38% women, a 1.75% gender pay gap, €357.4M in contracts with local and EU suppliers, 10 communities reached and €228,419 invested in them.
+= I nostri dipendenti: la foto di un lavoratore con la giacca di Rețele Electrice che tiene in mano una pianta della rete, poi sei riquadri KPI blu: 2.771 dipendenti, un top management composto al 62% da uomini e al 38% da donne, un divario retributivo di genere dell’1,75%, 357,4 milioni di euro in contratti con fornitori locali ed europei, 10 comunità raggiunte e 228.419 euro investiti in queste comunità.
+Rețele Electrice · Our employees, in six KPI tiles
+= Rețele Electrice · I nostri dipendenti, in sei riquadri KPI
+People in six tiles
+= Le persone in sei riquadri
+Inside · 8 of 105 pages
+= Dentro · 8 pagine su 105
+Pages from the Rețele Electrice sustainability report
+= Pagine dal report di sostenibilità di Rețele Electrice
+Chapter 1: about the sustainability report
+= Capitolo 1: il report di sostenibilità
+Company profile: a grid of about 135,000 km in three regions
+= Profilo dell’azienda: una rete di circa 135.000 km in tre regioni
+Financial and technical performance, 2024
+= Risultati finanziari e tecnici, 2024
+Carbon footprint and emissions reduction
+= Impronta di carbonio e riduzione delle emissioni
+Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024
+= Emissioni lorde Scope 1, 2 e 3 ed emissioni totali di gas serra, 2024
+Live below ↓
+= Dal vivo qui sotto ↓
+Chapter 6: our people
+= Capitolo 6: le nostre persone
+Our employees, in six KPI tiles
+= I nostri dipendenti, in sei riquadri KPI
+
+# ---- the live Sankey
+From print to screen
+= Dalla carta allo schermo
+On paper, the Rețele Electrice report traces 793,348 tonnes of CO₂ equivalent from three scopes to eleven sources in one Sankey diagram. On screen, rebuilt from the same numbers, it answers questions. Point at any flow to follow it.
+= Sulla carta, il report di Rețele Electrice segue 793.348 tonnellate di CO₂ equivalente da tre scope a undici fonti in un solo diagramma di Sankey. Sullo schermo, ricostruito con gli stessi numeri, risponde alle domande. Puntate un flusso qualsiasi per seguirlo.
+Printed · Raport de Sustenabilitate 2024, Rețele Electrice România
+= Stampato · Raport de Sustenabilitate 2024, Rețele Electrice România
+The page as printed: Romanian text above a Sankey diagram of gross Scope 1, 2 and 3 emissions, totalling 793.348 tCO2e.
+= La pagina stampata: testo in rumeno sopra un diagramma di Sankey delle emissioni lorde Scope 1, 2 e 3, per un totale di 793.348 tCO2e.
+Printed
+= Stampato
+Live
+= Dal vivo
+Rebuilt from the printed data
+= Ricostruito dai dati stampati
+Gross Scope 1, 2 and 3 emissions and total GHG emissions, 2024 (tCO₂e)
+= Emissioni lorde Scope 1, 2 e 3 ed emissioni totali di gas serra, 2024 (tCO₂e)
+Point at, tap or tab to a scope or a source to follow its flow.
+= Puntate, toccate o raggiungete con il tasto Tab uno scope o una fonte per seguirne il flusso.
+Total, 2024
+= Totale, 2024
+tCO₂e
+= tCO₂e
+Scope 2 is 61.7% of it: almost all network losses.
+= Lo Scope 2 ne vale il 61,7%: quasi tutto perdite di rete.
+See the data as a table
+= I dati in tabella
+Gross emissions by scope and source, tCO₂e. Rețele Electrice România, Sustainability Report 2024.
+= Emissioni lorde per scope e fonte, tCO₂e. Rețele Electrice România, Report di sostenibilità 2024.
+Scope and source
+= Scope e fonte
+Share of 2024
+= Quota del 2024
+Scope 1
+= Scope 1
+Scope 2
+= Scope 2
+Scope 3
+= Scope 3
+Scope 1 · direct emissions
+= Scope 1 · emissioni dirette
+Mobile combustion
+= Combustione mobile
+Fugitive gases (SF₆, HFCs)
+= Gas fuggitivi (SF₆, HFC)
+Stationary combustion
+= Combustione stazionaria
+Scope 2 · indirect, from energy
+= Scope 2 · indirette, da energia
+Network losses (CPT), incl. commercial losses
+= Perdite di rete (CPT), comprese le perdite commerciali
+Electricity for offices and facilities
+= Elettricità per uffici e impianti
+Other purchased energy
+= Altra energia acquistata
+Electricity for vehicles
+= Elettricità per i veicoli
+Scope 3 · other indirect
+= Scope 3 · altre indirette
+Purchased goods and services (cat. 1)
+= Beni e servizi acquistati (cat. 1)
+Capital goods (cat. 2)
+= Beni strumentali (cat. 2)
+Fuel- and energy-related activities (cat. 3)
+= Attività legate a combustibili ed energia (cat. 3)
+Waste generated in operations (cat. 5)
+= Rifiuti prodotti dalle attività (cat. 5)
+Total
+= Totale
+Labels translated from the Romanian original. 2023 figures where the page gives them, restated by the client with 2024 emission factors.
+= Etichette tradotte dall’originale rumeno. Dati 2023 dove la pagina li riporta, ricalcolati dal cliente con i fattori di emissione 2024.
+
+# Sankey labels drawn by the script, from the table's data attributes
+Capital goods (Category 2)
+= Beni strumentali (categoria 2)
+Direct emissions from mobile combustion
+= Emissioni dirette da combustione mobile
+Direct emissions from stationary combustion
+= Emissioni dirette da combustione stazionaria
+Direct fugitive emissions from released greenhouse gases (SF₆, HFCs)
+= Emissioni fuggitive dirette da rilascio di gas serra (SF₆, HFC)
+Fuel- and energy-related activities (Category 3)
+= Attività legate a combustibili ed energia (categoria 3)
+Purchased electricity for vehicles
+= Elettricità acquistata per i veicoli
+Purchased electricity used in offices and facilities
+= Elettricità acquistata per uffici e impianti
+Purchased energy other than electricity
+= Energia acquistata diversa dall’elettricità
+Purchased goods and services (Category 1)
+= Beni e servizi acquistati (categoria 1)
+Scope 2 · indirect emissions from energy
+= Scope 2 · emissioni indirette da energia
+Scope 3 · other indirect emissions
+= Scope 3 · altre emissioni indirette
+Technological own consumption (CPT): network losses, including commercial losses
+= Consumo tecnologico proprio (CPT): perdite di rete, comprese le perdite commerciali
+Waste generated in operations (Category 5)
+= Rifiuti prodotti dalle attività (categoria 5)
+Capital goods
+= Beni strumentali
+Fuel &amp; energy activities
+= Combustibili ed energia
+Network losses (CPT)
+= Perdite di rete (CPT)
+Offices &amp; facilities
+= Uffici e impianti
+Purchased goods &amp; services
+= Beni e servizi acquistati
+Waste from operations
+= Rifiuti delle attività
+Fuel &amp; energy
+= Combustibili ed energia
+Fugitive gases
+= Gas fuggitivi
+Other energy
+= Altra energia
+Purchased goods
+= Beni acquistati
+Vehicles
+= Veicoli
+Waste
+= Rifiuti
+
+# ---- dashboards
+Interactive dashboards · data-driven storytelling
+= Dashboard interattive · data storytelling
+A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into interactive dashboards, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.
+= Un PDF è un’istantanea. Colleghiamo i grafici di un report ai dataset da cui nascono e li trasformiamo in dashboard interattive, così le cifre si possono filtrare, aggiornare ed esplorare, da chi legge i vostri report e da chi guida la vostra organizzazione.
+Show your impact
+= Mostrate il vostro impatto
+Data-driven storytelling for funders, partners, the press and the public: shareable charts, country and programme pages, and a number behind every claim.
+= Data storytelling per finanziatori, partner, stampa e pubblico: grafici da condividere, pagine per paese e per programma, e un numero dietro ogni affermazione.
+Funders
+= Finanziatori
+Press
+= Stampa
+Public
+= Pubblico
+Inwards
+= Verso l’interno
+Decide with data
+= Decidete con i dati
+The same datasets for boards and teams: indicators that refresh as new data arrives, filters by region, year or programme, and the view each decision needs.
+= Gli stessi dataset per board e team: indicatori che si aggiornano quando arrivano nuovi dati, filtri per regione, anno o programma, e la vista che serve a ogni decisione.
+Boards
+= Board
+Management
+= Management
+Programme teams
+= Team di programma
+Analysts
+= Analisti
+Democracy
+= Democrazia
+Leaving home
+= Partire
+Major powers
+= Grandi potenze
+Previous dashboard
+= Dashboard precedente
+Next dashboard
+= Dashboard successiva
+Thirty countries, five rounds of democracy
+= Trenta paesi, cinque round di democrazia
+Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of
+= Ogni flusso è la % di un paese nei cinque round dell’indagine, dal 2011/2013 al 2021/2023. Figura A.1 di
+African insights 2024
+= African insights 2024
+, rebuilt as a dashboard.
+= , ricostruita come dashboard.
+Measure
+= Misura
+Prefer democracy
+= Preferiscono la democrazia
+Satisfied
+= Soddisfatti
+Country
+= Paese
+All 30 countries
+= Tutti i 30 paesi
+Rose since 2011/2013
+= In crescita dal 2011/2013
+Fell
+= In calo
+Hover or tap a stream to follow one country
+= Passate sopra un flusso o toccatelo per seguire un paese
+Streamgraph of 30 countries over five survey rounds
+= Streamgraph di 30 paesi in cinque round dell’indagine
+Source: Afrobarometer,
+= Fonte: Afrobarometer,
+African insights 2024: Democracy at risk – the people’s perspective
+= African insights 2024: Democracy at risk – the people’s perspective
+, Figure A.1: % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the dashboard starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.
+= , Figura A.1: % di chi preferisce la democrazia a qualsiasi altra forma di governo, e % di chi è abbastanza o molto soddisfatto di come funziona la democrazia. La figura parte dal 1999; la dashboard parte dal 2011/2013, il primo round in cui sono stati intervistati tutti e 30 i paesi. I flussi si sommano, quindi la fascia vale 30 volte la media dei 30 paesi: dal 73% al 66% per la preferenza, dal 50% al 39% per la soddisfazione, come li riporta il report.
+% who say they have considered emigrating “a lot”, in 2016/2018 and in 2024/2025, in the 31 countries surveyed both times. Figure 10 of
+= % di chi dice di aver pensato “molto” a emigrare, nel 2016/2018 e nel 2024/2025, nei 31 paesi intervistati entrambe le volte. Figura 10 di
+Region
+= Regione
+All 31 countries
+= Tutti i 31 paesi
+West Africa
+= Africa occidentale
+Central Africa
+= Africa centrale
+East Africa
+= Africa orientale
+Southern Africa
+= Africa australe
+North Africa
+= Africa settentrionale
+Sort by
+= Ordina per
+Change
+= Variazione
+Source: Afrobarometer Rounds 7 (2016/2018) and 10 (2024/2025), in
+= Fonte: Afrobarometer, round 7 (2016/2018) e 10 (2024/2025), in
+(African insights 2026), Figure 10; regions as in its Figure 9. Change is in percentage points. * Gabon and South Africa: the two printed dots overlap under one label, so the 2016/2018 value is read off the chart.
+= (African insights 2026), Figura 10; regioni come nella sua Figura 9. La variazione è in punti percentuali. * Gabon e Sudafrica: nel grafico stampato i due punti si sovrappongono sotto un’unica etichetta, quindi il valore del 2016/2018 è letto dal grafico.
+How Africans rate the major powers
+= Come gli africani giudicano le grandi potenze
+% of citizens who say each power’s influence on their country is somewhat or very positive. Table 2 of
+= % di cittadini che giudicano abbastanza o molto positiva l’influenza di ciascuna potenza sul proprio paese. Tabella 2 di
+View
+= Vista
+38-country average
+= Media dei 38 paesi
+The other countries
+= Gli altri paesi
+Hover a dot to see the country, click to switch to it
+= Passate sopra un punto per vedere il paese, cliccate per passare a quello
+Tap a dot to switch to that country
+= Toccate un punto per passare a quel paese
+Power
+= Potenza
+Rank
+= Posizione
+vs average
+= rispetto alla media
+Source: Afrobarometer Round 10 (2024/2025), in
+= Fonte: Afrobarometer, round 10 (2024/2025), in
+(African insights 2026), Table 2. Former colonial power: 37 countries (Liberia has none). Outwards turns the table into a sentence a press release can use; inwards adds the rank and the gap a programme team needs.
+= (African insights 2026), Tabella 2. Ex potenza coloniale: 37 paesi (la Liberia non ne ha una). Verso l’esterno trasforma la tabella in una frase pronta per un comunicato stampa; verso l’interno aggiunge la posizione e lo scarto che servono a un team di programma.
+
+# ---- process
+How we design a data report
+= Come progettiamo un report di dati
+Data audit
+= Audit dei dati
+We start with the data, not the layout: what’s there, what’s missing, and what the numbers can honestly carry.
+= Partiamo dai dati, non dall’impaginazione: cosa c’è, cosa manca e cosa i numeri possono sostenere onestamente.
+Chart system
+= Sistema di grafici
+Palette, type and chart grammar for the whole report, so every figure speaks the same language.
+= Palette, caratteri e grammatica dei grafici per tutto il report, così ogni figura parla la stessa lingua.
+Design and verify
+= Design e verifica
+Every page laid out, every number checked against its source, on screen and again on the proof.
+= Ogni pagina impaginata, ogni numero verificato sulla fonte, a schermo e di nuovo in bozza.
+Publish, then extend
+= Pubblicare, poi estendere
+Print-ready PDF and digital edition, social cards for launch day, and a dashboard when you want the data to keep working.
+= PDF pronto per la stampa ed edizione digitale, card social per il giorno del lancio e una dashboard se volete che i dati continuino a lavorare.
+Flagship reports
+= Report di punta
+Sustainability &amp; ESG reports
+= Report di sostenibilità ed ESG
+Annual reports
+= Report annuali
+Survey research
+= Ricerche da sondaggi
+Policy briefs
+= Policy brief
+Impact reports
+= Report d’impatto
+
+# ---- FAQ heading, contact, lightbox
+Questions
+= Domande
+Got a report full of numbers?
+= Avete un report pieno di numeri?
+State-of-the-art data design, bespoke craft, every number checked. A brief, a dataset or last year’s PDF is all we need to start.
+= Data design all’avanguardia, lavoro su misura, ogni numero verificato. Per iniziare ci bastano un brief, un dataset o il PDF dell’anno scorso.
+Ask about dashboards
+= Chiedeteci delle dashboard
+Report pages
+= Pagine dei report
+Close page
+= Chiudi la pagina
+Previous page
+= Pagina precedente
+Next page
+= Pagina successiva
+
+# the headline keeps "report." under its underline
+report.
+= report.

@@ -10,6 +10,7 @@ Nutgraf works with newsrooms, NGOs, cultural institutions and public-sector clie
 - [Workshops](https://nutgraf.studio/workshops/): Flagship half-day-to-two-day workshops in data research, data design and data storytelling for teams, built around state-of-the-art AI. Includes format, pricing approach and frequently asked questions.
 - [Exhibitions](https://nutgraf.studio/exhibitions/): Data exhibitions for cultural diplomacy, designed for embassies, cultural institutes and trade agencies. Features Între noi, an exhibition on Italy and Romania told with data, with its film and photos.
 - [Reports](https://nutgraf.studio/reports/): Data visualisation reports, infographics and interactive dashboards: report design for flagship, annual and ESG reports, and PDF reports turned into dashboards. Features Afrobarometer's Beyond borders and Rețele Electrice România's 2024 sustainability report. Markdown version: https://nutgraf.studio/reports/index.html.md
+- [Italiano](https://nutgraf.studio/it/): the whole site in Italian, at /it/, /it/workshops/, /it/exhibitions/ and /it/reports/.
 
 ## Data reports, data visualisation and dashboards
 

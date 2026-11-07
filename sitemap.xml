@@ -44,4 +44,29 @@
     <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p60-chapter-opener-people.jpg</image:loc></image:image>
     <image:image><image:loc>https://nutgraf.studio/reports/img/retele-electrice-sustainability-report-2024-p61-employees-kpi-tiles.jpg</image:loc></image:image>
   </url>
+  <!-- Italian edition, built by scripts/build_it.py -->
+  <url>
+    <loc>https://nutgraf.studio/it/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nutgraf.studio/it/workshops/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nutgraf.studio/it/exhibitions/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nutgraf.studio/it/reports/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

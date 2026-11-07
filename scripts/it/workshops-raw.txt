@@ -1,0 +1,55 @@
+# Italian edition: Workshops page markup that spans tags, CSS and URLs.
+# See scripts/build_it.py.
+
+@@ menu bar chip: on small phones it says just "Prenotate", like the Reports chip
+<li><a class="chip" href="#book">Book a workshop</a></li>
+==
+<li><a class="chip" href="#book">Prenotate<span class="chip-more"> un workshop</span></a></li>
+
+@@ the CSS for that chip (the Italian label is longer than the English)
+.nav-links a.lang-switch { font-weight: 700; letter-spacing: 0.06em; }
+==
+.nav-links a.lang-switch { font-weight: 700; letter-spacing: 0.06em; }
+/* small phones: the chip says just "Prenotate", so the logo keeps its size */
+@media (max-width: 479px) {
+  .nav-links .chip-more { display: none; }
+}
+
+@@ hero headline: the underline moves to "fluente", three short lines as in English
+<h1>Teach your team to speak data <em class="fx">fluently.<svg
+==
+<h1>Il vostro team, <em class="fx">fluente<svg
+
+@@ hero headline, the end
+<path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em></h1>
+==
+<path d="M6 26 C 70 10, 160 34, 294 16"/></svg></em> nella lingua dei dati.</h1>
+
+@@ FAQ: the last answer has a link inside
+<dd>Pricing depends on scope, group size and format. Email <a href="mailto:hello@nutgraf.studio">hello@nutgraf.studio</a> or use the "Book a workshop" button to tell us where your team struggles, and we'll send a tailored proposal within a week.</dd>
+==
+<dd>Il prezzo dipende da obiettivi, numero di partecipanti e formato. Scriveteci a <a href="mailto:hello@nutgraf.studio">hello@nutgraf.studio</a> o usate il pulsante «Prenotate un workshop» per raccontarci dove il vostro team fa più fatica: entro una settimana vi mandiamo una proposta su misura.</dd>
+
+@@ booking headline
+<h2>Your next superpower is already <em>in your&nbsp;data.</em></h2>
+==
+<h2>Il vostro prossimo superpotere è già <em>nei vostri&nbsp;dati.</em></h2>
+
+@@ booking email subject
+mailto:hello@nutgraf.studio?subject=Workshop%20booking
+==
+mailto:hello@nutgraf.studio?subject=Prenotazione%20workshop
+
+@@ structured data: this page's own URL
+  "@id": "https://nutgraf.studio/workshops/#webpage",
+  "url": "https://nutgraf.studio/workshops/",
+==
+  "@id": "https://nutgraf.studio/it/workshops/#webpage",
+  "url": "https://nutgraf.studio/it/workshops/",
+
+@@ breadcrumb: Studio > Workshop, both Italian
+    { "@type": "ListItem", "position": 1, "name": "Nutgraf.studio", "item": "https://nutgraf.studio/" },
+    { "@type": "ListItem", "position": 2, "name": "Workshops", "item": "https://nutgraf.studio/workshops/" }
+==
+    { "@type": "ListItem", "position": 1, "name": "Nutgraf.studio", "item": "https://nutgraf.studio/it/" },
+    { "@type": "ListItem", "position": 2, "name": "Workshop", "item": "https://nutgraf.studio/it/workshops/" }

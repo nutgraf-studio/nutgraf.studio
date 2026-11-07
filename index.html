@@ -18,6 +18,9 @@ gtag('config', 'G-Q8YD4TDRXT');
 <meta name="robots" content="index, follow">
 <meta name="author" content="Nutgraf.studio">
 <link rel="canonical" href="https://nutgraf.studio/">
+<link rel="alternate" hreflang="en" href="https://nutgraf.studio/">
+<link rel="alternate" hreflang="it" href="https://nutgraf.studio/it/">
+<link rel="alternate" hreflang="x-default" href="https://nutgraf.studio/">
 <meta name="theme-color" content="#9FF29A">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -420,6 +423,13 @@ h1, h2, h3 {
 }
 /* a page link never breaks its arrow onto a line of its own */
 .nav-links a.page-link { white-space: nowrap; }
+/* the same page in Italian (in English on the Italian pages); on
+   phones it lives in the menu drawer, and on narrow tablets, where
+   the bar is full, in the footer */
+.nav-links a.lang-switch { font-weight: 700; letter-spacing: 0.06em; }
+@media (min-width: 600px) and (max-width: 699px) {
+  .nav-links li:has(> a.lang-switch) { display: none; }
+}
 
 /* Menu drawer (phones). The menu button takes the Instagram icon's
    place in the bar and opens a black panel from the right with this
@@ -1614,6 +1624,7 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
         <!-- Work nav link disabled for v1 launch — re-enable with the section below -->
         <!-- <li><a href="#work">Work</a></li> -->
         <li><a class="chip" href="#contact">Contact us</a></li>
+        <li><a class="lang-switch" href="/it/" hreflang="it" lang="it" title="Italiano">IT</a></li>
         <li>
           <a class="icon-link" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="Nutgraf on Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2269,6 +2280,7 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
       <a href="/workshops/">Workshops</a>
       <a href="/exhibitions/">Exhibitions</a>
       <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
+      <a class="lang-switch" href="/it/" hreflang="it" lang="it">Italiano</a>
       <a href="#top">Back to top ↑</a>
     </div>
   </div>
@@ -2481,6 +2493,14 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
     social.appendChild(ig);
   }
   social.appendChild(link('mailto:hello@nutgraf.studio', 'hello@nutgraf.studio'));
+  /* the same page in the other language */
+  var lang = bar.querySelector('a.lang-switch');
+  if (lang) {
+    var other = link(lang.getAttribute('href'), lang.title);
+    other.lang = lang.lang;
+    other.hreflang = lang.hreflang;
+    social.appendChild(other);
+  }
   foot.appendChild(social);
   drawer.appendChild(foot);
 
