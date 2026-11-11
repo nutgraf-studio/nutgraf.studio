@@ -1717,7 +1717,7 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
 
 .ways { margin-top: clamp(3rem, 6vw, 4rem); display: grid; gap: 1.5rem; }
 @media (min-width: 800px) { .ways { grid-template-columns: 1fr 1fr; gap: 2rem; } }
-.way { border-top: 2px solid var(--black); padding-top: 1.25rem; }
+.way { display: flex; flex-direction: column; }
 .way-dir {
   display: flex;
   align-items: center;
@@ -1727,7 +1727,72 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-.way-dir svg { width: 3.25rem; height: 1.25rem; stroke: var(--black); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+/* The two ways, drawn: a dashboard at the centre, its audiences at the
+   corners. The dashboard is one black donut on the mint, turning slowly: clockwise
+   outwards, anticlockwise inwards. Outwards the arrows leave
+   through the organisation's walls (the dashed ring) to people outside;
+   inwards the walls hold everyone and the arrows converge on the
+   dashboard. The arrows are drawn by script to the chips' real edges.
+   The chips are the card's own list, placed by CSS, so the reading order
+   stays label, title, text, list. */
+.way-viz {
+  order: -1;
+  position: relative;
+  height: clamp(13rem, 21vw, 15.5rem);
+  margin-bottom: 1.5rem;
+}
+.way-viz.in { overflow: hidden; border-radius: 1.25rem; }
+.way .way-viz ul { margin: 0; display: block; }
+.way-viz li { position: absolute; z-index: 3; background: var(--mint); white-space: nowrap; }
+.way-viz li:nth-child(1) { top: 0; left: 0; }
+.way-viz li:nth-child(2) { top: 0; right: 0; }
+.way-viz li:nth-child(3) { bottom: 0; left: 0; }
+.way-viz li:nth-child(4) { bottom: 0; right: 0; }
+.way-viz.in li:nth-child(1) { top: 0.875rem; left: 0.875rem; }
+.way-viz.in li:nth-child(2) { top: 0.875rem; right: 0.875rem; }
+.way-viz.in li:nth-child(3) { bottom: 0.875rem; left: 0.875rem; }
+.way-viz.in li:nth-child(4) { bottom: 0.875rem; right: 0.875rem; }
+.wv-arrows { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.wv-arrows path { fill: none; stroke: var(--black); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wv-arrows .flow { stroke-width: 1.75; stroke-linecap: butt; stroke-dasharray: 7 5; }
+.wv-wall { position: absolute; border: 1.5px dashed var(--black); }
+.way-viz.out .wv-wall { left: 50%; top: 50%; width: 8.75rem; height: 8.75rem; margin: -4.375rem 0 0 -4.375rem; border-radius: 50%; }
+.way-viz.in .wv-wall { inset: 0; border-radius: 1.25rem; }
+.wv-hub {
+  position: absolute; left: 50%; top: 50%; z-index: 2;
+  width: 5.25rem; height: 5.25rem; margin: -2.625rem 0 0 -2.625rem;
+  padding: 0.25rem;
+}
+.wv-hub svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.wv-hub circle { fill: none; stroke-width: 6.5; transform-box: fill-box; transform-origin: center; }
+.wv-hub .track { stroke: rgba(10, 10, 10, 0.14); }
+.wv-hub .arc { stroke: var(--black); stroke-dasharray: 34 66; transform: rotate(-90deg); }
+.wv-pulse {
+  position: absolute; left: 50%; top: 50%;
+  width: 5.25rem; height: 5.25rem; margin: -2.625rem 0 0 -2.625rem;
+  border: 1.5px solid var(--black); border-radius: 50%; opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wv-arrows .flow { animation: wv-flow 0.8s linear infinite; }
+  .way-viz .wv-pulse { animation: 2.8s var(--ease-out) infinite; }
+  .way-viz .wv-pulse + .wv-pulse { animation-delay: -1.4s; }
+  .way-viz.out .wv-pulse { animation-name: wv-pulse-out; }
+  .way-viz.in .wv-pulse { animation-name: wv-pulse-in; animation-timing-function: cubic-bezier(0.6, 0, 0.8, 0.4); }
+  .wv-hub .arc { animation: wv-spin 9s linear infinite; }
+  .way-viz.in .wv-hub .arc { animation-direction: reverse; }
+}
+/* the dashes run from the start of each path to its arrowhead */
+@keyframes wv-flow { to { stroke-dashoffset: -12; } }
+@keyframes wv-pulse-out {
+  0%   { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(3); opacity: 0; }
+}
+@keyframes wv-pulse-in {
+  0%   { transform: scale(3); opacity: 0; }
+  60%  { opacity: 0.35; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+@keyframes wv-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
 .way h3 { margin-top: 0.75rem; font-size: clamp(1.75rem, 3vw, 2.5rem); }
 .way p { margin-top: 0.625rem; max-width: 32rem; }
 .way ul { margin-top: 1rem; list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -2863,22 +2928,28 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
     <div class="ways">
       <div class="way reveal">
-        <span class="way-dir">
-          <svg viewBox="0 0 52 20" aria-hidden="true"><path d="M2 10h46M40 3l8 7-8 7"/></svg>
-          Verso l’esterno
-        </span>
+        <span class="way-dir">Verso l’esterno</span>
         <h3>Mostrate il vostro impatto</h3>
         <p>Data storytelling per finanziatori, partner, stampa e pubblico: grafici da condividere, pagine per paese e per programma, e un numero dietro ogni affermazione.</p>
-        <ul><li>Finanziatori</li><li>Partner</li><li>Stampa</li><li>Pubblico</li></ul>
+        <div class="way-viz out">
+          <svg class="wv-arrows" aria-hidden="true"></svg>
+          <span class="wv-wall" aria-hidden="true"></span>
+          <span class="wv-pulse" aria-hidden="true"></span><span class="wv-pulse" aria-hidden="true"></span>
+          <span class="wv-hub" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/></svg></span>
+          <ul><li>Finanziatori</li><li>Partner</li><li>Stampa</li><li>Pubblico</li></ul>
+        </div>
       </div>
       <div class="way reveal">
-        <span class="way-dir">
-          <svg viewBox="0 0 52 20" aria-hidden="true"><path d="M50 10H4M12 3l-8 7 8 7"/></svg>
-          Verso l’interno
-        </span>
+        <span class="way-dir">Verso l’interno</span>
         <h3>Decidete con i dati</h3>
         <p>Gli stessi dataset per board e team: indicatori che si aggiornano quando arrivano nuovi dati, filtri per regione, anno o programma, e la vista che serve a ogni decisione.</p>
-        <ul><li>Board</li><li>Management</li><li>Team di programma</li><li>Analisti</li></ul>
+        <div class="way-viz in">
+          <svg class="wv-arrows" aria-hidden="true"></svg>
+          <span class="wv-wall" aria-hidden="true"></span>
+          <span class="wv-pulse" aria-hidden="true"></span><span class="wv-pulse" aria-hidden="true"></span>
+          <span class="wv-hub" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/></svg></span>
+          <ul><li>Board</li><li>Management</li><li>Team di programma</li><li>Analisti</li></ul>
+        </div>
       </div>
     </div>
 
@@ -4922,5 +4993,44 @@ document.querySelectorAll('.overlay').forEach(function (d) {
 })();
 </script>
 
+<script>
+/* The ways cards: arrows from the dashboard to each audience chip
+   (outwards) or from each chip to the dashboard (inwards), drawn to the
+   chips' real edges and redrawn when the card changes size. */
+(function () {
+  var vizs = document.querySelectorAll('.way-viz');
+  if (!vizs.length || !window.ResizeObserver) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  function edge(cx, cy, dx, dy, hw, hh) {
+    // the fraction of (dx, dy) from a box's centre to its edge
+    return Math.min(dx ? hw / Math.abs(dx) : Infinity, dy ? hh / Math.abs(dy) : Infinity);
+  }
+  function draw(viz) {
+    var svg = viz.querySelector('.wv-arrows');
+    var box = viz.getBoundingClientRect();
+    var hub = viz.querySelector('.wv-hub').getBoundingClientRect();
+    var inwards = viz.classList.contains('in');
+    var hx = hub.left + hub.width / 2 - box.left, hy = hub.top + hub.height / 2 - box.top;
+    var d = '', heads = '';
+    viz.querySelectorAll('li').forEach(function (li) {
+      var r = li.getBoundingClientRect();
+      var cx = r.left + r.width / 2 - box.left, cy = r.top + r.height / 2 - box.top;
+      var dx = cx - hx, dy = cy - hy;
+      var a = edge(hx, hy, dx, dy, hub.width / 2 + 8, hub.height / 2 + 8);
+      var b = 1 - edge(cx, cy, dx, dy, r.width / 2 + 8, r.height / 2 + 8);
+      var x1 = hx + dx * a, y1 = hy + dy * a, x2 = hx + dx * b, y2 = hy + dy * b;
+      if (inwards) { var t = x1; x1 = x2; x2 = t; t = y1; y1 = y2; y2 = t; }
+      var len = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / len, uy = (y2 - y1) / len;
+      d += 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + 'L' + (x2 - ux * 3).toFixed(1) + ' ' + (y2 - uy * 3).toFixed(1);
+      var bx = x2 - ux * 10, by = y2 - uy * 10;
+      heads += 'M' + (bx - uy * 6).toFixed(1) + ' ' + (by + ux * 6).toFixed(1) + 'L' + x2.toFixed(1) + ' ' + y2.toFixed(1) + 'L' + (bx + uy * 6).toFixed(1) + ' ' + (by - ux * 6).toFixed(1);
+    });
+    svg.innerHTML = '<path class="flow" d="' + d + '"/><path d="' + heads + '"/>';
+  }
+  var ro = new ResizeObserver(function (entries) { entries.forEach(function (e) { draw(e.target); }); });
+  vizs.forEach(function (v) { ro.observe(v); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { vizs.forEach(draw); });
+})();
+</script>
 </body>
 </html>
