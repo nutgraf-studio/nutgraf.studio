@@ -49,9 +49,9 @@ On the web page this table drives an interactive Sankey diagram rebuilt from the
 | Waste generated in operations (cat. 5) | 2,404 | – | 0.30% |
 | **Total** | **793,348** | – | **100%** |
 
-## From PDF to interactive dashboard
+## From PDF to live report
 
-A PDF is a snapshot. Nutgraf connects a report's charts to the datasets behind them and turns them into interactive dashboards, so the figures can be filtered, refreshed and explored.
+A PDF is a snapshot. Nutgraf connects a report's charts to the datasets behind them and turns them into live reports, so the figures can be filtered, refreshed and explored.
 
 - **Outwards: show your impact.** Data-driven storytelling for funders, partners, the press and the public: shareable charts, country and programme pages, and a number behind every claim.
 - **Inwards: decide with data.** The same datasets for boards and teams: indicators that refresh as new data arrives, filters by region, year or programme, and the view each decision needs.
@@ -67,9 +67,9 @@ Three live demos on the page, each rebuilt from a printed figure:
 1. **Data audit.** We start with the data, not the layout: what's there, what's missing, and what the numbers can honestly carry.
 2. **Chart system.** Palette, type and chart grammar for the whole report, so every figure speaks the same language.
 3. **Design and verify.** Every page laid out, every number checked against its source, on screen and again on the proof.
-4. **Publish, then extend.** Print-ready PDF and digital edition, social cards for launch day, and a dashboard when you want the data to keep working.
+4. **Publish, then extend.** Print-ready PDF and digital edition, social cards for launch day, and a live report when you want the data to keep working.
 
-Made for: flagship reports, sustainability and ESG reports, annual reports, survey research, policy briefs, impact reports, infographics and interactive dashboards.
+Made for: flagship reports, sustainability and ESG reports, annual reports, survey research, policy briefs, impact reports, infographics and live reports.
 
 ## Frequently asked questions
 
@@ -77,7 +77,7 @@ Made for: flagship reports, sustainability and ESG reports, annual reports, surv
 We turn research, survey and ESG data into reports people read. We audit the data, build one chart system for the whole report, design every page, chart and infographic, and check every number against its source before it goes to print. Recent work: Afrobarometer's 2026 flagship report and Rețele Electrice România's 2024 sustainability report.
 
 **Can you turn a PDF report into an interactive dashboard?**
-Yes. We connect a report's charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On the page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live dashboards.
+Yes, though we'd rather call it a live report: one people actually open. We connect a report's charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On the page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live charts.
 
 **Do you design infographics and data visualisations (dataviz) for reports?**
 Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like *Beyond borders*, still reads as one piece.

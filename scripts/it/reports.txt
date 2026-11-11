@@ -68,8 +68,8 @@ We turn research, survey and ESG data into reports people read. We audit the dat
 = Trasformiamo dati di ricerca, sondaggi e dati ESG in report che le persone leggono. Analizziamo i dati, costruiamo un unico sistema di grafici per tutto il report, progettiamo ogni pagina, grafico e infografica, e verifichiamo ogni numero sulla fonte prima della stampa. Lavori recenti: il report di punta 2026 di Afrobarometer e il report di sostenibilità 2024 di Rețele Electrice România.
 Can you turn a PDF report into an interactive dashboard?
 = Potete trasformare un report PDF in una dashboard interattiva?
-Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live dashboards.
-= Sì. Colleghiamo i grafici di un report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare. In questa pagina il Sankey delle emissioni del report di Rețele Electrice è ricostruito come diagramma interattivo, e due figure e una tabella dei report di Afrobarometer diventano dashboard dal vivo.
+Yes, though we’d rather call it a live report: one people actually open. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live charts.
+= Sì, anche se preferiamo chiamarlo live report: uno che le persone aprono davvero. Colleghiamo i grafici di un report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare. In questa pagina il Sankey delle emissioni del report di Rețele Electrice è ricostruito come diagramma interattivo, e due figure e una tabella dei report di Afrobarometer diventano grafici dal vivo.
 Do you design infographics and data visualisations (dataviz) for reports?
 = Progettate infografiche e visualizzazioni di dati (dataviz) per i report?
 Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like Beyond borders, still reads as one piece.
@@ -102,12 +102,12 @@ Worldwide, on-site or remote. The reports on this page were published in English
 = In tutto il mondo, in presenza o da remoto. I report di questa pagina sono stati pubblicati in inglese e in rumeno.
 
 # ---- menu bar
-Dashboards
-= Dashboard
+Live reports
+= Live report
 
 # ---- hero
-Report design · Data visualisation · Dashboards
-= Report design · Visualizzazione dati · Dashboard
+Report design · Data visualisation · Live reports
+= Report design · Visualizzazione dati · Live report
 Survey rounds, spreadsheets, ESG disclosures: we turn them into a flagship report your board, funders and press will read. Send us the brief and we’ll come back within a week with a page plan, a chart system and a timeline.
 = Sondaggi, fogli di calcolo, dati ESG: ne facciamo un report di punta che board, finanziatori e stampa leggeranno davvero. Mandateci il brief: entro una settimana torniamo da voi con un piano delle pagine, un sistema di grafici e un calendario.
 Commission a report
@@ -168,8 +168,6 @@ Case study
 = Case study
 Annual, sustainability, ESG and impact reports: KPIs, emissions, people metrics and CSRD disclosures that boards, investors and the public can read, without losing a decimal.
 = Report annuali, di sostenibilità, ESG e d’impatto: KPI, emissioni, indicatori sul personale e rendicontazione CSRD che board, investitori e pubblico possono leggere, senza perdere un decimale.
-Interactive dashboards
-= Dashboard interattive
 Live demos
 = Demo dal vivo
 PDF reports rebuilt on their datasets, with filters, rankings and live charts, for your audiences and for your own decisions.
@@ -304,8 +302,8 @@ Foreword: Africa has never existed in isolation
 = Prefazione: l’Africa non è mai esistita in isolamento
 Figures 9 to 11: who has considered emigrating
 = Figure da 9 a 11: chi ha pensato di emigrare
-(rebuilt as a dashboard below)
-= (ricostruita qui sotto come dashboard)
+(rebuilt as a live chart below)
+= (ricostruita qui sotto come grafico dal vivo)
 Figures 12 to 14: where potential emigrants would go
 = Figure da 12 a 14: dove andrebbero i potenziali emigranti
 Figure 15: Africans lead the way in looking to uproot
@@ -544,10 +542,10 @@ Waste
 = Rifiuti
 
 # ---- dashboards
-Interactive dashboards · data-driven storytelling
-= Dashboard interattive · data storytelling
-A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into interactive dashboards, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.
-= Un PDF è un’istantanea. Colleghiamo i grafici di un report ai dataset da cui nascono e li trasformiamo in dashboard interattive, così le cifre si possono filtrare, aggiornare ed esplorare, da chi legge i vostri report e da chi guida la vostra organizzazione.
+Live reports · data-driven storytelling
+= Live report · data storytelling
+A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into live reports, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.
+= Un PDF è un’istantanea. Colleghiamo i grafici di un report ai dataset da cui nascono e li trasformiamo in live report, così le cifre si possono filtrare, aggiornare ed esplorare, da chi legge i vostri report e da chi guida la vostra organizzazione.
 Show your impact
 = Mostrate il vostro impatto
 Data-driven storytelling for funders, partners, the press and the public: shareable charts, country and programme pages, and a number behind every claim.
@@ -578,18 +576,18 @@ Leaving home
 = Partire
 Major powers
 = Grandi potenze
-Previous dashboard
-= Dashboard precedente
-Next dashboard
-= Dashboard successiva
+Previous demo
+= Demo precedente
+Next demo
+= Demo successiva
 Thirty countries, five rounds of democracy
 = Trenta paesi, cinque round di democrazia
 Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of
 = Ogni flusso è la % di un paese nei cinque round dell’indagine, dal 2011/2013 al 2021/2023. Figura A.1 di
 African insights 2024
 = African insights 2024
-, rebuilt as a dashboard.
-= , ricostruita come dashboard.
+, rebuilt as a live chart.
+= , ricostruita come grafico dal vivo.
 Measure
 = Misura
 Prefer democracy
@@ -612,8 +610,8 @@ Source: Afrobarometer,
 = Fonte: Afrobarometer,
 African insights 2024: Democracy at risk – the people’s perspective
 = African insights 2024: Democracy at risk – the people’s perspective
-, Figure A.1: % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the dashboard starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.
-= , Figura A.1: % di chi preferisce la democrazia a qualsiasi altra forma di governo, e % di chi è abbastanza o molto soddisfatto di come funziona la democrazia. La figura parte dal 1999; la dashboard parte dal 2011/2013, il primo round in cui sono stati intervistati tutti e 30 i paesi. I flussi si sommano, quindi la fascia vale 30 volte la media dei 30 paesi: dal 73% al 66% per la preferenza, dal 50% al 39% per la soddisfazione, come li riporta il report.
+, Figure A.1: % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the live chart starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.
+= , Figura A.1: % di chi preferisce la democrazia a qualsiasi altra forma di governo, e % di chi è abbastanza o molto soddisfatto di come funziona la democrazia. La figura parte dal 1999; il grafico dal vivo parte dal 2011/2013, il primo round in cui sono stati intervistati tutti e 30 i paesi. I flussi si sommano, quindi la fascia vale 30 volte la media dei 30 paesi: dal 73% al 66% per la preferenza, dal 50% al 39% per la soddisfazione, come li riporta il report.
 % who say they have considered emigrating “a lot”, in 2016/2018 and in 2024/2025, in the 31 countries surveyed both times. Figure 10 of
 = % di chi dice di aver pensato “molto” a emigrare, nel 2016/2018 e nel 2024/2025, nei 31 paesi intervistati entrambe le volte. Figura 10 di
 Region
@@ -680,8 +678,8 @@ Every page laid out, every number checked against its source, on screen and agai
 = Ogni pagina impaginata, ogni numero verificato sulla fonte, a schermo e di nuovo in bozza.
 Publish, then extend
 = Pubblicare, poi estendere
-Print-ready PDF and digital edition, social cards for launch day, and a dashboard when you want the data to keep working.
-= PDF pronto per la stampa ed edizione digitale, card social per il giorno del lancio e una dashboard se volete che i dati continuino a lavorare.
+Print-ready PDF and digital edition, social cards for launch day, and a live report when you want the data to keep working.
+= PDF pronto per la stampa ed edizione digitale, card social per il giorno del lancio e un live report se volete che i dati continuino a lavorare.
 Flagship reports
 = Report di punta
 Sustainability &amp; ESG reports
@@ -702,8 +700,8 @@ Got a report full of numbers?
 = Avete un report pieno di numeri?
 State-of-the-art data design, bespoke craft, every number checked. A brief, a dataset or last year’s PDF is all we need to start.
 = Data design all’avanguardia, lavoro su misura, ogni numero verificato. Per iniziare ci bastano un brief, un dataset o il PDF dell’anno scorso.
-Ask about dashboards
-= Chiedeteci delle dashboard
+Ask about live reports
+= Chiedeteci dei live report
 Report pages
 = Pagine dei report
 Close page

@@ -67,9 +67,9 @@ type="text/markdown" hreflang="en" href="https://nutgraf.studio/reports/index.ht
 <h2 id="live-heading">Il Sankey, <em>fuori dalla pagina.</em></h2>
 
 @@ dashboards heading
-<h2 id="dash-heading">PDF in. <em>Dashboard out.</em></h2>
+<h2 id="dash-heading">PDF in. <em>Live report out.</em></h2>
 ==
-<h2 id="dash-heading">Entra un PDF. <em>Esce una dashboard.</em></h2>
+<h2 id="dash-heading">Entra un PDF. <em>Esce un live report.</em></h2>
 
 @@ process heading
 <h2 id="process-heading">From raw data to <em>final proof.</em></h2>
@@ -87,9 +87,9 @@ type="text/markdown" hreflang="en" href="https://nutgraf.studio/reports/index.ht
 ?subject=Richiesta%20per%20un%20report
 
 @@ email subjects
-?subject=Dashboard%20enquiry
+?subject=Live%20report%20enquiry
 ==
-?subject=Richiesta%20per%20una%20dashboard
+?subject=Richiesta%20per%20un%20live%20report
 
 @@ numbers the Italian way, and the helpers the Italian sentences below need
 var fmt = function (n) { return n.toLocaleString('en-GB'); };

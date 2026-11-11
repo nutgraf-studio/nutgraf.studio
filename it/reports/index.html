@@ -101,7 +101,7 @@ setTimeout(function () {
         },
         {
           "@type": "Thing",
-          "name": "Dashboard"
+          "name": "Live report"
         },
         {
           "@type": "Thing",
@@ -231,7 +231,7 @@ setTimeout(function () {
       "name": "Potete trasformare un report PDF in una dashboard interattiva?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sì. Colleghiamo i grafici di un report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare. In questa pagina il Sankey delle emissioni del report di Rețele Electrice è ricostruito come diagramma interattivo, e due figure e una tabella dei report di Afrobarometer diventano dashboard dal vivo."
+        "text": "Sì, anche se preferiamo chiamarlo live report: uno che le persone aprono davvero. Colleghiamo i grafici di un report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare. In questa pagina il Sankey delle emissioni del report di Rețele Electrice è ricostruito come diagramma interattivo, e due figure e una tabella dei report di Afrobarometer diventano grafici dal vivo."
       }
     },
     {
@@ -1713,6 +1713,8 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   padding-block: clamp(5rem, 11vw, 8rem);
 }
 .dash h2 { font-size: clamp(2.75rem, 7vw, 5.75rem); max-width: 12ch; }
+/* keep "Live report out." in one piece, so the headline breaks after "PDF in." */
+@media (min-width: 600px) { .dash h2 { max-width: none; } .dash h2 em { white-space: nowrap; } }
 .dash-lead { margin-top: 1.5rem; max-width: 40rem; font-size: 1.125rem; font-weight: 500; }
 
 .ways { margin-top: clamp(3rem, 6vw, 4rem); display: grid; gap: 1.5rem; }
@@ -2363,7 +2365,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <ul class="nav-links">
         <li><a href="/it/">Studio</a></li>
         <li><a href="#flagship">Report</a></li>
-        <li><a href="#dashboards">Dashboard</a></li>
+        <li><a href="#dashboards">Live report</a></li>
         <li><a class="page-link" href="/it/workshops/">Workshop<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="page-link" href="/it/exhibitions/">Mostre<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="chip" href="#contact">Scriveteci<span class="chip-more"> per un report</span></a></li>
@@ -2395,7 +2397,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="hero" aria-labelledby="hero-heading">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="kicker">Report design · Visualizzazione dati · Dashboard</span>
+      <span class="kicker">Report design · Visualizzazione dati · Live report</span>
       <h1 id="hero-heading">
         <span class="hero-line"><span>Portateci</span></span>
         <span class="hero-line"><span>i dati.</span></span>
@@ -2500,7 +2502,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </li>
       <li class="reveal">
         <div>
-          <div class="toc-line"><h3>Dashboard interattive</h3><span class="leader" aria-hidden="true"></span><a href="#dashboards">Demo dal vivo</a></div>
+          <div class="toc-line"><h3>Live report</h3><span class="leader" aria-hidden="true"></span><a href="#dashboards">Demo dal vivo</a></div>
           <p>Report PDF ricostruiti sui loro dataset, con filtri, classifiche e grafici dal vivo, per il vostro pubblico e per le vostre decisioni.</p>
         </div>
       </li>
@@ -2654,7 +2656,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <a href="/reports/img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg" data-group="afro" data-caption="Figure da 9 a 11: chi ha pensato di emigrare">
             <img src="/reports/img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg" alt="Barre impilate viola sulle intenzioni di emigrare per paese, un dot plot che confronta due round dell’indagine e barre per gruppo demografico." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption>Chi pensa di partire <a href="#demo-dots" class="visually-hidden">(ricostruita qui sotto come dashboard)</a></figcaption>
+          <figcaption>Chi pensa di partire <a href="#demo-dots" class="visually-hidden">(ricostruita qui sotto come grafico dal vivo)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
           <a href="/reports/img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts.jpg" data-group="afro" data-caption="Figure da 12 a 14: dove andrebbero i potenziali emigranti">
@@ -2923,9 +2925,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="dash" id="dashboards" aria-labelledby="dash-heading">
   <div class="wrap">
     <div class="reveal">
-      <span class="kicker">Dashboard interattive · data storytelling</span>
-      <h2 id="dash-heading">Entra un PDF. <em>Esce una dashboard.</em></h2>
-      <p class="dash-lead">Un PDF è un’istantanea. Colleghiamo i grafici di un report ai dataset da cui nascono e li trasformiamo in dashboard interattive, così le cifre si possono filtrare, aggiornare ed esplorare, da chi legge i vostri report e da chi guida la vostra organizzazione.</p>
+      <span class="kicker">Live report · data storytelling</span>
+      <h2 id="dash-heading">Entra un PDF. <em>Esce un live report.</em></h2>
+      <p class="dash-lead">Un PDF è un’istantanea. Colleghiamo i grafici di un report ai dataset da cui nascono e li trasformiamo in live report, così le cifre si possono filtrare, aggiornare ed esplorare, da chi legge i vostri report e da chi guida la vostra organizzazione.</p>
     </div>
 
     <div class="ways">
@@ -2963,8 +2965,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <button type="button" role="tab" id="tab-powers" aria-controls="demo" aria-selected="false" tabindex="-1"><span class="no">03</span>Grandi potenze</button>
         </div>
         <div class="strip-nav deck-nav">
-          <button type="button" data-step="-1" aria-label="Dashboard precedente"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
-          <button type="button" data-step="1" aria-label="Dashboard successiva"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
+          <button type="button" data-step="-1" aria-label="Demo precedente"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
+          <button type="button" data-step="1" aria-label="Demo successiva"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
         </div>
       </div>
 
@@ -2972,7 +2974,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <div class="demo-top">
         <div>
           <h3>Trenta paesi, cinque round di democrazia</h3>
-          <p class="demo-def">Ogni flusso è la % di un paese nei cinque round dell’indagine, dal 2011/2013 al 2021/2023. Figura A.1 di <em>African insights 2024</em>, ricostruita come dashboard.</p>
+          <p class="demo-def">Ogni flusso è la % di un paese nei cinque round dell’indagine, dal 2011/2013 al 2021/2023. Figura A.1 di <em>African insights 2024</em>, ricostruita come grafico dal vivo.</p>
         </div>
         <div class="demo-controls">
           <div class="field">
@@ -2998,14 +3000,14 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <div class="sg-wrap"><svg class="sg-svg" role="img" aria-label="Streamgraph di 30 paesi in cinque round dell’indagine"></svg></div>
 
-      <p class="demo-src">Fonte: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figura A.1: % di chi preferisce la democrazia a qualsiasi altra forma di governo, e % di chi è abbastanza o molto soddisfatto di come funziona la democrazia. La figura parte dal 1999; la dashboard parte dal 2011/2013, il primo round in cui sono stati intervistati tutti e 30 i paesi. I flussi si sommano, quindi la fascia vale 30 volte la media dei 30 paesi: dal 73% al 66% per la preferenza, dal 50% al 39% per la soddisfazione, come li riporta il report.</p>
+      <p class="demo-src">Fonte: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figura A.1: % di chi preferisce la democrazia a qualsiasi altra forma di governo, e % di chi è abbastanza o molto soddisfatto di come funziona la democrazia. La figura parte dal 1999; il grafico dal vivo parte dal 2011/2013, il primo round in cui sono stati intervistati tutti e 30 i paesi. I flussi si sommano, quindi la fascia vale 30 volte la media dei 30 paesi: dal 73% al 66% per la preferenza, dal 50% al 39% per la soddisfazione, come li riporta il report.</p>
     </div>
 
     <div class="demo dp" id="demo-dots" role="tabpanel" aria-labelledby="tab-dots" hidden>
       <div class="demo-top">
         <div>
           <h3>Chi pensa di partire</h3>
-          <p class="demo-def">% di chi dice di aver pensato “molto” a emigrare, nel 2016/2018 e nel 2024/2025, nei 31 paesi intervistati entrambe le volte. Figura 10 di <em>Beyond borders</em>, ricostruita come dashboard.</p>
+          <p class="demo-def">% di chi dice di aver pensato “molto” a emigrare, nel 2016/2018 e nel 2024/2025, nei 31 paesi intervistati entrambe le volte. Figura 10 di <em>Beyond borders</em>, ricostruita come grafico dal vivo.</p>
         </div>
         <div class="demo-controls">
           <label class="field">
@@ -3047,7 +3049,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <div class="demo-top">
         <div>
           <h3>Come gli africani giudicano le grandi potenze</h3>
-          <p class="demo-def">% di cittadini che giudicano abbastanza o molto positiva l’influenza di ciascuna potenza sul proprio paese. Tabella 2 di <em>Beyond borders</em>, ricostruita come dashboard.</p>
+          <p class="demo-def">% di cittadini che giudicano abbastanza o molto positiva l’influenza di ciascuna potenza sul proprio paese. Tabella 2 di <em>Beyond borders</em>, ricostruita come grafico dal vivo.</p>
         </div>
         <div class="demo-controls">
           <label class="field">
@@ -3114,7 +3116,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </li>
       <li class="reveal">
         <h3>Pubblicare, poi estendere</h3>
-        <p>PDF pronto per la stampa ed edizione digitale, card social per il giorno del lancio e una dashboard se volete che i dati continuino a lavorare.</p>
+        <p>PDF pronto per la stampa ed edizione digitale, card social per il giorno del lancio e un live report se volete che i dati continuino a lavorare.</p>
       </li>
     </ol>
 
@@ -3128,7 +3130,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <li>Policy brief</li>
         <li>Report d’impatto</li>
         <li>Infografiche</li>
-        <li>Dashboard interattive</li>
+        <li>Live report</li>
       </ul>
     </div>
   </div>
@@ -3151,7 +3153,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <div class="faq-item">
         <dt>Potete trasformare un report PDF in una dashboard interattiva?</dt>
-        <dd>Sì. Colleghiamo i grafici di un report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare. In questa pagina il Sankey delle emissioni del report di Rețele Electrice è ricostruito come diagramma interattivo, e due figure e una tabella dei report di Afrobarometer diventano dashboard dal vivo.</dd>
+        <dd>Sì, anche se preferiamo chiamarlo live report: uno che le persone aprono davvero. Colleghiamo i grafici di un report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare. In questa pagina il Sankey delle emissioni del report di Rețele Electrice è ricostruito come diagramma interattivo, e due figure e una tabella dei report di Afrobarometer diventano grafici dal vivo.</dd>
       </div>
       <div class="faq-item">
         <dt>Progettate infografiche e visualizzazioni di dati (dataviz) per i report?</dt>
@@ -3190,7 +3192,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <p>Data design all’avanguardia, lavoro su misura, ogni numero verificato. Per iniziare ci bastano un brief, un dataset o il PDF dell’anno scorso.</p>
     <div class="cta-actions">
       <a class="btn" href="mailto:hello@nutgraf.studio?subject=Richiesta%20per%20un%20report">Commissionateci un report</a>
-      <a class="btn btn-ghost" href="mailto:hello@nutgraf.studio?subject=Richiesta%20per%20una%20dashboard">Chiedeteci delle dashboard</a>
+      <a class="btn btn-ghost" href="mailto:hello@nutgraf.studio?subject=Richiesta%20per%20un%20live%20report">Chiedeteci dei live report</a>
     </div>
   </div>
 </section>

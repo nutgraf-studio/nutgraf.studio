@@ -99,7 +99,7 @@ setTimeout(function () {
         },
         {
           "@type": "Thing",
-          "name": "Dashboards"
+          "name": "Live reports"
         },
         {
           "@type": "Thing",
@@ -229,7 +229,7 @@ setTimeout(function () {
       "name": "Can you turn a PDF report into an interactive dashboard?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live dashboards."
+        "text": "Yes, though we’d rather call it a live report: one people actually open. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live charts."
       }
     },
     {
@@ -1705,6 +1705,8 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   padding-block: clamp(5rem, 11vw, 8rem);
 }
 .dash h2 { font-size: clamp(2.75rem, 7vw, 5.75rem); max-width: 12ch; }
+/* keep "Live report out." in one piece, so the headline breaks after "PDF in." */
+@media (min-width: 600px) { .dash h2 { max-width: none; } .dash h2 em { white-space: nowrap; } }
 .dash-lead { margin-top: 1.5rem; max-width: 40rem; font-size: 1.125rem; font-weight: 500; }
 
 .ways { margin-top: clamp(3rem, 6vw, 4rem); display: grid; gap: 1.5rem; }
@@ -2355,7 +2357,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <ul class="nav-links">
         <li><a href="/">Studio</a></li>
         <li><a href="#flagship">Reports</a></li>
-        <li><a href="#dashboards">Dashboards</a></li>
+        <li><a href="#dashboards">Live reports</a></li>
         <li><a class="page-link" href="/workshops/">Workshops<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="page-link" href="/exhibitions/">Exhibitions<svg class="arr" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5"/></svg></a></li>
         <li><a class="chip" href="#contact">Commission<span class="chip-more"> a report</span></a></li>
@@ -2387,7 +2389,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="hero" aria-labelledby="hero-heading">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="kicker">Report design · Data visualisation · Dashboards</span>
+      <span class="kicker">Report design · Data visualisation · Live reports</span>
       <h1 id="hero-heading">
         <span class="hero-line"><span>Bring us</span></span>
         <span class="hero-line"><span>the data.</span></span>
@@ -2492,7 +2494,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </li>
       <li class="reveal">
         <div>
-          <div class="toc-line"><h3>Interactive dashboards</h3><span class="leader" aria-hidden="true"></span><a href="#dashboards">Live demos</a></div>
+          <div class="toc-line"><h3>Live reports</h3><span class="leader" aria-hidden="true"></span><a href="#dashboards">Live demos</a></div>
           <p>PDF reports rebuilt on their datasets, with filters, rankings and live charts, for your audiences and for your own decisions.</p>
         </div>
       </li>
@@ -2646,7 +2648,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <a href="img/afrobarometer-beyond-borders-p15-emigration-dot-plot.jpg" data-group="afro" data-caption="Figures 9 to 11: who has considered emigrating">
             <img src="img/afrobarometer-beyond-borders-p15-emigration-dot-plot-800.jpg" alt="Purple stacked bars of emigration intentions by country, a dot plot comparing two survey rounds and bars by demographic group." width="800" height="1131" loading="lazy" decoding="async">
           </a>
-          <figcaption>Who is thinking of leaving <a href="#demo-dots" class="visually-hidden">(rebuilt as a dashboard below)</a></figcaption>
+          <figcaption>Who is thinking of leaving <a href="#demo-dots" class="visually-hidden">(rebuilt as a live chart below)</a></figcaption>
         </figure></li>
         <li class="pg"><figure>
           <a href="img/afrobarometer-beyond-borders-p16-destinations-pie-and-bar-charts.jpg" data-group="afro" data-caption="Figures 12 to 14: where potential emigrants would go">
@@ -2915,9 +2917,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section class="dash" id="dashboards" aria-labelledby="dash-heading">
   <div class="wrap">
     <div class="reveal">
-      <span class="kicker">Interactive dashboards · data-driven storytelling</span>
-      <h2 id="dash-heading">PDF in. <em>Dashboard out.</em></h2>
-      <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into interactive dashboards, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
+      <span class="kicker">Live reports · data-driven storytelling</span>
+      <h2 id="dash-heading">PDF in. <em>Live report out.</em></h2>
+      <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into live reports, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
     </div>
 
     <div class="ways">
@@ -2955,8 +2957,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
           <button type="button" role="tab" id="tab-powers" aria-controls="demo" aria-selected="false" tabindex="-1"><span class="no">03</span>Major powers</button>
         </div>
         <div class="strip-nav deck-nav">
-          <button type="button" data-step="-1" aria-label="Previous dashboard"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
-          <button type="button" data-step="1" aria-label="Next dashboard"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
+          <button type="button" data-step="-1" aria-label="Previous demo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2L4 8l6 6"/></svg></button>
+          <button type="button" data-step="1" aria-label="Next demo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 2l6 6-6 6"/></svg></button>
         </div>
       </div>
 
@@ -2964,7 +2966,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <div class="demo-top">
         <div>
           <h3>Thirty countries, five rounds of democracy</h3>
-          <p class="demo-def">Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of <em>African insights 2024</em>, rebuilt as a dashboard.</p>
+          <p class="demo-def">Each stream is one country’s %, over the five survey rounds from 2011/2013 to 2021/2023. Figure A.1 of <em>African insights 2024</em>, rebuilt as a live chart.</p>
         </div>
         <div class="demo-controls">
           <div class="field">
@@ -2990,14 +2992,14 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <div class="sg-wrap"><svg class="sg-svg" role="img" aria-label="Streamgraph of 30 countries over five survey rounds"></svg></div>
 
-      <p class="demo-src">Source: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figure A.1: % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the dashboard starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.</p>
+      <p class="demo-src">Source: Afrobarometer, <em>African insights 2024: Democracy at risk – the people’s perspective</em>, Figure A.1: % who prefer democracy to any other kind of government, and % fairly or very satisfied with the way democracy works. The figure runs from 1999; the live chart starts in 2011/2013, the first round in which all 30 countries were surveyed. The streams stack, so the band is 30 times the 30-country average: 73% to 66% for preference, 50% to 39% for satisfaction, as the report gives them.</p>
     </div>
 
     <div class="demo dp" id="demo-dots" role="tabpanel" aria-labelledby="tab-dots" hidden>
       <div class="demo-top">
         <div>
           <h3>Who is thinking of leaving</h3>
-          <p class="demo-def">% who say they have considered emigrating “a lot”, in 2016/2018 and in 2024/2025, in the 31 countries surveyed both times. Figure 10 of <em>Beyond borders</em>, rebuilt as a dashboard.</p>
+          <p class="demo-def">% who say they have considered emigrating “a lot”, in 2016/2018 and in 2024/2025, in the 31 countries surveyed both times. Figure 10 of <em>Beyond borders</em>, rebuilt as a live chart.</p>
         </div>
         <div class="demo-controls">
           <label class="field">
@@ -3039,7 +3041,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <div class="demo-top">
         <div>
           <h3>How Africans rate the major powers</h3>
-          <p class="demo-def">% of citizens who say each power’s influence on their country is somewhat or very positive. Table 2 of <em>Beyond borders</em>, rebuilt as a dashboard.</p>
+          <p class="demo-def">% of citizens who say each power’s influence on their country is somewhat or very positive. Table 2 of <em>Beyond borders</em>, rebuilt as a live chart.</p>
         </div>
         <div class="demo-controls">
           <label class="field">
@@ -3106,7 +3108,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </li>
       <li class="reveal">
         <h3>Publish, then extend</h3>
-        <p>Print-ready PDF and digital edition, social cards for launch day, and a dashboard when you want the data to keep working.</p>
+        <p>Print-ready PDF and digital edition, social cards for launch day, and a live report when you want the data to keep working.</p>
       </li>
     </ol>
 
@@ -3120,7 +3122,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <li>Policy briefs</li>
         <li>Impact reports</li>
         <li>Infographics</li>
-        <li>Interactive dashboards</li>
+        <li>Live reports</li>
       </ul>
     </div>
   </div>
@@ -3143,7 +3145,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       </div>
       <div class="faq-item">
         <dt>Can you turn a PDF report into an interactive dashboard?</dt>
-        <dd>Yes. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live dashboards.</dd>
+        <dd>Yes, though we’d rather call it a live report: one people actually open. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live charts.</dd>
       </div>
       <div class="faq-item">
         <dt>Do you design infographics and data visualisations (dataviz) for reports?</dt>
@@ -3182,7 +3184,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
     <p>State-of-the-art data design, bespoke craft, every number checked. A brief, a dataset or last year’s PDF is all we need to start.</p>
     <div class="cta-actions">
       <a class="btn" href="mailto:hello@nutgraf.studio?subject=Report%20enquiry">Commission a report</a>
-      <a class="btn btn-ghost" href="mailto:hello@nutgraf.studio?subject=Dashboard%20enquiry">Ask about dashboards</a>
+      <a class="btn btn-ghost" href="mailto:hello@nutgraf.studio?subject=Live%20report%20enquiry">Ask about live reports</a>
     </div>
   </div>
 </section>
