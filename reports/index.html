@@ -1207,37 +1207,28 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   border-top: 2px solid var(--black);
 }
 .case-grid { display: grid; gap: 2.5rem; }
-/* phones: number, title, text, booklet, one under the other. From 960px
-   the number sits beside the title and the booklet runs full width
-   under the text; from 1100px the booklet takes a wide column beside
-   the text, wide enough for spreads of ~300px pages. */
+/* phones: title, text, booklet, one under the other. From 960px the
+   booklet runs full width under the text; from 1100px it takes a wide
+   column beside the text, wide enough for spreads of ~300px pages.
+   Logo, title and text share one left edge. */
 @media (min-width: 960px) {
   .case-grid {
-    grid-template-columns: 7rem minmax(0, 1fr);
-    grid-template-areas: "no head" ". text" "book book";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "head" "text" "book";
     gap: 2rem 3rem;
     align-items: start;
   }
-  .case-no { grid-area: no; }
   .case-head { grid-area: head; }
   .case-text { grid-area: text; }
   .case-booklet { grid-area: book; }
 }
 @media (min-width: 1100px) {
   .case-grid {
-    grid-template-columns: 7rem minmax(0, 1fr) minmax(0, 38rem);
-    grid-template-areas: "no head head" "text text book";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 38rem);
+    grid-template-areas: "head head" "text book";
     row-gap: 2.5rem;
   }
   .case-text .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-.case-no {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(3.5rem, 7vw, 6rem);
-  line-height: 0.85;
-  color: var(--violet);
 }
 .case-client {
   display: flex;
@@ -2466,7 +2457,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   <!-- ---------- 01 · Afrobarometer ---------- -->
   <article class="case" id="beyond-borders" aria-labelledby="afro-title">
     <div class="wrap case-grid">
-      <span class="case-no reveal" aria-hidden="true">01</span>
       <div class="case-head reveal">
         <p class="case-client"><img src="../logos/afrobarometer.svg" alt="Afrobarometer" width="152" height="64"></p>
         <h3 id="afro-title">Beyond borders</h3>
@@ -2622,7 +2612,6 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   <!-- ---------- 02 · PPC Group / Rețele Electrice România ---------- -->
   <article class="case" id="retele-electrice" aria-labelledby="ppc-title">
     <div class="wrap case-grid">
-      <span class="case-no reveal" aria-hidden="true">02</span>
       <div class="case-head reveal">
         <p class="case-client"><img class="logo-ppc" src="../logos/ppc-group.svg" alt="PPC Group" width="100" height="42"> Rețele Electrice România</p>
         <h3 id="ppc-title">The first report under the EU’s new rules</h3>
