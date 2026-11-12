@@ -3,12 +3,12 @@
 
 @@ hero headline: three lines, the underline on the last
         <span class="hero-line"><span>Diplomacy</span></span>
-        <span class="hero-line"><span>you can <em>walk</em></span></span>
-        <span class="hero-line"><span><em class="fx">through.<svg
+        <span class="hero-line"><span>takes <em>shape</em></span></span>
+        <span class="hero-line"><span><em class="fx">through data.<svg
 ==
-        <span class="hero-line"><span>Diplomazia</span></span>
-        <span class="hero-line"><span>da <em>percorrere</em></span></span>
-        <span class="hero-line"><span><em class="fx">a piedi.<svg
+        <span class="hero-line"><span>La diplomazia</span></span>
+        <span class="hero-line"><span>prende <em>forma</em></span></span>
+        <span class="hero-line"><span><em class="fx">nei dati.<svg
 
 @@ case study tagline: the Italian title alone, no English gloss
 <p class="case-tag"><em lang="it">Italia e Romania, raccontate con i dati.</em> Italy and Romania, told with data.</p>
@@ -55,9 +55,9 @@ label.textContent = userPaused ? 'Riproduci' : 'Pausa';
 <a class="chip" href="#contact">Scriveteci<span class="chip-more"> per una mostra</span></a>
 
 @@ share card: the Italian one (scripts/it/og/make_og.py), for og:image and twitter:image
-content="https://nutgraf.studio/exhibitions/og-image.jpg?v=2"
+content="https://nutgraf.studio/exhibitions/og-image.jpg?v=3"
 ==
-content="https://nutgraf.studio/it/exhibitions/og-image.jpg?v=1"
+content="https://nutgraf.studio/it/exhibitions/og-image.jpg?v=2"
 
 @@ structured data: the Italian page's image is the Italian share card
 "primaryImageOfPage": "https://nutgraf.studio/exhibitions/og-image.jpg"
