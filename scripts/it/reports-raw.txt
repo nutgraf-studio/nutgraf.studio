@@ -44,12 +44,12 @@ type="text/markdown" hreflang="en" href="https://nutgraf.studio/reports/index.ht
 @@ hero headline, line 3
 <span class="hero-line"><span><em>Leave with</em></span></span>
 ==
-<span class="hero-line"><span><em>Ripartite</em></span></span>
+<span class="hero-line"><span><em>Ci pensiamo</em></span></span>
 
 @@ hero headline, line 4: the underline stays on "report."
 <span class="hero-line"><span><em>the <span class="fx">report.
 ==
-<span class="hero-line"><span><em>con il <span class="fx">report.
+<span class="hero-line"><span><em><span class="fx">noi.
 
 @@ contents heading
 <h2 id="toc-heading">What we <em>make.</em></h2>
@@ -406,7 +406,7 @@ names.slice(0, -1).join(', ') + ' e ' + names[names.length - 1];
 @@ share card: the Italian one (scripts/it/og/make_og.py), for og:image and twitter:image
 content="https://nutgraf.studio/reports/og-image.jpg?v=2"
 ==
-content="https://nutgraf.studio/it/reports/og-image.jpg?v=1"
+content="https://nutgraf.studio/it/reports/og-image.jpg?v=2"
 
 @@ structured data: the Italian page's image is the Italian share card
 "primaryImageOfPage": "https://nutgraf.studio/reports/og-image.jpg"
