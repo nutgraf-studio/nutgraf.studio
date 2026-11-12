@@ -74,16 +74,22 @@ Made for: flagship reports, sustainability and ESG reports, annual reports, surv
 ## Frequently asked questions
 
 **What does a data report design studio do?**
-We turn research, survey and ESG data into reports people read. We audit the data, build one chart system for the whole report, design every page, chart and infographic, and check every number against its source before it goes to print. Recent work: Afrobarometer's 2026 flagship report and Rețele Electrice România's 2024 sustainability report.
+We turn data into reports people read and use. We start from what the numbers can honestly say, plan the pages around the findings, build one chart system for the whole report, design every page, chart and infographic, and check every number against its source before it is published.
 
-**Can you turn a PDF report into an interactive dashboard?**
-Yes, though we'd rather call it a live report: one people actually open. We connect a report's charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On the page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live charts.
+**How do you work?**
+In four steps. A data audit: what is there, what is missing and what the numbers can carry. A chart system: palette, type and chart grammar for the whole report. Design and verification: every page laid out, every figure checked against its source on screen and again on the proof. Then publication, in print, online and, when the data should keep working, as a live report.
+
+**Which reports do you design for companies?**
+Annual and business results reports, impact reports, and sustainability and ESG reports, including disclosures under the EU's CSRD and ESRS. We turn financial results, KPIs, emissions, workforce and impact data into tiles, flows and charts a non-specialist can read, without losing a decimal, with a chart system that carries over to next year's report.
+
+**And for research organisations, NGOs and foundations?**
+Flagship and research reports, survey findings, policy briefs and impact reports for funders. The method is the same: the finding first, one chart system, every number traceable to its source.
 
 **Do you design infographics and data visualisations (dataviz) for reports?**
-Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like *Beyond borders*, still reads as one piece.
+Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots, maps and one-page scorecards. Each chart is chosen for the finding it has to show, and all of them follow one visual system, so a report with dozens of figures still reads as one piece.
 
-**Do you design sustainability and ESG reports?**
-Yes. We designed Rețele Electrice România's 2024 sustainability report, the company's first prepared with reference to ESRS, the EU's sustainability reporting standards: 105 pages of emissions, energy, workforce and EU Taxonomy data, turned into KPI tiles, flows and rings a non-specialist can read.
+**Can you turn a PDF report into an interactive dashboard?**
+Yes, though we'd rather call it a live report: one people actually open. We connect the report's charts to the datasets behind them, so the figures can be filtered, ranked and refreshed, and we design it for the people who will use it: the public and the press, or the teams who run the organisation.
 
 **What is data-driven storytelling?**
 Leading with the finding and letting the data carry it: a clear headline, the chart that proves it and the context that explains it. Inside a report it sets the order of the pages; outside it, it turns the same figures into stories for funders, partners, the press and the public.
@@ -91,11 +97,11 @@ Leading with the finding and letting the data carry it: a clear headline, the ch
 **What do you need from us to start a report?**
 A brief, a dataset or last year's PDF is enough. We'll come back within a week with a page plan, a chart system and a timeline. Write to hello@nutgraf.studio.
 
-**Who have you designed reports for?**
-Afrobarometer, the pan-African research network, and Rețele Electrice România, part of PPC Group. The studio's partners also include the BBC, the Financial Times, Médecins Sans Frontières, the UiPath Foundation, the Istituto Italiano di Cultura and the Italian Trade Agency.
+**Who do you work with?**
+Research networks, NGOs, foundations, international organisations and companies. Clients and partners include Afrobarometer, PPC Group, the BBC, the Financial Times, Médecins Sans Frontières, the UiPath Foundation, the Istituto Italiano di Cultura and the Italian Trade Agency.
 
 **Where do you work, and in which languages?**
-Worldwide, on-site or remote. The reports on the page were published in English and in Romanian.
+Worldwide, on site or remote, and in the language your report is published in.
 
 ## Contact
 

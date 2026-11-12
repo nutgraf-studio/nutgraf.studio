@@ -64,24 +64,28 @@ Rețele Electrice România
 # ---- FAQ: the same Italian in the structured data and on the page
 What does a data report design studio do?
 = Che cosa fa uno studio che progetta report di dati?
-We turn research, survey and ESG data into reports people read. We audit the data, build one chart system for the whole report, design every page, chart and infographic, and check every number against its source before it goes to print. Recent work: Afrobarometer’s 2026 flagship report and Rețele Electrice România’s 2024 sustainability report.
-= Trasformiamo dati di ricerca, sondaggi e dati ESG in report che le persone leggono. Analizziamo i dati, costruiamo un unico sistema di grafici per tutto il report, progettiamo ogni pagina, grafico e infografica, e verifichiamo ogni numero sulla fonte prima della stampa. Lavori recenti: il report di punta 2026 di Afrobarometer e il report di sostenibilità 2024 di Rețele Electrice România.
-Can you turn a PDF report into an interactive dashboard?
-= Potete trasformare un report PDF in una dashboard interattiva?
-Yes, though we’d rather call it a live report: one people actually open. We connect a report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed. On this page, the emissions Sankey from the Rețele Electrice report is rebuilt as an interactive diagram, and two figures and a table from Afrobarometer reports become live charts.
-= Sì, anche se preferiamo chiamarlo live report: uno che le persone aprono davvero. Colleghiamo i grafici di un report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare. In questa pagina il Sankey delle emissioni del report di Rețele Electrice è ricostruito come diagramma interattivo, e due figure e una tabella dei report di Afrobarometer diventano grafici dal vivo.
+We turn data into reports people read and use. We start from what the numbers can honestly say, plan the pages around the findings, build one chart system for the whole report, design every page, chart and infographic, and check every number against its source before it is published.
+= Trasformiamo i dati in report che le persone leggono e usano. Partiamo da ciò che i numeri possono dire onestamente, costruiamo le pagine attorno ai risultati, creiamo un unico sistema di grafici per tutto il report, progettiamo ogni pagina, grafico e infografica e verifichiamo ogni numero con la sua fonte prima della pubblicazione.
+How do you work?
+= Come lavorate?
+In four steps. A data audit: what is there, what is missing and what the numbers can carry. A chart system: palette, type and chart grammar for the whole report. Design and verification: every page laid out, every figure checked against its source on screen and again on the proof. Then publication, in print, online and, when the data should keep working, as a live report.
+= In quattro passaggi. Un’analisi dei dati: cosa c’è, cosa manca e cosa i numeri possono sostenere. Un sistema di grafici: palette, caratteri e grammatica dei grafici per tutto il report. Progettazione e verifica: ogni pagina impaginata, ogni cifra controllata con la sua fonte a schermo e di nuovo in bozza. Poi la pubblicazione, su carta, online e, quando i dati devono continuare a lavorare, come live report.
+Which reports do you design for companies?
+= Quali report progettate per le aziende?
+Annual and business results reports, impact reports, and sustainability and ESG reports, including disclosures under the EU’s CSRD and ESRS. We turn financial results, KPIs, emissions, workforce and impact data into tiles, flows and charts a non-specialist can read, without losing a decimal, with a chart system that carries over to next year’s report.
+= Report annuali e sui risultati, report d’impatto, report di sostenibilità ed ESG, comprese le rendicontazioni secondo la CSRD e gli ESRS dell’UE. Trasformiamo risultati finanziari, KPI, emissioni, dati sul personale e sull’impatto in riquadri, flussi e grafici che anche un non specialista può leggere, senza perdere un decimale, con un sistema di grafici che si riporta al report dell’anno dopo.
+And for research organisations, NGOs and foundations?
+= E per centri di ricerca, ONG e fondazioni?
+Flagship and research reports, survey findings, policy briefs and impact reports for funders. The method is the same: the finding first, one chart system, every number traceable to its source.
+= Report di punta e di ricerca, risultati di sondaggi, policy brief e report d’impatto per i finanziatori. Il metodo è lo stesso: prima il risultato, un unico sistema di grafici, ogni numero riconducibile alla sua fonte.
 Do you design infographics and data visualisations (dataviz) for reports?
 = Progettate infografiche e visualizzazioni di dati (dataviz) per i report?
-Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like Beyond borders, still reads as one piece.
-= Sì: grafici, tabelle, riquadri KPI, diagrammi di Sankey, heatmap, dot plot e schede paese di una pagina. Ognuno è disegnato per il suo risultato e costruito su un unico sistema visivo, così un report di 38 figure, come Beyond borders, si legge comunque come un pezzo unico.
-Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots and one-page country scorecards. Each is drawn for its finding and built to one visual system, so a report with 38 figures, like
-= Sì: grafici, tabelle, riquadri KPI, diagrammi di Sankey, heatmap, dot plot e schede paese di una pagina. Ognuno è disegnato per il suo risultato e costruito su un unico sistema visivo, così un report di 38 figure, come
-, still reads as one piece.
-= , si legge comunque come un pezzo unico.
-Do you design sustainability and ESG reports?
-= Progettate report di sostenibilità ed ESG?
-Yes. We designed Rețele Electrice România’s 2024 sustainability report, the company’s first prepared with reference to ESRS, the EU’s sustainability reporting standards: 105 pages of emissions, energy, workforce and EU Taxonomy data, turned into KPI tiles, flows and rings a non-specialist can read.
-= Sì. Abbiamo progettato il report di sostenibilità 2024 di Rețele Electrice România, il primo dell’azienda redatto con riferimento agli ESRS, gli standard europei di rendicontazione di sostenibilità: 105 pagine di dati su emissioni, energia, personale e Tassonomia UE, trasformate in riquadri KPI, flussi e anelli che anche chi non è del mestiere può leggere.
+Yes: charts, tables, KPI tiles, Sankey diagrams, heatmaps, dot plots, maps and one-page scorecards. Each chart is chosen for the finding it has to show, and all of them follow one visual system, so a report with dozens of figures still reads as one piece.
+= Sì: grafici, tabelle, riquadri KPI, diagrammi di Sankey, heatmap, dot plot, mappe e schede di una pagina. Ogni grafico è scelto per il risultato che deve mostrare, e tutti seguono un unico sistema visivo, così un report con decine di figure si legge comunque come un pezzo unico.
+Can you turn a PDF report into an interactive dashboard?
+= Potete trasformare un report PDF in una dashboard interattiva?
+Yes, though we’d rather call it a live report: one people actually open. We connect the report’s charts to the datasets behind them, so the figures can be filtered, ranked and refreshed, and we design it for the people who will use it: the public and the press, or the teams who run the organisation.
+= Sì, anche se preferiamo chiamarlo live report: uno che le persone aprono davvero. Colleghiamo i grafici del report ai dataset da cui nascono, così le cifre si possono filtrare, ordinare e aggiornare, e lo progettiamo per chi lo userà: il pubblico e la stampa, o i team che guidano l’organizzazione.
 What is data-driven storytelling?
 = Che cos’è il data storytelling?
 Leading with the finding and letting the data carry it: a clear headline, the chart that proves it and the context that explains it. Inside a report it sets the order of the pages; outside it, it turns the same figures into stories for funders, partners, the press and the public.
@@ -92,14 +96,14 @@ A brief, a dataset or last year’s PDF is enough. We’ll come back within a we
 = Bastano un brief, un dataset o il PDF dell’anno scorso. Entro una settimana torniamo da voi con un piano delle pagine, un sistema di grafici e un calendario. Scriveteci a hello@nutgraf.studio.
 A brief, a dataset or last year’s PDF is enough. We’ll come back within a week with a page plan, a chart system and a timeline. Write to
 = Bastano un brief, un dataset o il PDF dell’anno scorso. Entro una settimana torniamo da voi con un piano delle pagine, un sistema di grafici e un calendario. Scriveteci a
-Who have you designed reports for?
-= Per chi avete progettato report?
-Afrobarometer, the pan-African research network, and Rețele Electrice România, part of PPC Group. The studio’s partners also include the BBC, the Financial Times, Médecins Sans Frontières, the UiPath Foundation, the Istituto Italiano di Cultura and the Italian Trade Agency.
-= Per Afrobarometer, la rete di ricerca panafricana, e per Rețele Electrice România, parte di PPC Group. Tra i partner dello studio ci sono anche la BBC, il Financial Times, Medici Senza Frontiere, la UiPath Foundation, l’Istituto Italiano di Cultura e l’Agenzia ICE.
+Who do you work with?
+= Con chi lavorate?
+Research networks, NGOs, foundations, international organisations and companies. Clients and partners include Afrobarometer, PPC Group, the BBC, the Financial Times, Médecins Sans Frontières, the UiPath Foundation, the Istituto Italiano di Cultura and the Italian Trade Agency.
+= Reti di ricerca, ONG, fondazioni, organizzazioni internazionali e aziende. Tra clienti e partner ci sono Afrobarometer, PPC Group, la BBC, il Financial Times, Medici Senza Frontiere, la UiPath Foundation, l’Istituto Italiano di Cultura e l’Agenzia ICE.
 Where do you work, and in which languages?
 = Dove lavorate, e in quali lingue?
-Worldwide, on-site or remote. The reports on this page were published in English and in Romanian.
-= In tutto il mondo, in presenza o da remoto. I report di questa pagina sono stati pubblicati in inglese e in rumeno.
+Worldwide, on site or remote, and in the language your report is published in.
+= In tutto il mondo, in presenza o da remoto, e nella lingua in cui il vostro report viene pubblicato.
 
 # ---- menu bar
 Live reports
