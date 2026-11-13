@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports · Outwards and Inwards in one animation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint:   #9FF29A;
+  --violet: #7B7BF0;
+  --black:  #0A0A0A;
+  --cream:  #EDE9E1;
+  --white:  #FFFFFF;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --max-w: 80rem;
+  --pad: 1.5rem;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-io:  cubic-bezier(0.83, 0, 0.17, 1);
+}
+@media (min-width: 900px) { :root { --pad: 2.5rem; } }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  padding: 3rem 0 5rem;
+}
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.02em; line-height: 1.02; }
+h1 em, h2 em, h3 em { font-style: italic; font-weight: 600; }
+.wrap { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad); }
+
+/* ---------- options-page chrome ---------- */
+.page-head { max-width: 46rem; margin: 0 auto 3rem; padding-inline: var(--pad); text-align: center; }
+.page-head h1 { font-size: 2rem; margin-bottom: 0.6rem; }
+.sub { font-size: 0.95rem; line-height: 1.5; opacity: 0.75; }
+.sub code { font-size: 0.85em; background: rgba(10,10,10,0.07); padding: 0.05rem 0.35rem; border-radius: 0.3rem; }
+.opt { margin-bottom: 4.5rem; }
+.opt-head { max-width: var(--max-w); margin: 0 auto 1rem; padding-inline: var(--pad); }
+.opt-head h2 { font-size: 1.5rem; display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
+.opt-head h2 span {
+  display: inline-grid; place-items: center; min-width: 2.4rem; height: 1.75rem; padding: 0 0.5rem;
+  background: var(--black); color: var(--mint); font-size: 0.95rem;
+}
+.opt-desc { max-width: 50rem; font-size: 0.95rem; line-height: 1.55; opacity: 0.8; }
+
+/* ---------- the section, as in reports/index.html ---------- */
+.dash { background: var(--mint); color: var(--black); padding-block: clamp(3.5rem, 8vw, 6rem); }
+.kicker { display: inline-block; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1.25rem; }
+.dash h2 { font-size: clamp(2.75rem, 7vw, 5.75rem); max-width: 12ch; }
+@media (min-width: 600px) { .dash h2 { max-width: none; } .dash h2 em { white-space: nowrap; } }
+.dash-lead { margin-top: 1.5rem; max-width: 40rem; font-size: 1.125rem; font-weight: 500; }
+
+.ways { margin-top: clamp(3rem, 6vw, 4rem); display: grid; gap: 1.5rem; }
+@media (min-width: 800px) { .ways { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.way { display: flex; flex-direction: column; }
+.way-dir {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.way h3 { margin-top: 0.75rem; font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.way p { margin-top: 0.625rem; max-width: 32rem; }
+.way ul { margin-top: 1rem; list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.way li, .one li {
+  font-size: 0.8125rem; font-weight: 700;
+  padding: 0.375rem 0.75rem;
+  border: 1.5px solid var(--black); border-radius: 999px;
+  line-height: 1.6;
+}
+
+/* ---------- shared drawing parts: hub, arrows, wall ---------- */
+.wv-arrows { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.wv-arrows path { fill: none; stroke: var(--black); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.wv-arrows .flow { stroke-width: 1.75; stroke-linecap: butt; stroke-dasharray: 7 5; }
+.wv-wall { position: absolute; border: 1.5px dashed var(--black); }
+.wv-hub {
+  position: absolute; left: 50%; top: 50%; z-index: 2;
+  width: 5.25rem; height: 5.25rem; margin: -2.625rem 0 0 -2.625rem;
+  padding: 0.25rem;
+}
+.wv-hub svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.wv-hub circle { fill: none; stroke-width: 6.5; transform-box: fill-box; transform-origin: center; }
+.wv-hub .track { stroke: rgba(10, 10, 10, 0.14); }
+.wv-hub .arc { stroke: var(--black); stroke-dasharray: 34 66; transform: rotate(-90deg); }
+.wv-hub .mark { fill: var(--black); }
+/* where a line runs under the report, a mint disc hides it */
+.wv-hub.disc { background: var(--mint); border-radius: 50%; }
+/* the organisation's name, set on its own wall like a legend */
+.wv-tag {
+  position: absolute; z-index: 2;
+  padding: 0 0.5rem; background: var(--mint);
+  font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  line-height: 1; white-space: nowrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wv-arrows .flow { animation: wv-flow 0.8s linear infinite; }
+  .wv-hub .arc { animation: wv-spin 9s linear infinite; }
+}
+@keyframes wv-flow { to { stroke-dashoffset: -12; } }
+@keyframes wv-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
+
+/* ============================================================
+   NOW — the two cards as live since 60cf6c3 / bbd6821
+   ============================================================ */
+.way-viz { order: -1; position: relative; height: clamp(13rem, 21vw, 15.5rem); margin-bottom: 1.5rem; }
+.way-viz.in { overflow: hidden; border-radius: 1.25rem; }
+.way .way-viz ul { margin: 0; display: block; }
+.way-viz li { position: absolute; z-index: 3; background: var(--mint); white-space: nowrap; }
+.way-viz li:nth-child(1) { top: 0; left: 0; }
+.way-viz li:nth-child(2) { top: 0; right: 0; }
+.way-viz li:nth-child(3) { bottom: 0; left: 0; }
+.way-viz li:nth-child(4) { bottom: 0; right: 0; }
+.way-viz.in li:nth-child(1) { top: 0.875rem; left: 0.875rem; }
+.way-viz.in li:nth-child(2) { top: 0.875rem; right: 0.875rem; }
+.way-viz.in li:nth-child(3) { bottom: 0.875rem; left: 0.875rem; }
+.way-viz.in li:nth-child(4) { bottom: 0.875rem; right: 0.875rem; }
+.way-viz.out .wv-wall { left: 50%; top: 50%; width: 8.75rem; height: 8.75rem; margin: -4.375rem 0 0 -4.375rem; border-radius: 50%; }
+.way-viz.in .wv-wall { inset: 0; border-radius: 1.25rem; }
+.wv-pulse {
+  position: absolute; left: 50%; top: 50%;
+  width: 5.25rem; height: 5.25rem; margin: -2.625rem 0 0 -2.625rem;
+  border: 1.5px solid var(--black); border-radius: 50%; opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .way-viz .wv-pulse { animation: 2.8s var(--ease-out) infinite; }
+  .way-viz .wv-pulse + .wv-pulse { animation-delay: -1.4s; }
+  .way-viz.out .wv-pulse { animation-name: wv-pulse-out; }
+  .way-viz.in .wv-pulse { animation-name: wv-pulse-in; animation-timing-function: cubic-bezier(0.6, 0, 0.8, 0.4); }
+  .way-viz.in .wv-hub .arc { animation-direction: reverse; }
+}
+@keyframes wv-pulse-out { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(3); opacity: 0; } }
+@keyframes wv-pulse-in { 0% { transform: scale(3); opacity: 0; } 60% { opacity: 0.35; } 100% { transform: scale(1); opacity: 0.6; } }
+
+/* one drawing for both cards: it spans the two columns, the cards sit below */
+.one { position: relative; }
+.one ul { list-style: none; }
+.one li { position: absolute; z-index: 3; background: var(--mint); white-space: nowrap; }
+@media (min-width: 800px) { .ways > .one { grid-column: 1 / -1; } }
+
+/* ============================================================
+   A — THRESHOLD. The live report sits on the organisation's
+   wall: the same arrows leave it to the left, to the people
+   outside, and to the right, to the people inside. The two
+   halves sit over the two cards: outwards over Outwards,
+   inwards over Inwards.
+   ============================================================ */
+.thr { height: 15rem; margin-bottom: 1rem; }
+.thr .wv-wall { top: 0; bottom: 0; }
+.thr .wv-wall.pub { left: 0; right: 50%; border-right: 0; border-radius: 1.25rem 0 0 1.25rem; }
+.thr .wv-wall.org { left: 50%; right: 0; border-radius: 0 1.25rem 1.25rem 0; }
+.thr .wv-tag { top: 0; translate: 0 -50%; }
+.thr .wv-tag.pub { left: 1.5rem; }
+.thr .wv-tag.org { right: 1.5rem; }
+.thr li { left: calc(50% + var(--x)); top: calc(50% + var(--y)); translate: -50% -50%; }
+.thr .o li:nth-child(1) { --x: -21%; --y: -4.75rem; }
+.thr .o li:nth-child(2) { --x: -32%; --y: -1.6rem; }
+.thr .o li:nth-child(3) { --x: -32%; --y: 1.6rem; }
+.thr .o li:nth-child(4) { --x: -21%; --y: 4.75rem; }
+.thr .i li:nth-child(1) { --x: 21%; --y: -4.75rem; }
+.thr .i li:nth-child(2) { --x: 32%; --y: -1.6rem; }
+.thr .i li:nth-child(3) { --x: 32%; --y: 1.6rem; }
+.thr .i li:nth-child(4) { --x: 21%; --y: 4.75rem; }
+/* phones: the wall turns, outside on top, inside below, as the cards stack */
+@media (max-width: 699px) {
+  .thr { height: 25rem; }
+  .thr li { font-size: 0.75rem; }
+  .thr .wv-wall.pub { right: 0; bottom: 50%; border-right: 1.5px dashed var(--black); border-bottom: 0; border-radius: 1.25rem 1.25rem 0 0; }
+  .thr .wv-wall.org { left: 0; top: 50%; border-radius: 0 0 1.25rem 1.25rem; }
+  .thr .wv-tag.pub { left: 1.25rem; }
+  .thr .wv-tag.org { top: auto; bottom: 0; right: 1.25rem; translate: 0 50%; }
+  .thr .o li:nth-child(1) { --x: -24%; --y: -9.75rem; }
+  .thr .o li:nth-child(2) { --x: 24%;  --y: -9.75rem; }
+  .thr .o li:nth-child(3) { left: 0.625rem; right: auto; --y: -5.25rem; translate: 0 -50%; }
+  .thr .o li:nth-child(4) { left: auto; right: 0.625rem; --y: -5.25rem; translate: 0 -50%; }
+  .thr .i li:nth-child(1) { left: 0.625rem; --y: 5.25rem; translate: 0 -50%; }
+  .thr .i li:nth-child(2) { left: auto; right: 0.625rem; --y: 5.25rem; translate: 0 -50%; }
+  .thr .i li:nth-child(3) { --x: -24%; --y: 9.75rem; }
+  .thr .i li:nth-child(4) { --x: 24%;  --y: 9.75rem; }
+}
+
+/* ============================================================
+   B — TWO FACES. Today's drawing, once, between the two cards.
+   Every few seconds the wall widens from a ring round the
+   report to the whole frame and the four audiences change:
+   the same report, said outwards, then inwards. The card it
+   is saying lights its label. Hover or focus a card to hold it.
+   ============================================================ */
+@media (min-width: 1000px) {
+  .ways.mid { grid-template-columns: 1fr minmax(19rem, 24rem) 1fr; gap: 3rem; align-items: center; }
+  .ways.mid > .two { order: 0; grid-column: auto; }
+}
+@media (min-width: 800px) and (max-width: 999px) { .ways.mid > .two { grid-column: 1 / -1; order: -1; } }
+@media (max-width: 799px) { .ways.mid > .two { order: -1; } }
+.two { height: 15.5rem; }
+.two li { transition: opacity 0.35s ease, translate 0.45s var(--ease-out); }
+.two li:nth-child(1) { top: 0.875rem; left: 0.875rem; }
+.two li:nth-child(2) { top: 0.875rem; right: 0.875rem; }
+.two li:nth-child(3) { bottom: 0.875rem; left: 0.875rem; }
+.two li:nth-child(4) { bottom: 0.875rem; right: 0.875rem; }
+.two li:nth-child(2) { transition-delay: 0.06s; }
+.two li:nth-child(3) { transition-delay: 0.12s; }
+.two li:nth-child(4) { transition-delay: 0.18s; }
+.two[data-state="out"] .i li, .two[data-state="in"] .o li { opacity: 0; translate: 0 0.375rem; transition-delay: 0s; }
+.two .wv-wall {
+  left: calc(50% - 4.375rem); top: calc(50% - 4.375rem);
+  width: 8.75rem; height: 8.75rem; border-radius: 4.375rem;
+  transition: left 0.9s var(--ease-io), top 0.9s var(--ease-io), width 0.9s var(--ease-io), height 0.9s var(--ease-io), border-radius 0.9s var(--ease-io);
+}
+.two[data-state="in"] .wv-wall { left: 0; top: 0; width: 100%; height: 100%; border-radius: 1.25rem; }
+.two .wv-arrows { transition: opacity 0.3s ease; }
+.two.switching .wv-arrows { opacity: 0; }
+.ways.mid .way-dir span {
+  display: inline-block; margin-left: -0.625rem;
+  padding: 0.3rem 0.625rem; border-radius: 999px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+.ways.mid .way.on .way-dir span { background: var(--black); color: var(--mint); }
+.ways.mid .way { cursor: default; }
+.no-tr, .no-tr * { transition: none !important; }
+
+/* ============================================================
+   C — RIPPLE. No arrows. The organisation is a frame in the
+   middle with its four audiences inside; the four outside sit
+   at the corners. A ring leaves the report and each chip turns
+   black as the ring reaches it: inside first, then outside.
+   ============================================================ */
+.rip { height: 16rem; margin-bottom: 1rem; overflow: hidden; }
+.rip .wv-wall { left: 23%; right: 23%; top: 1.75rem; bottom: 1.75rem; border-radius: 1.25rem; }
+.rip .wv-tag { top: 1.75rem; left: calc(23% + 1.25rem); translate: 0 -50%; }
+.rip .o li:nth-child(1) { top: 0; left: 0; }
+.rip .o li:nth-child(2) { top: 0; right: 0; }
+.rip .o li:nth-child(3) { bottom: 0; left: 0; }
+.rip .o li:nth-child(4) { bottom: 0; right: 0; }
+.rip .i li:nth-child(1) { top: 2.75rem; left: calc(23% + 1rem); }
+.rip .i li:nth-child(2) { top: 2.75rem; right: calc(23% + 1rem); }
+.rip .i li:nth-child(3) { bottom: 2.75rem; left: calc(23% + 1rem); }
+.rip .i li:nth-child(4) { bottom: 2.75rem; right: calc(23% + 1rem); }
+.rip-ring {
+  position: absolute; left: 50%; top: 50%; z-index: 1;
+  width: 5.25rem; height: 5.25rem; translate: -50% -50%;
+  border: 1.5px solid var(--black); border-radius: 50%; opacity: 0;
+}
+@media (max-width: 699px) {
+  .rip { height: 23rem; }
+  .rip li { font-size: 0.75rem; }
+  .rip .wv-wall { left: 0; right: 0; top: 3rem; bottom: 3rem; }
+  .rip .wv-tag { top: 3rem; left: 1rem; }
+  .rip .i li:nth-child(1) { top: 4rem; left: 0.75rem; }
+  .rip .i li:nth-child(2) { top: 4rem; right: 0.75rem; }
+  .rip .i li:nth-child(3) { bottom: 4rem; left: 0.75rem; }
+  .rip .i li:nth-child(4) { bottom: 4rem; right: 0.75rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rip.go .rip-ring { animation: rip-ring var(--dur, 4.5s) linear infinite; }
+  .rip.go li { animation: rip-hit var(--dur, 4.5s) linear infinite; animation-delay: var(--hit, 0s); }
+}
+/* the ring grows at a constant speed for 70% of the loop, so a chip's
+   delay is just its distance from the report */
+@keyframes rip-ring {
+  0%    { width: var(--d0); height: var(--d0); opacity: 0.6; }
+  70%   { width: var(--d1); height: var(--d1); opacity: 0.12; }
+  70.1%, 100% { width: var(--d1); height: var(--d1); opacity: 0; }
+}
+@keyframes rip-hit {
+  0%, 12%   { background: var(--black); color: var(--mint); }
+  30%, 100% { background: var(--mint); color: var(--black); }
+}
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="nut-mark"><path d="M162.18,48.42c-6.51,18.01-13.34,36.35-19.96,54.08-10.37,27.81-21.09,56.57-30.91,85.06-.14,4.74,1.64,8.5,5.57,11.83,7.9,6.68,16.78,12.99,25.36,19.09,7.8,5.54,15.85,11.26,23.24,17.31,4.27,2.56,10.1,2.27,13.91-.71,10.07-8.47,20.47-17.04,30.53-25.32,15.29-12.6,31.1-25.62,46.33-38.77,2.41-3.56,2.65-8.08.6-11.61l-66.36-107.92c-4.11-5.7-12.09-11.29-18.87-10.41-3.83.49-7.97,3.72-9.44,7.36Z"/><path d="M88.75,61.02c-18.99,13.39-33.36,31.86-41.56,53.42-4.31,11.31-9.18,24.12.47,32.8,7.82,5.18,15.48,11.34,22.89,17.29,7.89,6.34,16.04,12.9,24.26,18.15,2.22,1.42,4.1,1.96,5.57,1.6,1.21-.3,2.32-1.29,3.3-2.93l52.51-141.97c-.64.01-1.38.08-1.79.11-.49.04-.93.08-1.27.09-23.18.66-45.44,8.07-64.38,21.43Z"/><path d="M266.85,176.08c-.44-.35-.89-.46-1.47-.37-.79.13-2.48,1.53-3.39,2.28-.33.27-.63.53-.92.75-12.78,10.06-25.43,20.79-37.66,31.17-12.09,10.26-24.58,20.87-37.24,30.85-2.16,2.03-3.23,3.88-3.18,5.51.05,1.72,1.37,3.66,3.91,5.78,13.36,11.11,18.37,11.3,33.47,1.29,20.01-13.27,35.77-32.79,44.38-54.96,1.53-3.94,4.71-12.13,4.4-16.49-.15-2.11-.99-4.78-2.29-5.81Z"/><path d="M161.71,246.78c-.03-1.64-1.09-3.39-3.14-5.21l-46.96-35.21c-1.39-1.01-3.16-1.52-4.58-1.31-1.18.18-2.87,1.57-3.72,3.03-1.62,5.24-3.81,10.58-5.93,15.75-2.42,5.89-4.91,11.99-6.5,17.79-3.1,11.35,5.86,16.06,18.86,21.47l.96.4c14.75,6.16,23.04,8.92,35.63-1l.6-.47c3.75-2.95,8.43-6.63,11.67-9.7,2.1-1.99,3.15-3.86,3.12-5.54Z"/><path d="M92.08,212.77c1.14-3.42,2.31-6.95,3.49-10.33.28-4.52-1.3-8.68-4.36-11.46l-50.74-38.2c-.08.08-.16.16-.24.24-.25.24-.51.41-.76.55-.23,3.3.12,8.04.32,10.89,1.89,26,12.94,51.69,30.31,70.47l.13.14c4.79,5.18,6.52,6.14,7.13,6.25,2.38.38,4.13-.24,5.97-4.5,3.27-7.57,6.06-15.95,8.75-24.06Z"/><path d="M267.96,160.35c.29.15.67.25,1.26.17.86-.32,3.06-2.18,3.52-3.08.12-21.23-5.52-42.14-16.34-60.49-10.87-18.45-26.5-33.5-45.2-43.54-2.55-1.37-6.39-3.43-9.16-4.41-.46-.16-1.69-.59-2.58-.62.06.55.29,1.37.59,1.83l67.9,110.14Z"/><path d="M180.28,257.93c-4.94-3.23-10.21-3.23-14.83.01l-15.77,13.16c.17.13.35.26.49.37.29.21.57.42.83.63.17.14.31.29.43.43,1.39.1,3.7.21,4.23.21h.26c8.6,0,18.27-1.12,26.56-3.09l.5-.12c1.96-.46,5.6-1.31,6.23-2.64.25-.54-.06-1.4-.37-2.03-.69-1.09-6.07-5.32-8.56-6.94Z"/></g></defs></svg>
+
+<header class="page-head">
+  <h1>Outwards and Inwards, one animation</h1>
+  <p class="sub">The live-reports section of /reports/ has two cards with a diagram each. Here the two diagrams become one that says both: the same live report speaks to the people outside the client (funders, partners, press, public) and to the decision makers inside it. Each take is the real mint section with the real copy. <code>?solo=1</code> shows one take, <code>?at=3</code> freezes every take at 3 s.</p>
+</header>
+
+<main>
+
+  <!-- ===================== NOW ===================== -->
+  <section class="opt" id="opt-0">
+    <div class="opt-head">
+      <h2><span>Was</span>Two cards, two diagrams</h2>
+      <p class="opt-desc">On /reports/ until 13 November 2026: one diagram per card. Outwards the arrows leave the report through a ring to the people outside; inwards a wall holds everyone and the arrows converge on the report.</p>
+    </div>
+    <div class="dash">
+      <div class="wrap">
+        <span class="kicker">Live reports · data-driven storytelling</span>
+        <h2>PDF in. <em>Live report out.</em></h2>
+        <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into live reports, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
+        <div class="ways">
+          <div class="way">
+            <span class="way-dir">Outwards</span>
+            <h3>Show your impact</h3>
+            <p>Data-driven storytelling for funders, partners, the press and the public: shareable charts, country and programme pages, and a number behind every claim.</p>
+            <div class="way-viz out">
+              <svg class="wv-arrows" aria-hidden="true"></svg>
+              <span class="wv-wall" aria-hidden="true"></span>
+              <span class="wv-pulse" aria-hidden="true"></span><span class="wv-pulse" aria-hidden="true"></span>
+              <span class="wv-hub" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/><svg class="mark" x="12" y="12" width="16" height="16" viewBox="34 34 244 244"><use href="#nut-mark"/></svg></svg></span>
+              <ul><li>Funders</li><li>Partners</li><li>Press</li><li>Public</li></ul>
+            </div>
+          </div>
+          <div class="way">
+            <span class="way-dir">Inwards</span>
+            <h3>Decide with data</h3>
+            <p>The same datasets for boards and teams: indicators that refresh as new data arrives, filters by region, year or programme, and the view each decision needs.</p>
+            <div class="way-viz in">
+              <svg class="wv-arrows" aria-hidden="true"></svg>
+              <span class="wv-wall" aria-hidden="true"></span>
+              <span class="wv-pulse" aria-hidden="true"></span><span class="wv-pulse" aria-hidden="true"></span>
+              <span class="wv-hub" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/><svg class="mark" x="12" y="12" width="16" height="16" viewBox="34 34 244 244"><use href="#nut-mark"/></svg></svg></span>
+              <ul><li>Boards</li><li>Management</li><li>Programme teams</li><li>Analysts</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== A ===================== -->
+  <section class="opt" id="opt-1">
+    <div class="opt-head">
+      <h2><span>A</span>Threshold</h2>
+      <p class="opt-desc">One wide drawing over both cards. The live report sits on the client’s wall, half in and half out: the same arrows leave it to the left, to the people outside, and to the right, to the decision makers inside. Each half sits over its own card. Moving: the arc and the dashes, no pulses. On a phone the wall turns: outside on top, inside below, in the order the cards stack. Picked on 13 November 2026 and ported to /reports/ (EN and IT), with a second dashed perimeter on the left named “The public” and Investors in place of the Public chip.</p>
+    </div>
+    <div class="dash">
+      <div class="wrap">
+        <span class="kicker">Live reports · data-driven storytelling</span>
+        <h2>PDF in. <em>Live report out.</em></h2>
+        <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into live reports, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
+        <div class="ways">
+          <div class="one thr">
+            <svg class="wv-arrows" aria-hidden="true"></svg>
+            <span class="wv-wall pub" aria-hidden="true"></span>
+            <span class="wv-wall org" aria-hidden="true"></span>
+            <span class="wv-tag pub" aria-hidden="true">The public</span>
+            <span class="wv-tag org" aria-hidden="true">Your organisation</span>
+            <span class="wv-hub disc" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/><svg class="mark" x="12" y="12" width="16" height="16" viewBox="34 34 244 244"><use href="#nut-mark"/></svg></svg></span>
+            <ul class="o" aria-label="Outwards, for the public"><li>Funders</li><li>Partners</li><li>Press</li><li>Investors</li></ul>
+            <ul class="i" aria-label="Inwards, for your organisation"><li>Boards</li><li>Management</li><li>Programme teams</li><li>Analysts</li></ul>
+          </div>
+          <div class="way">
+            <span class="way-dir">Outwards</span>
+            <h3>Show your impact</h3>
+            <p>Data-driven storytelling for funders, partners, the press and the public: shareable charts, country and programme pages, and a number behind every claim.</p>
+          </div>
+          <div class="way">
+            <span class="way-dir">Inwards</span>
+            <h3>Decide with data</h3>
+            <p>The same datasets for boards and teams: indicators that refresh as new data arrives, filters by region, year or programme, and the view each decision needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== B ===================== -->
+  <section class="opt" id="opt-2">
+    <div class="opt-head">
+      <h2><span>B</span>Two faces</h2>
+      <p class="opt-desc">Today’s drawing, once, between the two cards. Every 5 s the dashed wall widens from a ring round the report to the whole frame and the four audiences change: the same report said outwards, then inwards. The arrows always leave the report. The card being said lights its label; hover or focus a card to hold it. Sparsest frame of the three, but a single still shows one side only.</p>
+    </div>
+    <div class="dash">
+      <div class="wrap">
+        <span class="kicker">Live reports · data-driven storytelling</span>
+        <h2>PDF in. <em>Live report out.</em></h2>
+        <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into live reports, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
+        <div class="ways mid">
+          <div class="way" data-side="out" tabindex="-1">
+            <span class="way-dir"><span>Outwards</span></span>
+            <h3>Show your impact</h3>
+            <p>Data-driven storytelling for funders, partners, the press and the public: shareable charts, country and programme pages, and a number behind every claim.</p>
+          </div>
+          <div class="one two" data-state="out">
+            <svg class="wv-arrows" aria-hidden="true"></svg>
+            <span class="wv-wall" aria-hidden="true"></span>
+            <span class="wv-hub" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/><svg class="mark" x="12" y="12" width="16" height="16" viewBox="34 34 244 244"><use href="#nut-mark"/></svg></svg></span>
+            <ul class="o" aria-label="Outwards: who it speaks to"><li>Funders</li><li>Partners</li><li>Press</li><li>Public</li></ul>
+            <ul class="i" aria-label="Inwards: who it speaks to"><li>Boards</li><li>Management</li><li>Programme teams</li><li>Analysts</li></ul>
+          </div>
+          <div class="way" data-side="in" tabindex="-1">
+            <span class="way-dir"><span>Inwards</span></span>
+            <h3>Decide with data</h3>
+            <p>The same datasets for boards and teams: indicators that refresh as new data arrives, filters by region, year or programme, and the view each decision needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== C ===================== -->
+  <section class="opt" id="opt-3">
+    <div class="opt-head">
+      <h2><span>C</span>Ripple</h2>
+      <p class="opt-desc">No arrows. The client is a dashed frame in the middle with its four decision makers inside; the four outside audiences sit at the corners. One ring leaves the report every 4.5 s and each chip turns black as the ring reaches it: inside first, then outside. One report, heard on both sides of the wall. Moving: the arc and one ring. The quietest take.</p>
+    </div>
+    <div class="dash">
+      <div class="wrap">
+        <span class="kicker">Live reports · data-driven storytelling</span>
+        <h2>PDF in. <em>Live report out.</em></h2>
+        <p class="dash-lead">A PDF is a snapshot. We connect a report’s charts to the datasets behind them and turn them into live reports, so its figures can be filtered, refreshed and explored, by the people you report to and by the people who run the organisation.</p>
+        <div class="ways">
+          <div class="one rip">
+            <span class="wv-wall" aria-hidden="true"></span>
+            <span class="wv-tag" aria-hidden="true">Your organisation</span>
+            <span class="rip-ring" aria-hidden="true"></span>
+            <span class="wv-hub disc" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/><svg class="mark" x="12" y="12" width="16" height="16" viewBox="34 34 244 244"><use href="#nut-mark"/></svg></svg></span>
+            <ul class="o" aria-label="Outwards: who it speaks to"><li>Funders</li><li>Partners</li><li>Press</li><li>Public</li></ul>
+            <ul class="i" aria-label="Inwards: who it speaks to"><li>Boards</li><li>Management</li><li>Programme teams</li><li>Analysts</li></ul>
+          </div>
+          <div class="way">
+            <span class="way-dir">Outwards</span>
+            <h3>Show your impact</h3>
+            <p>Data-driven storytelling for funders, partners, the press and the public: shareable charts, country and programme pages, and a number behind every claim.</p>
+          </div>
+          <div class="way">
+            <span class="way-dir">Inwards</span>
+            <h3>Decide with data</h3>
+            <p>The same datasets for boards and teams: indicators that refresh as new data arrives, filters by region, year or programme, and the view each decision needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var solo = q.get('solo'), at = q.get('at');
+  if (solo !== null) document.querySelectorAll('.opt').forEach(function (o, i) { if (String(i) !== solo) o.remove(); });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* where an element sits inside the drawing. Offsets ignore transforms,
+     so a chip still fading in is measured where it will land. */
+  function box(el, viz, useOffsets) {
+    if (useOffsets) {
+      var x = 0, y = 0, n = el;
+      while (n && n !== viz) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+      return { x: x, y: y, w: el.offsetWidth, h: el.offsetHeight };
+    }
+    var v = viz.getBoundingClientRect(), r = el.getBoundingClientRect();
+    return { x: r.left - v.left, y: r.top - v.top, w: r.width, h: r.height };
+  }
+  function edge(dx, dy, hw, hh) {
+    return Math.min(dx ? hw / Math.abs(dx) : Infinity, dy ? hh / Math.abs(dy) : Infinity);
+  }
+  /* dashed arrows between the report and each chip, cut at both edges */
+  function arrows(viz, chips, toHub, useOffsets) {
+    var svg = viz.querySelector('.wv-arrows');
+    var hb = box(viz.querySelector('.wv-hub'), viz, useOffsets);
+    var hx = hb.x + hb.w / 2, hy = hb.y + hb.h / 2;
+    var d = '', heads = '';
+    chips.forEach(function (li) {
+      var r = box(li, viz, useOffsets);
+      var cx = r.x + r.w / 2, cy = r.y + r.h / 2, dx = cx - hx, dy = cy - hy;
+      var a = edge(dx, dy, hb.w / 2 + 8, hb.h / 2 + 8);
+      var b = 1 - edge(dx, dy, r.w / 2 + 8, r.h / 2 + 8);
+      var x1 = hx + dx * a, y1 = hy + dy * a, x2 = hx + dx * b, y2 = hy + dy * b;
+      if (toHub) { var t = x1; x1 = x2; x2 = t; t = y1; y1 = y2; y2 = t; }
+      var len = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / len, uy = (y2 - y1) / len;
+      d += 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + 'L' + (x2 - ux * 3).toFixed(1) + ' ' + (y2 - uy * 3).toFixed(1);
+      var bx = x2 - ux * 10, by = y2 - uy * 10;
+      heads += 'M' + (bx - uy * 6).toFixed(1) + ' ' + (by + ux * 6).toFixed(1) + 'L' + x2.toFixed(1) + ' ' + y2.toFixed(1) + 'L' + (bx + uy * 6).toFixed(1) + ' ' + (by - ux * 6).toFixed(1);
+    });
+    svg.innerHTML = '<path class="flow" d="' + d + '"/><path d="' + heads + '"/>';
+  }
+
+  var draws = [];
+  /* Now: as on the page */
+  document.querySelectorAll('.way-viz').forEach(function (v) {
+    draws.push([v, function () { arrows(v, v.querySelectorAll('li'), v.classList.contains('in')); }]);
+  });
+  /* A: one set of arrows, out of the report both ways */
+  document.querySelectorAll('.thr').forEach(function (v) {
+    draws.push([v, function () { arrows(v, v.querySelectorAll('li'), false); }]);
+  });
+
+  /* B: one drawing that turns from one side to the other */
+  document.querySelectorAll('.two').forEach(function (v) {
+    var ways = v.parentNode.querySelectorAll('.way');
+    var held = null, timer = null, HOLD = 5000;
+    function draw() { arrows(v, v.querySelectorAll(v.dataset.state === 'out' ? '.o li' : '.i li'), false, true); }
+    function mark() { ways.forEach(function (w) { w.classList.toggle('on', w.dataset.side === v.dataset.state); }); }
+    function set(state, quiet) {
+      if (state === v.dataset.state) return;
+      if (quiet || reduce) { v.dataset.state = state; draw(); mark(); return; }
+      v.classList.add('switching');
+      setTimeout(function () { v.dataset.state = state; mark(); }, 200);
+      setTimeout(function () { draw(); v.classList.remove('switching'); }, 760);
+    }
+    function cycle() {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        if (held === null) set(v.dataset.state === 'out' ? 'in' : 'out');
+        cycle();
+      }, HOLD);
+    }
+    ways.forEach(function (w) {
+      function hold() { held = w.dataset.side; set(held); }
+      function free() { held = null; cycle(); }
+      w.addEventListener('mouseenter', hold); w.addEventListener('mouseleave', free);
+      w.addEventListener('focusin', hold); w.addEventListener('focusout', free);
+    });
+    mark();
+    draws.push([v, draw]);
+    if (at !== null) {
+      v.classList.add('no-tr');
+      v.dataset.state = Math.floor(+at * 1000 / HOLD) % 2 ? 'in' : 'out';
+      mark();
+    } else if (!reduce) cycle();
+  });
+
+  /* C: the ring's reach sets each chip's moment */
+  document.querySelectorAll('.rip').forEach(function (v) {
+    var DUR = 4.5, GROW = 0.7;
+    function place() {
+      var hb = box(v.querySelector('.wv-hub'), v), hx = hb.x + hb.w / 2, hy = hb.y + hb.h / 2;
+      var r0 = hb.w / 2, far = 0, ds = [];
+      v.querySelectorAll('li').forEach(function (li) {
+        var r = box(li, v);
+        var nx = Math.max(r.x, Math.min(hx, r.x + r.w)), ny = Math.max(r.y, Math.min(hy, r.y + r.h));
+        var d = Math.hypot(nx - hx, ny - hy);
+        ds.push([li, d]); far = Math.max(far, d);
+      });
+      var r1 = far + 24;
+      v.style.setProperty('--dur', DUR + 's');
+      v.style.setProperty('--d0', (2 * r0) + 'px');
+      v.style.setProperty('--d1', (2 * r1) + 'px');
+      ds.forEach(function (p) {
+        p[0].style.setProperty('--hit', ((p[1] - r0) / (r1 - r0) * GROW * DUR).toFixed(3) + 's');
+      });
+      v.classList.add('go');
+    }
+    draws.push([v, place]);
+  });
+
+  function drawAll() { draws.forEach(function (p) { p[1](); }); }
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(function (es) {
+      es.forEach(function (e) { draws.forEach(function (p) { if (p[0] === e.target) p[1](); }); });
+    });
+    draws.forEach(function (p) { ro.observe(p[0]); });
+  }
+  var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  ready.then(function () {
+    drawAll();
+    if (at === null) return;
+    requestAnimationFrame(function () {
+      document.getAnimations().forEach(function (a) { a.pause(); a.currentTime = +at * 1000; });
+      window.__frozen = true;
+    });
+  });
+})();
+</script>
+</body>
+</html>

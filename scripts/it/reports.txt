@@ -558,8 +558,16 @@ Funders
 = Finanziatori
 Press
 = Stampa
-Public
-= Pubblico
+Investors
+= Investitori
+The public
+= Il pubblico
+Your organisation
+= La vostra organizzazione
+Outwards, for the public
+= Verso l’esterno, per il pubblico
+Inwards, for your organisation
+= Verso l’interno, per la vostra organizzazione
 Inwards
 = Verso l’interno
 Decide with data

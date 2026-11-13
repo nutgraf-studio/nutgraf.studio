@@ -1735,84 +1735,90 @@ html.menu-open .menu-drawer { transform: none; visibility: visible; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-/* The two ways, drawn: a dashboard at the centre, its audiences at the
-   corners. The dashboard is one black donut on the mint, the Nutgraf
-   mark still at its centre while the arc turns slowly: clockwise
-   outwards, anticlockwise inwards. Outwards the arrows leave
-   through the organisation's walls (the dashed ring) to people outside;
-   inwards the walls hold everyone and the arrows converge on the
-   dashboard. The arrows are drawn by script to the chips' real edges.
-   The chips are the card's own list, placed by CSS, so the reading order
-   stays label, title, text, list. */
-.way-viz {
-  order: -1;
-  position: relative;
-  height: clamp(13rem, 21vw, 15.5rem);
-  margin-bottom: 1.5rem;
+/* The two ways, drawn once over both cards: one live report on the line
+   between the public (left) and the client's organisation (right), each
+   a dashed perimeter with its name on it. The same arrows leave the
+   report both ways, to the people outside and to the decision makers
+   inside, and each half sits over its own card. On phones the line turns:
+   the public on top, the organisation below, in the order the cards
+   stack. The report is a black donut whose arc turns slowly round the
+   Nutgraf mark, on a mint disc that hides the line behind it. The arrows
+   are drawn by script to the chips' real edges. The drawing follows the
+   cards in the source, so the reading order stays label, title, text,
+   then the two lists. */
+.ways-viz { order: -1; position: relative; height: 15rem; margin-bottom: 1rem; }
+@media (min-width: 800px) { .ways-viz { grid-column: 1 / -1; } }
+.ways-viz ul { list-style: none; }
+.ways-viz li {
+  position: absolute; z-index: 3;
+  left: calc(50% + var(--x)); top: calc(50% + var(--y)); translate: -50% -50%;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.375rem 0.75rem;
+  border: 1.5px solid var(--black);
+  border-radius: 999px;
+  background: var(--mint);
+  white-space: nowrap;
 }
-.way-viz.in { overflow: hidden; border-radius: 1.25rem; }
-.way .way-viz ul { margin: 0; display: block; }
-.way-viz li { position: absolute; z-index: 3; background: var(--mint); white-space: nowrap; }
-.way-viz li:nth-child(1) { top: 0; left: 0; }
-.way-viz li:nth-child(2) { top: 0; right: 0; }
-.way-viz li:nth-child(3) { bottom: 0; left: 0; }
-.way-viz li:nth-child(4) { bottom: 0; right: 0; }
-.way-viz.in li:nth-child(1) { top: 0.875rem; left: 0.875rem; }
-.way-viz.in li:nth-child(2) { top: 0.875rem; right: 0.875rem; }
-.way-viz.in li:nth-child(3) { bottom: 0.875rem; left: 0.875rem; }
-.way-viz.in li:nth-child(4) { bottom: 0.875rem; right: 0.875rem; }
+.wv-out li:nth-child(1) { --x: -21%; --y: -4.75rem; }
+.wv-out li:nth-child(2) { --x: -32%; --y: -1.6rem; }
+.wv-out li:nth-child(3) { --x: -32%; --y: 1.6rem; }
+.wv-out li:nth-child(4) { --x: -21%; --y: 4.75rem; }
+.wv-in li:nth-child(1) { --x: 21%; --y: -4.75rem; }
+.wv-in li:nth-child(2) { --x: 32%; --y: -1.6rem; }
+.wv-in li:nth-child(3) { --x: 32%; --y: 1.6rem; }
+.wv-in li:nth-child(4) { --x: 21%; --y: 4.75rem; }
 .wv-arrows { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .wv-arrows path { fill: none; stroke: var(--black); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .wv-arrows .flow { stroke-width: 1.75; stroke-linecap: butt; stroke-dasharray: 7 5; }
-.wv-wall { position: absolute; border: 1.5px dashed var(--black); }
-.way-viz.out .wv-wall { left: 50%; top: 50%; width: 8.75rem; height: 8.75rem; margin: -4.375rem 0 0 -4.375rem; border-radius: 50%; }
-.way-viz.in .wv-wall { inset: 0; border-radius: 1.25rem; }
+/* the two perimeters share the middle line: the public's has no right side */
+.wv-wall { position: absolute; top: 0; bottom: 0; border: 1.5px dashed var(--black); }
+.wv-wall.pub { left: 0; right: 50%; border-right: 0; border-radius: 1.25rem 0 0 1.25rem; }
+.wv-wall.org { left: 50%; right: 0; border-radius: 0 1.25rem 1.25rem 0; }
+.wv-tag {
+  position: absolute; z-index: 2; top: 0; translate: 0 -50%;
+  padding: 0 0.5rem; background: var(--mint);
+  font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  line-height: 1; white-space: nowrap;
+}
+.wv-tag.pub { left: 1.5rem; }
+.wv-tag.org { right: 1.5rem; }
 .wv-hub {
   position: absolute; left: 50%; top: 50%; z-index: 2;
   width: 5.25rem; height: 5.25rem; margin: -2.625rem 0 0 -2.625rem;
   padding: 0.25rem;
+  background: var(--mint); border-radius: 50%;
 }
 .wv-hub svg { display: block; width: 100%; height: 100%; overflow: visible; }
 .wv-hub circle { fill: none; stroke-width: 6.5; transform-box: fill-box; transform-origin: center; }
 .wv-hub .track { stroke: rgba(10, 10, 10, 0.14); }
 .wv-hub .arc { stroke: var(--black); stroke-dasharray: 34 66; transform: rotate(-90deg); }
 .wv-hub .mark { fill: var(--black); }
-.wv-pulse {
-  position: absolute; left: 50%; top: 50%;
-  width: 5.25rem; height: 5.25rem; margin: -2.625rem 0 0 -2.625rem;
-  border: 1.5px solid var(--black); border-radius: 50%; opacity: 0;
+@media (max-width: 699px) {
+  .ways-viz { height: 25rem; }
+  .ways-viz li { font-size: 0.75rem; }
+  .wv-wall.pub { right: 0; bottom: 50%; border-right: 1.5px dashed var(--black); border-bottom: 0; border-radius: 1.25rem 1.25rem 0 0; }
+  .wv-wall.org { left: 0; top: 50%; border-radius: 0 0 1.25rem 1.25rem; }
+  .wv-tag.pub { left: 1.25rem; }
+  .wv-tag.org { top: auto; bottom: 0; right: 1.25rem; translate: 0 50%; }
+  .wv-out li:nth-child(1) { --x: -24%; --y: -9.75rem; }
+  .wv-out li:nth-child(2) { --x: 24%;  --y: -9.75rem; }
+  .wv-out li:nth-child(3) { left: 0.625rem; --y: -5.25rem; translate: 0 -50%; }
+  .wv-out li:nth-child(4) { left: auto; right: 0.625rem; --y: -5.25rem; translate: 0 -50%; }
+  .wv-in li:nth-child(1) { left: 0.625rem; --y: 5.25rem; translate: 0 -50%; }
+  .wv-in li:nth-child(2) { left: auto; right: 0.625rem; --y: 5.25rem; translate: 0 -50%; }
+  .wv-in li:nth-child(3) { --x: -24%; --y: 9.75rem; }
+  .wv-in li:nth-child(4) { --x: 24%;  --y: 9.75rem; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .wv-arrows .flow { animation: wv-flow 0.8s linear infinite; }
-  .way-viz .wv-pulse { animation: 2.8s var(--ease-out) infinite; }
-  .way-viz .wv-pulse + .wv-pulse { animation-delay: -1.4s; }
-  .way-viz.out .wv-pulse { animation-name: wv-pulse-out; }
-  .way-viz.in .wv-pulse { animation-name: wv-pulse-in; animation-timing-function: cubic-bezier(0.6, 0, 0.8, 0.4); }
   .wv-hub .arc { animation: wv-spin 9s linear infinite; }
-  .way-viz.in .wv-hub .arc { animation-direction: reverse; }
 }
-/* the dashes run from the start of each path to its arrowhead */
+/* the dashes run from the report to each arrowhead */
 @keyframes wv-flow { to { stroke-dashoffset: -12; } }
-@keyframes wv-pulse-out {
-  0%   { transform: scale(1); opacity: 0.5; }
-  100% { transform: scale(3); opacity: 0; }
-}
-@keyframes wv-pulse-in {
-  0%   { transform: scale(3); opacity: 0; }
-  60%  { opacity: 0.35; }
-  100% { transform: scale(1); opacity: 0.6; }
-}
 @keyframes wv-spin { from { rotate: 0deg; } to { rotate: 360deg; } }
 .way h3 { margin-top: 0.75rem; font-size: clamp(1.75rem, 3vw, 2.5rem); }
 .way p { margin-top: 0.625rem; max-width: 32rem; }
-.way ul { margin-top: 1rem; list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.way li {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  padding: 0.375rem 0.75rem;
-  border: 1.5px solid var(--black);
-  border-radius: 999px;
-}
 
 /* the demos: three black screens on the mint, one tab each */
 .deck { margin-top: clamp(3.5rem, 7vw, 5rem); scroll-margin-top: 5.5rem; }
@@ -2939,25 +2945,21 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <span class="way-dir">Verso l’esterno</span>
         <h3>Mostrate il vostro impatto</h3>
         <p>Data storytelling per finanziatori, partner, stampa e pubblico: grafici da condividere, pagine per paese e per programma, e un numero dietro ogni affermazione.</p>
-        <div class="way-viz out">
-          <svg class="wv-arrows" aria-hidden="true"></svg>
-          <span class="wv-wall" aria-hidden="true"></span>
-          <span class="wv-pulse" aria-hidden="true"></span><span class="wv-pulse" aria-hidden="true"></span>
-          <span class="wv-hub" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/><svg class="mark" x="12" y="12" width="16" height="16" viewBox="34 34 244 244"><path d="M162.18,48.42c-6.51,18.01-13.34,36.35-19.96,54.08-10.37,27.81-21.09,56.57-30.91,85.06-.14,4.74,1.64,8.5,5.57,11.83,7.9,6.68,16.78,12.99,25.36,19.09,7.8,5.54,15.85,11.26,23.24,17.31,4.27,2.56,10.1,2.27,13.91-.71,10.07-8.47,20.47-17.04,30.53-25.32,15.29-12.6,31.1-25.62,46.33-38.77,2.41-3.56,2.65-8.08.6-11.61l-66.36-107.92c-4.11-5.7-12.09-11.29-18.87-10.41-3.83.49-7.97,3.72-9.44,7.36Z"/><path d="M88.75,61.02c-18.99,13.39-33.36,31.86-41.56,53.42-4.31,11.31-9.18,24.12.47,32.8,7.82,5.18,15.48,11.34,22.89,17.29,7.89,6.34,16.04,12.9,24.26,18.15,2.22,1.42,4.1,1.96,5.57,1.6,1.21-.3,2.32-1.29,3.3-2.93l52.51-141.97c-.64.01-1.38.08-1.79.11-.49.04-.93.08-1.27.09-23.18.66-45.44,8.07-64.38,21.43Z"/><path d="M266.85,176.08c-.44-.35-.89-.46-1.47-.37-.79.13-2.48,1.53-3.39,2.28-.33.27-.63.53-.92.75-12.78,10.06-25.43,20.79-37.66,31.17-12.09,10.26-24.58,20.87-37.24,30.85-2.16,2.03-3.23,3.88-3.18,5.51.05,1.72,1.37,3.66,3.91,5.78,13.36,11.11,18.37,11.3,33.47,1.29,20.01-13.27,35.77-32.79,44.38-54.96,1.53-3.94,4.71-12.13,4.4-16.49-.15-2.11-.99-4.78-2.29-5.81Z"/><path d="M161.71,246.78c-.03-1.64-1.09-3.39-3.14-5.21l-46.96-35.21c-1.39-1.01-3.16-1.52-4.58-1.31-1.18.18-2.87,1.57-3.72,3.03-1.62,5.24-3.81,10.58-5.93,15.75-2.42,5.89-4.91,11.99-6.5,17.79-3.1,11.35,5.86,16.06,18.86,21.47l.96.4c14.75,6.16,23.04,8.92,35.63-1l.6-.47c3.75-2.95,8.43-6.63,11.67-9.7,2.1-1.99,3.15-3.86,3.12-5.54Z"/><path d="M92.08,212.77c1.14-3.42,2.31-6.95,3.49-10.33.28-4.52-1.3-8.68-4.36-11.46l-50.74-38.2c-.08.08-.16.16-.24.24-.25.24-.51.41-.76.55-.23,3.3.12,8.04.32,10.89,1.89,26,12.94,51.69,30.31,70.47l.13.14c4.79,5.18,6.52,6.14,7.13,6.25,2.38.38,4.13-.24,5.97-4.5,3.27-7.57,6.06-15.95,8.75-24.06Z"/><path d="M267.96,160.35c.29.15.67.25,1.26.17.86-.32,3.06-2.18,3.52-3.08.12-21.23-5.52-42.14-16.34-60.49-10.87-18.45-26.5-33.5-45.2-43.54-2.55-1.37-6.39-3.43-9.16-4.41-.46-.16-1.69-.59-2.58-.62.06.55.29,1.37.59,1.83l67.9,110.14Z"/><path d="M180.28,257.93c-4.94-3.23-10.21-3.23-14.83.01l-15.77,13.16c.17.13.35.26.49.37.29.21.57.42.83.63.17.14.31.29.43.43,1.39.1,3.7.21,4.23.21h.26c8.6,0,18.27-1.12,26.56-3.09l.5-.12c1.96-.46,5.6-1.31,6.23-2.64.25-.54-.06-1.4-.37-2.03-.69-1.09-6.07-5.32-8.56-6.94Z"/></svg></svg></span>
-          <ul><li>Finanziatori</li><li>Partner</li><li>Stampa</li><li>Pubblico</li></ul>
-        </div>
       </div>
       <div class="way reveal">
         <span class="way-dir">Verso l’interno</span>
         <h3>Decidete con i dati</h3>
         <p>Gli stessi dataset per board e team: indicatori che si aggiornano quando arrivano nuovi dati, filtri per regione, anno o programma, e la vista che serve a ogni decisione.</p>
-        <div class="way-viz in">
-          <svg class="wv-arrows" aria-hidden="true"></svg>
-          <span class="wv-wall" aria-hidden="true"></span>
-          <span class="wv-pulse" aria-hidden="true"></span><span class="wv-pulse" aria-hidden="true"></span>
-          <span class="wv-hub" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/><svg class="mark" x="12" y="12" width="16" height="16" viewBox="34 34 244 244"><path d="M162.18,48.42c-6.51,18.01-13.34,36.35-19.96,54.08-10.37,27.81-21.09,56.57-30.91,85.06-.14,4.74,1.64,8.5,5.57,11.83,7.9,6.68,16.78,12.99,25.36,19.09,7.8,5.54,15.85,11.26,23.24,17.31,4.27,2.56,10.1,2.27,13.91-.71,10.07-8.47,20.47-17.04,30.53-25.32,15.29-12.6,31.1-25.62,46.33-38.77,2.41-3.56,2.65-8.08.6-11.61l-66.36-107.92c-4.11-5.7-12.09-11.29-18.87-10.41-3.83.49-7.97,3.72-9.44,7.36Z"/><path d="M88.75,61.02c-18.99,13.39-33.36,31.86-41.56,53.42-4.31,11.31-9.18,24.12.47,32.8,7.82,5.18,15.48,11.34,22.89,17.29,7.89,6.34,16.04,12.9,24.26,18.15,2.22,1.42,4.1,1.96,5.57,1.6,1.21-.3,2.32-1.29,3.3-2.93l52.51-141.97c-.64.01-1.38.08-1.79.11-.49.04-.93.08-1.27.09-23.18.66-45.44,8.07-64.38,21.43Z"/><path d="M266.85,176.08c-.44-.35-.89-.46-1.47-.37-.79.13-2.48,1.53-3.39,2.28-.33.27-.63.53-.92.75-12.78,10.06-25.43,20.79-37.66,31.17-12.09,10.26-24.58,20.87-37.24,30.85-2.16,2.03-3.23,3.88-3.18,5.51.05,1.72,1.37,3.66,3.91,5.78,13.36,11.11,18.37,11.3,33.47,1.29,20.01-13.27,35.77-32.79,44.38-54.96,1.53-3.94,4.71-12.13,4.4-16.49-.15-2.11-.99-4.78-2.29-5.81Z"/><path d="M161.71,246.78c-.03-1.64-1.09-3.39-3.14-5.21l-46.96-35.21c-1.39-1.01-3.16-1.52-4.58-1.31-1.18.18-2.87,1.57-3.72,3.03-1.62,5.24-3.81,10.58-5.93,15.75-2.42,5.89-4.91,11.99-6.5,17.79-3.1,11.35,5.86,16.06,18.86,21.47l.96.4c14.75,6.16,23.04,8.92,35.63-1l.6-.47c3.75-2.95,8.43-6.63,11.67-9.7,2.1-1.99,3.15-3.86,3.12-5.54Z"/><path d="M92.08,212.77c1.14-3.42,2.31-6.95,3.49-10.33.28-4.52-1.3-8.68-4.36-11.46l-50.74-38.2c-.08.08-.16.16-.24.24-.25.24-.51.41-.76.55-.23,3.3.12,8.04.32,10.89,1.89,26,12.94,51.69,30.31,70.47l.13.14c4.79,5.18,6.52,6.14,7.13,6.25,2.38.38,4.13-.24,5.97-4.5,3.27-7.57,6.06-15.95,8.75-24.06Z"/><path d="M267.96,160.35c.29.15.67.25,1.26.17.86-.32,3.06-2.18,3.52-3.08.12-21.23-5.52-42.14-16.34-60.49-10.87-18.45-26.5-33.5-45.2-43.54-2.55-1.37-6.39-3.43-9.16-4.41-.46-.16-1.69-.59-2.58-.62.06.55.29,1.37.59,1.83l67.9,110.14Z"/><path d="M180.28,257.93c-4.94-3.23-10.21-3.23-14.83.01l-15.77,13.16c.17.13.35.26.49.37.29.21.57.42.83.63.17.14.31.29.43.43,1.39.1,3.7.21,4.23.21h.26c8.6,0,18.27-1.12,26.56-3.09l.5-.12c1.96-.46,5.6-1.31,6.23-2.64.25-.54-.06-1.4-.37-2.03-.69-1.09-6.07-5.32-8.56-6.94Z"/></svg></svg></span>
-          <ul><li>Board</li><li>Management</li><li>Team di programma</li><li>Analisti</li></ul>
-        </div>
+      </div>
+      <div class="ways-viz reveal">
+        <svg class="wv-arrows" aria-hidden="true"></svg>
+        <span class="wv-wall pub" aria-hidden="true"></span>
+        <span class="wv-wall org" aria-hidden="true"></span>
+        <span class="wv-tag pub" aria-hidden="true">Il pubblico</span>
+        <span class="wv-tag org" aria-hidden="true">La vostra organizzazione</span>
+        <span class="wv-hub" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="track" cx="20" cy="20" r="16"/><circle class="arc" cx="20" cy="20" r="16" pathLength="100"/><svg class="mark" x="12" y="12" width="16" height="16" viewBox="34 34 244 244"><path d="M162.18,48.42c-6.51,18.01-13.34,36.35-19.96,54.08-10.37,27.81-21.09,56.57-30.91,85.06-.14,4.74,1.64,8.5,5.57,11.83,7.9,6.68,16.78,12.99,25.36,19.09,7.8,5.54,15.85,11.26,23.24,17.31,4.27,2.56,10.1,2.27,13.91-.71,10.07-8.47,20.47-17.04,30.53-25.32,15.29-12.6,31.1-25.62,46.33-38.77,2.41-3.56,2.65-8.08.6-11.61l-66.36-107.92c-4.11-5.7-12.09-11.29-18.87-10.41-3.83.49-7.97,3.72-9.44,7.36Z"/><path d="M88.75,61.02c-18.99,13.39-33.36,31.86-41.56,53.42-4.31,11.31-9.18,24.12.47,32.8,7.82,5.18,15.48,11.34,22.89,17.29,7.89,6.34,16.04,12.9,24.26,18.15,2.22,1.42,4.1,1.96,5.57,1.6,1.21-.3,2.32-1.29,3.3-2.93l52.51-141.97c-.64.01-1.38.08-1.79.11-.49.04-.93.08-1.27.09-23.18.66-45.44,8.07-64.38,21.43Z"/><path d="M266.85,176.08c-.44-.35-.89-.46-1.47-.37-.79.13-2.48,1.53-3.39,2.28-.33.27-.63.53-.92.75-12.78,10.06-25.43,20.79-37.66,31.17-12.09,10.26-24.58,20.87-37.24,30.85-2.16,2.03-3.23,3.88-3.18,5.51.05,1.72,1.37,3.66,3.91,5.78,13.36,11.11,18.37,11.3,33.47,1.29,20.01-13.27,35.77-32.79,44.38-54.96,1.53-3.94,4.71-12.13,4.4-16.49-.15-2.11-.99-4.78-2.29-5.81Z"/><path d="M161.71,246.78c-.03-1.64-1.09-3.39-3.14-5.21l-46.96-35.21c-1.39-1.01-3.16-1.52-4.58-1.31-1.18.18-2.87,1.57-3.72,3.03-1.62,5.24-3.81,10.58-5.93,15.75-2.42,5.89-4.91,11.99-6.5,17.79-3.1,11.35,5.86,16.06,18.86,21.47l.96.4c14.75,6.16,23.04,8.92,35.63-1l.6-.47c3.75-2.95,8.43-6.63,11.67-9.7,2.1-1.99,3.15-3.86,3.12-5.54Z"/><path d="M92.08,212.77c1.14-3.42,2.31-6.95,3.49-10.33.28-4.52-1.3-8.68-4.36-11.46l-50.74-38.2c-.08.08-.16.16-.24.24-.25.24-.51.41-.76.55-.23,3.3.12,8.04.32,10.89,1.89,26,12.94,51.69,30.31,70.47l.13.14c4.79,5.18,6.52,6.14,7.13,6.25,2.38.38,4.13-.24,5.97-4.5,3.27-7.57,6.06-15.95,8.75-24.06Z"/><path d="M267.96,160.35c.29.15.67.25,1.26.17.86-.32,3.06-2.18,3.52-3.08.12-21.23-5.52-42.14-16.34-60.49-10.87-18.45-26.5-33.5-45.2-43.54-2.55-1.37-6.39-3.43-9.16-4.41-.46-.16-1.69-.59-2.58-.62.06.55.29,1.37.59,1.83l67.9,110.14Z"/><path d="M180.28,257.93c-4.94-3.23-10.21-3.23-14.83.01l-15.77,13.16c.17.13.35.26.49.37.29.21.57.42.83.63.17.14.31.29.43.43,1.39.1,3.7.21,4.23.21h.26c8.6,0,18.27-1.12,26.56-3.09l.5-.12c1.96-.46,5.6-1.31,6.23-2.64.25-.54-.06-1.4-.37-2.03-.69-1.09-6.07-5.32-8.56-6.94Z"/></svg></svg></span>
+        <ul class="wv-out" aria-label="Verso l’esterno, per il pubblico"><li>Finanziatori</li><li>Partner</li><li>Stampa</li><li>Investitori</li></ul>
+        <ul class="wv-in" aria-label="Verso l’interno, per la vostra organizzazione"><li>Board</li><li>Management</li><li>Team di programma</li><li>Analisti</li></ul>
       </div>
     </div>
 
@@ -5010,32 +5012,29 @@ document.querySelectorAll('.overlay').forEach(function (d) {
 </script>
 
 <script>
-/* The ways cards: arrows from the dashboard to each audience chip
-   (outwards) or from each chip to the dashboard (inwards), drawn to the
-   chips' real edges and redrawn when the card changes size. */
+/* The ways drawing: arrows from the live report to each audience chip,
+   out to the public and in to the organisation, drawn to the chips' real
+   edges and redrawn when the drawing changes size. */
 (function () {
-  var vizs = document.querySelectorAll('.way-viz');
-  if (!vizs.length || !window.ResizeObserver) return;
-  var NS = 'http://www.w3.org/2000/svg';
-  function edge(cx, cy, dx, dy, hw, hh) {
+  var viz = document.querySelector('.ways-viz');
+  if (!viz || !window.ResizeObserver) return;
+  function edge(dx, dy, hw, hh) {
     // the fraction of (dx, dy) from a box's centre to its edge
     return Math.min(dx ? hw / Math.abs(dx) : Infinity, dy ? hh / Math.abs(dy) : Infinity);
   }
-  function draw(viz) {
+  function draw() {
     var svg = viz.querySelector('.wv-arrows');
     var box = viz.getBoundingClientRect();
     var hub = viz.querySelector('.wv-hub').getBoundingClientRect();
-    var inwards = viz.classList.contains('in');
     var hx = hub.left + hub.width / 2 - box.left, hy = hub.top + hub.height / 2 - box.top;
     var d = '', heads = '';
     viz.querySelectorAll('li').forEach(function (li) {
       var r = li.getBoundingClientRect();
       var cx = r.left + r.width / 2 - box.left, cy = r.top + r.height / 2 - box.top;
       var dx = cx - hx, dy = cy - hy;
-      var a = edge(hx, hy, dx, dy, hub.width / 2 + 8, hub.height / 2 + 8);
-      var b = 1 - edge(cx, cy, dx, dy, r.width / 2 + 8, r.height / 2 + 8);
+      var a = edge(dx, dy, hub.width / 2 + 8, hub.height / 2 + 8);
+      var b = 1 - edge(dx, dy, r.width / 2 + 8, r.height / 2 + 8);
       var x1 = hx + dx * a, y1 = hy + dy * a, x2 = hx + dx * b, y2 = hy + dy * b;
-      if (inwards) { var t = x1; x1 = x2; x2 = t; t = y1; y1 = y2; y2 = t; }
       var len = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / len, uy = (y2 - y1) / len;
       d += 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + 'L' + (x2 - ux * 3).toFixed(1) + ' ' + (y2 - uy * 3).toFixed(1);
       var bx = x2 - ux * 10, by = y2 - uy * 10;
@@ -5043,9 +5042,8 @@ document.querySelectorAll('.overlay').forEach(function (d) {
     });
     svg.innerHTML = '<path class="flow" d="' + d + '"/><path d="' + heads + '"/>';
   }
-  var ro = new ResizeObserver(function (entries) { entries.forEach(function (e) { draw(e.target); }); });
-  vizs.forEach(function (v) { ro.observe(v); });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { vizs.forEach(draw); });
+  new ResizeObserver(draw).observe(viz);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
 })();
 </script>
 </body>
