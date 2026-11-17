@@ -72,6 +72,21 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover, z
   const PS = PR * ZOOM;
   renderer.setClearColor(0x000000, 0);
 
+  // Land style. 2 (shaded land) is the default since 17 Nov 2026; ?land=0|1|3 shows the alternatives
+  // (0 = original even sprinkle, 1 = fine stipple, 3 = halftone sand).
+  //  k: dot density over Europe relative to the rest of the globe (fades out 25-45 degrees from its centre)
+  //  sizeExp: how much dots shrink where they are denser (0 = same size, 0.5 = shrink with spacing)
+  //  baseA: opacity of land dots that carry no data glow; coast / borders: line opacity; fill: solid land tint
+  //  jitter: random nudge (share of the local dot spacing) that breaks the lattice's moiré
+  const LAND_STYLES = {
+    0: { k: 1, sizeExp: 0, baseA: 0.2, coast: 0.2, borders: 0.1, fill: 0 },
+    1: { k: 4, sizeExp: 0.42, baseA: 0.26, coast: 0.24, borders: 0.04, fill: 0 },
+    2: { k: 4, sizeExp: 0.42, baseA: 0.22, coast: 0.34, borders: 0, fill: 0.11 },
+    3: { k: 9, sizeExp: 0.32, baseA: 0.46, coast: 0, borders: 0, fill: 0, jitter: 0.35 },
+  };
+  const landKey = new URLSearchParams(location.search).get("land");
+  const LAND = LAND_STYLES[landKey] || LAND_STYLES[2];
+
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);
   camera.position.set(0, 0, 2.55);
@@ -91,12 +106,18 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover, z
   const core = new THREE.Mesh(
     new THREE.SphereGeometry(0.996, 96, 96),
     new THREE.ShaderMaterial({
-      uniforms: { uRim: { value: rawColor(COLORS.accent2) } },
-      vertexShader: `varying vec3 vN; varying vec3 vV;
-        void main(){ vec4 mv = modelViewMatrix*vec4(position,1.); vN = normalize(normalMatrix*normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix*mv; }`,
-      fragmentShader: `uniform vec3 uRim; varying vec3 vN; varying vec3 vV;
+      uniforms: { uRim: { value: rawColor(COLORS.accent2) }, uMask: { value: new THREE.DataTexture(new Uint8Array(4), 1, 1) },
+        uFill: { value: 0 }, uLand: { value: rawColor("#EDE9E1") } },
+      vertexShader: `varying vec3 vN; varying vec3 vV; varying vec3 vP;
+        void main(){ vP = position; vec4 mv = modelViewMatrix*vec4(position,1.); vN = normalize(normalMatrix*normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix*mv; }`,
+      fragmentShader: `uniform vec3 uRim; uniform sampler2D uMask; uniform float uFill; uniform vec3 uLand; varying vec3 vN; varying vec3 vV; varying vec3 vP;
         void main(){ float f = pow(1.0 - max(dot(vN, vV), 0.0), 3.0);
           vec3 base = vec3(0.043, 0.047, 0.045);
+          if (uFill > 0.0) {
+            vec3 q = normalize(vP);
+            vec2 uv = vec2(atan(q.x, q.z) / 6.2831853 + 0.5, 0.5 + asin(q.y) / 3.1415927);
+            base = mix(base, uLand, texture2D(uMask, uv).r * uFill);
+          }
           gl_FragColor = vec4(base + uRim * f * 0.35, 1.0); }`,
     })
   );
@@ -118,7 +139,7 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover, z
   // ---- land dots (country-coded via an offscreen equirectangular raster) --
   const topo = await fetch("vendor/countries-50m.json").then((r) => r.json());
   const countriesGeo = topojson.feature(topo, topo.objects.countries);
-  const W = 2048, H = 1024;
+  const W = LAND.k > 1 ? 4096 : 2048, H = W / 2;
   const cv = document.createElement("canvas");
   cv.width = W; cv.height = H;
   const ctx = cv.getContext("2d", { willReadFrequently: true });
@@ -133,37 +154,69 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover, z
     ctx.beginPath(); path(f); ctx.fill();
   });
   const px = ctx.getImageData(0, 0, W, H).data;
+  if (LAND.fill > 0) {
+    const mc = document.createElement("canvas");
+    mc.width = 2048; mc.height = 1024;
+    const mx = mc.getContext("2d");
+    const mpath = d3.geoPath(d3.geoEquirectangular().scale(2048 / (2 * Math.PI)).translate([1024, 512]), mx);
+    mx.fillStyle = "#000"; mx.fillRect(0, 0, 2048, 1024);
+    mx.fillStyle = "#fff";
+    countriesGeo.features.forEach((f) => { mx.beginPath(); mpath(f); mx.fill(); });
+    const tex = new THREE.CanvasTexture(mc);
+    tex.minFilter = THREE.LinearFilter; tex.generateMipmaps = false;
+    core.material.uniforms.uMask.value = tex;
+    core.material.uniforms.uFill.value = LAND.fill;
+  }
 
-  const NPTS = window.innerWidth < 700 ? 110000 : 170000;
-  const dotPos = [], dotIdx = [];
+  const NBASE = window.innerWidth < 700 ? 110000 : 170000;
+  const NPTS = NBASE * LAND.k;
+  const dotPos = [], dotIdx = [], dotSize = [];
   const golden = Math.PI * (3 - Math.sqrt(5));
+  const centre = ll2v(50, 15);
+  const hash = (i) => { const h = Math.sin(i * 12.9898) * 43758.5453; return h - Math.floor(h); };
   for (let i = 0; i < NPTS; i++) {
     const y = 1 - (i / (NPTS - 1)) * 2;
     const r = Math.sqrt(1 - y * y);
     const th = golden * i;
-    const x = Math.cos(th) * r, z = Math.sin(th) * r;
-    const lat = Math.asin(y) / DEG;
+    let x = Math.cos(th) * r, z = Math.sin(th) * r;
+    let dens = 1;
+    if (LAND.k > 1) {
+      const ang = Math.acos(Math.max(-1, Math.min(1, x * centre.x + y * centre.y + z * centre.z))) / DEG;
+      const w = ang <= 25 ? 1 : ang >= 45 ? 0 : 1 - (ang - 25) / 20;
+      const keep = 1 / LAND.k + (1 - 1 / LAND.k) * w;
+      if (hash(i) > keep) continue;
+      dens = keep * LAND.k;
+    }
+    let yy = y;
+    if (LAND.jitter) {
+      const amt = LAND.jitter * Math.sqrt(4 * Math.PI / NBASE) / Math.sqrt(dens);
+      x += (hash(i + 0.31) - 0.5) * 2 * amt; yy += (hash(i + 0.57) - 0.5) * 2 * amt; z += (hash(i + 0.83) - 0.5) * 2 * amt;
+      const n = Math.hypot(x, yy, z); x /= n; yy /= n; z /= n;
+    }
+    const lat = Math.asin(yy) / DEG;
     const lon = Math.atan2(x, z) / DEG;
     if (lat < -60) continue; // skip Antarctica
     const u = Math.floor(((lon + 180) / 360) * W) % W;
     const v = Math.min(H - 1, Math.floor(((90 - lat) / 180) * H));
     const o = (v * W + u) * 4;
     if (px[o + 1] < 200) continue; // ocean or soft edge
-    dotPos.push(x * 1.001, y * 1.001, z * 1.001);
+    dotPos.push(x * 1.001, yy * 1.001, z * 1.001);
     dotIdx.push(px[o] > 0 ? px[o] - 1 : -1);
+    dotSize.push(Math.pow(dens, -LAND.sizeExp));
   }
   const dotGeo = new THREE.BufferGeometry();
   dotGeo.setAttribute("position", new THREE.Float32BufferAttribute(dotPos, 3));
   dotGeo.setAttribute("cidx", new THREE.Float32BufferAttribute(dotIdx, 1));
+  dotGeo.setAttribute("dsz", new THREE.Float32BufferAttribute(dotSize, 1));
   const intensity = new Float32Array(N_UNI), intensityTarget = new Float32Array(N_UNI);
   const dotMat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false,
     uniforms: {
       uInt: { value: intensity }, uFocus: { value: -1 }, uSize: { value: 1.55 }, uPR: { value: PS },
       uBase: { value: new THREE.Color("#EDE9E1") }, uHot: { value: rawColor(COLORS.accent) },
-      uFocusCol: { value: new THREE.Color("#ffffff") },
+      uFocusCol: { value: new THREE.Color("#ffffff") }, uBaseA: { value: LAND.baseA },
     },
-    vertexShader: `attribute float cidx; uniform float uInt[${N_UNI}]; uniform float uFocus; uniform float uSize; uniform float uPR;
+    vertexShader: `attribute float cidx; attribute float dsz; uniform float uInt[${N_UNI}]; uniform float uFocus; uniform float uSize; uniform float uPR;
       varying float vI; varying float vFace; varying float vF;
       void main(){
         float inten = 0.0;
@@ -172,10 +225,10 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover, z
         vF = (cidx > -0.5 && abs(cidx - uFocus) < 0.5) ? 1.0 : 0.0;
         vec4 mv = modelViewMatrix * vec4(position, 1.0);
         vFace = normalize(normalMatrix * position).z;
-        gl_PointSize = uSize * uPR * (1.0 + inten * 0.8 + vF * 0.6) * (2.6 / -mv.z);
+        gl_PointSize = uSize * uPR * dsz * (1.0 + inten * 0.8 + vF * 0.6) * (2.6 / -mv.z);
         gl_Position = projectionMatrix * mv;
       }`,
-    fragmentShader: `uniform vec3 uBase; uniform vec3 uHot; uniform vec3 uFocusCol;
+    fragmentShader: `uniform vec3 uBase; uniform vec3 uHot; uniform vec3 uFocusCol; uniform float uBaseA;
       varying float vI; varying float vFace; varying float vF;
       void main(){
         vec2 c = gl_PointCoord - 0.5; float d = length(c);
@@ -183,7 +236,7 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover, z
         float a = smoothstep(0.5, 0.15, d);
         vec3 col = mix(uBase, uHot, clamp(vI * 1.15, 0.0, 1.0));
         col = mix(col, uFocusCol, vF * 0.55);
-        float alpha = (0.2 + 0.8 * clamp(vI, 0.0, 1.0)) * a * smoothstep(-0.02, 0.3, vFace);
+        float alpha = (uBaseA + (1.0 - uBaseA) * clamp(vI, 0.0, 1.0)) * a * smoothstep(-0.02, 0.3, vFace);
         alpha = max(alpha, vF * a * 0.9 * smoothstep(-0.02, 0.3, vFace));
         gl_FragColor = vec4(col, alpha);
       }`,
@@ -205,10 +258,10 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover, z
   }
   const borders = topojson.mesh(topo, topo.objects.countries, (a, b) => a !== b);
   const coasts = topojson.mesh(topo, topo.objects.countries, (a, b) => a === b);
-  globe.add(new THREE.LineSegments(meshToSegments(borders, 1.0015),
-    new THREE.LineBasicMaterial({ color: 0xEDE9E1, transparent: true, opacity: 0.10, depthWrite: false })));
-  globe.add(new THREE.LineSegments(meshToSegments(coasts, 1.0015),
-    new THREE.LineBasicMaterial({ color: 0xEDE9E1, transparent: true, opacity: 0.20, depthWrite: false })));
+  if (LAND.borders > 0) globe.add(new THREE.LineSegments(meshToSegments(borders, 1.0015),
+    new THREE.LineBasicMaterial({ color: 0xEDE9E1, transparent: true, opacity: LAND.borders, depthWrite: false })));
+  if (LAND.coast > 0) globe.add(new THREE.LineSegments(meshToSegments(coasts, 1.0015),
+    new THREE.LineBasicMaterial({ color: 0xEDE9E1, transparent: true, opacity: LAND.coast, depthWrite: false })));
 
   // ---- arcs + particles (rebuilt per year), with cross-fade ----------------
   const accentC = rawColor(COLORS.accent), accent2C = rawColor(COLORS.accent2);

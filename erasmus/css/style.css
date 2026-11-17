@@ -122,7 +122,8 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 .hero h1 em { font-style: normal; font-weight: 600; color: var(--accent); }
 
 /* The year never moves: the note hangs below it in a reserved band of --note-lines lines,
-   and is exactly as wide as the year block, which a hidden "0000/00" keeps constant. */
+   and is 1.25x as wide as the year block, which a hidden "0000/00" keeps constant.
+   (The year was scaled down 20%; 125% keeps the note at its earlier width so it still fits 4 lines.) */
 .year-mark {
   --note-fs: 13.5px; --note-lh: 1.45; --note-lines: 4; --note-gap: 10px;
   position: absolute; left: 28px;
@@ -133,7 +134,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
   display: block;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(64px, 9vw, 150px);
+  font-size: clamp(51.2px, 7.2vw, 120px); /* -20% from clamp(64px, 9vw, 150px) */
   line-height: .85;
   letter-spacing: -.04em;
   color: var(--ink);
@@ -142,7 +143,7 @@ a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset:
 }
 .year-big::after { content: "0000/00"; display: block; height: 0; overflow: hidden; visibility: hidden; }
 .year-note {
-  position: absolute; left: 0; top: calc(100% + var(--note-gap)); width: 100%;
+  position: absolute; left: 0; top: calc(100% + var(--note-gap)); width: 125%;
   font-size: var(--note-fs); line-height: var(--note-lh); color: var(--ink-2);
 }
 .year-note b { color: var(--ink); font-weight: 600; }
@@ -326,7 +327,7 @@ td { color: var(--ink-2); }
   .hero { left: 16px; top: 64px; right: 16px; }
   .hero h1 { font-size: 44px; }
   .year-mark { --note-fs: 12.5px; left: 16px; bottom: calc(12px + var(--note-gap) + var(--note-lines) * var(--note-lh) * var(--note-fs)); }
-  .year-big { font-size: min(calc((100vw - 32px) / 4.1), 110px); } /* year spans the phone width, so the note gets the same width */
+  .year-big { font-size: min(calc((100vw - 32px) / 5.125), 88px); } /* -20%: year spans 80% of the phone width; the note (125%) spans all of it */
   .globe-legend { display: none; }
   .panels { border-left: 0; padding: 16px; backdrop-filter: none; overflow: visible; }
   .timeline { position: sticky; bottom: 0; z-index: 30; padding: 8px 16px 10px; height: 84px; }
