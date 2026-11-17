@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erasmus at 40</title>
+<meta name="description" content="Forty years of Erasmus, 1987–2027: an animated atlas of learning mobility across Europe, built from the European Commission's open data. A nutgraf.studio project.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:title" content="Erasmus at 40 — a continent in motion">
+<meta property="og:description" content="Nearly 12 million recorded journeys between Europe's classrooms, workshops and youth centres, 1987–2024.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#methodology">Skip to methodology and sources</a>
+
+<header class="topbar">
+  <a class="brand" href="https://nutgraf.studio/" target="_blank" rel="noopener" aria-label="nutgraf.studio">
+    <img src="assets/nutgraf-logo-white.svg" alt="nutgraf.studio" width="120" height="31">
+  </a>
+  <nav class="topnav" aria-label="Page">
+    <a href="#about">About</a>
+    <a class="ig" href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener" aria-label="nutgraf.studio on Instagram">
+      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle class="dot" cx="17.3" cy="6.7" r="1.1"/></svg>
+      <span>Instagram</span>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <section class="stage" aria-label="Erasmus mobility explorer">
+    <div class="globe-wrap" id="globeWrap">
+      <canvas id="globe" aria-label="Rotating 3D globe centred on Europe showing Erasmus mobility flows between countries for the selected year" role="img"></canvas>
+      <div class="globe-labels" id="globeLabels" aria-hidden="true"></div>
+
+      <div class="hero">
+        <p class="overline"><span>1987</span><i></i><span>2027</span></p>
+        <h1>Forty years<br>of <em>Erasmus</em></h1>
+      </div>
+
+      <div class="year-mark" aria-live="polite">
+        <span class="year-big" id="yearBig">1987/88</span>
+        <span class="year-note" id="yearNote"></span>
+      </div>
+
+      <div class="globe-legend" aria-hidden="true">
+        <span class="arc-key"><i></i>departure <b>→</b> arrival</span>
+        <span class="hint">Drag to turn · click a country to follow it</span>
+      </div>
+    </div>
+
+    <aside class="panels" aria-label="Linked charts">
+      <div class="filters" role="toolbar" aria-label="Filter by sector">
+        <div class="chips" id="chips"></div>
+        <button class="focus-chip" id="focusChip" hidden></button>
+      </div>
+
+      <section class="panel counter" aria-labelledby="counterTitle">
+        <h2 id="counterTitle" class="panel-title">Erasmus on the move</h2>
+        <div class="count" id="count" aria-live="off">0</div>
+        <p class="count-sub" id="countSub">recorded participants since 1987/88</p>
+        <div class="count-row">
+          <div><span class="k" id="yearLabelSmall">This year</span><span class="v" id="yearCount">–</span></div>
+          <div><span class="k">vs previous</span><span class="v" id="yearDelta">–</span></div>
+        </div>
+        <div class="official">
+          <div class="bar"><span id="officialFill"></span></div>
+          <p id="officialNote">The Commission counts <b>16.6 million</b> people sent abroad since 1987 (at 1 April 2025), including programmes and actions not in the open mobility files.</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="sankeyTitle">
+        <div class="panel-head">
+          <h2 id="sankeyTitle" class="panel-title">Who goes where</h2>
+          <span class="panel-meta" id="sankeyMeta"></span>
+        </div>
+        <div class="sankey" id="sankey"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="streamTitle">
+        <div class="panel-head">
+          <h2 id="streamTitle" class="panel-title">The rhythm of departures</h2>
+          <span class="panel-meta">monthly, Erasmus+ 2014–2024</span>
+        </div>
+        <div class="stream" id="stream"></div>
+      </section>
+    </aside>
+
+    <div class="timeline" id="timelineWrap">
+      <button class="play" id="play" aria-label="Play">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path class="i-play" d="M7 5l12 7-12 7z"/><g class="i-pause"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></g></svg>
+      </button>
+      <div class="tl" id="timeline" tabindex="0" role="slider" aria-label="Year" aria-valuemin="1987" aria-valuemax="2024"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="about" id="about">
+  <div class="about-inner">
+    <div class="cols cols-2">
+      <div>
+        <h2>What's Erasmus</h2>
+        <p>The European Community Action Scheme for the Mobility of University Students was adopted in 1987 and named after <a href="https://en.wikipedia.org/wiki/Erasmus" target="_blank" rel="noopener">Erasmus of Rotterdam</a>, the Renaissance scholar who studied and taught across Europe. In its first year, <b>3,244 students from 11 countries</b> went abroad. Since 2014, as Erasmus+, it also sends apprentices, school pupils, teachers, adult learners and young people.</p>
+        <p><b>Why it is the EU's most iconic success.</b> It turned European integration into something people live rather than read about: a term in another language, a flatmate from another country, sometimes a family. The Commission counts <b>16.6 million people</b> sent abroad since 1987. In the spring 2017 Eurobarometer, <a href="https://ec.europa.eu/assets/eac/erasmus-plus/eval/executive-summary-icf_en.pdf" target="_blank" rel="noopener">a quarter of Europeans</a> named student exchanges such as Erasmus among the EU's most positive results, and in 2014 the Commission estimated that <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_14_1025" target="_blank" rel="noopener">around a million babies</a> had been born to Erasmus couples. Forty years on, a whole generation is named after it.</p>
+      </div>
+      <div>
+        <h2>Who we are</h2>
+        <p><b>nutgraf.studio</b> is a European data design studio. We turn numbers into charts, reports and maps that people grasp at a glance, remember and act on, for newsrooms, NGOs, public institutions, universities and companies. We also run workshops on data research, design and storytelling, and build exhibitions for public spaces.</p>
+        <p><b>Erasmus at 40</b> is our own project, made for the programme's 40th anniversary in 2027. We tracked down the files, rebuilt the series and designed and coded every chart.</p>
+        <div class="who-marks">
+          <a class="who-logo" href="https://nutgraf.studio/" target="_blank" rel="noopener"><img src="assets/nutgraf-logo-white.svg" alt="nutgraf.studio" width="120" height="31"></a>
+          <img class="eu-flag" src="assets/eu-flag-mono.svg" alt="Flag of Europe" width="45" height="30">
+        </div>
+        <p class="who-links">
+          <a href="https://nutgraf.studio/" target="_blank" rel="noopener">nutgraf.studio</a>
+          <a href="https://www.instagram.com/nutgraf.studio" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </div>
+    </div>
+
+    <details class="method" id="methodology">
+      <summary>
+        <h2>Methodology and sources</h2>
+        <span class="sum-sub">What's on the map, what is not, and where the data comes from</span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="cols">
+        <div>
+          <h3>What's on the map</h3>
+          <p><b>1987/88–2013/14.</b> The Erasmus programme for higher-education students: the European Commission's yearly totals of students who studied or trained abroad. Country-to-country flows are drawn for the six years whose home × host country tables survive in the Commission's archive (2004/05–2009/10). Outgoing and incoming totals per country are shown for 2000/01–2011/12. For 1987/88–1999/2000 each country glows with the students it sent abroad, from the Commission's table of outgoing students since 1987, which survives only in the Internet Archive.</p>
+          <p><b>2014–2024.</b> Erasmus+ Key Action 1 (learning mobility of individuals) across all sectors: higher education, vocational education and training, school and adult education, youth and sport. Learners and staff are included. Years are calendar years of departure, and 2014 was the programme's launch year, so it is only partly covered.</p>
+          <p>Before 2014, the numbers cover university students only. The <em>Higher education</em> filter is the closest reading across the 40 years, though from 2014 it also includes university staff.</p>
+        </div>
+        <div>
+          <h3>What is not</h3>
+          <p>Where students went is not recorded per country before 2004/05 or for 2010/11–2013/14, and arrivals per country are not published before 2000/01, so no lines are drawn for those years. 2012/13 and 2013/14 have only Europe-wide totals. Nothing is estimated or interpolated.</p>
+          <p>The running counter adds up the participants in these files (<span id="aboutRecorded">11.9 million</span>). The Commission's own headline, <b>16.6 million people since 1987</b> (at 1 April 2025, Commission report COM(2025) 395), is higher because it also counts the other education, training and youth programmes of 1987–2013 and Erasmus+ actions beyond Key Action 1.</p>
+          <p>Flows of fewer than three people, departures with no recorded country, and participants who stayed in their own country (for example youth exchanges hosted at home) are left off the map but kept in every total. Partner countries outside Europe appear on the globe; a few very small ones are grouped as “rest of world”.</p>
+        </div>
+        <div>
+          <h3>Sources</h3>
+          <ul class="sources">
+            <li>European Commission, DG EAC — <a href="https://data.europa.eu/data/datasets/erasmus-mobility-raw-data" target="_blank" rel="noopener">Erasmus+ Mobility Raw Data</a>, KA1 files 2014–2024.</li>
+            <li>European Commission — Erasmus statistical overviews 2004/05–2009/10 and country statistics sheets 2000/01–2011/12 (<a href="https://ec.europa.eu/assets/eac/erasmus-plus/statistics/statistics-ay-0910_en.pdf" target="_blank" rel="noopener">2009/10 report</a>).</li>
+            <li>European Commission — <a href="https://web.archive.org/web/20130718125327/http://ec.europa.eu/education/erasmus/doc/stat/table1.pdf" target="_blank" rel="noopener">Outgoing Erasmus students from 1987/1988 to 2010/2011</a> (Annex 1, via the Internet Archive).</li>
+            <li>European Commission — “Erasmus 2012-13: the figures explained” and “Erasmus+: the first year” (2013/14 totals).</li>
+            <li>European Commission — <a href="https://erasmus-plus.ec.europa.eu/sites/default/files/2025-07/interim-final-eval-report-from-com-jul25_0.pdf" target="_blank" rel="noopener">COM(2025) 395 final</a>, Erasmus+ interim evaluation (16.6 million since 1987), and <a href="https://erasmus-plus.ec.europa.eu/whats-new/news/marking-37-years-of-erasmus-key-numbers-and-achievements" target="_blank" rel="noopener">Marking 37 years of Erasmus+</a> (founding countries, 1987 figures).</li>
+            <li>Basemap: Natural Earth via world-atlas.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <div class="tables" id="table" hidden>
+      <details>
+        <summary>Participants per year, by sector</summary>
+        <div class="table-scroll"><table id="yearTable"></table></div>
+      </details>
+      <details>
+        <summary>Largest flows in the selected year</summary>
+        <div class="table-scroll"><table id="flowTable"></table></div>
+      </details>
+    </div>
+  </div>
+</footer>
+
+<div class="tooltip" id="tooltip" role="status" hidden></div>
+
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/d3-sankey.min.js"></script>
+<script src="vendor/topojson-client.min.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
