@@ -61,11 +61,15 @@ vec3 flowMix(vec3 a, vec3 b, float t){
 // (no sRGB->linear conversion); otherwise the gold renders orange.
 const rawColor = (hex) => new THREE.Color().setStyle(hex, THREE.LinearSRGBColorSpace);
 
-export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover }) {
+export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover, zoom = 1.2 }) {
   const wrap = canvas.parentElement;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
   const PR = Math.min(window.devicePixelRatio || 1, 2);
   renderer.setPixelRatio(PR);
+  // Lens zoom on the resting view. Point sprites are sized in pixels, so they scale with it
+  // (PS) and the globe looks the same, only closer; the offset is divided by it so Europe stays put.
+  const ZOOM = zoom;
+  const PS = PR * ZOOM;
   renderer.setClearColor(0x000000, 0);
 
   const scene = new THREE.Scene();
@@ -155,7 +159,7 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover })
   const dotMat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false,
     uniforms: {
-      uInt: { value: intensity }, uFocus: { value: -1 }, uSize: { value: 1.55 }, uPR: { value: PR },
+      uInt: { value: intensity }, uFocus: { value: -1 }, uSize: { value: 1.55 }, uPR: { value: PS },
       uBase: { value: new THREE.Color("#EDE9E1") }, uHot: { value: rawColor(COLORS.accent) },
       uFocusCol: { value: new THREE.Color("#ffffff") },
     },
@@ -231,7 +235,7 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover })
   function partMaterial() {
     return new THREE.ShaderMaterial({
       transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-      uniforms: { uTime: { value: 0 }, uOpacity: { value: 0 }, uPR: { value: PR }, uA: { value: accentC }, uB: { value: accent2C } },
+      uniforms: { uTime: { value: 0 }, uOpacity: { value: 0 }, uPR: { value: PS }, uA: { value: accentC }, uB: { value: accent2C } },
       vertexShader: `${SLERP_GLSL}
         attribute vec3 pa; attribute vec3 pb; attribute float h; attribute float phase; attribute float speed; attribute float w;
         uniform float uTime; uniform float uPR; varying float vT; varying float vW; varying float vFace;
@@ -314,7 +318,7 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover })
   nodeGeo.setAttribute("focus", new THREE.BufferAttribute(nodeFocus, 1));
   const nodeMat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-    uniforms: { uPR: { value: PR }, uA: { value: accentC }, uF: { value: new THREE.Color("#ffffff") } },
+    uniforms: { uPR: { value: PS }, uA: { value: accentC }, uF: { value: new THREE.Color("#ffffff") } },
     vertexShader: `attribute float size; attribute float focus; uniform float uPR; varying float vFace; varying float vF;
       void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); vFace = normalize(normalMatrix*position).z; vF = focus;
         gl_PointSize = uPR * size * (2.6 / -mv.z); gl_Position = projectionMatrix * mv; }`,
@@ -491,7 +495,8 @@ export async function createGlobe({ canvas, labelsEl, data, onSelect, onHover })
     camera.aspect = w / h;
     const narrow = w < 700;
     camera.position.z = narrow ? 3.3 : 2.62;
-    world.position.set(narrow ? 0 : 0.2, narrow ? -0.06 : -0.03, 0);
+    camera.zoom = ZOOM;
+    world.position.set((narrow ? 0 : 0.2) / ZOOM, (narrow ? -0.06 : -0.03) / ZOOM, 0);
     camera.updateProjectionMatrix();
   }
   new ResizeObserver(resize).observe(wrap);
